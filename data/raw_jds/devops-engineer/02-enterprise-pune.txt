@@ -1,0 +1,24 @@
+Associate DevOps Engineer
+Company: Corvane Enterprise Solutions, Pune
+Fresher hiring, 2025 and 2026 batch.
+
+Responsibilities
+- Support Jenkins pipelines for Java and .NET builds
+- Containerise legacy applications with Docker
+- Provision infrastructure with Terraform on Azure and AWS
+- Configure servers with Ansible playbooks
+- Monitor environments and respond to alerts
+- Document runbooks for the operations team
+
+Requirements
+- Linux fundamentals
+- Docker
+- CI/CD with Jenkins or similar
+- Shell scripting
+- Git
+- Infrastructure as code concepts
+- Cloud fundamentals
+
+Good to have
+- Terraform, Ansible, Kubernetes, Azure certification, Python scripting,
+  networking knowledge, monitoring tools

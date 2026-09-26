@@ -1,0 +1,26 @@
+Machine Learning Engineer, Entry Level
+Company: Trelis AI, Hyderabad (remote friendly within India)
+Team size: 12. You will be the third ML hire.
+
+Role
+Small team, wide scope. You will own data preparation, modelling, and the
+service that exposes the model.
+
+Day to day
+- Build predictive models on tabular customer data with scikit-learn
+- Clean messy CSV and API data, document every transformation
+- Write and maintain SQL queries feeding dashboards
+- Ship models as Docker containers behind a FastAPI service
+- Set up basic monitoring so we know when predictions drift
+
+You need
+- Python, pandas, NumPy, scikit-learn
+- Statistics: confidence intervals, correlation vs causation, A/B basics
+- SQL
+- Git and a clean commit history
+- Docker fundamentals: write a Dockerfile, run a container locally
+- Linux shell comfort
+
+Bonus
+- PyTorch for a side project, deep learning coursework, Jupyter to script habits
+- Any experience with model deployment on AWS or Render

@@ -1,0 +1,25 @@
+Junior ML Engineer, Forecasting
+Company: Northwind Analytics Services, Chennai
+Experience: 0 to 2 years.
+
+Scope
+Demand forecasting for retail and FMCG clients. Heavy on data quality work,
+which is where most of the accuracy comes from.
+
+Responsibilities
+- Build time series and regression models for demand forecasting
+- Handle data cleaning: outliers, seasonality gaps, unit mismatches
+- Do feature engineering on calendar, promotion and price data
+- Produce client facing visualisations and short written summaries
+- Maintain reproducible training code under Git
+
+Requirements
+- Python with pandas and NumPy, strong scikit-learn
+- Statistics and probability, including error metrics like MAPE and RMSE
+- SQL for extraction from client warehouses
+- Jupyter for exploration, matplotlib or seaborn for charts
+- Machine learning fundamentals, especially validation for time ordered data
+
+Good to have
+- Flask or FastAPI to expose a forecast endpoint
+- Docker, basic AWS, exposure to deep learning for sequence models

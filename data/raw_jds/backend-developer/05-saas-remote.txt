@@ -1,0 +1,23 @@
+Backend Developer, Remote (India)
+Company: Stackmint
+
+B2B SaaS, multi tenant architecture. Team of eight engineers.
+
+Responsibilities
+- Own REST API endpoints end to end, from schema to tests
+- Write PostgreSQL migrations, keep queries indexed
+- Implement multi tenant authentication and role based access
+- Add caching where profiling says it helps
+- Run everything in Docker, deploy through CI/CD to AWS
+- Contribute to system design discussions for new services
+
+Requirements
+- Node.js with Express, or Python
+- SQL and PostgreSQL
+- REST API design
+- Authentication and authorisation patterns
+- Git, Linux command line
+- Testing discipline
+
+Good to have
+- Redis, message queues, microservices, Docker Compose, AWS, MongoDB

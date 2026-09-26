@@ -1,0 +1,26 @@
+Associate Machine Learning Engineer
+Company: Kirana Commerce Technologies, Gurgaon
+Open to 2025 and 2026 graduates. Onsite.
+
+Team context
+Search and recommendations. Millions of queries per day, so your model changes
+are measured against real traffic.
+
+Responsibilities
+- Improve ranking and recommendation models for product search
+- Build feature engineering pipelines over clickstream and catalogue data
+- Write SQL for analysis and pull training data from BigQuery and Postgres
+- Work with NLP techniques for query understanding and product matching
+- Deploy models as REST APIs and monitor live metrics
+- Present findings with charts the product managers can read
+
+Requirements
+- Python and pandas, NumPy, scikit-learn
+- Machine learning: supervised learning, evaluation metrics, train test leakage
+- NLP basics: tokenisation, embeddings, text classification
+- SQL, comfortable with large tables
+- Git, Docker, and willingness to learn our deployment stack
+- Data visualisation skills for internal reporting
+
+Preferred
+- Exposure to model deployment, AWS, or any experiment tracking tool

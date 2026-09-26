@@ -1,0 +1,25 @@
+Site Reliability / DevOps Engineer, Entry Level
+Company: Paysway Technologies, Hyderabad
+
+Regulated environment. Change management and auditability are part of the job.
+
+Responsibilities
+- Harden and patch Linux hosts
+- Maintain CI/CD pipelines with approvals and artefact promotion
+- Run services in Docker and Kubernetes
+- Manage Nginx, certificates and internal DNS
+- Build monitoring, alerting and on call dashboards
+- Automate compliance evidence collection with scripts
+
+Requirements
+- Linux administration, strong
+- Networking: TCP/IP, DNS, firewalls, load balancers
+- Docker
+- CI/CD
+- Shell scripting
+- Git
+- Cloud fundamentals, AWS preferred
+- Monitoring with Prometheus and Grafana
+
+Good to have
+- Kubernetes, Terraform, Ansible, Python, GCP exposure

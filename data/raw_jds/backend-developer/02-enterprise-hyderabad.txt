@@ -1,0 +1,21 @@
+Software Engineer, Backend (Java)
+Company: Corvane Enterprise Solutions, Hyderabad
+2025 and 2026 batch. Service based organisation, client projects.
+
+Responsibilities
+- Develop REST services with Java and Spring Boot
+- Write SQL against Oracle and PostgreSQL databases
+- Debug production issues with logs and monitoring dashboards
+- Write JUnit tests, maintain code coverage targets
+- Follow agile delivery with two week sprints
+
+Requirements
+- Core Java: collections, OOP, exception handling, streams
+- Spring Boot fundamentals
+- SQL and relational data modelling
+- Data structures and algorithms
+- Git, Linux basics
+- REST API concepts
+
+Good to have
+- Docker, Jenkins based CI/CD, microservices exposure, system design basics

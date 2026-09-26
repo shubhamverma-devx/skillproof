@@ -1,0 +1,24 @@
+ML Engineer (Fresher)
+Company: Medhira Health Systems, Pune
+CTC: 6 to 9 LPA. Full time.
+
+We build diagnostic support tools for radiology clinics. The ML team is 6 people.
+
+What you will do
+- Train deep learning models for image classification on labelled scan data
+- Run data cleaning and augmentation pipelines over medical image datasets
+- Convert research notebooks into reproducible training scripts
+- Serve models through a FastAPI service that the product team consumes
+- Report metrics weekly with clear visualisations
+
+Must have
+- Python, with solid pandas and NumPy
+- PyTorch or TensorFlow. You should be able to explain a training loop.
+- Machine learning fundamentals: overfitting, regularisation, cross validation
+- Deep learning basics: CNNs, loss functions, learning rate schedules
+- Computer vision exposure, OpenCV or torchvision
+- Git, Linux command line
+
+Nice to have
+- Docker, model deployment experience, MLflow or Weights and Biases
+- AWS S3 and EC2 basics

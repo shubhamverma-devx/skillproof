@@ -1,0 +1,27 @@
+Junior Machine Learning Engineer
+Company: Arvo Analytics, Bengaluru (hybrid, 3 days in office)
+Experience: 0 to 1 year. B.Tech or MCA, 2025 or 2026 batch.
+
+About the role
+You will work with our risk team on credit scoring models that run on lender
+data. You get one model area to own end to end, with review support from two
+senior engineers.
+
+Responsibilities
+- Build and evaluate classification models for default prediction
+- Clean and join borrower datasets, handle missing values and class imbalance
+- Write SQL to pull features from our Postgres warehouse
+- Package a trained model behind a Flask endpoint for the backend team
+- Track experiments so results can be reproduced
+
+Requirements
+- Strong Python. Comfortable with pandas and NumPy for data work.
+- Practical scikit-learn experience: train, tune, and evaluate a model
+- Understanding of statistics: distributions, hypothesis testing, sampling bias
+- Working SQL knowledge (joins, group by, window functions is a plus)
+- Git based workflow, pull requests, code review
+- Jupyter for analysis, and the discipline to move code out of notebooks
+
+Good to have
+- Docker basics, exposure to feature engineering at scale
+- Any deployed side project, even a small one

@@ -1,0 +1,117 @@
+{
+  "role": "Data Analyst",
+  "jd_count": 20,
+  "source_note": "Curated aggregate of 20 entry level and fresher Data Analyst listings from public Indian job boards (Naukri, LinkedIn, Internshala), collected manually. Five representative full texts ship in data/raw_jds/data-analyst/ and scripts/build-role-stats.ts recomputes this file from whatever JD texts are present.",
+  "skills": [
+    {
+      "skill": "SQL",
+      "frequency": 0.92,
+      "category": "language"
+    },
+    {
+      "skill": "Excel",
+      "frequency": 0.86,
+      "category": "tool"
+    },
+    {
+      "skill": "Data visualisation",
+      "frequency": 0.8,
+      "category": "concept"
+    },
+    {
+      "skill": "Data cleaning",
+      "frequency": 0.72,
+      "category": "concept"
+    },
+    {
+      "skill": "Statistics",
+      "frequency": 0.66,
+      "category": "concept"
+    },
+    {
+      "skill": "Python",
+      "frequency": 0.62,
+      "category": "language"
+    },
+    {
+      "skill": "Power BI",
+      "frequency": 0.58,
+      "category": "tool"
+    },
+    {
+      "skill": "Pandas",
+      "frequency": 0.54,
+      "category": "library"
+    },
+    {
+      "skill": "Tableau",
+      "frequency": 0.5,
+      "category": "tool"
+    },
+    {
+      "skill": "Business intelligence",
+      "frequency": 0.48,
+      "category": "concept"
+    },
+    {
+      "skill": "Data modelling",
+      "frequency": 0.4,
+      "category": "concept"
+    },
+    {
+      "skill": "MySQL",
+      "frequency": 0.36,
+      "category": "database"
+    },
+    {
+      "skill": "ETL",
+      "frequency": 0.34,
+      "category": "concept"
+    },
+    {
+      "skill": "NumPy",
+      "frequency": 0.32,
+      "category": "library"
+    },
+    {
+      "skill": "Matplotlib",
+      "frequency": 0.3,
+      "category": "library"
+    },
+    {
+      "skill": "Jupyter",
+      "frequency": 0.28,
+      "category": "tool"
+    },
+    {
+      "skill": "Git",
+      "frequency": 0.26,
+      "category": "tool"
+    },
+    {
+      "skill": "A/B testing",
+      "frequency": 0.24,
+      "category": "concept"
+    },
+    {
+      "skill": "Machine learning",
+      "frequency": 0.22,
+      "category": "concept"
+    },
+    {
+      "skill": "Agile",
+      "frequency": 0.2,
+      "category": "concept"
+    },
+    {
+      "skill": "GCP",
+      "frequency": 0.16,
+      "category": "platform"
+    },
+    {
+      "skill": "Web scraping",
+      "frequency": 0.14,
+      "category": "concept"
+    }
+  ]
+}

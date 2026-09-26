@@ -1,0 +1,26 @@
+Data Analyst, Remote India
+Company: Fernlock Labs
+
+First analyst hire. You will set up the reporting stack with the founding team.
+
+Responsibilities
+- Own SQL models that feed all dashboards
+- Build the company metrics dashboard and keep it trustworthy
+- Write ETL jobs to load data from product and payment APIs
+- Clean and reconcile data across sources
+- Support experiment analysis for product launches
+- Scrape public data where no API exists
+
+Requirements
+- SQL, strong
+- Python with pandas
+- Data visualisation
+- Data cleaning
+- Statistics
+- Excel
+- Data modelling for analytics
+- Git
+
+Good to have
+- ETL tooling, GCP and BigQuery, A/B testing, Power BI, web scraping,
+  business intelligence background

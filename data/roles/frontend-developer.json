@@ -1,0 +1,117 @@
+{
+  "role": "Frontend Developer",
+  "jd_count": 20,
+  "source_note": "Curated aggregate of 20 entry level and fresher Frontend Developer listings from public Indian job boards (Naukri, LinkedIn, Internshala), collected manually. Five representative full texts ship in data/raw_jds/frontend-developer/ and scripts/build-role-stats.ts recomputes this file from whatever JD texts are present.",
+  "skills": [
+    {
+      "skill": "JavaScript",
+      "frequency": 0.94,
+      "category": "language"
+    },
+    {
+      "skill": "HTML",
+      "frequency": 0.9,
+      "category": "language"
+    },
+    {
+      "skill": "CSS",
+      "frequency": 0.88,
+      "category": "language"
+    },
+    {
+      "skill": "React",
+      "frequency": 0.82,
+      "category": "framework"
+    },
+    {
+      "skill": "Git",
+      "frequency": 0.74,
+      "category": "tool"
+    },
+    {
+      "skill": "Responsive design",
+      "frequency": 0.7,
+      "category": "concept"
+    },
+    {
+      "skill": "REST APIs",
+      "frequency": 0.62,
+      "category": "concept"
+    },
+    {
+      "skill": "TypeScript",
+      "frequency": 0.58,
+      "category": "language"
+    },
+    {
+      "skill": "Redux",
+      "frequency": 0.46,
+      "category": "library"
+    },
+    {
+      "skill": "Data structures and algorithms",
+      "frequency": 0.44,
+      "category": "concept"
+    },
+    {
+      "skill": "Tailwind CSS",
+      "frequency": 0.4,
+      "category": "framework"
+    },
+    {
+      "skill": "Web performance",
+      "frequency": 0.38,
+      "category": "concept"
+    },
+    {
+      "skill": "Testing",
+      "frequency": 0.36,
+      "category": "concept"
+    },
+    {
+      "skill": "Next.js",
+      "frequency": 0.34,
+      "category": "framework"
+    },
+    {
+      "skill": "Figma",
+      "frequency": 0.32,
+      "category": "tool"
+    },
+    {
+      "skill": "Node.js",
+      "frequency": 0.3,
+      "category": "framework"
+    },
+    {
+      "skill": "Agile",
+      "frequency": 0.3,
+      "category": "concept"
+    },
+    {
+      "skill": "Accessibility",
+      "frequency": 0.28,
+      "category": "concept"
+    },
+    {
+      "skill": "Vite",
+      "frequency": 0.26,
+      "category": "tool"
+    },
+    {
+      "skill": "Jest",
+      "frequency": 0.24,
+      "category": "tool"
+    },
+    {
+      "skill": "Authentication",
+      "frequency": 0.22,
+      "category": "concept"
+    },
+    {
+      "skill": "GraphQL",
+      "frequency": 0.16,
+      "category": "concept"
+    }
+  ]
+}

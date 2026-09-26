@@ -1,0 +1,24 @@
+Data Analyst (0 to 2 years)
+Company: Medhira Health Systems, Pune
+
+Clinical operations analytics. Data quality is the main daily challenge.
+
+Responsibilities
+- Query MySQL and Postgres sources with SQL
+- Clean patient operations data: duplicates, missing values, unit errors
+- Build recurring dashboards and a weekly metrics email
+- Use Python with pandas and NumPy for analyses too large for Excel
+- Chart results with matplotlib for internal reports
+
+Requirements
+- SQL
+- Data cleaning
+- Excel
+- Statistics: descriptive statistics, basic inference
+- Data visualisation
+- Python with pandas
+- Jupyter for analysis notebooks
+
+Nice to have
+- MySQL tuning, ETL scheduling, Power BI, light machine learning for
+  risk flagging, Git

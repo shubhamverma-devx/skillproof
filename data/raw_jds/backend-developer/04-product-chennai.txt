@@ -1,0 +1,21 @@
+Associate Backend Developer
+Company: Velora Commerce, Chennai
+Fresher role. 6 month probation.
+
+Responsibilities
+- Build and extend REST APIs for the order and inventory services
+- Write SQL queries and optimise slow ones
+- Work with MongoDB for catalogue documents and PostgreSQL for orders
+- Add tests and keep the pipeline green
+- Take part in sprint planning and estimation
+
+Requirements
+- One backend language well: Node.js or Python or Java
+- SQL fundamentals
+- REST APIs
+- Git
+- Data structures and algorithms
+- Understanding of authentication basics
+
+Nice to have
+- Express, MongoDB, Docker, AWS, testing frameworks, Agile experience

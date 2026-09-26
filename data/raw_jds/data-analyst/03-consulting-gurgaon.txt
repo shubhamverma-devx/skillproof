@@ -1,0 +1,22 @@
+Business Analyst / Data Analyst
+Company: Northgate Advisory, Gurgaon
+Entry level. Client facing from month three.
+
+Responsibilities
+- Build client reports in Excel and Power BI
+- Write SQL to extract data from client systems
+- Model data for reporting: fact and dimension tables, consistent grain
+- Prepare business intelligence packs for monthly reviews
+- Document data definitions so numbers match across reports
+
+Requirements
+- Excel at an advanced level
+- SQL
+- Data visualisation and clear chart design
+- Business intelligence reporting
+- Data modelling basics
+- Data cleaning and validation habits
+- Communication: written summaries a manager can act on
+
+Good to have
+- Power BI, Tableau, MySQL, Python, ETL concepts, Agile ways of working

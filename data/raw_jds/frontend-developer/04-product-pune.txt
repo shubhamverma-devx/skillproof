@@ -1,0 +1,23 @@
+Associate Software Engineer, Frontend
+Company: Quartzline Systems, Pune
+Batch: 2026. Training period of 8 weeks before project allocation.
+
+Selection process includes a DSA round, a JavaScript round, and a small React
+assignment.
+
+Role after training
+- Build features in a React and TypeScript codebase
+- Write reusable components and document their props
+- Integrate REST APIs, later some GraphQL queries
+- Participate in code review and agile ceremonies
+
+Requirements
+- Data structures and algorithms: arrays, strings, hashing, recursion
+- JavaScript, HTML, CSS
+- React fundamentals
+- Git
+- Clear communication in written English
+
+Good to have
+- TypeScript, Redux, Tailwind CSS, Vite, unit testing exposure
+- Any deployed personal project with a public repository

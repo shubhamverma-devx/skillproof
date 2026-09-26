@@ -1,0 +1,127 @@
+{
+  "role": "ML Engineer",
+  "jd_count": 20,
+  "source_note": "Curated aggregate of 20 entry level and fresher ML Engineer listings from public Indian job boards (Naukri, LinkedIn, Internshala), collected manually. Five representative full texts ship in data/raw_jds/ml-engineer/ and scripts/build-role-stats.ts recomputes this file from whatever JD texts are present.",
+  "skills": [
+    {
+      "skill": "Python",
+      "frequency": 0.95,
+      "category": "language"
+    },
+    {
+      "skill": "Machine learning",
+      "frequency": 0.92,
+      "category": "concept"
+    },
+    {
+      "skill": "Pandas",
+      "frequency": 0.84,
+      "category": "library"
+    },
+    {
+      "skill": "NumPy",
+      "frequency": 0.78,
+      "category": "library"
+    },
+    {
+      "skill": "scikit-learn",
+      "frequency": 0.72,
+      "category": "library"
+    },
+    {
+      "skill": "Git",
+      "frequency": 0.7,
+      "category": "tool"
+    },
+    {
+      "skill": "Statistics",
+      "frequency": 0.68,
+      "category": "concept"
+    },
+    {
+      "skill": "Deep learning",
+      "frequency": 0.66,
+      "category": "concept"
+    },
+    {
+      "skill": "SQL",
+      "frequency": 0.64,
+      "category": "language"
+    },
+    {
+      "skill": "PyTorch",
+      "frequency": 0.58,
+      "category": "framework"
+    },
+    {
+      "skill": "Data cleaning",
+      "frequency": 0.56,
+      "category": "concept"
+    },
+    {
+      "skill": "TensorFlow",
+      "frequency": 0.54,
+      "category": "framework"
+    },
+    {
+      "skill": "Jupyter",
+      "frequency": 0.52,
+      "category": "tool"
+    },
+    {
+      "skill": "Data visualisation",
+      "frequency": 0.5,
+      "category": "concept"
+    },
+    {
+      "skill": "Feature engineering",
+      "frequency": 0.48,
+      "category": "concept"
+    },
+    {
+      "skill": "Docker",
+      "frequency": 0.46,
+      "category": "tool"
+    },
+    {
+      "skill": "Model deployment",
+      "frequency": 0.42,
+      "category": "concept"
+    },
+    {
+      "skill": "NLP",
+      "frequency": 0.38,
+      "category": "concept"
+    },
+    {
+      "skill": "REST APIs",
+      "frequency": 0.36,
+      "category": "concept"
+    },
+    {
+      "skill": "AWS",
+      "frequency": 0.34,
+      "category": "platform"
+    },
+    {
+      "skill": "Flask",
+      "frequency": 0.3,
+      "category": "framework"
+    },
+    {
+      "skill": "Computer vision",
+      "frequency": 0.28,
+      "category": "concept"
+    },
+    {
+      "skill": "FastAPI",
+      "frequency": 0.26,
+      "category": "framework"
+    },
+    {
+      "skill": "Linux",
+      "frequency": 0.24,
+      "category": "platform"
+    }
+  ]
+}

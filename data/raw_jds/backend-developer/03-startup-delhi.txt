@@ -1,0 +1,24 @@
+Backend Engineer (0 to 2 years)
+Company: Trailhead Logistics, Delhi NCR
+
+Fleet tracking platform. High write volume from vehicle devices.
+
+What you will do
+- Build APIs in Python with FastAPI or Django
+- Design PostgreSQL schemas for time stamped event data
+- Add Redis caching for hot lookups
+- Consume device events from a Kafka topic
+- Containerise services with Docker and ship through GitHub Actions
+- Write tests with pytest
+
+Requirements
+- Python, with real project experience
+- SQL and PostgreSQL
+- REST API development
+- Authentication: sessions or JWT, password hashing
+- Git, Linux
+- Docker
+
+Preferred
+- Redis, message queues, caching strategies, AWS, basic system design,
+  microservices vocabulary, CI/CD familiarity

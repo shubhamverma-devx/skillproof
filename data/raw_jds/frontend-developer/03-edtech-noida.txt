@@ -1,0 +1,24 @@
+Frontend Developer, React
+Company: Padhaiyo Learning, Noida
+Experience: 0 to 2 years. CTC 5 to 8 LPA.
+
+Our web app serves live classes to 200k students, so performance on low end
+Android devices is a real constraint.
+
+Responsibilities
+- Build and maintain React components used across the learner app
+- Optimise web performance: code splitting, image handling, render cost
+- Integrate REST APIs and handle auth tokens on the client
+- Write unit tests with Jest and keep CI green
+- Work with TypeScript across the codebase
+
+Must have
+- JavaScript, HTML, CSS with confidence
+- React with hooks and component composition
+- TypeScript basics: interfaces, generics at a usable level
+- REST API integration, JWT based authentication flows
+- Responsive design
+- Git
+
+Preferred
+- Next.js, Redux, Jest, data structures and algorithms for interview rounds

@@ -1,0 +1,22 @@
+Frontend Engineer (Fresher), Remote India
+Company: Northbay Tools
+
+Small product team, five engineers. You will own whole screens, not tickets.
+
+Responsibilities
+- Build the dashboard UI in React and Next.js
+- Style with Tailwind CSS against a fixed design system
+- Integrate REST APIs and Node.js based BFF endpoints
+- Make the app usable on mobile and keyboard accessible
+- Measure and improve page load and interaction latency
+
+Requirements
+- JavaScript and TypeScript
+- React, including hooks and effects you can reason about
+- HTML, CSS, responsive design
+- REST APIs and basic authentication handling
+- Git
+
+Nice to have
+- Next.js App Router, Tailwind CSS, accessibility practice, web performance
+  tooling, Node.js basics, Playwright or Jest for tests

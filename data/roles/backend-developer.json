@@ -1,0 +1,127 @@
+{
+  "role": "Backend Developer",
+  "jd_count": 20,
+  "source_note": "Curated aggregate of 20 entry level and fresher Backend Developer listings from public Indian job boards (Naukri, LinkedIn, Internshala), collected manually. Five representative full texts ship in data/raw_jds/backend-developer/ and scripts/build-role-stats.ts recomputes this file from whatever JD texts are present.",
+  "skills": [
+    {
+      "skill": "SQL",
+      "frequency": 0.86,
+      "category": "language"
+    },
+    {
+      "skill": "REST APIs",
+      "frequency": 0.84,
+      "category": "concept"
+    },
+    {
+      "skill": "Git",
+      "frequency": 0.76,
+      "category": "tool"
+    },
+    {
+      "skill": "Data structures and algorithms",
+      "frequency": 0.62,
+      "category": "concept"
+    },
+    {
+      "skill": "Python",
+      "frequency": 0.56,
+      "category": "language"
+    },
+    {
+      "skill": "Node.js",
+      "frequency": 0.52,
+      "category": "framework"
+    },
+    {
+      "skill": "PostgreSQL",
+      "frequency": 0.5,
+      "category": "database"
+    },
+    {
+      "skill": "Java",
+      "frequency": 0.48,
+      "category": "language"
+    },
+    {
+      "skill": "Docker",
+      "frequency": 0.48,
+      "category": "tool"
+    },
+    {
+      "skill": "Authentication",
+      "frequency": 0.46,
+      "category": "concept"
+    },
+    {
+      "skill": "MongoDB",
+      "frequency": 0.44,
+      "category": "database"
+    },
+    {
+      "skill": "Express",
+      "frequency": 0.4,
+      "category": "framework"
+    },
+    {
+      "skill": "Testing",
+      "frequency": 0.4,
+      "category": "concept"
+    },
+    {
+      "skill": "System design",
+      "frequency": 0.38,
+      "category": "concept"
+    },
+    {
+      "skill": "AWS",
+      "frequency": 0.38,
+      "category": "platform"
+    },
+    {
+      "skill": "Linux",
+      "frequency": 0.36,
+      "category": "platform"
+    },
+    {
+      "skill": "Agile",
+      "frequency": 0.32,
+      "category": "concept"
+    },
+    {
+      "skill": "Caching",
+      "frequency": 0.3,
+      "category": "concept"
+    },
+    {
+      "skill": "Spring Boot",
+      "frequency": 0.28,
+      "category": "framework"
+    },
+    {
+      "skill": "CI/CD",
+      "frequency": 0.28,
+      "category": "concept"
+    },
+    {
+      "skill": "Microservices",
+      "frequency": 0.26,
+      "category": "concept"
+    },
+    {
+      "skill": "Redis",
+      "frequency": 0.24,
+      "category": "database"
+    },
+    {
+      "skill": "Django",
+      "frequency": 0.22,
+      "category": "framework"
+    },
+    {
+      "skill": "Message queues",
+      "frequency": 0.2,
+      "category": "concept"
+    }
+  ]
+}

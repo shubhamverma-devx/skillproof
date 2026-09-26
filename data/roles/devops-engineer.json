@@ -1,0 +1,122 @@
+{
+  "role": "DevOps Engineer",
+  "jd_count": 20,
+  "source_note": "Curated aggregate of 20 entry level and fresher DevOps Engineer listings from public Indian job boards (Naukri, LinkedIn, Internshala), collected manually. Five representative full texts ship in data/raw_jds/devops-engineer/ and scripts/build-role-stats.ts recomputes this file from whatever JD texts are present.",
+  "skills": [
+    {
+      "skill": "Linux",
+      "frequency": 0.9,
+      "category": "platform"
+    },
+    {
+      "skill": "Docker",
+      "frequency": 0.84,
+      "category": "tool"
+    },
+    {
+      "skill": "CI/CD",
+      "frequency": 0.8,
+      "category": "concept"
+    },
+    {
+      "skill": "Git",
+      "frequency": 0.78,
+      "category": "tool"
+    },
+    {
+      "skill": "Shell scripting",
+      "frequency": 0.74,
+      "category": "language"
+    },
+    {
+      "skill": "AWS",
+      "frequency": 0.7,
+      "category": "platform"
+    },
+    {
+      "skill": "Kubernetes",
+      "frequency": 0.6,
+      "category": "platform"
+    },
+    {
+      "skill": "Cloud fundamentals",
+      "frequency": 0.56,
+      "category": "concept"
+    },
+    {
+      "skill": "Networking",
+      "frequency": 0.54,
+      "category": "concept"
+    },
+    {
+      "skill": "Monitoring",
+      "frequency": 0.52,
+      "category": "concept"
+    },
+    {
+      "skill": "Python",
+      "frequency": 0.5,
+      "category": "language"
+    },
+    {
+      "skill": "Jenkins",
+      "frequency": 0.48,
+      "category": "tool"
+    },
+    {
+      "skill": "Terraform",
+      "frequency": 0.46,
+      "category": "tool"
+    },
+    {
+      "skill": "Infrastructure as code",
+      "frequency": 0.44,
+      "category": "concept"
+    },
+    {
+      "skill": "GitHub Actions",
+      "frequency": 0.4,
+      "category": "tool"
+    },
+    {
+      "skill": "Nginx",
+      "frequency": 0.36,
+      "category": "tool"
+    },
+    {
+      "skill": "Prometheus",
+      "frequency": 0.34,
+      "category": "tool"
+    },
+    {
+      "skill": "Ansible",
+      "frequency": 0.3,
+      "category": "tool"
+    },
+    {
+      "skill": "Grafana",
+      "frequency": 0.3,
+      "category": "tool"
+    },
+    {
+      "skill": "Azure",
+      "frequency": 0.26,
+      "category": "platform"
+    },
+    {
+      "skill": "Agile",
+      "frequency": 0.22,
+      "category": "concept"
+    },
+    {
+      "skill": "GCP",
+      "frequency": 0.2,
+      "category": "platform"
+    },
+    {
+      "skill": "Testing",
+      "frequency": 0.18,
+      "category": "concept"
+    }
+  ]
+}

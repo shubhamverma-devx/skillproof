@@ -1,0 +1,23 @@
+Backend Developer, Entry Level
+Company: Paysway Technologies, Bengaluru
+
+Payments infrastructure. Correctness and idempotency matter more than speed of
+feature delivery here.
+
+Responsibilities
+- Build and maintain REST APIs in Node.js with Express
+- Model data in PostgreSQL, write migrations and non trivial SQL
+- Implement authentication and authorisation with JWT
+- Write unit and integration tests for every endpoint
+- Run services locally with Docker Compose
+
+Requirements
+- Strong SQL: joins, indexes, transactions, explain plans
+- REST API design: status codes, pagination, validation, error shapes
+- Node.js and Express, or Python with Django or Flask
+- Data structures and algorithms for the interview and for daily work
+- Git
+- Docker basics
+
+Good to have
+- Redis caching, AWS (EC2, RDS, S3), CI/CD pipelines, system design reading

@@ -1,0 +1,25 @@
+DevOps Engineer (Fresher)
+Company: Sablewire Digital, Noida
+
+You support deployments for around twenty client projects, mostly web apps.
+
+Responsibilities
+- Set up CI/CD for client repositories, mostly GitHub Actions and some Jenkins
+- Dockerise applications handed over by development teams
+- Manage Linux VMs on AWS and DigitalOcean, configure Nginx
+- Write bash scripts for backups and log rotation
+- Watch uptime dashboards and respond to alerts
+- Keep infrastructure definitions in version control
+
+Requirements
+- Linux
+- Docker
+- CI/CD basics
+- Shell scripting
+- Git
+- AWS basics
+- Cloud fundamentals
+- Networking basics
+
+Nice to have
+- Terraform, Ansible, Kubernetes, Prometheus, Grafana, Python, Agile workflow

@@ -1,0 +1,24 @@
+Junior Data Analyst, Growth
+Company: Bazaarly, Bengaluru
+
+You sit with the growth team and answer questions about funnels, retention and
+campaign performance.
+
+Responsibilities
+- Write SQL against our warehouse to answer growth questions
+- Build dashboards and keep the definitions consistent across teams
+- Run and read A/B tests, call out when a result is not significant
+- Clean and join marketing data from multiple ad platforms
+- Automate recurring reports with Python
+
+Requirements
+- SQL, comfortable with large event tables
+- Statistics: sampling, significance, confidence intervals
+- Data visualisation and dashboard design
+- Excel for quick analysis and stakeholder handoffs
+- Python with pandas for repeatable analysis
+- Data cleaning
+
+Preferred
+- A/B testing experience, Power BI or Tableau, Git for versioning queries,
+  exposure to ETL pipelines

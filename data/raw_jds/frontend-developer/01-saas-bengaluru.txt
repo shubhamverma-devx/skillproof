@@ -1,0 +1,24 @@
+Frontend Developer (0 to 1 year)
+Company: Lumendesk, Bengaluru. Hybrid.
+
+We build a support desk product used by mid sized Indian SaaS companies. The
+frontend is React with TypeScript.
+
+Responsibilities
+- Build screens from Figma designs, pixel accurate and responsive
+- Consume REST APIs, handle loading, empty and error states properly
+- Manage client state with Redux Toolkit
+- Write component tests for anything with logic in it
+- Keep bundle size in check and fix Lighthouse regressions
+
+Requirements
+- Strong JavaScript fundamentals: closures, promises, event loop, array methods
+- HTML and CSS, including flexbox and grid
+- React: hooks, lists and keys, controlled inputs, lifting state
+- Responsive design, mobile first CSS with media queries
+- Git and pull request workflow
+- Understanding of how to call a REST API and handle failures
+
+Good to have
+- TypeScript, Jest or React Testing Library, Tailwind CSS
+- Basic web performance work, Core Web Vitals awareness

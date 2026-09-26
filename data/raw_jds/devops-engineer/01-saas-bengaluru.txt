@@ -1,0 +1,24 @@
+DevOps Engineer (0 to 2 years)
+Company: Cloudbrace, Bengaluru
+
+You will look after build pipelines and staging infrastructure for six services.
+
+Responsibilities
+- Maintain CI/CD pipelines in GitHub Actions
+- Build and optimise Docker images for Node.js and Python services
+- Manage Linux servers on AWS EC2, with S3 and RDS in the picture
+- Write shell scripts to automate repetitive operations
+- Set up monitoring and alerting with Prometheus and Grafana
+- Manage Nginx as a reverse proxy and handle TLS renewals
+
+Requirements
+- Linux administration: processes, permissions, systemd, logs
+- Docker: images, layers, volumes, Compose
+- CI/CD concepts and at least one tool used in practice
+- Shell scripting (bash)
+- Git
+- Networking basics: DNS, ports, load balancing, TLS
+- Cloud fundamentals on any provider
+
+Good to have
+- Kubernetes, Terraform, Prometheus, Grafana, Python for tooling

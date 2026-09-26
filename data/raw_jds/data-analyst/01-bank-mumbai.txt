@@ -1,0 +1,25 @@
+Data Analyst (Fresher)
+Company: Suryan Capital Bank, Mumbai
+Graduate in any quantitative discipline. 2025 or 2026 batch.
+
+Team
+Retail lending analytics. You support portfolio reviews and monthly regulatory
+reporting.
+
+Responsibilities
+- Write SQL to pull and reconcile data from the lending warehouse
+- Build and maintain Excel models for portfolio cuts
+- Produce Power BI dashboards for branch level performance
+- Clean incoming data, document assumptions, flag quality issues
+- Present findings to non technical stakeholders
+
+Requirements
+- Strong SQL: joins, aggregations, subqueries, window functions
+- Advanced Excel: pivot tables, lookups, conditional logic
+- Data cleaning discipline and attention to detail
+- Statistics basics: averages, distributions, outliers
+- Data visualisation: pick the right chart and label it properly
+- Power BI or Tableau
+
+Good to have
+- Python with pandas, business intelligence reporting experience

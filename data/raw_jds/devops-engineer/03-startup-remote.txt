@@ -1,0 +1,27 @@
+Platform Engineer (Junior), Remote India
+Company: Northbay Tools
+
+Two person platform team. You own the deployment path from commit to production.
+
+Responsibilities
+- Own GitHub Actions workflows: build, test, deploy
+- Run workloads on Kubernetes (EKS), write manifests and Helm values
+- Manage AWS infrastructure through Terraform
+- Keep Docker images small and reproducible
+- Instrument services with Prometheus metrics, build Grafana dashboards
+- Write Python and bash tooling for on call automation
+
+Requirements
+- Linux
+- Docker
+- Kubernetes basics
+- CI/CD
+- AWS
+- Terraform
+- Shell scripting
+- Git
+- Monitoring and observability basics
+- Networking: VPC, subnets, security groups
+
+Nice to have
+- Python, incident response experience, cost optimisation, testing in pipelines

@@ -1,0 +1,24 @@
+Junior Frontend Engineer
+Company: Sablewire Digital, Mumbai (onsite)
+Fresher friendly. 2025 or 2026 pass out.
+
+Client work: marketing sites and dashboards, so speed of delivery and
+cross browser correctness both matter.
+
+What you will do
+- Convert design files into working pages with HTML, CSS and JavaScript
+- Build interactive components in React
+- Make every page responsive from 360px upwards
+- Integrate REST APIs provided by the backend team
+- Fix accessibility issues flagged in audits: labels, contrast, keyboard order
+- Coordinate work in two week sprints on Jira
+
+Requirements
+- HTML, CSS, JavaScript. You must be able to build a layout without a framework.
+- React basics with hooks
+- Responsive design and cross browser testing
+- Git, branching, merge conflict resolution
+- Figma handoff reading: spacing, type scale, component states
+
+Nice to have
+- Tailwind CSS, Vite, basic accessibility standards (WCAG AA)
