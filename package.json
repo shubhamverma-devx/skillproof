@@ -17,7 +17,8 @@
     "providers:check": "tsx scripts/check-providers.ts",
     "demo:record": "tsx scripts/record-demo-cache.ts",
     "demo:shots": "tsx scripts/record-demo.ts",
-    "demo:record:video": "tsx scripts/record-demo.ts --video"
+    "demo:record:video": "tsx scripts/record-demo.ts --video",
+    "deck": "tsx scripts/build-deck.ts"
   },
   "dependencies": {
     "@google/generative-ai": "^0.21.0",

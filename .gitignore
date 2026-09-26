@@ -18,3 +18,4 @@ coverage
 .prep
 test-results
 playwright-report
+docs/video/*.webm

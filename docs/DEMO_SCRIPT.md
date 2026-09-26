@@ -108,9 +108,9 @@ Point at the draft banner and click **Approve roadmap**.
 
 **On screen:** go to **Log progress**.
 
-> Two weeks later. She finished the first two items, so she marks them done.
+> Two weeks later. She finished the first item, so she marks it done.
 
-Mark two items done. **Pause for two seconds on the unchanged score.**
+Mark the first item done. **Pause for two seconds on the unchanged score.**
 
 > Notice the score has not moved. Marking a task done is not proof. Linking a
 > repo or passing a quiz is.
