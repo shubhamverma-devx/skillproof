@@ -19,6 +19,21 @@ export const observedSourceSchema = z.object({
   hint: z.string(),
 });
 
+export const githubSummarySchema = z.object({
+  username: z.string(),
+  public_repos: z.number().int(),
+  scanned_repos: z.number().int(),
+  last_push: z.string().nullable(),
+  active_months: z.number().int(),
+  repos: z.array(
+    z.object({
+      name: z.string(),
+      pushed_at: z.string(),
+      primary_language: z.string().nullable(),
+    }),
+  ),
+});
+
 export const profileSchema = z.object({
   id: z.string(),
   name: z.string(),
@@ -26,6 +41,8 @@ export const profileSchema = z.object({
   weekly_hours: z.number().int(),
   resume_text: z.string(),
   github_username: z.string().nullable(),
+  /** Compact record of the last scan, kept so evidence summaries can cite counts. */
+  github_summary: githubSummarySchema.nullable(),
   is_demo: z.boolean(),
   created_at: z.string(),
 });
@@ -123,6 +140,7 @@ export const agentLogSchema = z.object({
 export type SkillCategory = z.infer<typeof skillCategorySchema>;
 export type EvidenceLevel = z.infer<typeof evidenceLevelSchema>;
 export type ObservedSource = z.infer<typeof observedSourceSchema>;
+export type GithubSummary = z.infer<typeof githubSummarySchema>;
 export type Profile = z.infer<typeof profileSchema>;
 export type SkillEvidence = z.infer<typeof skillEvidenceSchema>;
 export type Difficulty = z.infer<typeof difficultySchema>;

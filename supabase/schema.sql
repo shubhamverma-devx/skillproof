@@ -12,6 +12,10 @@ create table if not exists profiles (
   weekly_hours integer not null check (weekly_hours between 1 and 60),
   resume_text text not null default '',
   github_username text,
+  -- Compact summary of the last GitHub scan: repo count, last push, languages.
+  -- Kept so evidence summaries can cite "not found in any of your 9 repositories"
+  -- without rescanning, and so a replan does not need the GitHub API.
+  github_summary jsonb,
   is_demo boolean not null default false,
   created_at timestamptz not null default now()
 );

@@ -42,3 +42,11 @@ Choices made while building, with the reason. Recorded as they happened.
 - **Resources are whitelisted** in `data/resources.json`. The model picks from a
   list and any URL outside it is dropped after validation, because an invented
   learning link is the most likely visible hallucination in this product.
+
+## Schema
+
+- **`profiles.github_summary` was added to the given schema.** Evidence summaries
+  say "not found in any of your 9 scanned repositories", and that count cannot be
+  recovered from `skill_evidence`, which only records repositories that produced a
+  hit. Storing a compact scan summary keeps the explanation honest and lets a
+  replan run without touching the GitHub API again.

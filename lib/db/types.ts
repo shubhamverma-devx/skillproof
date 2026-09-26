@@ -12,7 +12,9 @@ import type {
 } from '@/types/domain';
 
 export type NewProfile = Omit<Profile, 'id' | 'created_at'>;
-export type ProfilePatch = Partial<Pick<Profile, 'weekly_hours' | 'github_username' | 'resume_text'>>;
+export type ProfilePatch = Partial<
+  Pick<Profile, 'weekly_hours' | 'github_username' | 'resume_text' | 'github_summary'>
+>;
 
 export type EvidenceUpsert = Omit<SkillEvidence, 'id' | 'profile_id' | 'updated_at'>;
 
