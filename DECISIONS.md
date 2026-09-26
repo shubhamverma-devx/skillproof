@@ -145,3 +145,22 @@ confirmed from the provider documentation before writing any adapter:
 - **The schema moved from `supabase/schema.sql` into `supabase/migrations/`,** so
   `supabase db push` is the one way the database changes and the history is
   reviewable, rather than a file someone pastes into the SQL editor.
+
+## Rate limiting
+
+- **Counters live in Postgres, not in process memory.** A serverless deployment
+  runs many instances and restarts them freely, so an in memory counter both
+  resets constantly and is per instance, which is no limit at all. The increment
+  is a single `insert ... on conflict do update ... returning`, so ten
+  simultaneous requests from one caller produce ten distinct counts rather than
+  all reading zero. Verified against the live database.
+- **The limit is per route family, not one global number.** A quiz is four model
+  calls and a student may verify several skills, so it allows 80 in ten minutes.
+  A full analysis scans a GitHub account and makes several model calls, so it
+  allows 6. One ceiling for both would be either useless or infuriating.
+- **The demo profile is exempt.** It replays a recorded scan and recorded model
+  replies, so it costs nothing to serve, and a judge pressing it repeatedly must
+  never be locked out of the thing they came to see.
+- **A failing counter fails open.** If the rate limit check itself errors the
+  request proceeds, because losing the product to protect the budget is the
+  wrong trade at this size. The error is logged.

@@ -244,17 +244,18 @@ Marking an item done deliberately does not move the score. Proof does.
 
 ## Graceful failure
 
-| Failure                           | What happens                                                                                                                                                                     |
-| --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Model returns invalid JSON        | zod rejects it, one retry carries the validation error back to the model, then the next provider in the chain, then deterministic logic. Each step is written to the agent trace |
-| A provider reports a rate limit   | The chain moves on immediately rather than waiting out a free tier window, and the trace records the switch                                                                      |
-| Model times out after 20 seconds  | Same chain                                                                                                                                                                       |
-| No API key at all                 | Deterministic planner, keyword resume extraction and the stored question bank run the whole product                                                                              |
-| GitHub rate limit or unknown user | Analysis continues with resume evidence only, with a warning in the trace and a banner on the dashboard                                                                          |
-| Resume PDF is a scan with no text | The upload is rejected with a message asking for pasted text                                                                                                                     |
-| No Supabase credentials           | Local JSON store in `.data/`, written atomically through one queue                                                                                                               |
-| Quiz generation fails             | Falls back to `data/question_bank/<skill>.json` for ten common skills                                                                                                            |
-| A page throws                     | `app/error.tsx` shows what happened and offers a retry, never a blank screen                                                                                                     |
+| Failure                            | What happens                                                                                                                                                                     |
+| ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Model returns invalid JSON         | zod rejects it, one retry carries the validation error back to the model, then the next provider in the chain, then deterministic logic. Each step is written to the agent trace |
+| A provider reports a rate limit    | The chain moves on immediately rather than waiting out a free tier window, and the trace records the switch                                                                      |
+| Model times out after 20 seconds   | Same chain                                                                                                                                                                       |
+| No API key at all                  | Deterministic planner, keyword resume extraction and the stored question bank run the whole product                                                                              |
+| GitHub rate limit or unknown user  | Analysis continues with resume evidence only, with a warning in the trace and a banner on the dashboard                                                                          |
+| Resume PDF is a scan with no text  | The upload is rejected with a message asking for pasted text                                                                                                                     |
+| No Supabase credentials            | Local JSON store in `.data/`, written atomically through one queue                                                                                                               |
+| A caller floods an expensive route | Per client rate limits return 429 with `Retry-After`. Cached demo traffic is exempt because it calls nothing                                                                     |
+| Quiz generation fails              | Falls back to `data/question_bank/<skill>.json` for ten common skills                                                                                                            |
+| A page throws                      | `app/error.tsx` shows what happened and offers a retry, never a blank screen                                                                                                     |
 
 ## Design decisions
 
@@ -277,6 +278,12 @@ number hides which of those is true.
 `data/resources.json`, and anything else is dropped in `lib/roadmap/validate.ts`.
 An invented documentation link is the most likely hallucination a student would
 actually click, and every committed link was checked for a live response.
+
+**Expensive routes are rate limited per client, cheap ones are not.** Anything
+that reaches a model or the GitHub API is counted per IP in a fixed window, in
+Postgres rather than in process memory so the count survives a cold start and
+holds across instances. The demo profile replays recorded data, so it is exempt:
+a judge can press it as often as they like. Limits are in `lib/config.ts`.
 
 **Quiz answers never reach the browser before the answer does.** The correct
 index and the explanation stay in the attempt row on the server;

@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { failFromError, ok } from '@/lib/api-response';
+import { rateLimit } from '@/lib/rate-limit';
 import { answerQuiz } from '@/lib/services/quiz-service';
 
 export const dynamic = 'force-dynamic';
@@ -13,6 +14,9 @@ const bodySchema = z.object({
 });
 
 export async function POST(request: Request, { params }: { params: { id: string } }) {
+  const limited = await rateLimit('quiz', request);
+  if (limited) return limited;
+
   try {
     const body = bodySchema.parse(await request.json());
     return ok(await answerQuiz(params.id, body.attempt_id, body.answer_index));

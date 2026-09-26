@@ -27,6 +27,7 @@ import type {
 export class JsonStore implements SkillProofStore {
   readonly kind = 'json' as const;
   private readonly db: JsonFile;
+  private readonly counters = new Map<string, { hits: number; expiresAt: number }>();
 
   constructor(directory?: string) {
     this.db = new JsonFile(directory);
@@ -194,6 +195,31 @@ export class JsonStore implements SkillProofStore {
         .filter((s) => s.profile_id === profileId)
         .sort((a, b) => a.created_at.localeCompare(b.created_at)),
     );
+  }
+
+  /**
+   * Counters live in process rather than in the JSON file: they change on every
+   * request and are worthless after a restart anyway. This store is the local
+   * and unconfigured path, where one process serves everything.
+   */
+  async consumeRateLimit(bucket: string, windowSeconds: number): Promise<number> {
+    const now = Date.now();
+    const entry = this.counters.get(bucket);
+
+    if (!entry || entry.expiresAt < now) {
+      this.counters.set(bucket, { hits: 1, expiresAt: now + windowSeconds * 1000 });
+      if (this.counters.size > 5000) this.pruneCounters(now);
+      return 1;
+    }
+
+    entry.hits += 1;
+    return entry.hits;
+  }
+
+  private pruneCounters(now: number): void {
+    for (const [key, value] of this.counters) {
+      if (value.expiresAt < now) this.counters.delete(key);
+    }
   }
 
   addLog(profileId: string, step: string, detail: string, level: AgentLogLevel): Promise<AgentLog> {

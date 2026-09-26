@@ -172,6 +172,15 @@ export class SupabaseStore implements SkillProofStore {
     );
   }
 
+  async consumeRateLimit(bucket: string, windowSeconds: number): Promise<number> {
+    const { data, error } = await this.client.rpc('consume_rate_limit', {
+      p_bucket: bucket,
+      p_window_seconds: windowSeconds,
+    });
+    if (error) throw new Error(error.message);
+    return typeof data === 'number' ? data : 0;
+  }
+
   async addLog(
     profileId: string,
     step: string,

@@ -72,6 +72,13 @@ export interface SkillProofStore {
   addScore(profileId: string, score: number, reason: string): Promise<ScoreHistoryEntry>;
   listScores(profileId: string): Promise<ScoreHistoryEntry[]>;
 
+  /**
+   * Increments the counter for one client and window, returning the hit count
+   * inside the current window. Keeps the routes that cost money to serve from
+   * being run in a loop by a stranger.
+   */
+  consumeRateLimit(bucket: string, windowSeconds: number): Promise<number>;
+
   addLog(profileId: string, step: string, detail: string, level: AgentLogLevel): Promise<AgentLog>;
   listLogs(profileId: string): Promise<AgentLog[]>;
 }

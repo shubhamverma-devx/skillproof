@@ -1,4 +1,6 @@
 import { runAnalysis } from '@/lib/agent/analyze';
+import { getStore } from '@/lib/db';
+import { rateLimit } from '@/lib/rate-limit';
 import type { AnalyzeStreamEvent } from '@/types/api';
 
 export const dynamic = 'force-dynamic';
@@ -10,7 +12,15 @@ export const maxDuration = 60;
  * Streams the agent's steps as they happen with Server Sent Events, so the
  * analysis screen shows real progress instead of a spinner over a long request.
  */
-export async function POST(_request: Request, { params }: { params: { id: string } }) {
+export async function POST(request: Request, { params }: { params: { id: string } }) {
+  // A demo profile replays a recorded scan and recorded model replies, so it
+  // costs nothing to serve and is left alone.
+  const profile = await getStore().getProfile(params.id);
+  if (!profile?.is_demo) {
+    const limited = await rateLimit('analyze', request);
+    if (limited) return limited;
+  }
+
   const encoder = new TextEncoder();
 
   const stream = new ReadableStream<Uint8Array>({

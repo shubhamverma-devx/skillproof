@@ -60,4 +60,25 @@ export const SCORING = {
   topGapCount: 6,
 } as const;
 
+/**
+ * Per client limits on the routes that cost money to serve, either in model
+ * credits or against the GitHub token's quota. The windows are deliberately
+ * generous for a real student and tight enough that a script cannot drain an
+ * account. Cached demo traffic is exempt: it calls nothing.
+ */
+export const RATE_LIMITS = {
+  /** Resume parsing plus a model call to structure it. */
+  createProfile: { limit: 12, windowSeconds: 600 },
+  /** The heaviest route: a full GitHub scan plus several model calls. */
+  analyze: { limit: 6, windowSeconds: 600 },
+  /** One model call per question, four per attempt. */
+  quiz: { limit: 80, windowSeconds: 600 },
+  /** One model call for the whole plan. */
+  roadmap: { limit: 15, windowSeconds: 600 },
+  /** Repository scans and replans, both of which reach out. */
+  progress: { limit: 30, windowSeconds: 600 },
+} as const;
+
+export type RateLimitName = keyof typeof RATE_LIMITS;
+
 export const WEEKLY_HOURS = { min: 2, max: 25, default: 8, step: 1 } as const;

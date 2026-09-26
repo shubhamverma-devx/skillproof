@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { failFromError, ok } from '@/lib/api-response';
+import { rateLimit } from '@/lib/rate-limit';
 import { WEEKLY_HOURS } from '@/lib/config';
 import { recordProgress } from '@/lib/services/progress-service';
 
@@ -22,6 +23,9 @@ const eventSchema = z.discriminatedUnion('type', [
 ]);
 
 export async function POST(request: Request, { params }: { params: { id: string } }) {
+  const limited = await rateLimit('progress', request);
+  if (limited) return limited;
+
   try {
     const event = eventSchema.parse(await request.json());
     return ok(await recordProgress(params.id, event));
