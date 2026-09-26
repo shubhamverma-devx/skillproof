@@ -16,7 +16,9 @@ import { LINKS, SLIDES, type Bullet, type Slide } from './deck-content';
 
 const OUT = path.join(process.cwd(), 'docs', 'SkillProof_Pitch.pptx');
 const SHOTS = path.join(process.cwd(), 'docs', 'screenshots', 'deck');
-const SEAL = path.join(SHOTS, 'seal.png');
+// Deliberately outside SHOTS: the demo recorder clears that folder on every run,
+// which would otherwise delete this file and show up as repo churn.
+const SEAL = path.join(process.cwd(), 'docs', 'screenshots', 'seal.png');
 
 /** docs/DESIGN.md tokens. */
 const C = {
