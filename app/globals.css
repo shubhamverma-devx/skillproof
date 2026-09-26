@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: 238 241 246;
+    --surface: 255 255 255;
+    --ink: 27 34 64;
+    --muted: 94 103 133;
+    --primary: 47 75 255;
+    --primary-ink: 255 255 255;
+    --claimed: 217 154 30;
+    --claimed-ink: 140 96 8;
+    --observed: 20 144 127;
+    --observed-ink: 12 92 81;
+    --verified: 47 75 255;
+    --verified-ink: 30 51 186;
+    --missing: 201 206 218;
+    --missing-ink: 94 103 133;
+    --danger: 197 48 48;
+    --danger-ink: 154 33 33;
+  }
+
+  [data-theme='dark'] {
+    --bg: 14 19 48;
+    --surface: 22 28 63;
+    --ink: 232 236 248;
+    --muted: 154 163 194;
+    --primary: 106 130 255;
+    --primary-ink: 8 12 34;
+    --claimed: 240 186 74;
+    --claimed-ink: 247 209 133;
+    --observed: 45 190 168;
+    --observed-ink: 126 226 210;
+    --verified: 124 145 255;
+    --verified-ink: 173 186 255;
+    --missing: 74 83 120;
+    --missing-ink: 154 163 194;
+    --danger: 248 113 113;
+    --danger-ink: 252 165 165;
+  }
+
+  * {
+    border-color: rgb(var(--ink) / 0.1);
+  }
+
+  [data-theme='dark'] * {
+    border-color: rgb(var(--ink) / 0.15);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: rgb(var(--bg));
+    color: rgb(var(--ink));
+    font-feature-settings: 'cv05' 1;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+    font-weight: 600;
+  }
+
+  :focus-visible {
+    outline: 2px solid rgb(var(--primary));
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background-color: rgb(var(--primary) / 0.2);
+  }
+}
+
+@layer utilities {
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .panel {
+    background-color: rgb(var(--surface));
+    border-width: 1px;
+    border-radius: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
