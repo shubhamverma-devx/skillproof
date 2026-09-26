@@ -33,6 +33,12 @@ function mark(phase: string): void {
 /** Long enough for a narrator to finish the matching sentence. */
 const BEAT = { short: 500, read: 1500, long: 2200, hold: 5500 } as const;
 
+/**
+ * The opening and the dashboard carry the densest narration, so they get a
+ * little more room than the beat scale alone would give them.
+ */
+const EXTRA_DWELL = 2000;
+
 async function shot(page: Page, name: string): Promise<void> {
   shotIndex += 1;
   await page.screenshot({
@@ -123,7 +129,7 @@ async function run(page: Page): Promise<string> {
   startedAt = Date.now();
   mark('The problem, on the landing page');
   await page.goto(BASE, { waitUntil: 'networkidle' });
-  await pause(page, BEAT.hold);
+  await pause(page, BEAT.hold + EXTRA_DWELL);
   await shot(page, 'landing');
 
   await page.getByRole('button', { name: 'Load demo profile' }).click();
@@ -148,7 +154,7 @@ async function run(page: Page): Promise<string> {
   await pause(page, BEAT.read);
   await segments.nth(Math.max(0, (await segments.count()) - 4)).hover();
   await pause(page, BEAT.read);
-  await pause(page, BEAT.hold);
+  await pause(page, BEAT.hold + EXTRA_DWELL);
 
   mark('Expanding the SQL evidence');
   await page.getByRole('button', { name: /^Why SQL matters$/ }).click();
