@@ -15,11 +15,11 @@ export { LlmUnavailableError } from './types';
 export { hashText, makeCacheKey } from './cache';
 export type { JsonRequest, JsonResult, LlmProvider, StepLogger } from './types';
 
-export function isDemoMode(): boolean {
+function isDemoMode(): boolean {
   return process.env.DEMO_MODE === 'true';
 }
 
-export function availableProviders(): LlmProvider[] {
+function availableProviders(): LlmProvider[] {
   const providers: LlmProvider[] = [];
   if (process.env.ANTHROPIC_API_KEY) {
     providers.push(createAnthropicProvider(process.env.ANTHROPIC_API_KEY));

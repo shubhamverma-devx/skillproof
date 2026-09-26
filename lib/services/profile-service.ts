@@ -8,7 +8,7 @@ import type { Profile } from '@/types/domain';
 
 const MIN_RESUME_CHARS = 80;
 
-export const createProfileSchema = z.object({
+const createProfileSchema = z.object({
   name: z.string().trim().min(1, 'Add your name').max(80),
   target_role: z.string().refine(isRoleSlug, 'Pick one of the listed roles'),
   weekly_hours: z.coerce
@@ -26,8 +26,6 @@ export const createProfileSchema = z.object({
     .nullable()
     .default(null),
 });
-
-export type CreateProfileInput = z.infer<typeof createProfileSchema>;
 
 /**
  * Builds a profile from the onboarding form. The resume can arrive as a PDF or as

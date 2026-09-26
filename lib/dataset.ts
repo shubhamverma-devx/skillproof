@@ -123,23 +123,10 @@ export function getResources(skill: string): LearningResource[] {
   return resourceCache[skill] ?? [];
 }
 
-/** Whitelist used to strip invented URLs out of model generated roadmap items. */
-export function allowedResourceUrls(skills: string[]): Set<string> {
-  const urls = new Set<string>();
-  for (const skill of skills) {
-    for (const resource of getResources(skill)) urls.add(resource.url);
-  }
-  return urls;
-}
-
 /** Static questions used when quiz generation is unavailable. */
 export function getBankedQuestions(skillSlug: string): QuizQuestion[] {
   const raw = QUESTION_BANK_JSON[skillSlug];
   if (!raw) return [];
   const parsed = questionBankSchema.safeParse(raw);
   return parsed.success ? parsed.data.questions : [];
-}
-
-export function hasQuestionBank(skillSlug: string): boolean {
-  return skillSlug in QUESTION_BANK_JSON;
 }

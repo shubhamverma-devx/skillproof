@@ -10,7 +10,7 @@ function repoBudget(): number {
   return hasGithubToken() ? GITHUB.maxRepos : 8;
 }
 
-export async function fetchUserRepos(username: string): Promise<GithubRepo[]> {
+async function fetchUserRepos(username: string): Promise<GithubRepo[]> {
   const repos = await githubFetch<GithubRepo[]>(
     `/users/${encodeURIComponent(username)}/repos?per_page=100&sort=pushed&type=owner`,
   );
@@ -66,7 +66,7 @@ async function fetchReadme(fullName: string): Promise<string> {
  * manifests are then requested only when the tree proves they exist, which keeps
  * a full scan inside the unauthenticated rate limit.
  */
-export async function scanRepo(repo: GithubRepo): Promise<RepoSignals> {
+async function scanRepo(repo: GithubRepo): Promise<RepoSignals> {
   const [languages, files] = await Promise.all([
     fetchLanguages(repo.full_name),
     fetchTreePaths(repo.full_name, repo.default_branch),

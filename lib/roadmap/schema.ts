@@ -4,7 +4,7 @@ import { z } from 'zod';
  * What the model is allowed to return. Resources are URLs only: they are matched
  * against the whitelist afterwards, so an invented link cannot reach a student.
  */
-export const planItemSchema = z.object({
+const planItemSchema = z.object({
   week: z.number().int().min(1).max(16),
   skill: z.string().min(1),
   title: z.string().min(4).max(120),

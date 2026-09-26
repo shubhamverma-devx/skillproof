@@ -8,7 +8,7 @@ import { buildWhy } from './plan';
 import type { PlanDraft, PlanItemDraft } from './schema';
 import type { PlanContext, PlannedItem } from './types';
 
-export class EmptyPlanError extends Error {
+class EmptyPlanError extends Error {
   constructor() {
     super('The model returned no usable roadmap items.');
     this.name = 'EmptyPlanError';

@@ -17,7 +17,7 @@ export function estimateHours(assessment: SkillAssessment): number {
 }
 
 /** What closing this gap completely is worth on the 0 to 100 readiness scale. */
-export function scorePointsAvailable(assessment: SkillAssessment, totalWeight: number): number {
+function scorePointsAvailable(assessment: SkillAssessment, totalWeight: number): number {
   if (totalWeight === 0) return 0;
   return Math.round((100 * assessment.gap_weight) / totalWeight * 10) / 10;
 }
@@ -27,7 +27,7 @@ export function scorePointsAvailable(assessment: SkillAssessment, totalWeight: n
  * readiness cost first. Anything that does not fit is returned separately so the
  * UI can say what was left for the next cycle rather than dropping it silently.
  */
-export function selectGaps(
+function selectGaps(
   gaps: SkillAssessment[],
   availableHours: number,
 ): { selected: SkillAssessment[]; deferred: SkillAssessment[] } {
@@ -50,7 +50,7 @@ export function selectGaps(
 }
 
 /** Prerequisites first, then readiness cost. Stable for the same inputs. */
-export function orderForLearning(gaps: SkillAssessment[]): SkillAssessment[] {
+function orderForLearning(gaps: SkillAssessment[]): SkillAssessment[] {
   const planned = new Set(gaps.map((gap) => gap.skill));
   return [...gaps].sort((a, b) => {
     const depth = prerequisiteDepth(a.skill, planned) - prerequisiteDepth(b.skill, planned);
@@ -76,7 +76,7 @@ export function buildWhy(
  * skill, or one is a prerequisite of the other. Forcing unrelated skills
  * together produces the kind of project nobody builds.
  */
-export function canCombine(a: SkillAssessment, b: SkillAssessment): boolean {
+function canCombine(a: SkillAssessment, b: SkillAssessment): boolean {
   if (a.category === b.category) return true;
   return prerequisitesOf(a.skill).includes(b.skill) || prerequisitesOf(b.skill).includes(a.skill);
 }
@@ -85,7 +85,7 @@ export function canCombine(a: SkillAssessment, b: SkillAssessment): boolean {
  * Builds a proof project from the curated blueprint, folding in a second gap
  * skill when one is available so the project covers more than one weakness.
  */
-export function buildProofProject(skill: string, partner: string | null): ProofProject | null {
+function buildProofProject(skill: string, partner: string | null): ProofProject | null {
   const blueprint = getProofBlueprint(skill);
   if (!blueprint) return null;
 

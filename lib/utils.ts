@@ -25,10 +25,3 @@ export function formatClock(iso: string): string {
     second: '2-digit',
   });
 }
-
-export function titleCaseSlug(slug: string): string {
-  return slug
-    .split('-')
-    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-    .join(' ');
-}

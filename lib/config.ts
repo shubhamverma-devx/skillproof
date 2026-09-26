@@ -50,9 +50,3 @@ export const SCORING = {
 } as const;
 
 export const WEEKLY_HOURS = { min: 2, max: 25, default: 8, step: 1 } as const;
-
-export const DEMO = {
-  profileName: 'Riya Sharma',
-  githubUsername: 'riya-sharma-demo',
-  role: 'ml-engineer',
-} as const;

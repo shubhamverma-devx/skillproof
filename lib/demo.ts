@@ -1,7 +1,6 @@
 import demoGithubScan from '@/data/demo/github_scan.json';
 import demoProfile from '@/data/demo/profile.json';
 import demoProgressRepo from '@/data/demo/progress_repo.json';
-import { DEMO } from '@/lib/config';
 import type { GithubScan, RepoSignals } from '@/lib/github/types';
 import type { GithubSummary } from '@/types/domain';
 
@@ -36,10 +35,6 @@ export function getDemoScan(): GithubScan {
 /** The repository the student links during the demo to prove Docker and deployment. */
 export function getDemoProgressRepo(): RepoSignals {
   return demoProgressRepo as RepoSignals;
-}
-
-export function isDemoUsername(username: string | null): boolean {
-  return username === DEMO.githubUsername;
 }
 
 export function summariseScan(scan: GithubScan): GithubSummary {

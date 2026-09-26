@@ -40,17 +40,3 @@ export class Tracer implements StepLogger {
     }
   }
 }
-
-export function logStep(
-  profileId: string,
-  step: string,
-  detail: string,
-  level: AgentLogLevel = 'info',
-): Promise<void> {
-  const tracer = new Tracer(profileId);
-  return level === 'info'
-    ? tracer.info(step, detail)
-    : level === 'warn'
-      ? tracer.warn(step, detail)
-      : tracer.error(step, detail);
-}

@@ -20,7 +20,3 @@ export function PanelTitle({ className, ...props }: React.HTMLAttributes<HTMLHea
 export function PanelNote({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) {
   return <p className={cn('max-w-prose text-ui-sm text-muted', className)} {...props} />;
 }
-
-export function PanelBody({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
-  return <div className={cn('px-5 py-4', className)} {...props} />;
-}

@@ -36,7 +36,6 @@ export type RoleSkill = z.infer<typeof roleSkillSchema>;
 export type RoleStats = z.infer<typeof roleStatsSchema>;
 export type TaxonomyEntry = z.infer<typeof taxonomyEntrySchema>;
 export type Taxonomy = z.infer<typeof taxonomySchema>;
-export type ResourceMap = z.infer<typeof resourceMapSchema>;
 
 export const ROLE_SLUGS = [
   'ml-engineer',

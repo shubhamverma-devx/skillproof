@@ -5,12 +5,6 @@ import { findSkillsInText, tokenise } from './taxonomy';
 
 export type DetectedSkill = { skill: string; sources: ObservedSource[] };
 
-const MANIFESTS = new Set(['package.json', 'requirements.txt', 'pyproject.toml', 'Pipfile']);
-
-export function isManifest(path: string): boolean {
-  return MANIFESTS.has(path);
-}
-
 /**
  * Reads dependency names out of a manifest. Versions, extras and comments are
  * dropped so the result can be compared against taxonomy package hints.

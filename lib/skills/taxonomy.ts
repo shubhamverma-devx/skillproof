@@ -49,7 +49,7 @@ export function normaliseSkillName(raw: string): string | null {
   return getLookup().byToken.get(tokenise(raw)) ?? null;
 }
 
-export function getSkillEntry(canonical: string): TaxonomyEntry | null {
+function getSkillEntry(canonical: string): TaxonomyEntry | null {
   return getLookup().byCanonical.get(canonical) ?? null;
 }
 
