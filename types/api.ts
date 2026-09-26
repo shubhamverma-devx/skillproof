@@ -22,6 +22,10 @@ export type ProfileState = {
   profile: Profile;
   role: { slug: RoleSlug; name: string; jd_count: number; source_note: string };
   score: number;
+  /** What this profile could reach by proving what it already shows. */
+  ceiling: number;
+  /** How many role skills carry each kind of evidence, for the score caveats. */
+  evidence_mix: { claimed: number; observed: number; tested: number };
   assessments: SkillAssessment[];
   gaps: SkillAssessment[];
   quiz_candidates: string[];

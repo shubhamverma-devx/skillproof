@@ -21,11 +21,15 @@ const FILL_CLASS: Record<string, string> = {
  */
 export function ProofMeter({
   score,
+  ceiling,
+  evidenceMix,
   previousScore,
   assessments,
   roleName,
 }: {
   score: number;
+  ceiling: number;
+  evidenceMix: { claimed: number; observed: number; tested: number };
   previousScore: number | null;
   assessments: SkillAssessment[];
   roleName: string;
@@ -35,6 +39,11 @@ export function ProofMeter({
   const animated = useCountUp(score, previousScore ?? 0);
   const segments = assessments.filter((assessment) => assessment.frequency > 0);
   const verifiedCount = assessments.filter((assessment) => assessment.level === 'verified').length;
+
+  // Only code evidence, nothing claimed and nothing verified.
+  const githubOnly =
+    evidenceMix.observed > 0 && evidenceMix.claimed === 0 && evidenceMix.tested === 0;
+  const headroom = Math.round((ceiling - score) * 10) / 10;
 
   return (
     <div className="px-5 py-5">
@@ -65,6 +74,12 @@ export function ProofMeter({
             <ProofSeal size={16} className="text-verified" />
             {verifiedCount} of {segments.length} skills verified by quiz
           </span>
+          {headroom >= 0.5 ? (
+            <span className="tabular text-ui-sm text-muted">
+              Proving what you already show would reach{' '}
+              <span className="font-semibold text-ink">{Math.round(ceiling)}</span>
+            </span>
+          ) : null}
         </div>
       </div>
 
@@ -108,6 +123,12 @@ export function ProofMeter({
           ))}
         </div>
       </TooltipProvider>
+
+      {githubOnly ? (
+        <p className="mt-3 rounded-inner border border-claimed/35 bg-claimed/[0.08] px-3 py-2 text-ui-sm">
+          Based on GitHub only. Add your resume or take quizzes to prove more.
+        </p>
+      ) : null}
 
       <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-ui-sm text-muted">
         <span>Segment width is how often job descriptions ask for the skill.</span>

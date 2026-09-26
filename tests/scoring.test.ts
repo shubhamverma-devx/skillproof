@@ -1,6 +1,12 @@
 import { describe, expect, it } from 'vitest';
 import { PROFICIENCY_BY_EVIDENCE, SCORING } from '@/lib/config';
-import { computeProficiency, computeReadinessScore, evidenceLevel, rankGaps } from '@/lib/scoring';
+import {
+  computeProficiency,
+  computeReadinessScore,
+  evidenceLevel,
+  maxReachableScore,
+  rankGaps,
+} from '@/lib/scoring';
 import type { EvidenceInput, SkillAssessment } from '@/lib/scoring';
 
 function evidence(partial: Partial<EvidenceInput> = {}): EvidenceInput {
@@ -131,5 +137,63 @@ describe('rankGaps', () => {
       assessment({ skill: 'Figma', frequency: 0, gap_weight: 0 }),
     ]);
     expect(ranked).toHaveLength(0);
+  });
+});
+
+describe('maxReachableScore', () => {
+  const roleSkills = [
+    { skill: 'Python', frequency: 0.9, category: 'language' as const },
+    { skill: 'Docker', frequency: 0.5, category: 'tool' as const },
+    { skill: 'SQL', frequency: 0.6, category: 'language' as const },
+  ];
+
+  it('counts every skill with any evidence at full proficiency', () => {
+    // Python is claimed only and SQL is observed only, so both could be proven.
+    // Docker has nothing, so it needs learning rather than proof.
+    const result = maxReachableScore(roleSkills, [
+      assessment({ skill: 'Python', frequency: 0.9, claimed: true, proficiency: 0.3 }),
+      assessment({ skill: 'SQL', frequency: 0.6, observed: true, proficiency: 0.5 }),
+      assessment({ skill: 'Docker', frequency: 0.5, proficiency: 0 }),
+    ]);
+    // (0.9 + 0.6) / 2.0 = 0.75
+    expect(result).toBe(75);
+  });
+
+  it('is never below the score it is a ceiling for', () => {
+    const assessments = [
+      assessment({
+        skill: 'Python',
+        frequency: 0.9,
+        claimed: true,
+        observed: true,
+        proficiency: 0.6,
+      }),
+      assessment({ skill: 'SQL', frequency: 0.6, claimed: true, proficiency: 0.3 }),
+      assessment({ skill: 'Docker', frequency: 0.5, proficiency: 0 }),
+    ];
+    const ceiling = maxReachableScore(roleSkills, assessments);
+    const score = computeReadinessScore(
+      roleSkills,
+      new Map(assessments.map((a) => [a.skill, a.proficiency])),
+    ).score;
+    expect(ceiling).toBeGreaterThanOrEqual(score);
+  });
+
+  it('reaches 100 only when every role skill has evidence', () => {
+    const all = roleSkills.map((skill) =>
+      assessment({ skill: skill.skill, frequency: skill.frequency, observed: true }),
+    );
+    expect(maxReachableScore(roleSkills, all)).toBe(100);
+  });
+
+  it('is zero when nothing has evidence', () => {
+    expect(maxReachableScore(roleSkills, [])).toBe(0);
+  });
+
+  it('ignores evidence for skills the role does not ask for', () => {
+    const result = maxReachableScore(roleSkills, [
+      assessment({ skill: 'Figma', frequency: 0, observed: true }),
+    ]);
+    expect(result).toBe(0);
   });
 });

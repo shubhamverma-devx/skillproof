@@ -31,6 +31,34 @@ export function computeReadinessScore(
   };
 }
 
+/**
+ * The score this profile could reach by proving what it already shows, without
+ * learning anything new. Every skill with some evidence behind it is counted at
+ * full proficiency; skills with no evidence at all stay at zero, because those
+ * need work rather than proof.
+ *
+ * It answers the question the readiness score raises: how much of the gap is
+ * "I have not shown this yet" against "I cannot do this yet".
+ */
+export function maxReachableScore(roleSkills: RoleSkill[], assessments: SkillAssessment[]): number {
+  const evidenced = new Set(
+    assessments
+      .filter((assessment) => assessment.claimed || assessment.observed || assessment.tested)
+      .map((assessment) => assessment.skill),
+  );
+
+  let reachable = 0;
+  let total = 0;
+
+  for (const { skill, frequency } of roleSkills) {
+    total += frequency;
+    if (evidenced.has(skill)) reachable += frequency;
+  }
+
+  if (total === 0) return 0;
+  return round1((100 * reachable) / total);
+}
+
 /** Gaps ordered by how much readiness they cost, largest first. */
 export function rankGaps(assessments: SkillAssessment[]): SkillAssessment[] {
   return [...assessments]

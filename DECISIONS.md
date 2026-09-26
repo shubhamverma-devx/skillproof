@@ -164,3 +164,17 @@ confirmed from the provider documentation before writing any adapter:
 - **A failing counter fails open.** If the rate limit check itself errors the
   request proceeds, because losing the product to protect the budget is the
   wrong trade at this size. The error is logged.
+
+## The evidence ceiling
+
+- **A second number sits beside the score: what proving your current evidence
+  would reach.** The readiness score alone cannot tell a student whether their
+  gap is "I have not shown this" or "I cannot do this", and those need completely
+  different work. Every skill with any evidence counts at full proficiency;
+  skills with none stay at zero, because those need learning rather than proof.
+- **A profile with only code evidence says so.** When nothing was claimed on the
+  resume and nothing has been verified, the dashboard says the score is based on
+  GitHub alone. Otherwise a low number reads as a verdict on the student when it
+  is really a verdict on how much they have shown us.
+- The line is hidden when the ceiling and the score are within half a point,
+  since there is nothing left to prove and the message would be noise.

@@ -66,6 +66,8 @@ export default async function DashboardPage({ params }: { params: { id: string }
             <Panel>
               <ProofMeter
                 score={state.score}
+                ceiling={state.ceiling}
+                evidenceMix={state.evidence_mix}
                 previousScore={previousScore}
                 assessments={state.assessments}
                 roleName={state.role.name}

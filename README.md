@@ -65,6 +65,7 @@ prices every gap against real job description demand.
 | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
 | Evidence levels     | Every skill is `claimed`, `observed`, `verified` or missing, with the badge shown everywhere                                             |
 | Readiness score     | 0 to 100, weighted by how often each skill appears in job descriptions for the role                                                      |
+| Evidence ceiling    | The score reachable by proving what you already show, so a gap reads as "not shown yet" or "not learned yet"                             |
 | Explainable gaps    | "Docker appears in 46% of ML Engineer job descriptions; not found in any of your 9 scanned repositories; not claimed on your resume"     |
 | Proof projects      | Each roadmap item ends in a small portfolio project with 3 to 5 checkable acceptance criteria, usually covering two gaps                 |
 | Adaptive quiz       | Four questions per skill, harder after a correct answer, easier after a wrong one, scored by difficulty weight                           |

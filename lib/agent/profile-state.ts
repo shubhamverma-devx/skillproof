@@ -1,7 +1,12 @@
 import { QUIZ } from '@/lib/config';
 import { getStore } from '@/lib/db';
 import { getRoleStats } from '@/lib/dataset';
-import { computeReadinessScore, rankGaps, type SkillAssessment } from '@/lib/scoring';
+import {
+  computeReadinessScore,
+  maxReachableScore,
+  rankGaps,
+  type SkillAssessment,
+} from '@/lib/scoring';
 import { assessSkills } from '@/lib/scoring';
 import { isRoleSlug } from '@/types/data';
 import type { ProfileState, RoadmapView } from '@/types/api';
@@ -39,6 +44,8 @@ export async function loadProfileState(profileId: string): Promise<ProfileState 
     loadLatestRoadmap(profileId),
   ]);
 
+  const roleSkills = assessments.filter((assessment) => assessment.frequency > 0);
+
   return {
     profile,
     role: {
@@ -48,6 +55,12 @@ export async function loadProfileState(profileId: string): Promise<ProfileState 
       source_note: role.source_note,
     },
     score: score.score,
+    ceiling: maxReachableScore(role.skills, assessments),
+    evidence_mix: {
+      claimed: roleSkills.filter((assessment) => assessment.claimed).length,
+      observed: roleSkills.filter((assessment) => assessment.observed).length,
+      tested: roleSkills.filter((assessment) => assessment.tested).length,
+    },
     assessments,
     gaps,
     quiz_candidates: pickQuizCandidates(assessments),
