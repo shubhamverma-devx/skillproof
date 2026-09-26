@@ -1,0 +1,1683 @@
+{
+  "skills": [
+    {
+      "canonical": "Python",
+      "category": "language",
+      "aliases": [
+        "py",
+        "python3"
+      ],
+      "hints": {
+        "packages": [
+          "python"
+        ],
+        "files": [
+          "requirements.txt",
+          "pyproject.toml",
+          "Pipfile",
+          "setup.py"
+        ],
+        "languages": [
+          "Python"
+        ],
+        "topics": [
+          "python"
+        ]
+      }
+    },
+    {
+      "canonical": "JavaScript",
+      "category": "language",
+      "aliases": [
+        "js",
+        "javascript",
+        "es6",
+        "ecmascript",
+        "vanilla js"
+      ],
+      "hints": {
+        "packages": [],
+        "files": [
+          "package.json",
+          ".eslintrc.json"
+        ],
+        "languages": [
+          "JavaScript"
+        ],
+        "topics": [
+          "javascript"
+        ]
+      }
+    },
+    {
+      "canonical": "TypeScript",
+      "category": "language",
+      "aliases": [
+        "ts",
+        "typescript"
+      ],
+      "hints": {
+        "packages": [
+          "typescript"
+        ],
+        "files": [
+          "tsconfig.json"
+        ],
+        "languages": [
+          "TypeScript"
+        ],
+        "topics": [
+          "typescript"
+        ]
+      }
+    },
+    {
+      "canonical": "Java",
+      "category": "language",
+      "aliases": [
+        "core java",
+        "java 8",
+        "java8"
+      ],
+      "hints": {
+        "packages": [],
+        "files": [
+          "pom.xml",
+          "build.gradle"
+        ],
+        "languages": [
+          "Java"
+        ],
+        "topics": [
+          "java"
+        ]
+      }
+    },
+    {
+      "canonical": "SQL",
+      "category": "language",
+      "aliases": [
+        "structured query language",
+        "ansi sql"
+      ],
+      "hints": {
+        "packages": [
+          "psycopg2",
+          "mysqlclient",
+          "sqlalchemy",
+          "pg",
+          "mysql2",
+          "sqlite3"
+        ],
+        "files": [
+          "schema.sql",
+          "migrations"
+        ],
+        "languages": [
+          "PLpgSQL",
+          "TSQL"
+        ],
+        "topics": [
+          "sql"
+        ]
+      }
+    },
+    {
+      "canonical": "HTML",
+      "category": "language",
+      "aliases": [
+        "html5",
+        "markup"
+      ],
+      "hints": {
+        "packages": [],
+        "files": [
+          "index.html"
+        ],
+        "languages": [
+          "HTML"
+        ],
+        "topics": [
+          "html"
+        ]
+      }
+    },
+    {
+      "canonical": "CSS",
+      "category": "language",
+      "aliases": [
+        "css3",
+        "stylesheets"
+      ],
+      "hints": {
+        "packages": [],
+        "files": [
+          "styles.css",
+          "global.css"
+        ],
+        "languages": [
+          "CSS",
+          "SCSS",
+          "Less"
+        ],
+        "topics": [
+          "css"
+        ]
+      }
+    },
+    {
+      "canonical": "Shell scripting",
+      "category": "language",
+      "aliases": [
+        "bash",
+        "shell",
+        "zsh",
+        "sh scripting"
+      ],
+      "hints": {
+        "packages": [],
+        "files": [
+          "entrypoint.sh",
+          "setup.sh",
+          "deploy.sh"
+        ],
+        "languages": [
+          "Shell"
+        ],
+        "topics": [
+          "bash"
+        ]
+      }
+    },
+    {
+      "canonical": "React",
+      "category": "framework",
+      "aliases": [
+        "react.js",
+        "reactjs",
+        "react js"
+      ],
+      "hints": {
+        "packages": [
+          "react"
+        ],
+        "files": [],
+        "languages": [],
+        "topics": [
+          "react"
+        ]
+      }
+    },
+    {
+      "canonical": "Next.js",
+      "category": "framework",
+      "aliases": [
+        "next js",
+        "nextjs"
+      ],
+      "hints": {
+        "packages": [
+          "next"
+        ],
+        "files": [
+          "next.config.js",
+          "next.config.mjs"
+        ],
+        "languages": [],
+        "topics": [
+          "nextjs"
+        ]
+      }
+    },
+    {
+      "canonical": "Node.js",
+      "category": "framework",
+      "aliases": [
+        "node",
+        "nodejs",
+        "node js"
+      ],
+      "hints": {
+        "packages": [
+          "express",
+          "fastify",
+          "nest"
+        ],
+        "files": [
+          "server.js",
+          "app.js"
+        ],
+        "languages": [],
+        "topics": [
+          "nodejs"
+        ]
+      }
+    },
+    {
+      "canonical": "Express",
+      "category": "framework",
+      "aliases": [
+        "express.js",
+        "expressjs"
+      ],
+      "hints": {
+        "packages": [
+          "express"
+        ],
+        "files": [],
+        "languages": [],
+        "topics": [
+          "express"
+        ]
+      }
+    },
+    {
+      "canonical": "Redux",
+      "category": "library",
+      "aliases": [
+        "redux toolkit",
+        "rtk"
+      ],
+      "hints": {
+        "packages": [
+          "redux",
+          "@reduxjs/toolkit",
+          "zustand"
+        ],
+        "files": [],
+        "languages": [],
+        "topics": [
+          "redux"
+        ]
+      }
+    },
+    {
+      "canonical": "Tailwind CSS",
+      "category": "framework",
+      "aliases": [
+        "tailwind",
+        "tailwindcss"
+      ],
+      "hints": {
+        "packages": [
+          "tailwindcss"
+        ],
+        "files": [
+          "tailwind.config.js",
+          "tailwind.config.ts"
+        ],
+        "languages": [],
+        "topics": [
+          "tailwindcss"
+        ]
+      }
+    },
+    {
+      "canonical": "Django",
+      "category": "framework",
+      "aliases": [
+        "django rest framework",
+        "drf"
+      ],
+      "hints": {
+        "packages": [
+          "django",
+          "djangorestframework"
+        ],
+        "files": [
+          "manage.py"
+        ],
+        "languages": [],
+        "topics": [
+          "django"
+        ]
+      }
+    },
+    {
+      "canonical": "Flask",
+      "category": "framework",
+      "aliases": [
+        "flask api"
+      ],
+      "hints": {
+        "packages": [
+          "flask"
+        ],
+        "files": [],
+        "languages": [],
+        "topics": [
+          "flask"
+        ]
+      }
+    },
+    {
+      "canonical": "FastAPI",
+      "category": "framework",
+      "aliases": [
+        "fast api"
+      ],
+      "hints": {
+        "packages": [
+          "fastapi",
+          "uvicorn"
+        ],
+        "files": [],
+        "languages": [],
+        "topics": [
+          "fastapi"
+        ]
+      }
+    },
+    {
+      "canonical": "Spring Boot",
+      "category": "framework",
+      "aliases": [
+        "spring",
+        "springboot"
+      ],
+      "hints": {
+        "packages": [],
+        "files": [
+          "application.properties",
+          "application.yml"
+        ],
+        "languages": [],
+        "topics": [
+          "spring-boot"
+        ]
+      }
+    },
+    {
+      "canonical": "PyTorch",
+      "category": "framework",
+      "aliases": [
+        "torch",
+        "pytorch lightning"
+      ],
+      "hints": {
+        "packages": [
+          "torch",
+          "pytorch-lightning",
+          "torchvision"
+        ],
+        "files": [],
+        "languages": [],
+        "topics": [
+          "pytorch"
+        ]
+      }
+    },
+    {
+      "canonical": "TensorFlow",
+      "category": "framework",
+      "aliases": [
+        "tf",
+        "tensorflow 2",
+        "keras"
+      ],
+      "hints": {
+        "packages": [
+          "tensorflow",
+          "keras",
+          "tensorflow-cpu"
+        ],
+        "files": [],
+        "languages": [],
+        "topics": [
+          "tensorflow"
+        ]
+      }
+    },
+    {
+      "canonical": "scikit-learn",
+      "category": "library",
+      "aliases": [
+        "sklearn",
+        "sci-kit learn",
+        "scikit learn"
+      ],
+      "hints": {
+        "packages": [
+          "scikit-learn",
+          "sklearn"
+        ],
+        "files": [],
+        "languages": [],
+        "topics": [
+          "scikit-learn"
+        ]
+      }
+    },
+    {
+      "canonical": "Pandas",
+      "category": "library",
+      "aliases": [
+        "pandas dataframe"
+      ],
+      "hints": {
+        "packages": [
+          "pandas"
+        ],
+        "files": [],
+        "languages": [],
+        "topics": [
+          "pandas"
+        ]
+      }
+    },
+    {
+      "canonical": "NumPy",
+      "category": "library",
+      "aliases": [
+        "numpy arrays",
+        "np"
+      ],
+      "hints": {
+        "packages": [
+          "numpy"
+        ],
+        "files": [],
+        "languages": [],
+        "topics": [
+          "numpy"
+        ]
+      }
+    },
+    {
+      "canonical": "Matplotlib",
+      "category": "library",
+      "aliases": [
+        "pyplot",
+        "seaborn"
+      ],
+      "hints": {
+        "packages": [
+          "matplotlib",
+          "seaborn"
+        ],
+        "files": [],
+        "languages": [],
+        "topics": [
+          "matplotlib"
+        ]
+      }
+    },
+    {
+      "canonical": "PostgreSQL",
+      "category": "database",
+      "aliases": [
+        "postgres",
+        "psql"
+      ],
+      "hints": {
+        "packages": [
+          "psycopg2",
+          "psycopg2-binary",
+          "pg",
+          "asyncpg"
+        ],
+        "files": [],
+        "languages": [],
+        "topics": [
+          "postgresql"
+        ]
+      }
+    },
+    {
+      "canonical": "MySQL",
+      "category": "database",
+      "aliases": [
+        "maria db",
+        "mariadb"
+      ],
+      "hints": {
+        "packages": [
+          "mysqlclient",
+          "mysql2",
+          "pymysql"
+        ],
+        "files": [],
+        "languages": [],
+        "topics": [
+          "mysql"
+        ]
+      }
+    },
+    {
+      "canonical": "MongoDB",
+      "category": "database",
+      "aliases": [
+        "mongo",
+        "mongoose"
+      ],
+      "hints": {
+        "packages": [
+          "mongoose",
+          "pymongo",
+          "mongodb"
+        ],
+        "files": [],
+        "languages": [],
+        "topics": [
+          "mongodb"
+        ]
+      }
+    },
+    {
+      "canonical": "Redis",
+      "category": "database",
+      "aliases": [
+        "redis cache"
+      ],
+      "hints": {
+        "packages": [
+          "redis",
+          "ioredis"
+        ],
+        "files": [],
+        "languages": [],
+        "topics": [
+          "redis"
+        ]
+      }
+    },
+    {
+      "canonical": "Git",
+      "category": "tool",
+      "aliases": [
+        "version control",
+        "git vcs"
+      ],
+      "hints": {
+        "packages": [],
+        "files": [
+          ".gitignore",
+          ".gitattributes"
+        ],
+        "languages": [],
+        "topics": [
+          "git"
+        ]
+      }
+    },
+    {
+      "canonical": "GitHub Actions",
+      "category": "tool",
+      "aliases": [
+        "gh actions",
+        "github ci"
+      ],
+      "hints": {
+        "packages": [],
+        "files": [
+          ".github/workflows"
+        ],
+        "languages": [],
+        "topics": [
+          "github-actions"
+        ]
+      }
+    },
+    {
+      "canonical": "Docker",
+      "category": "tool",
+      "aliases": [
+        "containers",
+        "containerisation",
+        "containerization",
+        "docker compose"
+      ],
+      "hints": {
+        "packages": [],
+        "files": [
+          "Dockerfile",
+          "docker-compose.yml",
+          "compose.yaml",
+          ".dockerignore"
+        ],
+        "languages": [
+          "Dockerfile"
+        ],
+        "topics": [
+          "docker"
+        ]
+      }
+    },
+    {
+      "canonical": "Kubernetes",
+      "category": "platform",
+      "aliases": [
+        "k8s",
+        "kubectl",
+        "helm"
+      ],
+      "hints": {
+        "packages": [],
+        "files": [
+          "k8s",
+          "helm",
+          "deployment.yaml"
+        ],
+        "languages": [],
+        "topics": [
+          "kubernetes"
+        ]
+      }
+    },
+    {
+      "canonical": "AWS",
+      "category": "platform",
+      "aliases": [
+        "amazon web services",
+        "ec2",
+        "s3",
+        "lambda"
+      ],
+      "hints": {
+        "packages": [
+          "boto3",
+          "aws-sdk",
+          "@aws-sdk/client-s3"
+        ],
+        "files": [
+          "buildspec.yml",
+          "serverless.yml"
+        ],
+        "languages": [],
+        "topics": [
+          "aws"
+        ]
+      }
+    },
+    {
+      "canonical": "Azure",
+      "category": "platform",
+      "aliases": [
+        "microsoft azure",
+        "azure devops"
+      ],
+      "hints": {
+        "packages": [
+          "azure-storage-blob"
+        ],
+        "files": [
+          "azure-pipelines.yml"
+        ],
+        "languages": [],
+        "topics": [
+          "azure"
+        ]
+      }
+    },
+    {
+      "canonical": "GCP",
+      "category": "platform",
+      "aliases": [
+        "google cloud",
+        "google cloud platform",
+        "bigquery"
+      ],
+      "hints": {
+        "packages": [
+          "google-cloud-storage",
+          "google-cloud-bigquery"
+        ],
+        "files": [
+          "app.yaml",
+          "cloudbuild.yaml"
+        ],
+        "languages": [],
+        "topics": [
+          "gcp"
+        ]
+      }
+    },
+    {
+      "canonical": "Terraform",
+      "category": "tool",
+      "aliases": [
+        "hcl",
+        "terraform cloud"
+      ],
+      "hints": {
+        "packages": [],
+        "files": [
+          "main.tf",
+          "variables.tf"
+        ],
+        "languages": [
+          "HCL"
+        ],
+        "topics": [
+          "terraform"
+        ]
+      }
+    },
+    {
+      "canonical": "Ansible",
+      "category": "tool",
+      "aliases": [
+        "ansible playbooks"
+      ],
+      "hints": {
+        "packages": [],
+        "files": [
+          "playbook.yml",
+          "ansible.cfg"
+        ],
+        "languages": [],
+        "topics": [
+          "ansible"
+        ]
+      }
+    },
+    {
+      "canonical": "Jenkins",
+      "category": "tool",
+      "aliases": [
+        "jenkins pipeline",
+        "groovy pipeline"
+      ],
+      "hints": {
+        "packages": [],
+        "files": [
+          "Jenkinsfile"
+        ],
+        "languages": [],
+        "topics": [
+          "jenkins"
+        ]
+      }
+    },
+    {
+      "canonical": "Linux",
+      "category": "platform",
+      "aliases": [
+        "unix",
+        "ubuntu",
+        "linux administration"
+      ],
+      "hints": {
+        "packages": [],
+        "files": [
+          "Makefile"
+        ],
+        "languages": [],
+        "topics": [
+          "linux"
+        ]
+      }
+    },
+    {
+      "canonical": "Nginx",
+      "category": "tool",
+      "aliases": [
+        "reverse proxy",
+        "nginx conf"
+      ],
+      "hints": {
+        "packages": [],
+        "files": [
+          "nginx.conf"
+        ],
+        "languages": [],
+        "topics": [
+          "nginx"
+        ]
+      }
+    },
+    {
+      "canonical": "Prometheus",
+      "category": "tool",
+      "aliases": [
+        "promql"
+      ],
+      "hints": {
+        "packages": [],
+        "files": [
+          "prometheus.yml"
+        ],
+        "languages": [],
+        "topics": [
+          "prometheus"
+        ]
+      }
+    },
+    {
+      "canonical": "Grafana",
+      "category": "tool",
+      "aliases": [
+        "grafana dashboards"
+      ],
+      "hints": {
+        "packages": [],
+        "files": [
+          "grafana"
+        ],
+        "languages": [],
+        "topics": [
+          "grafana"
+        ]
+      }
+    },
+    {
+      "canonical": "Jupyter",
+      "category": "tool",
+      "aliases": [
+        "jupyter notebook",
+        "notebooks",
+        "colab"
+      ],
+      "hints": {
+        "packages": [
+          "jupyter",
+          "notebook",
+          "ipykernel"
+        ],
+        "files": [],
+        "languages": [
+          "Jupyter Notebook"
+        ],
+        "topics": [
+          "jupyter-notebook"
+        ]
+      }
+    },
+    {
+      "canonical": "MLflow",
+      "category": "tool",
+      "aliases": [
+        "ml flow",
+        "experiment tracking",
+        "weights and biases"
+      ],
+      "hints": {
+        "packages": [
+          "mlflow",
+          "wandb"
+        ],
+        "files": [],
+        "languages": [],
+        "topics": [
+          "mlflow"
+        ]
+      }
+    },
+    {
+      "canonical": "Excel",
+      "category": "tool",
+      "aliases": [
+        "ms excel",
+        "spreadsheets",
+        "pivot tables",
+        "vlookup"
+      ],
+      "hints": {
+        "packages": [
+          "openpyxl",
+          "xlrd"
+        ],
+        "files": [],
+        "languages": [],
+        "topics": [
+          "excel"
+        ]
+      }
+    },
+    {
+      "canonical": "Power BI",
+      "category": "tool",
+      "aliases": [
+        "powerbi",
+        "dax"
+      ],
+      "hints": {
+        "packages": [],
+        "files": [],
+        "languages": [],
+        "topics": [
+          "power-bi"
+        ]
+      }
+    },
+    {
+      "canonical": "Tableau",
+      "category": "tool",
+      "aliases": [
+        "tableau desktop"
+      ],
+      "hints": {
+        "packages": [],
+        "files": [],
+        "languages": [],
+        "topics": [
+          "tableau"
+        ]
+      }
+    },
+    {
+      "canonical": "Postman",
+      "category": "tool",
+      "aliases": [
+        "api testing tool",
+        "postman collection"
+      ],
+      "hints": {
+        "packages": [],
+        "files": [
+          "postman_collection.json"
+        ],
+        "languages": [],
+        "topics": [
+          "postman"
+        ]
+      }
+    },
+    {
+      "canonical": "Jest",
+      "category": "tool",
+      "aliases": [
+        "jest testing",
+        "vitest"
+      ],
+      "hints": {
+        "packages": [
+          "jest",
+          "vitest",
+          "@testing-library/react"
+        ],
+        "files": [
+          "jest.config.js",
+          "vitest.config.ts"
+        ],
+        "languages": [],
+        "topics": [
+          "jest"
+        ]
+      }
+    },
+    {
+      "canonical": "Playwright",
+      "category": "tool",
+      "aliases": [
+        "e2e testing",
+        "cypress"
+      ],
+      "hints": {
+        "packages": [
+          "@playwright/test",
+          "playwright",
+          "cypress"
+        ],
+        "files": [
+          "playwright.config.ts"
+        ],
+        "languages": [],
+        "topics": [
+          "playwright"
+        ]
+      }
+    },
+    {
+      "canonical": "Vite",
+      "category": "tool",
+      "aliases": [
+        "webpack",
+        "bundler",
+        "build tooling"
+      ],
+      "hints": {
+        "packages": [
+          "vite",
+          "webpack"
+        ],
+        "files": [
+          "vite.config.ts",
+          "webpack.config.js"
+        ],
+        "languages": [],
+        "topics": [
+          "vite"
+        ]
+      }
+    },
+    {
+      "canonical": "Figma",
+      "category": "tool",
+      "aliases": [
+        "figma handoff",
+        "design handoff"
+      ],
+      "hints": {
+        "packages": [],
+        "files": [],
+        "languages": [],
+        "topics": [
+          "figma"
+        ]
+      }
+    },
+    {
+      "canonical": "Machine learning",
+      "category": "concept",
+      "aliases": [
+        "ml",
+        "supervised learning",
+        "classification models",
+        "regression models"
+      ],
+      "hints": {
+        "packages": [],
+        "files": [],
+        "languages": [],
+        "topics": [
+          "machine-learning"
+        ]
+      }
+    },
+    {
+      "canonical": "Deep learning",
+      "category": "concept",
+      "aliases": [
+        "neural networks",
+        "cnn",
+        "rnn",
+        "transformers"
+      ],
+      "hints": {
+        "packages": [],
+        "files": [],
+        "languages": [],
+        "topics": [
+          "deep-learning"
+        ]
+      }
+    },
+    {
+      "canonical": "NLP",
+      "category": "concept",
+      "aliases": [
+        "natural language processing",
+        "text classification",
+        "llm"
+      ],
+      "hints": {
+        "packages": [
+          "nltk",
+          "spacy",
+          "transformers"
+        ],
+        "files": [],
+        "languages": [],
+        "topics": [
+          "nlp"
+        ]
+      }
+    },
+    {
+      "canonical": "Computer vision",
+      "category": "concept",
+      "aliases": [
+        "cv",
+        "image classification",
+        "opencv"
+      ],
+      "hints": {
+        "packages": [
+          "opencv-python",
+          "albumentations"
+        ],
+        "files": [],
+        "languages": [],
+        "topics": [
+          "computer-vision"
+        ]
+      }
+    },
+    {
+      "canonical": "Statistics",
+      "category": "concept",
+      "aliases": [
+        "probability",
+        "hypothesis testing",
+        "statistical analysis"
+      ],
+      "hints": {
+        "packages": [
+          "scipy",
+          "statsmodels"
+        ],
+        "files": [],
+        "languages": [],
+        "topics": [
+          "statistics"
+        ]
+      }
+    },
+    {
+      "canonical": "Data visualisation",
+      "category": "concept",
+      "aliases": [
+        "data visualization",
+        "charts",
+        "dashboards",
+        "plotting"
+      ],
+      "hints": {
+        "packages": [
+          "plotly",
+          "altair"
+        ],
+        "files": [],
+        "languages": [],
+        "topics": [
+          "data-visualization"
+        ]
+      }
+    },
+    {
+      "canonical": "Feature engineering",
+      "category": "concept",
+      "aliases": [
+        "feature extraction",
+        "feature selection"
+      ],
+      "hints": {
+        "packages": [],
+        "files": [],
+        "languages": [],
+        "topics": [
+          "feature-engineering"
+        ]
+      }
+    },
+    {
+      "canonical": "Model deployment",
+      "category": "concept",
+      "aliases": [
+        "model serving",
+        "mlops",
+        "inference api"
+      ],
+      "hints": {
+        "packages": [
+          "bentoml",
+          "gunicorn"
+        ],
+        "files": [],
+        "languages": [],
+        "topics": [
+          "mlops"
+        ]
+      }
+    },
+    {
+      "canonical": "REST APIs",
+      "category": "concept",
+      "aliases": [
+        "rest",
+        "restful api",
+        "api development",
+        "http api"
+      ],
+      "hints": {
+        "packages": [
+          "axios",
+          "requests"
+        ],
+        "files": [],
+        "languages": [],
+        "topics": [
+          "rest-api"
+        ]
+      }
+    },
+    {
+      "canonical": "GraphQL",
+      "category": "concept",
+      "aliases": [
+        "apollo",
+        "graph ql"
+      ],
+      "hints": {
+        "packages": [
+          "graphql",
+          "@apollo/client"
+        ],
+        "files": [
+          "schema.graphql"
+        ],
+        "languages": [],
+        "topics": [
+          "graphql"
+        ]
+      }
+    },
+    {
+      "canonical": "Authentication",
+      "category": "concept",
+      "aliases": [
+        "auth",
+        "jwt",
+        "oauth",
+        "authorisation",
+        "authorization"
+      ],
+      "hints": {
+        "packages": [
+          "jsonwebtoken",
+          "passport",
+          "next-auth",
+          "bcrypt"
+        ],
+        "files": [],
+        "languages": [],
+        "topics": [
+          "authentication"
+        ]
+      }
+    },
+    {
+      "canonical": "System design",
+      "category": "concept",
+      "aliases": [
+        "scalability",
+        "high level design",
+        "hld",
+        "architecture design"
+      ],
+      "hints": {
+        "packages": [],
+        "files": [],
+        "languages": [],
+        "topics": [
+          "system-design"
+        ]
+      }
+    },
+    {
+      "canonical": "Data structures and algorithms",
+      "category": "concept",
+      "aliases": [
+        "dsa",
+        "algorithms",
+        "data structures",
+        "problem solving"
+      ],
+      "hints": {
+        "packages": [],
+        "files": [],
+        "languages": [],
+        "topics": [
+          "algorithms"
+        ]
+      }
+    },
+    {
+      "canonical": "Testing",
+      "category": "concept",
+      "aliases": [
+        "unit testing",
+        "integration testing",
+        "tdd",
+        "test automation"
+      ],
+      "hints": {
+        "packages": [
+          "pytest",
+          "mocha"
+        ],
+        "files": [
+          "tests",
+          "test"
+        ],
+        "languages": [],
+        "topics": [
+          "testing"
+        ]
+      }
+    },
+    {
+      "canonical": "CI/CD",
+      "category": "concept",
+      "aliases": [
+        "continuous integration",
+        "continuous deployment",
+        "build pipelines"
+      ],
+      "hints": {
+        "packages": [],
+        "files": [
+          ".github/workflows",
+          ".gitlab-ci.yml",
+          "Jenkinsfile"
+        ],
+        "languages": [],
+        "topics": [
+          "ci-cd"
+        ]
+      }
+    },
+    {
+      "canonical": "Web performance",
+      "category": "concept",
+      "aliases": [
+        "core web vitals",
+        "lighthouse",
+        "page speed",
+        "performance optimisation"
+      ],
+      "hints": {
+        "packages": [],
+        "files": [
+          "lighthouserc.json"
+        ],
+        "languages": [],
+        "topics": [
+          "web-performance"
+        ]
+      }
+    },
+    {
+      "canonical": "Accessibility",
+      "category": "concept",
+      "aliases": [
+        "a11y",
+        "wcag",
+        "screen reader support"
+      ],
+      "hints": {
+        "packages": [
+          "eslint-plugin-jsx-a11y",
+          "axe-core"
+        ],
+        "files": [],
+        "languages": [],
+        "topics": [
+          "accessibility"
+        ]
+      }
+    },
+    {
+      "canonical": "Responsive design",
+      "category": "concept",
+      "aliases": [
+        "mobile first",
+        "media queries",
+        "responsive ui"
+      ],
+      "hints": {
+        "packages": [],
+        "files": [],
+        "languages": [],
+        "topics": [
+          "responsive-design"
+        ]
+      }
+    },
+    {
+      "canonical": "Data cleaning",
+      "category": "concept",
+      "aliases": [
+        "data wrangling",
+        "data preparation",
+        "missing values"
+      ],
+      "hints": {
+        "packages": [],
+        "files": [],
+        "languages": [],
+        "topics": [
+          "data-cleaning"
+        ]
+      }
+    },
+    {
+      "canonical": "ETL",
+      "category": "concept",
+      "aliases": [
+        "etl pipelines",
+        "elt",
+        "data pipelines",
+        "airflow"
+      ],
+      "hints": {
+        "packages": [
+          "apache-airflow",
+          "prefect"
+        ],
+        "files": [
+          "dags"
+        ],
+        "languages": [],
+        "topics": [
+          "etl"
+        ]
+      }
+    },
+    {
+      "canonical": "Data modelling",
+      "category": "concept",
+      "aliases": [
+        "data modeling",
+        "star schema",
+        "normalisation",
+        "normalization",
+        "dimensional modelling"
+      ],
+      "hints": {
+        "packages": [],
+        "files": [],
+        "languages": [],
+        "topics": [
+          "data-modeling"
+        ]
+      }
+    },
+    {
+      "canonical": "A/B testing",
+      "category": "concept",
+      "aliases": [
+        "ab testing",
+        "experimentation",
+        "split testing"
+      ],
+      "hints": {
+        "packages": [],
+        "files": [],
+        "languages": [],
+        "topics": [
+          "ab-testing"
+        ]
+      }
+    },
+    {
+      "canonical": "Business intelligence",
+      "category": "concept",
+      "aliases": [
+        "bi reporting",
+        "kpi reporting",
+        "business reporting"
+      ],
+      "hints": {
+        "packages": [],
+        "files": [],
+        "languages": [],
+        "topics": [
+          "business-intelligence"
+        ]
+      }
+    },
+    {
+      "canonical": "Monitoring",
+      "category": "concept",
+      "aliases": [
+        "observability",
+        "alerting",
+        "logging",
+        "sre practices"
+      ],
+      "hints": {
+        "packages": [
+          "prometheus-client",
+          "opentelemetry-api"
+        ],
+        "files": [],
+        "languages": [],
+        "topics": [
+          "monitoring"
+        ]
+      }
+    },
+    {
+      "canonical": "Infrastructure as code",
+      "category": "concept",
+      "aliases": [
+        "iac",
+        "infra as code",
+        "provisioning"
+      ],
+      "hints": {
+        "packages": [],
+        "files": [
+          "main.tf",
+          "playbook.yml"
+        ],
+        "languages": [],
+        "topics": [
+          "infrastructure-as-code"
+        ]
+      }
+    },
+    {
+      "canonical": "Networking",
+      "category": "concept",
+      "aliases": [
+        "tcp/ip",
+        "dns",
+        "load balancing",
+        "vpc"
+      ],
+      "hints": {
+        "packages": [],
+        "files": [],
+        "languages": [],
+        "topics": [
+          "networking"
+        ]
+      }
+    },
+    {
+      "canonical": "Caching",
+      "category": "concept",
+      "aliases": [
+        "cache invalidation",
+        "cdn caching",
+        "response caching"
+      ],
+      "hints": {
+        "packages": [],
+        "files": [],
+        "languages": [],
+        "topics": [
+          "caching"
+        ]
+      }
+    },
+    {
+      "canonical": "Message queues",
+      "category": "concept",
+      "aliases": [
+        "kafka",
+        "rabbitmq",
+        "pub sub",
+        "event driven"
+      ],
+      "hints": {
+        "packages": [
+          "kafka-python",
+          "amqplib",
+          "bullmq"
+        ],
+        "files": [],
+        "languages": [],
+        "topics": [
+          "kafka"
+        ]
+      }
+    },
+    {
+      "canonical": "Microservices",
+      "category": "concept",
+      "aliases": [
+        "service oriented architecture",
+        "distributed services"
+      ],
+      "hints": {
+        "packages": [],
+        "files": [],
+        "languages": [],
+        "topics": [
+          "microservices"
+        ]
+      }
+    },
+    {
+      "canonical": "Agile",
+      "category": "concept",
+      "aliases": [
+        "scrum",
+        "sprint planning",
+        "kanban",
+        "jira"
+      ],
+      "hints": {
+        "packages": [],
+        "files": [],
+        "languages": [],
+        "topics": [
+          "agile"
+        ]
+      }
+    },
+    {
+      "canonical": "Cloud fundamentals",
+      "category": "concept",
+      "aliases": [
+        "cloud basics",
+        "cloud computing",
+        "iaas",
+        "paas"
+      ],
+      "hints": {
+        "packages": [],
+        "files": [],
+        "languages": [],
+        "topics": [
+          "cloud"
+        ]
+      }
+    },
+    {
+      "canonical": "Web scraping",
+      "category": "concept",
+      "aliases": [
+        "scraping",
+        "crawler",
+        "beautifulsoup"
+      ],
+      "hints": {
+        "packages": [
+          "beautifulsoup4",
+          "scrapy",
+          "selenium"
+        ],
+        "files": [],
+        "languages": [],
+        "topics": [
+          "web-scraping"
+        ]
+      }
+    }
+  ]
+}
