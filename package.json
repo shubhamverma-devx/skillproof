@@ -13,7 +13,8 @@
     "test:watch": "vitest",
     "build:roles": "tsx scripts/build-role-stats.ts",
     "screenshots": "tsx scripts/screenshots.ts",
-    "demo:verify": "tsx scripts/verify-demo-story.ts"
+    "demo:verify": "tsx scripts/verify-demo-story.ts",
+    "providers:check": "tsx scripts/check-providers.ts"
   },
   "dependencies": {
     "@google/generative-ai": "^0.21.0",
@@ -46,6 +47,7 @@
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.0",
     "autoprefixer": "^10.4.20",
+    "dotenv": "^18.0.4",
     "eslint": "^8.57.1",
     "eslint-config-next": "14.2.33",
     "eslint-config-prettier": "^9.1.0",
