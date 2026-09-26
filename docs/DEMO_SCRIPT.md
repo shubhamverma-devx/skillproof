@@ -110,10 +110,10 @@ Point at the draft banner and click **Approve roadmap**.
 
 > Two weeks later. She finished the first two items, so she marks them done.
 
-Mark two items done.
+Mark two items done. **Pause for two seconds on the unchanged score.**
 
-> Notice the score has not moved. Marking something done is a claim. This product
-> does not accept claims.
+> Notice the score has not moved. Marking a task done is not proof. Linking a
+> repo or passing a quiz is.
 
 Paste `riya-sharma-demo/ml-deploy-service` and click **Scan repository**.
 
