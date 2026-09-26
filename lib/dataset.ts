@@ -9,6 +9,7 @@ import pythonBank from '@/data/question_bank/python.json';
 import reactBank from '@/data/question_bank/react.json';
 import restApisBank from '@/data/question_bank/rest-apis.json';
 import sqlBank from '@/data/question_bank/sql.json';
+import proofProjectsJson from '@/data/proof_projects.json';
 import resourcesJson from '@/data/resources.json';
 import backendDeveloper from '@/data/roles/backend-developer.json';
 import dataAnalyst from '@/data/roles/data-analyst.json';
@@ -52,6 +53,16 @@ const QUESTION_BANK_JSON: Record<string, unknown> = {
   'rest-apis': restApisBank,
   sql: sqlBank,
 };
+
+const proofBlueprintSchema = z.object({
+  title: z.string(),
+  description: z.string(),
+  acceptance_criteria: z.array(z.string()).min(3).max(5),
+});
+
+const proofBlueprintMapSchema = z.record(z.string(), proofBlueprintSchema);
+
+export type ProofBlueprint = z.infer<typeof proofBlueprintSchema>;
 
 const questionBankSchema = z.object({
   skill: z.string(),
@@ -97,6 +108,14 @@ export function listRoles(): RoleSummary[] {
         .map((entry) => entry.skill),
     };
   });
+}
+
+let blueprintCache: Record<string, ProofBlueprint> | null = null;
+
+/** Curated proof project per skill, used when the planner runs without a model. */
+export function getProofBlueprint(skill: string): ProofBlueprint | null {
+  blueprintCache ??= proofBlueprintMapSchema.parse(proofProjectsJson);
+  return blueprintCache[skill] ?? null;
 }
 
 export function getResources(skill: string): LearningResource[] {

@@ -1,0 +1,758 @@
+{
+  "Docker": {
+    "title": "Containerise one of your existing projects",
+    "description": "Take a project that currently runs only on your laptop and make it start with one command on any machine.",
+    "acceptance_criteria": [
+      "A Dockerfile builds the project with no manual steps after the build",
+      "The image runs with a single docker run command and the README shows it",
+      "Image size is under 500 MB and the README says how you got there"
+    ]
+  },
+  "Kubernetes": {
+    "title": "Deploy a two service app to a local cluster",
+    "description": "Run an API and a database on minikube or kind, with the manifests kept in the repository.",
+    "acceptance_criteria": [
+      "Deployment, Service and ConfigMap manifests are committed",
+      "The app survives deleting a pod, and the README shows the recovery",
+      "Resource requests and limits are set and justified in the README"
+    ]
+  },
+  "Terraform": {
+    "title": "Provision your project infrastructure as code",
+    "description": "Replace console clicking with Terraform for the resources your project needs.",
+    "acceptance_criteria": [
+      "terraform apply creates the resources from scratch on an empty account",
+      "State handling and variables are explained in the README",
+      "terraform destroy leaves nothing behind, verified and noted"
+    ]
+  },
+  "CI/CD": {
+    "title": "Add a pipeline that blocks broken code",
+    "description": "Wire your repository so tests and a build run on every push before anything can merge.",
+    "acceptance_criteria": [
+      "The pipeline runs install, lint, test and build on every push",
+      "A deliberately broken commit fails the pipeline, with the run linked in the README",
+      "The badge or run link is visible in the README"
+    ]
+  },
+  "GitHub Actions": {
+    "title": "Automate tests and release with Actions",
+    "description": "Write a workflow that checks every push and publishes an artefact on a tag.",
+    "acceptance_criteria": [
+      "A workflow file runs the test suite on pull requests",
+      "A second job builds and uploads an artefact on tagged commits",
+      "Secrets are used through repository secrets, never committed"
+    ]
+  },
+  "Jenkins": {
+    "title": "Build a declarative Jenkins pipeline",
+    "description": "Set up a Jenkinsfile that builds, tests and archives one of your projects.",
+    "acceptance_criteria": [
+      "The Jenkinsfile defines build, test and archive stages",
+      "The pipeline runs on a local Jenkins instance and the README shows the stage view",
+      "A failing test stops the pipeline before the archive stage"
+    ]
+  },
+  "Ansible": {
+    "title": "Configure a server with a playbook",
+    "description": "Turn manual server setup into a repeatable playbook.",
+    "acceptance_criteria": [
+      "A playbook installs and configures the service from a clean machine",
+      "Running the playbook twice changes nothing the second time",
+      "Inventory and variables are separated from the tasks"
+    ]
+  },
+  "Monitoring": {
+    "title": "Instrument a service and watch it",
+    "description": "Add metrics and alerts to an API you already have, so you can tell when it is unhealthy.",
+    "acceptance_criteria": [
+      "The service exposes request count, error rate and latency metrics",
+      "A dashboard shows those three signals over time",
+      "One alert rule fires on a simulated failure, with a screenshot in the README"
+    ]
+  },
+  "Prometheus": {
+    "title": "Export and query your own metrics",
+    "description": "Expose application metrics and answer real questions with PromQL.",
+    "acceptance_criteria": [
+      "The app exposes a /metrics endpoint scraped by Prometheus",
+      "Three PromQL queries answering real questions are documented",
+      "A recording rule or alert rule is defined and explained"
+    ]
+  },
+  "Grafana": {
+    "title": "Build a dashboard someone else could read",
+    "description": "Turn raw metrics into a dashboard that shows health at a glance.",
+    "acceptance_criteria": [
+      "The dashboard has panels for traffic, errors and latency",
+      "The dashboard JSON is committed to the repository",
+      "The README explains what a healthy and an unhealthy board looks like"
+    ]
+  },
+  "Nginx": {
+    "title": "Put a reverse proxy in front of your app",
+    "description": "Serve your application through nginx with TLS and sensible caching.",
+    "acceptance_criteria": [
+      "nginx proxies to the app and the config is in the repository",
+      "Static assets are served with cache headers that the README explains",
+      "HTTPS works locally with a self signed certificate and the steps are documented"
+    ]
+  },
+  "Networking": {
+    "title": "Map and debug your own stack's network path",
+    "description": "Document how a request reaches your app and prove you can debug each hop.",
+    "acceptance_criteria": [
+      "A diagram shows DNS, TLS, load balancer and app for your deployed project",
+      "Commands used to debug each hop are recorded with their output",
+      "One deliberate misconfiguration is diagnosed and fixed in the write up"
+    ]
+  },
+  "Shell scripting": {
+    "title": "Automate a task you repeat every week",
+    "description": "Replace a manual routine with a script that is safe to run twice.",
+    "acceptance_criteria": [
+      "The script handles failure with set -euo pipefail and clear messages",
+      "It takes arguments and prints usage when called wrong",
+      "The README shows a real run with its output"
+    ]
+  },
+  "Linux": {
+    "title": "Run your project on a Linux server you manage",
+    "description": "Deploy to a plain virtual machine and keep it running without a platform doing it for you.",
+    "acceptance_criteria": [
+      "The service runs under systemd and restarts after a reboot",
+      "Logs go to journald and the README shows how to read them",
+      "A non root user owns the process and file permissions are explained"
+    ]
+  },
+  "Infrastructure as code": {
+    "title": "Rebuild your environment from a fresh clone",
+    "description": "Make the whole environment reproducible from code, with no undocumented steps.",
+    "acceptance_criteria": [
+      "Every resource the project needs is defined in code",
+      "A second environment can be created by changing variables only",
+      "The README lists the exact commands from clone to running system"
+    ]
+  },
+  "Cloud fundamentals": {
+    "title": "Deploy one project to a cloud provider end to end",
+    "description": "Take a working project and run it on cloud infrastructure you configured yourself.",
+    "acceptance_criteria": [
+      "The app is reachable on a public URL created by you",
+      "Compute, storage and networking choices are justified in the README",
+      "Monthly cost is estimated and written down"
+    ]
+  },
+  "AWS": {
+    "title": "Run a project on AWS with storage and compute",
+    "description": "Use at least two AWS services together and explain the wiring.",
+    "acceptance_criteria": [
+      "The app runs on EC2, Lambda or ECS and is reachable",
+      "Files or artefacts are stored in S3 through the SDK",
+      "IAM permissions are least privilege and explained in the README"
+    ]
+  },
+  "Azure": {
+    "title": "Deploy a project to Azure with managed services",
+    "description": "Use Azure compute plus one managed service and document the setup.",
+    "acceptance_criteria": [
+      "The app is deployed and reachable on an Azure endpoint",
+      "One managed service, such as storage or a database, is wired in",
+      "Configuration is kept out of code using app settings"
+    ]
+  },
+  "GCP": {
+    "title": "Ship a project on Google Cloud",
+    "description": "Deploy a container and connect one managed Google Cloud service.",
+    "acceptance_criteria": [
+      "The container runs on Cloud Run or GKE with a working URL",
+      "A managed service such as Cloud Storage or BigQuery is used",
+      "The README shows the deploy command and the cost estimate"
+    ]
+  },
+  "SQL": {
+    "title": "Answer five real questions with SQL",
+    "description": "Load a public dataset into Postgres and answer questions that need joins and windows.",
+    "acceptance_criteria": [
+      "Schema and load scripts are committed and run from scratch",
+      "Five queries with joins, grouping and at least one window function are documented",
+      "Each query has its result and a one line explanation of what it answers"
+    ]
+  },
+  "PostgreSQL": {
+    "title": "Design and tune a small Postgres schema",
+    "description": "Model a real domain properly and prove your indexes do something.",
+    "acceptance_criteria": [
+      "Tables, keys and constraints are created by a migration file",
+      "EXPLAIN output before and after an index is shown in the README",
+      "A transaction demonstrates correct behaviour under concurrent updates"
+    ]
+  },
+  "MySQL": {
+    "title": "Build a normalised MySQL database for a real domain",
+    "description": "Model a small system, load data and show the queries that run against it.",
+    "acceptance_criteria": [
+      "The schema is created by a committed SQL file with keys and constraints",
+      "Sample data loads with one command",
+      "Five queries answering real questions are documented with output"
+    ]
+  },
+  "MongoDB": {
+    "title": "Model a document heavy feature in MongoDB",
+    "description": "Choose embedding or referencing deliberately and justify the choice with queries.",
+    "acceptance_criteria": [
+      "Collections and indexes are created by a committed script",
+      "The README explains where you embedded and where you referenced, and why",
+      "An aggregation pipeline answers one real question"
+    ]
+  },
+  "Redis": {
+    "title": "Add caching to a slow endpoint",
+    "description": "Find a genuinely slow path in your app and put Redis in front of it.",
+    "acceptance_criteria": [
+      "Latency before and after is measured and recorded in the README",
+      "Cache keys and expiry are documented, including how stale data is avoided",
+      "The app still works correctly when Redis is unavailable"
+    ]
+  },
+  "REST APIs": {
+    "title": "Design and document an API someone else could use",
+    "description": "Build a small API with the details that matter: status codes, validation, pagination.",
+    "acceptance_criteria": [
+      "Every endpoint validates input and returns a consistent error shape",
+      "List endpoints are paginated and the contract is documented",
+      "An OpenAPI file or a Postman collection is committed"
+    ]
+  },
+  "Authentication": {
+    "title": "Add real authentication to one of your projects",
+    "description": "Implement sign up, sign in and protected routes without copying an entire template.",
+    "acceptance_criteria": [
+      "Passwords are hashed with bcrypt or argon2, never stored in plain text",
+      "Sessions or tokens expire and the expiry behaviour is tested",
+      "Protected routes reject missing and tampered credentials, shown by tests"
+    ]
+  },
+  "System design": {
+    "title": "Write a design document for your own project at scale",
+    "description": "Take a project you built and explain how it would survive a hundred times the traffic.",
+    "acceptance_criteria": [
+      "A diagram shows components, data flow and the bottleneck you identified",
+      "Two design options are compared with their tradeoffs",
+      "Capacity numbers are estimated rather than guessed, with the working shown"
+    ]
+  },
+  "Caching": {
+    "title": "Add a cache layer and prove it helps",
+    "description": "Measure first, cache second, and show the difference.",
+    "acceptance_criteria": [
+      "Baseline latency and load are measured before any caching",
+      "Cache invalidation rules are written down and demonstrated",
+      "The README shows the measured improvement and the correctness risk you accepted"
+    ]
+  },
+  "Message queues": {
+    "title": "Move slow work off the request path",
+    "description": "Introduce a queue so a slow task stops blocking the user.",
+    "acceptance_criteria": [
+      "A producer and a consumer run as separate processes",
+      "A failed job is retried and eventually lands in a dead letter path",
+      "The README shows the before and after request timing"
+    ]
+  },
+  "Microservices": {
+    "title": "Split one feature out into its own service",
+    "description": "Take a module out of a monolith and make it communicate over the network.",
+    "acceptance_criteria": [
+      "Two services run independently and communicate over HTTP or a queue",
+      "Each service has its own data and the boundary is explained",
+      "The README is honest about what the split made harder"
+    ]
+  },
+  "Testing": {
+    "title": "Bring one project from no tests to a meaningful suite",
+    "description": "Write tests that would actually catch a regression, not tests that restate the code.",
+    "acceptance_criteria": [
+      "Unit tests cover the core logic including edge cases",
+      "One integration test exercises the real path end to end",
+      "The README shows a bug the suite caught, with the failing output"
+    ]
+  },
+  "Jest": {
+    "title": "Test a front end feature properly",
+    "description": "Cover a component with tests that survive a refactor.",
+    "acceptance_criteria": [
+      "Tests exercise behaviour through the rendered output, not internals",
+      "Async states, loading and error, are both covered",
+      "The suite runs in CI on every push"
+    ]
+  },
+  "Playwright": {
+    "title": "Automate the critical path of your app",
+    "description": "Write end to end tests for the flow that must never break.",
+    "acceptance_criteria": [
+      "One spec covers the full sign in to main action journey",
+      "Tests run headless in CI and produce a trace on failure",
+      "Flakiness is addressed with waiting on state, not fixed timeouts"
+    ]
+  },
+  "Python": {
+    "title": "Turn a notebook into a package someone can install",
+    "description": "Take analysis code out of a notebook and make it reusable and testable.",
+    "acceptance_criteria": [
+      "Code is organised into modules with functions that take arguments",
+      "Tests cover the core functions including one edge case",
+      "The README shows installing and running it in three commands"
+    ]
+  },
+  "Pandas": {
+    "title": "Clean a messy public dataset end to end",
+    "description": "Pick a genuinely dirty dataset and document every decision you made about it.",
+    "acceptance_criteria": [
+      "Every cleaning step is a function with a comment on why it is needed",
+      "Missing values and duplicates are handled with a stated rule",
+      "Before and after row counts and column types are shown in the README"
+    ]
+  },
+  "NumPy": {
+    "title": "Rewrite a slow loop as array operations",
+    "description": "Take working but slow numeric code and vectorise it.",
+    "acceptance_criteria": [
+      "The loop version and the array version both exist and produce identical output",
+      "Timing for both is recorded in the README",
+      "The explanation says which NumPy behaviour made the difference"
+    ]
+  },
+  "scikit-learn": {
+    "title": "Build an honest model pipeline",
+    "description": "Train a model where the validation number can be trusted.",
+    "acceptance_criteria": [
+      "Preprocessing sits inside a Pipeline so nothing leaks across the split",
+      "Cross validation scores are reported with their spread, not one lucky number",
+      "A baseline model is included so the improvement is measurable"
+    ]
+  },
+  "Machine learning": {
+    "title": "Ship a model with an honest evaluation",
+    "description": "Train, evaluate and write up a model as if a reviewer would question every number.",
+    "acceptance_criteria": [
+      "A baseline and the trained model are compared on the same held out split",
+      "The metric matches the problem and the README says why that metric",
+      "One failure mode of the model is documented with examples"
+    ]
+  },
+  "Deep learning": {
+    "title": "Train a small network and show the training curve",
+    "description": "Build and train a network from scratch rather than only calling a pretrained one.",
+    "acceptance_criteria": [
+      "The model definition and training loop are your own code",
+      "Training and validation curves are plotted and read in the README",
+      "One overfitting fix is applied and its effect is shown"
+    ]
+  },
+  "PyTorch": {
+    "title": "Write a training loop you fully understand",
+    "description": "Implement dataset, model and loop without a high level trainer.",
+    "acceptance_criteria": [
+      "A custom Dataset and DataLoader feed the model",
+      "The training loop shows forward, loss, backward and step explicitly",
+      "Checkpoints are saved and a saved model is reloaded for inference"
+    ]
+  },
+  "TensorFlow": {
+    "title": "Train and export a model for serving",
+    "description": "Go from training to a saved model that something else can load.",
+    "acceptance_criteria": [
+      "The model is trained with a validation split and callbacks",
+      "The model is exported in SavedModel format and loaded again in a separate script",
+      "Inference on a single example is demonstrated end to end"
+    ]
+  },
+  "NLP": {
+    "title": "Build a text classifier and inspect its mistakes",
+    "description": "Classify real text and spend as much time on the errors as on the accuracy.",
+    "acceptance_criteria": [
+      "Preprocessing steps are documented with their effect on the score",
+      "A confusion matrix and ten real misclassified examples are discussed",
+      "A baseline such as majority class or TF-IDF is included for comparison"
+    ]
+  },
+  "Computer vision": {
+    "title": "Build an image pipeline with real preprocessing",
+    "description": "Work with images end to end, including the unglamorous preparation.",
+    "acceptance_criteria": [
+      "Loading, resizing and augmentation are implemented and shown visually",
+      "The model is evaluated on a held out set with per class results",
+      "Three failure cases are shown with an explanation of why they fail"
+    ]
+  },
+  "Statistics": {
+    "title": "Answer a question with a test, not a vibe",
+    "description": "Take a real question about a dataset and answer it with a stated method.",
+    "acceptance_criteria": [
+      "The hypothesis and the test chosen are written down before the result",
+      "Assumptions of the test are checked and reported",
+      "The conclusion states the effect size, not only the p value"
+    ]
+  },
+  "Feature engineering": {
+    "title": "Show that your features earn their place",
+    "description": "Create features deliberately and measure whether each one helps.",
+    "acceptance_criteria": [
+      "At least five engineered features are documented with their reasoning",
+      "Model performance with and without each group of features is compared",
+      "Leakage is explicitly checked for and the check is shown"
+    ]
+  },
+  "Data cleaning": {
+    "title": "Publish a reproducible cleaning pipeline",
+    "description": "Turn a raw file into an analysis ready table with one command.",
+    "acceptance_criteria": [
+      "One script takes the raw file and writes the cleaned file",
+      "Every rule, such as dropping or imputing, is justified in a comment",
+      "A data quality report of row counts and null counts is produced"
+    ]
+  },
+  "Data visualisation": {
+    "title": "Build a chart set that answers a question",
+    "description": "Make three charts that together tell one story, with no decoration for its own sake.",
+    "acceptance_criteria": [
+      "Each chart answers a stated question in its caption",
+      "Axes, units and sources are labelled on every chart",
+      "The README says which chart type you rejected and why"
+    ]
+  },
+  "Model deployment": {
+    "title": "Serve your model behind an API",
+    "description": "Move a trained model out of the notebook and into something callable.",
+    "acceptance_criteria": [
+      "A POST endpoint accepts JSON input and returns a prediction with the model version",
+      "The model is loaded once at startup, not per request",
+      "The README shows a curl call and the measured response time"
+    ]
+  },
+  "MLflow": {
+    "title": "Track your experiments so results are reproducible",
+    "description": "Stop losing runs and start comparing them properly.",
+    "acceptance_criteria": [
+      "Parameters, metrics and artefacts are logged for every run",
+      "Two runs are compared in the UI with a screenshot in the README",
+      "A logged model is loaded back and used for inference"
+    ]
+  },
+  "Jupyter": {
+    "title": "Turn a notebook into a readable analysis",
+    "description": "Make a notebook that someone else can run top to bottom and follow.",
+    "acceptance_criteria": [
+      "The notebook runs from a clean kernel with no hidden state",
+      "Markdown cells explain each step and the conclusion",
+      "Heavy functions are imported from a module rather than pasted in cells"
+    ]
+  },
+  "ETL": {
+    "title": "Build a pipeline that loads data on a schedule",
+    "description": "Extract from a source, transform it and load it somewhere queryable.",
+    "acceptance_criteria": [
+      "The pipeline is idempotent: running it twice does not duplicate rows",
+      "Failures are logged and the run can be resumed",
+      "A schedule is configured and documented"
+    ]
+  },
+  "Data modelling": {
+    "title": "Design a reporting schema for a real domain",
+    "description": "Build a model that answers business questions without contortions.",
+    "acceptance_criteria": [
+      "Fact and dimension tables are defined with a stated grain",
+      "Three business questions are answered with queries against the model",
+      "The README explains what you denormalised and why"
+    ]
+  },
+  "A/B testing": {
+    "title": "Design and analyse one experiment properly",
+    "description": "Run an experiment on a real or simulated dataset and report it honestly.",
+    "acceptance_criteria": [
+      "Sample size is calculated before the analysis, with the assumptions shown",
+      "The metric and the guardrail metric are both defined up front",
+      "The result states the confidence interval and what you would ship"
+    ]
+  },
+  "Business intelligence": {
+    "title": "Build a report a manager would actually use",
+    "description": "Turn data into a report with definitions that hold up to questioning.",
+    "acceptance_criteria": [
+      "Every metric has a written definition and a source query",
+      "The report answers three questions a manager asked for",
+      "Refresh steps are documented so someone else can maintain it"
+    ]
+  },
+  "Excel": {
+    "title": "Build a model with no hardcoded numbers in formulas",
+    "description": "Make a spreadsheet that someone can audit and change safely.",
+    "acceptance_criteria": [
+      "Inputs, calculations and outputs are on separate clearly labelled sheets",
+      "Lookups and pivot analysis are used rather than manual copying",
+      "A checks sheet flags broken assumptions automatically"
+    ]
+  },
+  "Power BI": {
+    "title": "Publish a dashboard with a clean data model",
+    "description": "Build a report where the relationships and measures are deliberate.",
+    "acceptance_criteria": [
+      "The data model uses relationships rather than merged flat tables",
+      "At least five DAX measures are written and documented",
+      "The report answers a stated business question on the first screen"
+    ]
+  },
+  "Tableau": {
+    "title": "Build a dashboard that answers one question well",
+    "description": "Make a focused dashboard rather than a wall of charts.",
+    "acceptance_criteria": [
+      "The dashboard has one headline answer and supporting detail",
+      "Filters and interactions are documented",
+      "The workbook is published with a short written interpretation"
+    ]
+  },
+  "Web scraping": {
+    "title": "Collect a dataset ethically and reliably",
+    "description": "Build a scraper that respects the site and survives small changes.",
+    "acceptance_criteria": [
+      "robots.txt and rate limits are respected and the code shows it",
+      "Data is written to a structured file with a documented schema",
+      "The scraper handles missing fields without crashing"
+    ]
+  },
+  "JavaScript": {
+    "title": "Build a feature without a framework",
+    "description": "Prove you know the language underneath the library.",
+    "acceptance_criteria": [
+      "The feature uses modules, async code and DOM events with no framework",
+      "Errors and loading states are handled explicitly",
+      "The README explains one thing you had to reason about, such as the event loop"
+    ]
+  },
+  "TypeScript": {
+    "title": "Add types to an existing JavaScript project",
+    "description": "Migrate real code and let the types find real bugs.",
+    "acceptance_criteria": [
+      "strict mode is on and there are no any types left in the migrated code",
+      "Shared types live in one place and are reused, not duplicated",
+      "The README lists two bugs the types exposed"
+    ]
+  },
+  "HTML": {
+    "title": "Build a page that is correct without CSS",
+    "description": "Structure content properly before styling it.",
+    "acceptance_criteria": [
+      "The page uses landmarks, headings in order and real form labels",
+      "It validates with no errors",
+      "It is usable and readable with stylesheets disabled, shown by a screenshot"
+    ]
+  },
+  "CSS": {
+    "title": "Rebuild a layout with modern CSS only",
+    "description": "Use grid and flexbox deliberately instead of reaching for a framework.",
+    "acceptance_criteria": [
+      "The layout works from 360px to 1440px with no horizontal scroll",
+      "Spacing and colour come from custom properties, not repeated values",
+      "The README explains one layout decision and the alternative you rejected"
+    ]
+  },
+  "React": {
+    "title": "Build a feature with real state, not a tutorial clone",
+    "description": "Handle the states a real feature has: loading, empty, error, success.",
+    "acceptance_criteria": [
+      "All four states are implemented and reachable in the UI",
+      "State lives at the right level and the README explains the choice",
+      "One component is covered by tests through its rendered behaviour"
+    ]
+  },
+  "Next.js": {
+    "title": "Ship an app that renders on the server where it should",
+    "description": "Use server and client components deliberately and be able to defend it.",
+    "acceptance_criteria": [
+      "At least one route fetches data on the server and renders without client JS",
+      "Loading and error states use the framework's own conventions",
+      "The README explains which components are client side and why"
+    ]
+  },
+  "Redux": {
+    "title": "Manage state that genuinely needs managing",
+    "description": "Introduce a store for state that is actually shared, not for everything.",
+    "acceptance_criteria": [
+      "The store holds only state shared across routes or components",
+      "Async flows handle pending, fulfilled and rejected states",
+      "The README argues why local state was not enough"
+    ]
+  },
+  "Tailwind CSS": {
+    "title": "Build a themed interface with design tokens",
+    "description": "Use a configured theme rather than scattering arbitrary values.",
+    "acceptance_criteria": [
+      "Colours, spacing and type come from the config, not arbitrary classes",
+      "Dark mode works and is tested at both themes",
+      "Repeated patterns are extracted into components, not copied classes"
+    ]
+  },
+  "Web performance": {
+    "title": "Make one page measurably faster",
+    "description": "Profile first, fix second, and show the numbers.",
+    "acceptance_criteria": [
+      "A Lighthouse report before and after is committed",
+      "Largest Contentful Paint improves and the cause of the improvement is named",
+      "JavaScript bundle size before and after is recorded"
+    ]
+  },
+  "Accessibility": {
+    "title": "Fix the accessibility of a page you built",
+    "description": "Audit a real page and repair what the audit finds.",
+    "acceptance_criteria": [
+      "Every interactive element is reachable and operable by keyboard",
+      "Colour contrast meets AA and the check is shown",
+      "The page is navigated with a screen reader and the notes are in the README"
+    ]
+  },
+  "Responsive design": {
+    "title": "Make one interface work from 360px up",
+    "description": "Design for the small screen first and let it grow.",
+    "acceptance_criteria": [
+      "No horizontal scrolling at 360px, shown by screenshots",
+      "Touch targets are at least 44px and spacing adapts by breakpoint",
+      "The README shows the same screen at three widths"
+    ]
+  },
+  "Node.js": {
+    "title": "Build a service that handles failure well",
+    "description": "Write a Node service that behaves under bad input and downstream errors.",
+    "acceptance_criteria": [
+      "Input is validated at the boundary with a consistent error response",
+      "Unhandled rejections and timeouts are handled explicitly",
+      "The service shuts down cleanly on SIGTERM"
+    ]
+  },
+  "Express": {
+    "title": "Build an API with real middleware",
+    "description": "Structure an Express app so routes stay thin.",
+    "acceptance_criteria": [
+      "Validation, authentication and error handling are middleware, not inline code",
+      "Routes contain no business logic, which lives in a service layer",
+      "Errors return a consistent JSON shape with correct status codes"
+    ]
+  },
+  "Django": {
+    "title": "Build a Django app with tests and migrations",
+    "description": "Use the framework properly rather than fighting it.",
+    "acceptance_criteria": [
+      "Models, migrations and the admin are all used",
+      "Views are covered by tests using the test client",
+      "Settings are environment aware with no secrets in code"
+    ]
+  },
+  "Flask": {
+    "title": "Build a small Flask service with structure",
+    "description": "Keep a Flask app organised past the single file stage.",
+    "acceptance_criteria": [
+      "Blueprints separate concerns and the app factory pattern is used",
+      "Configuration comes from the environment",
+      "Every route has a test"
+    ]
+  },
+  "FastAPI": {
+    "title": "Build a typed API with automatic documentation",
+    "description": "Use the framework's typing to get validation and docs for free.",
+    "acceptance_criteria": [
+      "Request and response models are declared with Pydantic",
+      "The generated OpenAPI docs are shown in the README",
+      "One dependency, such as authentication, is injected rather than imported"
+    ]
+  },
+  "Java": {
+    "title": "Build a small Java service with tests",
+    "description": "Write idiomatic Java with a build tool and a test suite.",
+    "acceptance_criteria": [
+      "The project builds with Maven or Gradle in one command",
+      "JUnit tests cover the core logic",
+      "Collections and streams are used where they fit, with a note on the choice"
+    ]
+  },
+  "Spring Boot": {
+    "title": "Build a REST service with Spring Boot",
+    "description": "Use dependency injection and the framework's testing support properly.",
+    "acceptance_criteria": [
+      "Controller, service and repository layers are separated",
+      "Integration tests run against an in memory or containerised database",
+      "Configuration is externalised in application properties"
+    ]
+  },
+  "Git": {
+    "title": "Clean up a repository history and workflow",
+    "description": "Show you can use Git deliberately, not only commit and push.",
+    "acceptance_criteria": [
+      "The repository uses branches and pull requests with reviewable commits",
+      "Commit messages follow a convention and explain why, not what",
+      "The README documents the branching workflow you chose"
+    ]
+  },
+  "Data structures and algorithms": {
+    "title": "Publish solutions with your reasoning",
+    "description": "Solve problems and explain the thinking, since that is what interviews test.",
+    "acceptance_criteria": [
+      "Thirty solutions grouped by pattern, each with a complexity note",
+      "Each file explains the approach in three lines before the code",
+      "Five problems include a brute force and an optimised version side by side"
+    ]
+  },
+  "GraphQL": {
+    "title": "Build a schema that avoids the N plus one problem",
+    "description": "Design a GraphQL API and make it efficient.",
+    "acceptance_criteria": [
+      "The schema has types, queries and at least one mutation",
+      "Batching or data loading is used and the query count is shown before and after",
+      "Errors are returned in a way clients can act on"
+    ]
+  },
+  "Vite": {
+    "title": "Set up and tune a build for a real project",
+    "description": "Understand your build tool rather than inheriting a template.",
+    "acceptance_criteria": [
+      "The config handles environment variables and aliases deliberately",
+      "Production build size is reported before and after one optimisation",
+      "The README explains what the build actually does"
+    ]
+  },
+  "Figma": {
+    "title": "Translate a design into a faithful interface",
+    "description": "Work from a design file the way you would on a team.",
+    "acceptance_criteria": [
+      "Spacing, type and colour match the design and the deviations are listed",
+      "Component states from the file are all implemented",
+      "The README links the frames you built from"
+    ]
+  },
+  "Postman": {
+    "title": "Document and test an API collection",
+    "description": "Make your API easy for someone else to try.",
+    "acceptance_criteria": [
+      "A collection covers every endpoint with example requests",
+      "Tests assert status codes and response shape",
+      "Environment variables keep secrets out of the exported collection"
+    ]
+  },
+  "Matplotlib": {
+    "title": "Produce report quality figures from code",
+    "description": "Make charts that could go into a report without editing.",
+    "acceptance_criteria": [
+      "Figures are generated by a script, not by hand",
+      "Labels, units and legends are complete on every figure",
+      "A consistent style is applied across all figures"
+    ]
+  },
+  "Agile": {
+    "title": "Run one project with a visible board and honest estimates",
+    "description": "Practise the process, not only the code.",
+    "acceptance_criteria": [
+      "Work is broken into issues with acceptance criteria before coding",
+      "A board shows the flow and the README links it",
+      "The retrospective notes what your estimates got wrong"
+    ]
+  }
+}
