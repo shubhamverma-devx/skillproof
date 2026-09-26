@@ -31,7 +31,7 @@ function mark(phase: string): void {
 }
 
 /** Long enough for a narrator to finish the matching sentence. */
-const BEAT = { short: 600, read: 1700, long: 2500, hold: 7000 } as const;
+const BEAT = { short: 500, read: 1500, long: 2200, hold: 5500 } as const;
 
 async function shot(page: Page, name: string): Promise<void> {
   shotIndex += 1;

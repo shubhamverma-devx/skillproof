@@ -184,6 +184,31 @@ live GitHub analysis. Against a local production build:
 | Live GitHub analysis for `shubhamverma-devx` | 14,798ms |
 
 The slowest step is 14.8 seconds, comfortably inside the 60 second function
-limit. Deployed timings are recorded below once the deployment exists.
+limit.
+
+### Against the deployment
+
+`SMOKE_BASE=https://skillproof-dev-x9.vercel.app pnpm smoke`, all six checks
+passed:
+
+| Check                                        | Time     |
+| -------------------------------------------- | -------- |
+| Landing page                                 | 1,243ms  |
+| Demo profile analysis, stream to dashboard   | 14,299ms |
+| Quiz round trip                              | 1,844ms  |
+| Roadmap generation                           | 7,685ms  |
+| State after writes                           | 2,015ms  |
+| Live GitHub analysis for `shubhamverma-devx` | 12,632ms |
+
+Nothing came close to the 60 second function limit. The analyse route streams
+its first event immediately, so the connection is never idle while the resume is
+being read.
+
+**Bug found and fixed: a click before hydration does nothing.** The first
+production run failed at the demo button. The API was fine, but the browser
+clicked before React had hydrated on a cold serverless start, so the handler was
+not attached yet. The smoke test now retries the click until navigation starts.
+A person clicking that fast would hit the same dead click, which is inherent to
+hydration rather than a defect in this app.
 
 Recorded in the "Production" section below once the deployment exists.

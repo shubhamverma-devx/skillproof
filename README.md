@@ -5,10 +5,29 @@ readiness score for a target role, explains every gap with the evidence behind
 it, and builds an adaptive week by week roadmap that replans itself as the
 student proves things.
 
+**[Live demo](https://skillproof-dev-x9.vercel.app)** ·
+**[Source](https://github.com/shubhamverma-devx/skillproof)** ·
+[Demo video](docs/video/skillproof-demo.mp4) ·
+[Pitch deck](docs/SkillProof_Pitch.pdf)
+
 Built for Bit N Build 2026, UP Regionals, problem statement 05: education and
 employability.
 
 ![Dashboard](docs/screenshots/dashboard-desktop-light.png)
+
+## Try it
+
+On [the live deployment](https://skillproof-dev-x9.vercel.app):
+
+- **Load demo profile** runs the whole story on a seeded student, Riya Sharma,
+  in about fifteen seconds. Her GitHub scan and the model replies are recorded,
+  which is labelled in the interface.
+- **Analyse my profile** runs it on you. Paste your resume text or upload a PDF,
+  add your GitHub username, and pick a target role. The analysis is live: it
+  reads your public repositories and calls Sarvam for the explanations.
+
+There is no sign up and no account. A profile lives at its own URL, and that URL
+is the only way back to it.
 
 ## The problem
 
