@@ -1,0 +1,113 @@
+{
+  "skill": "Git",
+  "questions": [
+    {
+      "question": "What does git status show?",
+      "options": [
+        "Commit history",
+        "Working tree and staging area state",
+        "Remote branches only",
+        "Merge conflicts only"
+      ],
+      "correct_index": 1,
+      "explanation": "git status reports which files are modified, staged or untracked relative to HEAD.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Which command creates a branch and switches to it?",
+      "options": [
+        "git branch new",
+        "git checkout -b new",
+        "git switch --create-only new",
+        "git merge new"
+      ],
+      "correct_index": 1,
+      "explanation": "git checkout -b new (or git switch -c new) creates the branch and moves onto it.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "What does .gitignore control?",
+      "options": [
+        "Which files are deleted",
+        "Which untracked paths Git ignores",
+        "Which branches are hidden",
+        "Commit message rules"
+      ],
+      "correct_index": 1,
+      "explanation": "Patterns in .gitignore stop untracked files being suggested or added. Already tracked files stay tracked.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "What is the difference between git fetch and git pull?",
+      "options": [
+        "None",
+        "fetch downloads refs only, pull also merges or rebases into your branch",
+        "pull only downloads",
+        "fetch changes the working tree"
+      ],
+      "correct_index": 1,
+      "explanation": "fetch updates remote tracking refs; pull is fetch plus an integration step.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "What does git reset --soft HEAD~1 do?",
+      "options": [
+        "Deletes the last commit and its changes",
+        "Moves HEAD back one commit and keeps the changes staged",
+        "Discards all local changes",
+        "Rewrites remote history"
+      ],
+      "correct_index": 1,
+      "explanation": "--soft moves the branch pointer while leaving the index and working tree intact.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "When is a rebase preferable to a merge?",
+      "options": [
+        "Always",
+        "When you want a linear history on a private branch before review",
+        "When the branch is shared and already pushed",
+        "When resolving binary conflicts"
+      ],
+      "correct_index": 1,
+      "explanation": "Rebasing rewrites commits, so it suits local branches. Rewriting shared history disrupts collaborators.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "What does git revert do that git reset does not?",
+      "options": [
+        "Nothing",
+        "Creates a new commit that undoes a previous one, keeping history intact",
+        "Deletes commits permanently",
+        "Works only on merges"
+      ],
+      "correct_index": 1,
+      "explanation": "revert is additive and therefore safe on shared branches; reset moves pointers and can rewrite history.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "What is a detached HEAD state?",
+      "options": [
+        "A corrupted repository",
+        "HEAD points at a commit rather than a branch reference",
+        "A branch with no commits",
+        "A failed merge"
+      ],
+      "correct_index": 1,
+      "explanation": "Checking out a commit or tag leaves HEAD pointing at that commit, so new commits belong to no branch.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "What does git cherry-pick do?",
+      "options": [
+        "Merges two branches",
+        "Applies the changes of a specific commit onto the current branch",
+        "Reorders commits interactively",
+        "Splits a commit"
+      ],
+      "correct_index": 1,
+      "explanation": "cherry-pick replays one commit's diff as a new commit on your branch.",
+      "difficulty": "hard"
+    }
+  ]
+}

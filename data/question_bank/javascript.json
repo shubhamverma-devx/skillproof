@@ -1,0 +1,113 @@
+{
+  "skill": "JavaScript",
+  "questions": [
+    {
+      "question": "What does typeof null return?",
+      "options": [
+        "'null'",
+        "'object'",
+        "'undefined'",
+        "'boolean'"
+      ],
+      "correct_index": 1,
+      "explanation": "typeof null is 'object', a long standing quirk of the language kept for backward compatibility.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Which method returns a new array rather than mutating the original?",
+      "options": [
+        "push",
+        "splice",
+        "map",
+        "sort"
+      ],
+      "correct_index": 2,
+      "explanation": "map builds a new array. push, splice and sort all change the array in place.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "What is the result of '5' + 3 and '5' - 3?",
+      "options": [
+        "'53' and 2",
+        "8 and 2",
+        "'53' and '53'",
+        "NaN and 2"
+      ],
+      "correct_index": 0,
+      "explanation": "Plus prefers string concatenation when either side is a string, while minus coerces both sides to numbers.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "What does const prevent?",
+      "options": [
+        "Any change to the value",
+        "Reassignment of the binding",
+        "Object property changes",
+        "Hoisting"
+      ],
+      "correct_index": 1,
+      "explanation": "const stops the variable being reassigned; the object it points at can still be mutated.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "In what order do these run: sync log, setTimeout 0, Promise.resolve().then?",
+      "options": [
+        "timeout, promise, sync",
+        "sync, promise, timeout",
+        "sync, timeout, promise",
+        "promise, sync, timeout"
+      ],
+      "correct_index": 1,
+      "explanation": "Synchronous code first, then microtasks such as promise callbacks, then macrotasks such as timers.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "What is the difference between == and ===?",
+      "options": [
+        "None",
+        "== applies type coercion, === compares type and value",
+        "=== coerces types",
+        "== only works on numbers"
+      ],
+      "correct_index": 1,
+      "explanation": "== converts operands to a common type before comparing, === does not.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "What does a closure capture?",
+      "options": [
+        "A copy of the outer variables at call time",
+        "A live reference to the enclosing scope's variables",
+        "Only function arguments",
+        "The global object"
+      ],
+      "correct_index": 1,
+      "explanation": "The inner function keeps a reference to the outer scope, so later changes to those variables are visible.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Why does this log 3 three times: for (var i = 0; i < 3; i++) setTimeout(() => console.log(i))?",
+      "options": [
+        "setTimeout batches calls",
+        "var is function scoped so all callbacks share one i, which is 3 by the time they run",
+        "Arrow functions cannot see i",
+        "The loop runs after the timers"
+      ],
+      "correct_index": 1,
+      "explanation": "var creates one binding for the whole function. let would create a fresh binding per iteration.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "What does async function always return?",
+      "options": [
+        "The resolved value",
+        "A Promise",
+        "undefined",
+        "A generator"
+      ],
+      "correct_index": 1,
+      "explanation": "An async function wraps its return value in a promise, so callers must await or chain then.",
+      "difficulty": "hard"
+    }
+  ]
+}

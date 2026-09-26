@@ -1,0 +1,113 @@
+{
+  "skill": "Docker",
+  "questions": [
+    {
+      "question": "What is a Docker image?",
+      "options": [
+        "A running process",
+        "A read only template used to create containers",
+        "A virtual machine",
+        "A network bridge"
+      ],
+      "correct_index": 1,
+      "explanation": "An image is an immutable layered filesystem plus metadata. A container is a running instance of it.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Which instruction in a Dockerfile sets the command run when the container starts?",
+      "options": [
+        "RUN",
+        "CMD",
+        "COPY",
+        "ENV"
+      ],
+      "correct_index": 1,
+      "explanation": "CMD (or ENTRYPOINT) defines the start command. RUN executes during the build.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "What does docker ps show by default?",
+      "options": [
+        "All images",
+        "Only running containers",
+        "Stopped containers only",
+        "Volumes"
+      ],
+      "correct_index": 1,
+      "explanation": "docker ps lists running containers; -a adds stopped ones.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Why put COPY package.json before COPY . in a Node Dockerfile?",
+      "options": [
+        "It reduces image size",
+        "Dependencies are cached in their own layer and reinstall only when the manifest changes",
+        "It is required by Docker",
+        "It avoids permission errors"
+      ],
+      "correct_index": 1,
+      "explanation": "Layer caching keys on the copied files, so copying the manifest first keeps the install layer valid across code changes.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "What is the difference between a volume and a bind mount?",
+      "options": [
+        "None",
+        "A volume is managed by Docker, a bind mount maps a specific host path",
+        "Volumes are read only",
+        "Bind mounts survive container deletion, volumes do not"
+      ],
+      "correct_index": 1,
+      "explanation": "Volumes live in Docker's storage area and are portable; bind mounts point at an exact host directory.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "What does EXPOSE actually do?",
+      "options": [
+        "Publishes the port on the host",
+        "Documents the port and informs tooling, without publishing it",
+        "Opens a firewall rule",
+        "Binds the container to localhost"
+      ],
+      "correct_index": 1,
+      "explanation": "EXPOSE is metadata. Publishing requires -p or a ports entry in Compose.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Why is a multi stage build useful?",
+      "options": [
+        "It runs builds in parallel",
+        "Build tools stay in an earlier stage so the final image ships only the artefacts",
+        "It allows multiple base images at runtime",
+        "It caches layers across machines"
+      ],
+      "correct_index": 1,
+      "explanation": "You compile in a heavy stage and copy only the output into a slim final stage, cutting image size and attack surface.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "What happens to data written inside a container's writable layer when it is removed?",
+      "options": [
+        "It moves to the image",
+        "It is lost unless a volume or bind mount was used",
+        "It is committed automatically",
+        "It stays in the build cache"
+      ],
+      "correct_index": 1,
+      "explanation": "The writable layer is deleted with the container, which is why stateful paths need volumes.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Why does each RUN instruction matter for image size?",
+      "options": [
+        "It does not",
+        "Every RUN creates a layer, so files deleted in a later layer still occupy space",
+        "RUN compresses the image",
+        "RUN merges automatically"
+      ],
+      "correct_index": 1,
+      "explanation": "Layers are additive, so cleanup must happen in the same RUN that created the files.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "skill": "SQL",
+  "questions": [
+    {
+      "question": "Which clause filters rows before any grouping happens?",
+      "options": [
+        "HAVING",
+        "WHERE",
+        "ORDER BY",
+        "LIMIT"
+      ],
+      "correct_index": 1,
+      "explanation": "WHERE filters individual rows before GROUP BY. HAVING filters the groups afterwards.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "What does SELECT COUNT(*) FROM orders return when the table is empty?",
+      "options": [
+        "NULL",
+        "0",
+        "An error",
+        "No rows at all"
+      ],
+      "correct_index": 1,
+      "explanation": "COUNT(*) on an empty table returns a single row containing 0.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Which join keeps every row from the left table even without a match?",
+      "options": [
+        "INNER JOIN",
+        "LEFT JOIN",
+        "CROSS JOIN",
+        "SELF JOIN"
+      ],
+      "correct_index": 1,
+      "explanation": "LEFT JOIN keeps all left rows and fills unmatched right columns with NULL.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Why does COUNT(column) sometimes return fewer rows than COUNT(*)?",
+      "options": [
+        "COUNT(column) samples the table",
+        "COUNT(column) skips NULL values",
+        "COUNT(*) counts indexes",
+        "They are always equal"
+      ],
+      "correct_index": 1,
+      "explanation": "Aggregate functions ignore NULLs, so a nullable column counts fewer rows than COUNT(*).",
+      "difficulty": "medium"
+    },
+    {
+      "question": "What does this return: SELECT dept, AVG(salary) FROM staff GROUP BY dept HAVING COUNT(*) > 5?",
+      "options": [
+        "Average salary for all departments",
+        "Average salary only for departments with more than five staff",
+        "The five highest paid departments",
+        "An error, HAVING needs an aggregate in SELECT"
+      ],
+      "correct_index": 1,
+      "explanation": "HAVING filters groups after aggregation, so only departments with more than five rows survive.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which index helps this query most: WHERE customer_id = 7 ORDER BY created_at DESC?",
+      "options": [
+        "An index on created_at only",
+        "A composite index on (customer_id, created_at)",
+        "An index on customer_id only",
+        "No index can help ordering"
+      ],
+      "correct_index": 1,
+      "explanation": "A composite index matching the equality column then the sort column serves both filter and order without a sort step.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "What is the difference between RANK() and ROW_NUMBER() on tied values?",
+      "options": [
+        "No difference",
+        "RANK() gives ties the same number and leaves gaps, ROW_NUMBER() never repeats",
+        "ROW_NUMBER() leaves gaps",
+        "RANK() ignores ties"
+      ],
+      "correct_index": 1,
+      "explanation": "RANK() repeats the rank for ties and skips the next values, ROW_NUMBER() always increments.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Why can a NOT IN subquery return zero rows unexpectedly?",
+      "options": [
+        "Subqueries cannot be used with NOT IN",
+        "If the subquery returns any NULL the comparison is never true",
+        "NOT IN ignores indexes",
+        "NOT IN only works on primary keys"
+      ],
+      "correct_index": 1,
+      "explanation": "A NULL in the list makes every comparison unknown, so the predicate never holds. NOT EXISTS avoids this.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "What isolation problem does READ COMMITTED still allow?",
+      "options": [
+        "Dirty reads",
+        "Non repeatable reads",
+        "Nothing, it is fully serialisable",
+        "Lost updates are impossible"
+      ],
+      "correct_index": 1,
+      "explanation": "READ COMMITTED prevents dirty reads but the same row can change between two reads in one transaction.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "skill": "Pandas",
+  "questions": [
+    {
+      "question": "What does df.head() return?",
+      "options": [
+        "Column names",
+        "The first five rows by default",
+        "A summary of dtypes",
+        "The index only"
+      ],
+      "correct_index": 1,
+      "explanation": "head() returns the first n rows, with n defaulting to 5.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Which attribute gives the number of rows and columns?",
+      "options": [
+        "df.size",
+        "df.shape",
+        "df.count()",
+        "df.len"
+      ],
+      "correct_index": 1,
+      "explanation": "df.shape returns a (rows, columns) tuple. size returns the total cell count.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "How do you select the column 'age' as a Series?",
+      "options": [
+        "df['age']",
+        "df.age()",
+        "df.col('age')",
+        "df[['age']]"
+      ],
+      "correct_index": 0,
+      "explanation": "df['age'] returns a Series; df[['age']] returns a one column DataFrame.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "What does df.groupby('city')['sales'].sum() produce?",
+      "options": [
+        "A DataFrame of all columns",
+        "A Series of total sales per city",
+        "The overall total",
+        "A sorted DataFrame"
+      ],
+      "correct_index": 1,
+      "explanation": "Grouping then aggregating one column returns a Series indexed by the group key.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "What is the difference between loc and iloc?",
+      "options": [
+        "None",
+        "loc selects by label, iloc by integer position",
+        "loc is faster",
+        "iloc works only on Series"
+      ],
+      "correct_index": 1,
+      "explanation": "loc uses index labels and is inclusive of the end label; iloc uses positions and excludes the end.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "What does df.merge(other, how='left', on='id') keep?",
+      "options": [
+        "Only matching ids",
+        "All rows of df, with NULLs where other has no match",
+        "All rows of both frames",
+        "Only ids present in both"
+      ],
+      "correct_index": 1,
+      "explanation": "A left merge behaves like a SQL LEFT JOIN.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "What is the SettingWithCopyWarning telling you?",
+      "options": [
+        "The DataFrame is too large",
+        "You may be assigning to a copy rather than the original frame",
+        "The dtype is wrong",
+        "The index has duplicates"
+      ],
+      "correct_index": 1,
+      "explanation": "Chained indexing can return a view or a copy, so the assignment may silently not stick. Use .loc in one step.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Why can df.apply(axis=1) be much slower than a vectorised expression?",
+      "options": [
+        "It copies the frame each row",
+        "It runs a Python function per row instead of a compiled array operation",
+        "It sorts the index",
+        "It releases the GIL"
+      ],
+      "correct_index": 1,
+      "explanation": "Row wise apply loops in Python, losing the vectorised NumPy path.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "What does df.fillna(method='ffill') do?",
+      "options": [
+        "Fills with zero",
+        "Propagates the last valid value forward",
+        "Drops missing rows",
+        "Interpolates linearly"
+      ],
+      "correct_index": 1,
+      "explanation": "Forward fill carries the previous observation into the gap, which suits ordered time series.",
+      "difficulty": "hard"
+    }
+  ]
+}

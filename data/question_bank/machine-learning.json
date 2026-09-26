@@ -1,0 +1,113 @@
+{
+  "skill": "Machine learning",
+  "questions": [
+    {
+      "question": "What is a training and test split for?",
+      "options": [
+        "To speed up training",
+        "To estimate performance on data the model has not seen",
+        "To balance classes",
+        "To reduce features"
+      ],
+      "correct_index": 1,
+      "explanation": "Held out data is the only honest estimate of generalisation.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "What does overfitting look like?",
+      "options": [
+        "High training error and high test error",
+        "Low training error and high test error",
+        "Low error on both",
+        "High error on training only"
+      ],
+      "correct_index": 1,
+      "explanation": "An overfitted model memorises the training set and fails to generalise.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Which metric is misleading on a heavily imbalanced dataset?",
+      "options": [
+        "Precision",
+        "Accuracy",
+        "Recall",
+        "F1 score"
+      ],
+      "correct_index": 1,
+      "explanation": "Predicting the majority class always can give high accuracy while finding none of the minority cases.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "What does cross validation give you over a single split?",
+      "options": [
+        "Faster training",
+        "A more stable performance estimate across several folds",
+        "Better features",
+        "Guaranteed higher accuracy"
+      ],
+      "correct_index": 1,
+      "explanation": "K fold averages over multiple splits, reducing the variance of the estimate.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "What is the precision recall tradeoff?",
+      "options": [
+        "They always move together",
+        "Raising the decision threshold usually raises precision and lowers recall",
+        "Precision measures speed",
+        "Recall is precision on test data"
+      ],
+      "correct_index": 1,
+      "explanation": "Tightening the threshold makes fewer, more confident positive predictions.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "What is data leakage?",
+      "options": [
+        "Losing rows during cleaning",
+        "Information from outside the training fold influencing the model, inflating scores",
+        "A memory error",
+        "Publishing a dataset"
+      ],
+      "correct_index": 1,
+      "explanation": "Scaling before splitting, or using future information, leaks signal and produces unrealistic validation scores.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Why does regularisation help generalisation?",
+      "options": [
+        "It adds more data",
+        "It penalises large coefficients, constraining model complexity",
+        "It speeds up gradient descent",
+        "It removes outliers"
+      ],
+      "correct_index": 1,
+      "explanation": "L1 and L2 penalties trade a little training fit for a simpler model that transfers better.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "What does the bias variance decomposition say about a very deep tree?",
+      "options": [
+        "High bias, low variance",
+        "Low bias, high variance",
+        "High bias, high variance",
+        "Neither changes"
+      ],
+      "correct_index": 1,
+      "explanation": "An unpruned tree fits training data closely (low bias) but its predictions swing with the sample (high variance).",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Why should feature scaling be fitted on the training set only?",
+      "options": [
+        "It is faster",
+        "Fitting on all data leaks test set statistics into training",
+        "Scalers cannot be reused",
+        "Test data has no variance"
+      ],
+      "correct_index": 1,
+      "explanation": "The scaler is part of the model, so its parameters must come from training data alone.",
+      "difficulty": "hard"
+    }
+  ]
+}

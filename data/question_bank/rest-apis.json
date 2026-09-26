@@ -1,0 +1,113 @@
+{
+  "skill": "REST APIs",
+  "questions": [
+    {
+      "question": "Which HTTP method is expected to be idempotent?",
+      "options": [
+        "POST",
+        "PUT",
+        "PATCH in all cases",
+        "None of them"
+      ],
+      "correct_index": 1,
+      "explanation": "Repeating the same PUT leaves the resource in the same state. POST typically creates a new resource each time.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Which status code means the request was understood but the resource does not exist?",
+      "options": [
+        "400",
+        "404",
+        "500",
+        "204"
+      ],
+      "correct_index": 1,
+      "explanation": "404 is the standard not found response; 400 signals a malformed request.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "What does a 201 response usually indicate?",
+      "options": [
+        "Request accepted for later processing",
+        "A resource was created",
+        "No content",
+        "Permanent redirect"
+      ],
+      "correct_index": 1,
+      "explanation": "201 Created is the normal answer to a successful POST, usually with a Location header.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "What is the difference between 401 and 403?",
+      "options": [
+        "None",
+        "401 means not authenticated, 403 means authenticated but not allowed",
+        "403 means the token expired",
+        "401 is a server error"
+      ],
+      "correct_index": 1,
+      "explanation": "401 invites credentials, 403 says the credentials are valid but insufficient.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Why use pagination on a collection endpoint?",
+      "options": [
+        "To improve security",
+        "To bound response size and database work for large collections",
+        "To allow caching",
+        "To support PATCH"
+      ],
+      "correct_index": 1,
+      "explanation": "Unbounded list endpoints break as data grows, both on the server and on the client.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "What makes an API endpoint idempotent in practice for payments?",
+      "options": [
+        "Retrying is banned",
+        "An idempotency key so repeated requests produce one effect",
+        "Using GET instead",
+        "Locking the table"
+      ],
+      "correct_index": 1,
+      "explanation": "Clients retry on timeouts, so the server must recognise a repeat and return the original result.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "What does a 429 response tell a client to do?",
+      "options": [
+        "Retry immediately",
+        "Slow down, the rate limit is exceeded",
+        "Re authenticate",
+        "Change the URL"
+      ],
+      "correct_index": 1,
+      "explanation": "429 Too Many Requests usually carries Retry-After, and clients should back off.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Why is versioning an API worth doing early?",
+      "options": [
+        "It improves latency",
+        "Breaking changes can ship without breaking existing clients",
+        "It is required by HTTP",
+        "It simplifies auth"
+      ],
+      "correct_index": 1,
+      "explanation": "Once external clients depend on a response shape, you need a path to change it safely.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "What is the practical problem with returning 200 for errors?",
+      "options": [
+        "Nothing",
+        "Clients, proxies and monitoring cannot distinguish failure from success",
+        "It breaks JSON",
+        "200 is not allowed with a body"
+      ],
+      "correct_index": 1,
+      "explanation": "Status codes are the machine readable contract; hiding failures in the body defeats retries and alerting.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "skill": "Python",
+  "questions": [
+    {
+      "question": "What does the expression len([1, 2, 3][1:]) evaluate to?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "An IndexError"
+      ],
+      "correct_index": 1,
+      "explanation": "Slicing from index 1 gives [2, 3], which has length 2. Slices never raise IndexError for out of range bounds.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Which of these is immutable in Python?",
+      "options": [
+        "list",
+        "dict",
+        "tuple",
+        "set"
+      ],
+      "correct_index": 2,
+      "explanation": "Tuples cannot be changed after creation. Lists, dicts and sets can all be mutated in place.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "What is printed by: x = '5'; print(x * 2)?",
+      "options": [
+        "10",
+        "55",
+        "25",
+        "TypeError"
+      ],
+      "correct_index": 1,
+      "explanation": "Multiplying a string by an integer repeats the string, so '5' * 2 is '55'.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "What is the output of: def f(a=[]): a.append(1); return a  called twice?",
+      "options": [
+        "[1] then [1]",
+        "[1] then [1, 1]",
+        "[1, 1] then [1, 1]",
+        "TypeError on the second call"
+      ],
+      "correct_index": 1,
+      "explanation": "The default argument is created once at function definition, so the same list is reused and grows across calls.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which statement about Python dict ordering is correct for version 3.7 and later?",
+      "options": [
+        "Keys are sorted alphabetically",
+        "Insertion order is preserved",
+        "Order is random per run",
+        "Order depends on key hash only"
+      ],
+      "correct_index": 1,
+      "explanation": "From 3.7 the language guarantees dicts keep insertion order.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "What does the with statement primarily provide?",
+      "options": [
+        "Faster file reads",
+        "Deterministic cleanup through the context manager protocol",
+        "Automatic exception suppression",
+        "Thread safety"
+      ],
+      "correct_index": 1,
+      "explanation": "with calls __enter__ and __exit__, so resources are released even if the block raises. It does not swallow exceptions by itself.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Why can threads fail to speed up CPU bound Python code in CPython?",
+      "options": [
+        "Threads cannot share memory",
+        "The global interpreter lock allows one thread to execute bytecode at a time",
+        "Python has no thread module",
+        "Threads always run on one core by design"
+      ],
+      "correct_index": 1,
+      "explanation": "The GIL serialises bytecode execution, so CPU bound work needs processes or native extensions to scale.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "What is the difference between __str__ and __repr__?",
+      "options": [
+        "__str__ is for developers, __repr__ for users",
+        "__repr__ should be unambiguous for developers, __str__ readable for users",
+        "They are aliases",
+        "__repr__ is only used in tracebacks"
+      ],
+      "correct_index": 1,
+      "explanation": "repr aims at an unambiguous developer view and is the fallback for str when str is not defined.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "What does a generator expression give you over a list comprehension?",
+      "options": [
+        "Faster indexing",
+        "Lazy evaluation with constant memory for iteration",
+        "Automatic sorting",
+        "Type checking"
+      ],
+      "correct_index": 1,
+      "explanation": "A generator yields items on demand rather than building the whole list in memory.",
+      "difficulty": "hard"
+    }
+  ]
+}

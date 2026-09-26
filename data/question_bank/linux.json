@@ -1,0 +1,113 @@
+{
+  "skill": "Linux",
+  "questions": [
+    {
+      "question": "Which command lists files including hidden ones?",
+      "options": [
+        "ls -l",
+        "ls -a",
+        "ls -h",
+        "ls -r"
+      ],
+      "correct_index": 1,
+      "explanation": "-a includes entries starting with a dot.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "What does chmod 644 file set?",
+      "options": [
+        "Owner read write, others read",
+        "Everyone full access",
+        "Owner only read",
+        "Execute for all"
+      ],
+      "correct_index": 0,
+      "explanation": "6 is read plus write for the owner, 4 is read for group and others.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Which command shows disk space used by mounted filesystems?",
+      "options": [
+        "du",
+        "df -h",
+        "free -m",
+        "top"
+      ],
+      "correct_index": 1,
+      "explanation": "df reports filesystem level usage; du sums directory sizes.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "What does grep -r 'timeout' . do?",
+      "options": [
+        "Replaces the word",
+        "Searches recursively for the pattern from the current directory",
+        "Counts files",
+        "Deletes matches"
+      ],
+      "correct_index": 1,
+      "explanation": "-r walks subdirectories looking for the pattern.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "What is the difference between a hard link and a symbolic link?",
+      "options": [
+        "None",
+        "A hard link is another name for the same inode, a symlink points at a path",
+        "Symlinks cannot cross directories",
+        "Hard links can cross filesystems"
+      ],
+      "correct_index": 1,
+      "explanation": "Hard links share the inode so the data survives deleting one name; a symlink breaks if its target moves.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "What does ps aux | grep node | grep -v grep achieve?",
+      "options": [
+        "Kills node processes",
+        "Lists node processes while excluding the grep command itself",
+        "Counts node processes",
+        "Restarts node"
+      ],
+      "correct_index": 1,
+      "explanation": "-v inverts the match, removing the grep process from the listing.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Where do you look first for a failing systemd service?",
+      "options": [
+        "dmesg",
+        "journalctl -u service-name",
+        "/etc/passwd",
+        "top"
+      ],
+      "correct_index": 1,
+      "explanation": "journalctl scoped to the unit shows its logs and the failure reason.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "What does the exit code 0 conventionally mean in a shell script?",
+      "options": [
+        "Failure",
+        "Success",
+        "Warning",
+        "Unknown"
+      ],
+      "correct_index": 1,
+      "explanation": "Zero is success; any non zero value signals an error, which is why set -e reacts to it.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Why can a process keep disk space occupied after the file is deleted?",
+      "options": [
+        "The filesystem is corrupt",
+        "The inode is freed only when the last open file descriptor closes",
+        "rm never frees space",
+        "Only root can free space"
+      ],
+      "correct_index": 1,
+      "explanation": "Deleting removes the directory entry; the data stays until every handle is closed.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "skill": "React",
+  "questions": [
+    {
+      "question": "What is the purpose of the key prop in a list?",
+      "options": [
+        "Styling each row",
+        "Helping React match elements between renders",
+        "Sorting the list",
+        "Making items unique in the DOM only"
+      ],
+      "correct_index": 1,
+      "explanation": "Keys let React identify which items moved, were added or removed, so state stays attached to the right element.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Where should you not call a hook?",
+      "options": [
+        "At the top of a component",
+        "Inside a condition or loop",
+        "Inside a custom hook",
+        "In a function component body"
+      ],
+      "correct_index": 1,
+      "explanation": "Hooks must run in the same order every render, so conditional calls break the rule of hooks.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "What does useState return?",
+      "options": [
+        "The value only",
+        "A pair of the current value and a setter",
+        "A ref object",
+        "A reducer"
+      ],
+      "correct_index": 1,
+      "explanation": "useState returns [value, setValue]; calling the setter schedules a re render.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Why is mutating state directly a problem?",
+      "options": [
+        "It is slower",
+        "React compares references, so a mutated object can skip the re render",
+        "It throws an error",
+        "It breaks TypeScript only"
+      ],
+      "correct_index": 1,
+      "explanation": "React relies on identity changes to detect updates, so mutating in place can leave the UI stale.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "When does useEffect with an empty dependency array run?",
+      "options": [
+        "On every render",
+        "Once after the first render",
+        "Only on unmount",
+        "Never"
+      ],
+      "correct_index": 1,
+      "explanation": "An empty array means no dependencies change, so the effect runs after mount and the cleanup on unmount.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "What problem does useMemo solve?",
+      "options": [
+        "Preventing re renders of children",
+        "Skipping an expensive recomputation when inputs have not changed",
+        "Replacing state",
+        "Fetching data"
+      ],
+      "correct_index": 1,
+      "explanation": "useMemo caches a computed value between renders while its dependencies are stable.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "What is the main difference between a controlled and uncontrolled input?",
+      "options": [
+        "Controlled inputs are faster",
+        "A controlled input's value comes from React state, an uncontrolled one from the DOM",
+        "Uncontrolled inputs cannot be submitted",
+        "Controlled inputs need refs"
+      ],
+      "correct_index": 1,
+      "explanation": "Controlled inputs pass value and onChange, so React state is the single source of truth.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Why can a stale closure appear inside useEffect?",
+      "options": [
+        "Effects run before render",
+        "The effect captured variables from an earlier render because a dependency was omitted",
+        "React caches effects",
+        "State is asynchronous"
+      ],
+      "correct_index": 1,
+      "explanation": "The effect closes over that render's values, so a missing dependency keeps old values alive.",
+      "difficulty": "hard"
+    },
+    {
+      "question": "What does React.memo do?",
+      "options": [
+        "Memoises a computed value",
+        "Skips re rendering a component when its props are shallowly equal",
+        "Caches network requests",
+        "Replaces useMemo"
+      ],
+      "correct_index": 1,
+      "explanation": "React.memo wraps a component and compares props shallowly before re rendering.",
+      "difficulty": "hard"
+    }
+  ]
+}
