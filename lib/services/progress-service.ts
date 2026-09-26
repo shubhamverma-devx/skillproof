@@ -9,6 +9,7 @@ import { parseRepoReference, scanSingleRepo } from '@/lib/github/scan';
 import type { RepoSignals } from '@/lib/github/types';
 import { detectSkillsFromRepo } from '@/lib/skills/detect';
 import { describeScoreChange } from '@/lib/roadmap/diff';
+import { resolveCurrentItem } from './roadmap-items';
 import type { ProgressEvent, ProgressResult } from '@/types/api';
 import type { RoadmapItemStatus } from '@/types/domain';
 
@@ -34,7 +35,7 @@ export async function recordProgress(
   let version: number | null = existing?.version ?? null;
 
   if (existing) {
-    const rebuilt = await buildRoadmap(profileId, reason);
+    const rebuilt = await buildRoadmap(profileId, reason, { inheritApproval: true });
     changes = rebuilt.changes;
     version = rebuilt.roadmap.version;
   }
@@ -70,11 +71,8 @@ async function applyItemStatus(
   status: RoadmapItemStatus,
   tracer: Tracer,
 ): Promise<string> {
-  const store = getStore();
-  const item = await store.getRoadmapItem(itemId);
-  if (!item) throw new Error('Roadmap item not found');
-
-  await store.updateRoadmapItem(itemId, { status, user_edited: true });
+  const { item } = await resolveCurrentItem(itemId);
+  await getStore().updateRoadmapItem(item.id, { status, user_edited: true });
   await tracer.info('Roadmap item updated', `${item.title} is now ${status}`);
 
   if (status === 'done') {

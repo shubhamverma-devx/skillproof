@@ -4,6 +4,7 @@ import { Tracer } from '@/lib/agent/trace';
 import { ROADMAP } from '@/lib/config';
 import { getStore } from '@/lib/db';
 import { recordProgress } from './progress-service';
+import { resolveCurrentItem } from './roadmap-items';
 import type { ProgressResult } from '@/types/api';
 import type { Roadmap, RoadmapItem } from '@/types/domain';
 
@@ -56,29 +57,21 @@ export async function updateRoadmapItem(
   patch: ItemPatch,
 ): Promise<{ item: RoadmapItem; progress: ProgressResult | null }> {
   const store = getStore();
-  const item = await store.getRoadmapItem(itemId);
-  if (!item) throw new Error('Roadmap item not found');
-
-  const roadmap = await store.getRoadmap(item.roadmap_id);
-  if (!roadmap) throw new Error('Roadmap not found');
+  const { item, profileId } = await resolveCurrentItem(itemId);
 
   const { status, ...edits } = patch;
-  const hasEdits = Object.keys(edits).length > 0;
-
-  if (hasEdits) await applyEdit(itemId, edits, roadmap.profile_id);
+  if (Object.keys(edits).length > 0) await applyEdit(item.id, edits, profileId);
 
   if (status && status !== item.status) {
-    const progress = await recordProgress(roadmap.profile_id, {
+    const progress = await recordProgress(profileId, {
       type: 'item_status',
-      item_id: itemId,
+      item_id: item.id,
       status,
     });
-    const refreshed = await store.getRoadmapItem(itemId);
-    return { item: refreshed ?? item, progress };
+    return { item: (await store.getRoadmapItem(item.id)) ?? item, progress };
   }
 
-  const refreshed = await store.getRoadmapItem(itemId);
-  return { item: refreshed ?? item, progress: null };
+  return { item: (await store.getRoadmapItem(item.id)) ?? item, progress: null };
 }
 
 async function applyEdit(
