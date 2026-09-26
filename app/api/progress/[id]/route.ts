@@ -4,6 +4,8 @@ import { WEEKLY_HOURS } from '@/lib/config';
 import { recordProgress } from '@/lib/services/progress-service';
 
 export const dynamic = 'force-dynamic';
+// The model SDKs, the Supabase client and the resume parser all need Node APIs.
+export const runtime = 'nodejs';
 export const maxDuration = 60;
 
 const eventSchema = z.discriminatedUnion('type', [

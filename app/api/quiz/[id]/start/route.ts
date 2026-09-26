@@ -3,6 +3,9 @@ import { failFromError, ok } from '@/lib/api-response';
 import { startQuiz } from '@/lib/services/quiz-service';
 
 export const dynamic = 'force-dynamic';
+// The model SDKs, the Supabase client and the resume parser all need Node APIs.
+export const runtime = 'nodejs';
+export const maxDuration = 60;
 
 const bodySchema = z.object({ skill: z.string().min(1) });
 

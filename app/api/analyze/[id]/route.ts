@@ -2,6 +2,9 @@ import { runAnalysis } from '@/lib/agent/analyze';
 import type { AnalyzeStreamEvent } from '@/types/api';
 
 export const dynamic = 'force-dynamic';
+// The model SDKs, the Supabase client and the resume parser all need Node APIs.
+export const runtime = 'nodejs';
+export const maxDuration = 60;
 
 /**
  * Streams the agent's steps as they happen with Server Sent Events, so the
@@ -15,6 +18,21 @@ export async function POST(_request: Request, { params }: { params: { id: string
       const send = (event: AnalyzeStreamEvent) => {
         controller.enqueue(encoder.encode(`data: ${JSON.stringify(event)}\n\n`));
       };
+
+      // The first byte goes out before any work starts, so a proxy never sees an
+      // idle connection while the resume is being read.
+      send({
+        type: 'step',
+        step: 'Agent started',
+        detail: 'Reading your profile before touching any external service',
+        level: 'info',
+      });
+
+      // Model calls can sit for up to 20 seconds each; a comment line keeps the
+      // connection alive without confusing the client parser.
+      const heartbeat = setInterval(() => {
+        controller.enqueue(encoder.encode(': keep-alive\n\n'));
+      }, 15_000);
 
       try {
         const result = await runAnalysis(params.id, (entry) => send({ type: 'step', ...entry }));
@@ -33,6 +51,7 @@ export async function POST(_request: Request, { params }: { params: { id: string
           message: error instanceof Error ? error.message : 'Analysis failed. Please try again.',
         });
       } finally {
+        clearInterval(heartbeat);
         controller.close();
       }
     },

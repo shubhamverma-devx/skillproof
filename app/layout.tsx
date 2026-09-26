@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { IBM_Plex_Sans, Schibsted_Grotesk } from 'next/font/google';
 import { Toaster } from 'sonner';
+import { StorageWarning } from '@/components/layout/storage-warning';
 import { ThemeScript } from '@/components/layout/theme-script';
 import './globals.css';
 
@@ -31,6 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ThemeScript />
       </head>
       <body className={`${display.variable} ${body.variable} font-sans text-ui antialiased`}>
+        <StorageWarning />
         {children}
         <Toaster position="bottom-right" toastOptions={{ className: 'font-sans text-ui-sm' }} />
       </body>

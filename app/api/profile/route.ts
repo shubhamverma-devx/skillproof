@@ -4,6 +4,9 @@ import { createDemoProfile, createProfile } from '@/lib/services/profile-service
 import { ResumeParseError } from '@/lib/resume/pdf';
 
 export const dynamic = 'force-dynamic';
+// The model SDKs, the Supabase client and the resume parser all need Node APIs.
+export const runtime = 'nodejs';
+export const maxDuration = 60;
 
 export async function POST(request: NextRequest) {
   try {
