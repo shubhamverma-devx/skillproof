@@ -90,6 +90,10 @@ export const SLIDES: Slide[] = [
       { text: 'Segment width is job description demand' },
       { text: 'Colour is the evidence level' },
       { text: 'Fill is how much of it is proven' },
+      {
+        text: 'Ceiling: 89',
+        note: 'what proving her current evidence would reach, so a gap reads as not shown yet or not learned yet',
+      },
     ],
   },
 

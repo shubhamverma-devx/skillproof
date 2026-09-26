@@ -140,6 +140,16 @@ async function run(page: Page): Promise<string> {
   await pause(page, BEAT.hold);
   await shot(page, 'dashboard');
 
+  // The narration explains what the meter means and reads the evidence ceiling
+  // here, so the recording dwells and shows a proven segment against an empty
+  // one rather than sitting still.
+  const segments = page.locator('[role="img"] button');
+  await segments.first().hover();
+  await pause(page, BEAT.read);
+  await segments.nth(Math.max(0, (await segments.count()) - 4)).hover();
+  await pause(page, BEAT.read);
+  await pause(page, BEAT.hold);
+
   mark('Expanding the SQL evidence');
   await page.getByRole('button', { name: /^Why SQL matters$/ }).click();
   await pause(page, BEAT.read);

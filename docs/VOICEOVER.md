@@ -1,82 +1,82 @@
 # Voice over script
 
-Read over `docs/video/skillproof-demo.mp4`. The video is silent, recorded
-against the live deployment, and runs 2 minutes 37 seconds. Timestamps come from `docs/video/timings.json`, which the
-recorder writes on every run, so if you re record the video the beats here move
-with it.
+Read over `docs/video/skillproof-demo.mp4`. The video is silent, recorded against
+the live deployment, and runs 2 minutes 56 seconds. Timestamps come from
+`docs/video/timings.json`, which the recorder writes on every run, so if you
+re record the video the beats here move with it.
 
-Speak plainly. The numbers on screen are real, so do not round them up.
+Every line is sized to its window at a normal speaking pace of about 150 words a
+minute, with a little room left over. Speak plainly. The numbers on screen are
+real, so do not round them up.
 
 ---
 
-**0:00 to 0:07** | landing page
+**0:00 to 0:08** | landing page
 
-> Every final year student has the same two questions. Which skills am I
-> actually missing for the job I want, and what do I build to prove it.
+> Every student has the same two questions. Which skills am I missing, and what
+> do I build to prove it.
 
-**0:07 to 0:15** | the agent working, steps appearing
+**0:08 to 0:18** | the agent working, steps appearing
 
-> This is SkillProof running. It reads her resume, scans her public GitHub
-> repositories, and records which file proved which skill. Every step is on
-> screen, including the ones that fail and what it did instead.
+> This is SkillProof running. It reads her resume, scans her public repositories,
+> and records which file proved which skill. Failures are on screen too.
 
-**0:15 to 0:22** | dashboard, the Proof Meter filling
+**0:18 to 0:34** | dashboard, the Proof Meter filling, then two segments hovered
 
-> Readiness, forty seven out of a hundred for ML Engineer. That bar is the whole
-> score in one shape. One segment per skill the role asks for. The width is how
-> often job descriptions ask for it. The colour is what kind of evidence she has.
+> Readiness, forty seven out of a hundred. Each segment is a skill, sized by
+> demand.
+>
+> Riya scores forty seven, but she could reach eighty nine just by proving what
+> she already shows. Most of her gap is unproven, not unknown.
 
-**0:22 to 0:26** | SQL row expanded
+**0:34 to 0:38** | SQL row expanded
 
-> And every claim is traceable. SQL appears in sixty four percent of listings,
-> it is on her resume, and it appears in none of her nine repositories.
+> And every claim is traceable.
 
-**0:26 to 0:52** | Python quiz
+**0:38 to 1:06** | Python quiz
 
-> So we test it. Four questions, and they adapt. Answer correctly and the next
-> one is harder. Python comes back verified at a hundred percent, and the score
-> moves to forty nine point five.
+> SQL appears in sixty four percent of listings, it is on her resume, and it
+> appears in none of her nine repositories. So we test things. Four questions,
+> and they adapt: answer correctly and the next one is harder. Python comes back
+> verified at a hundred percent, and the score moves to forty nine point five.
 
-**0:52 to 1:16** | SQL quiz, ending at 25 percent
+**1:06 to 1:33** | SQL quiz, ending at 25 percent
 
-> Now the same four questions for SQL, the skill she claimed. Twenty five
-> percent. The badge stays amber, not blue. Claiming a skill is not proving it,
-> and the score now says so.
+> Now the same four questions for SQL, the skill she claimed but we could not
+> find. Twenty five percent. The badge stays amber, not blue. Claiming a skill is
+> not proving it, and the score now says so.
 
-**1:16 to 1:24** | roadmap generated
+**1:33 to 1:41** | roadmap generated
 
 > The roadmap is built from what is left. Eight weeks, eight hours a week,
 > nothing over budget, prerequisites respected.
 
-**1:24 to 1:31** | roadmap item expanded, then approve
+**1:41 to 1:47** | roadmap item expanded
 
-> Every item says why it is here, in numbers rather than motivation. And every
-> item ends in a proof project with criteria you can check by opening a
-> repository.
+> Every item says why it is here, and ends in a proof project.
 
-**1:31 to 1:36** | approve, then the progress page
+**1:47 to 1:53** | approve, then the progress page
 
-> Nothing is fixed until she approves it. She can reorder, change the hours or
-> skip anything, and once she edits an item the agent will not rewrite it.
+> Nothing is fixed until she approves it.
 
-**1:36 to 1:46** | item marked done, score unchanged
+**1:53 to 2:06** | item marked done, score unchanged
 
 > Two weeks later she marks the first item done. Watch the score. It does not
 > move. Marking a task done is not proof. Linking a repo or passing a quiz is.
 
-**1:46 to 2:17** | repository linked, what changed box
+**2:06 to 2:36** | repository linked, what changed box
 
 > So she links the repository she actually built. The agent scans it, finds a
 > Dockerfile, a FastAPI service and a GitHub Actions workflow, and the score
 > jumps by eight and a half points. The box tells her exactly which weeks moved
-> and what was added.
+> and what was added, and anything she edited herself stays locked.
 
-**2:17 to 2:25** | dashboard with the new score
+**2:36 to 2:44** | dashboard with the new score
 
 > She then proves Docker and retakes SQL, and readiness reaches sixty three.
 > Three skills now carry the verified seal.
 
-**2:25 to 2:37** | score history chart
+**2:44 to 2:56** | score history chart
 
 > The chart tells the whole story. Flat while she was only claiming progress,
 > rising every time she proved something.
@@ -87,9 +87,9 @@ Speak plainly. The numbers on screen are real, so do not round them up.
 
 ## Recording tips
 
-- Record in one take if you can. The pauses in the video were sized for speech
-  at a normal pace, roughly one hundred and fifty words a minute.
+- Record in one take if you can. Each window has a second or two of slack, so a
+  natural pace lands correctly without rushing.
 - If you run short on a beat, stop talking and let the screen carry it. Silence
-  over a moving chart is better than rushing.
-- The two numbers to get right are forty seven at the start and sixty three at
-  the end. Everything else can be paraphrased.
+  over a moving chart is better than hurrying the next line.
+- The three numbers to get right are forty seven at the start, eighty nine for
+  the ceiling, and sixty three at the end. Everything else can be paraphrased.
