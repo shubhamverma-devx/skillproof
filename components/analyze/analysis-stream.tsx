@@ -1,25 +1,43 @@
 'use client';
 
-import { AlertTriangle, Check, Loader2, OctagonAlert } from 'lucide-react';
+import { Check, Loader2, OctagonAlert } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Panel } from '@/components/ui/panel';
+import { cn } from '@/lib/utils';
 import type { AnalyzeStreamEvent } from '@/types/api';
-import type { AgentLogLevel } from '@/types/domain';
 
-type Step = { step: string; detail: string; level: AgentLogLevel };
-
-const REDIRECT_DELAY_MS = 900;
+type Stage = { label: string; match: (step: string) => boolean };
 
 /**
- * Consumes the Server Sent Events from the analyse route so the student watches
- * the agent work instead of a spinner. The steps shown here are the same rows
- * that end up in the agent trace on the dashboard.
+ * The agent's steps are named for engineers. A student sees four plain stages
+ * instead, with the raw detail kept for the Overview page.
  */
+const STAGES: Stage[] = [
+  { label: 'Reading your resume', match: (s) => s.startsWith('Resume') || s === 'Agent started' },
+  {
+    label: 'Looking through your projects',
+    match: (s) =>
+      s.includes('GitHub') ||
+      s.includes('Repositories') ||
+      s.includes('Skill observed') ||
+      s.includes('Code evidence'),
+  },
+  {
+    label: 'Comparing with real job posts',
+    match: (s) => s.includes('Claimed skills') || s.includes('Quiz results'),
+  },
+  {
+    label: 'Working out your score',
+    match: (s) => s.includes('Readiness') || s.includes('Top gaps'),
+  },
+];
+
 export function AnalysisStream({ profileId }: { profileId: string }) {
   const router = useRouter();
-  const [steps, setSteps] = useState<Step[]>([]);
+  const [reached, setReached] = useState(0);
+  const [detail, setDetail] = useState('Starting up');
   const [error, setError] = useState<string | null>(null);
   const [done, setDone] = useState(false);
   const started = useRef(false);
@@ -27,7 +45,6 @@ export function AnalysisStream({ profileId }: { profileId: string }) {
   useEffect(() => {
     if (started.current) return;
     started.current = true;
-
     const controller = new AbortController();
 
     async function run() {
@@ -36,7 +53,7 @@ export function AnalysisStream({ profileId }: { profileId: string }) {
           method: 'POST',
           signal: controller.signal,
         });
-        if (!response.body) throw new Error('The server did not stream a response.');
+        if (!response.body) throw new Error('The server did not send anything back.');
 
         const reader = response.body.getReader();
         const decoder = new TextDecoder();
@@ -46,23 +63,22 @@ export function AnalysisStream({ profileId }: { profileId: string }) {
           const { done: finished, value } = await reader.read();
           if (finished) break;
           buffer += decoder.decode(value, { stream: true });
-
           const chunks = buffer.split('\n\n');
           buffer = chunks.pop() ?? '';
 
           for (const chunk of chunks) {
             const payload = chunk.replace(/^data: /, '').trim();
-            if (!payload) continue;
+            if (!payload || payload.startsWith(':')) continue;
             const event = JSON.parse(payload) as AnalyzeStreamEvent;
 
             if (event.type === 'step') {
-              setSteps((current) => [
-                ...current,
-                { step: event.step, detail: event.detail, level: event.level },
-              ]);
+              const index = STAGES.findIndex((stage) => stage.match(event.step));
+              if (index >= 0) setReached((current) => Math.max(current, index));
+              setDetail(event.detail);
             } else if (event.type === 'done') {
+              setReached(STAGES.length);
               setDone(true);
-              setTimeout(() => router.replace(`/dashboard/${profileId}`), REDIRECT_DELAY_MS);
+              setTimeout(() => router.replace(`/dashboard/${profileId}`), 700);
             } else {
               setError(event.message);
             }
@@ -70,7 +86,7 @@ export function AnalysisStream({ profileId }: { profileId: string }) {
         }
       } catch (caught) {
         if (controller.signal.aborted) return;
-        setError(caught instanceof Error ? caught.message : 'The analysis could not be completed.');
+        setError(caught instanceof Error ? caught.message : 'We could not finish the analysis.');
       }
     }
 
@@ -78,60 +94,70 @@ export function AnalysisStream({ profileId }: { profileId: string }) {
     return () => controller.abort();
   }, [profileId, router]);
 
-  return (
-    <Panel>
-      <div className="flex items-center gap-3 border-b px-5 py-4">
-        {error ? (
-          <OctagonAlert size={18} className="text-danger-ink" aria-hidden="true" />
-        ) : done ? (
-          <Check size={18} className="text-observed-ink" aria-hidden="true" />
-        ) : (
-          <Loader2 size={18} className="animate-spin text-primary" aria-hidden="true" />
-        )}
-        <div>
-          <h2 className="text-h3">
-            {error ? 'Analysis stopped' : done ? 'Analysis complete' : 'Reading your evidence'}
-          </h2>
-          <p className="text-ui-sm text-muted" aria-live="polite">
-            {error
-              ? error
-              : done
-                ? 'Opening your dashboard.'
-                : 'Resume, then public repositories, then the job description dataset.'}
-          </p>
+  const percent = Math.round((Math.min(reached, STAGES.length) / STAGES.length) * 100);
+
+  if (error) {
+    return (
+      <Panel className="px-5 py-6">
+        <div className="flex items-start gap-3">
+          <OctagonAlert size={18} className="mt-0.5 shrink-0 text-danger" aria-hidden="true" />
+          <div>
+            <h2 className="text-lg">We could not finish</h2>
+            <p className="mt-1 max-w-prose text-sm text-ink-muted">{error}</p>
+            <Button asChild variant="secondary" className="mt-4">
+              <a href="/start">Start again</a>
+            </Button>
+          </div>
         </div>
+      </Panel>
+    );
+  }
+
+  return (
+    <Panel className="px-5 py-6">
+      <div className="flex items-center gap-2.5">
+        {done ? (
+          <Check size={18} className="text-verified" aria-hidden="true" />
+        ) : (
+          <Loader2 size={18} className="animate-spin text-accent" aria-hidden="true" />
+        )}
+        <h2 className="text-lg">{done ? 'All done' : 'Working through your profile'}</h2>
       </div>
 
-      <ol className="divide-y">
-        {steps.map((entry, index) => (
-          <li key={`${entry.step}-${index}`} className="flex gap-3 px-5 py-3">
-            {entry.level === 'info' ? (
-              <Check size={15} className="mt-0.5 shrink-0 text-observed-ink" aria-hidden="true" />
-            ) : (
-              <AlertTriangle
-                size={15}
-                className="mt-0.5 shrink-0 text-claimed-ink"
+      <div className="mt-5 h-1.5 w-full overflow-hidden rounded-full bg-ink/[0.07]">
+        <div
+          className="h-full rounded-full bg-accent transition-[width] duration-500"
+          style={{ width: `${Math.max(percent, 6)}%` }}
+        />
+      </div>
+
+      <ol className="mt-5 flex flex-col gap-3">
+        {STAGES.map((stage, index) => {
+          const state = index < reached ? 'done' : index === reached ? 'active' : 'waiting';
+          return (
+            <li key={stage.label} className="flex items-center gap-3">
+              <span
+                className={cn(
+                  'flex h-5 w-5 shrink-0 items-center justify-center rounded-full border text-xs',
+                  state === 'done' && 'border-verified bg-verified text-surface',
+                  state === 'active' && 'border-accent text-accent',
+                  state === 'waiting' && 'border-line text-ink-faint',
+                )}
                 aria-hidden="true"
-              />
-            )}
-            <div className="min-w-0">
-              <p className="text-ui-sm font-medium">{entry.step}</p>
-              <p className="break-words text-ui-sm text-muted">{entry.detail}</p>
-            </div>
-          </li>
-        ))}
-        {steps.length === 0 && !error ? (
-          <li className="px-5 py-3 text-ui-sm text-muted">Starting the agent.</li>
-        ) : null}
+              >
+                {state === 'done' ? <Check size={11} strokeWidth={3} /> : index + 1}
+              </span>
+              <span className={cn('text-sm', state === 'waiting' ? 'text-ink-faint' : 'text-ink')}>
+                {stage.label}
+              </span>
+            </li>
+          );
+        })}
       </ol>
 
-      {error ? (
-        <div className="border-t px-5 py-4">
-          <Button asChild variant="outline">
-            <a href="/start">Start again</a>
-          </Button>
-        </div>
-      ) : null}
+      <p className="mt-5 truncate text-xs text-ink-faint" aria-live="polite">
+        {done ? 'Opening your overview' : detail}
+      </p>
     </Panel>
   );
 }

@@ -1,38 +1,49 @@
 'use client';
 
+import { ChevronDown } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { toast } from 'sonner';
 import { Button } from '@/components/ui/button';
-import { Panel, PanelHeader, PanelNote, PanelTitle } from '@/components/ui/panel';
+import { EmptyState } from '@/components/ui/empty-state';
+import { Panel } from '@/components/ui/panel';
 import { patchJson, postJson } from '@/lib/client/api';
+import { cn } from '@/lib/utils';
 import type { ProfileState, ProgressResult } from '@/types/api';
 import type { RoadmapItem, RoadmapItemStatus } from '@/types/domain';
 import { ChangesBox } from './changes-box';
-import { RoadmapItemRow } from './roadmap-item-row';
+import { ItemSheet } from './item-sheet';
+import { ItemLine } from './week-block';
 
 type PatchResponse = { item: RoadmapItem; progress: ProgressResult | null };
 
 export function RoadmapView({ state }: { state: ProfileState }) {
   const router = useRouter();
   const [busy, setBusy] = useState(false);
+  const [open, setOpen] = useState<RoadmapItem | null>(null);
   const [changes, setChanges] = useState<string[]>([]);
   const [summary, setSummary] = useState<string | null>(null);
-  const [dragged, setDragged] = useState<{ week: number; id: string } | null>(null);
+  const [expanded, setExpanded] = useState<number[]>([]);
 
   const roadmap = state.roadmap;
   const items = roadmap?.items ?? [];
   const weeks = [...new Set(items.map((item) => item.week))].sort((a, b) => a - b);
 
+  const currentWeek = weeks.find((week) =>
+    items.some((item) => item.week === week && item.status !== 'done' && item.status !== 'skipped'),
+  );
+  const thisWeek = items.filter((item) => item.week === currentWeek);
+  const doneThisWeek = thisWeek.filter((item) => item.status === 'done').length;
+  const hoursLeft = thisWeek
+    .filter((item) => item.status !== 'done' && item.status !== 'skipped')
+    .reduce((sum, item) => sum + item.est_hours, 0);
+
   async function generate() {
     setBusy(true);
     const response = await postJson(`/api/roadmap/${state.profile.id}/generate`, {});
     setBusy(false);
-    if ('error' in response) {
-      toast.error(response.error);
-      return;
-    }
-    toast.success('Roadmap generated');
+    if ('error' in response) return toast.error(response.error);
+    toast.success('Your plan is ready');
     router.refresh();
   }
 
@@ -40,23 +51,19 @@ export function RoadmapView({ state }: { state: ProfileState }) {
     setBusy(true);
     const response = await postJson(`/api/roadmap/${state.profile.id}/approve`, {});
     setBusy(false);
-    if ('error' in response) {
-      toast.error(response.error);
-      return;
-    }
-    toast.success('Roadmap approved');
+    if ('error' in response) return toast.error(response.error);
+    toast.success('Plan approved');
     router.refresh();
   }
 
-  async function patchItem(itemId: string, patch: Record<string, unknown>, message: string) {
+  async function setStatus(item: RoadmapItem, status: RoadmapItemStatus) {
     setBusy(true);
-    const response = await patchJson<PatchResponse>(`/api/roadmap/item/${itemId}`, patch);
+    const response = await patchJson<PatchResponse>(`/api/roadmap/item/${item.id}`, { status });
     setBusy(false);
-    if ('error' in response) {
-      toast.error(response.error);
-      return;
-    }
-    toast.success(message);
+    if ('error' in response) return toast.error(response.error);
+
+    setOpen(null);
+    toast.success('Saved');
     if (response.data.progress) {
       setChanges(response.data.progress.changes);
       setSummary(response.data.progress.summary);
@@ -64,128 +71,146 @@ export function RoadmapView({ state }: { state: ProfileState }) {
     router.refresh();
   }
 
-  async function reorder(week: number, fromId: string, toId: string) {
-    const inWeek = items.filter((item) => item.week === week);
-    const from = inWeek.findIndex((item) => item.id === fromId);
-    const to = inWeek.findIndex((item) => item.id === toId);
-    if (from === -1 || to === -1 || from === to) return;
-
-    const reordered = [...inWeek];
-    const [moved] = reordered.splice(from, 1);
-    if (moved) reordered.splice(to, 0, moved);
-
-    setBusy(true);
-    for (const [index, item] of reordered.entries()) {
-      if (item.order_index === index) continue;
-      await patchJson(`/api/roadmap/item/${item.id}`, { order_index: index });
-    }
-    setBusy(false);
-    toast.success('Order updated');
-    router.refresh();
-  }
-
   if (!roadmap || items.length === 0) {
     return (
-      <Panel className="px-5 py-8 text-center">
-        <h2 className="text-h3">No roadmap yet</h2>
-        <p className="mx-auto mt-2 max-w-prose text-ui-sm text-muted">
-          The plan is built from your ranked gaps, your {state.profile.weekly_hours} hour weekly
-          budget and the prerequisites between skills. You can edit every item afterwards.
-        </p>
-        <Button className="mt-5" onClick={generate} disabled={busy}>
-          {busy ? 'Building your roadmap' : 'Build my roadmap'}
-        </Button>
+      <Panel>
+        <EmptyState
+          title="You do not have a plan yet"
+          body={`We know which skills are missing for ${state.role.name} work. Turn that into a week by week plan that fits ${state.profile.weekly_hours} hours a week. You can change anything afterwards.`}
+          action={
+            <Button size="lg" onClick={generate} disabled={busy}>
+              {busy ? 'Building your plan' : 'Build my plan'}
+            </Button>
+          }
+        />
       </Panel>
     );
   }
 
-  const totalHours = items.reduce((sum, item) => sum + item.est_hours, 0);
-  const doneCount = items.filter((item) => item.status === 'done').length;
-
   return (
     <div className="flex flex-col gap-4">
       {roadmap.roadmap.status === 'draft' ? (
-        <div className="flex flex-wrap items-center justify-between gap-3 rounded-panel border border-claimed/40 bg-claimed/[0.08] px-4 py-3">
-          <p className="max-w-prose text-ui-sm">
-            <span className="font-medium">Review and approve your roadmap.</span> Nothing is fixed
-            until you approve it. Reorder, edit the hours or skip anything that does not fit.
+        <section className="flex flex-wrap items-center justify-between gap-3 rounded-panel border border-accent/25 bg-accent/[0.04] px-5 py-4">
+          <p className="max-w-prose text-sm">
+            <span className="font-medium">This is a draft.</span> Have a look, change anything that
+            does not fit, then approve it.
           </p>
           <Button onClick={approve} disabled={busy}>
-            Approve roadmap
+            Approve plan
           </Button>
-        </div>
+        </section>
       ) : null}
 
       <ChangesBox changes={changes} summary={summary} />
 
-      <Panel>
-        <PanelHeader className="flex-col items-stretch gap-3 sm:flex-row sm:items-center">
-          <div>
-            <PanelTitle>
-              Version {roadmap.roadmap.version},{' '}
-              {roadmap.roadmap.status === 'approved' ? 'approved' : 'draft'}
-            </PanelTitle>
-            <PanelNote>
-              {items.length} items, {weeks.length} weeks, {totalHours} hours in total, {doneCount}{' '}
-              done. No week goes past your {state.profile.weekly_hours} hour budget.
-            </PanelNote>
+      {currentWeek ? (
+        <Panel>
+          <div className="flex flex-wrap items-center justify-between gap-2 px-4 py-4 sm:px-5">
+            <div>
+              <h2 className="text-lg">This week</h2>
+              <p className="tabular mt-0.5 text-sm text-ink-muted">
+                Week {currentWeek} of {weeks.length}. {doneThisWeek} of {thisWeek.length} done,{' '}
+                {hoursLeft} hours left.
+              </p>
+            </div>
           </div>
-          <Button variant="outline" onClick={generate} disabled={busy} className="shrink-0">
-            Rebuild from current gaps
-          </Button>
-        </PanelHeader>
+          <div className="divide-y border-t">
+            {thisWeek.map((item) => (
+              <ItemLine key={item.id} item={item} onOpen={setOpen} />
+            ))}
+          </div>
+        </Panel>
+      ) : (
+        <Panel>
+          <EmptyState
+            title="Every week is done"
+            body="You have finished or skipped everything in this plan. Rebuild it to get a fresh one from your current gaps."
+            action={
+              <Button variant="secondary" onClick={generate} disabled={busy}>
+                Rebuild my plan
+              </Button>
+            }
+          />
+        </Panel>
+      )}
 
-        <ol className="divide-y">
-          {weeks.map((week) => {
-            const weekItems = items.filter((item) => item.week === week);
-            const hours = weekItems.reduce((sum, item) => sum + item.est_hours, 0);
-            return (
-              <li key={week} className="grid gap-0 sm:grid-cols-[6.5rem_minmax(0,1fr)]">
-                <div className="flex items-baseline gap-2 border-b px-4 py-3 sm:block sm:border-b-0 sm:border-r sm:px-5">
-                  <p className="font-display text-ui font-semibold">Week {week}</p>
-                  <p className="tabular text-ui-sm text-muted">{hours} hours</p>
-                </div>
-                <div className="divide-y">
-                  {weekItems.map((item, index) => (
-                    <RoadmapItemRow
-                      key={item.id}
-                      item={item}
-                      busy={busy}
-                      canMoveUp={index > 0}
-                      canMoveDown={index < weekItems.length - 1}
-                      onStatusChange={(status: RoadmapItemStatus) =>
-                        patchItem(item.id, { status }, `Marked as ${status}`)
-                      }
-                      onEdit={(patch) => {
-                        const cleaned = Object.fromEntries(
-                          Object.entries(patch).filter(([, value]) => value !== undefined),
-                        );
-                        if (Object.keys(cleaned).length === 0) return;
-                        void patchItem(item.id, cleaned, 'Item updated');
-                      }}
-                      onMove={(direction) => {
-                        const target = weekItems[index + direction];
-                        if (target) void reorder(week, item.id, target.id);
-                      }}
-                      dragHandlers={{
-                        onDragStart: () => setDragged({ week, id: item.id }),
-                        onDragOver: (event) => {
-                          if (dragged?.week === week) event.preventDefault();
-                        },
-                        onDrop: () => {
-                          if (dragged && dragged.week === week)
-                            void reorder(week, dragged.id, item.id);
-                          setDragged(null);
-                        },
-                      }}
+      <Panel>
+        <div className="px-4 py-3.5 sm:px-5">
+          <h2 className="text-base font-medium">The rest of the plan</h2>
+          <p className="tabular mt-0.5 text-sm text-ink-muted">
+            {weeks.length} weeks in total, about{' '}
+            {items.reduce((sum, item) => sum + item.est_hours, 0)} hours, never more than{' '}
+            {state.profile.weekly_hours} hours in a week.
+          </p>
+        </div>
+
+        <div className="border-t">
+          {weeks
+            .filter((week) => week !== currentWeek)
+            .map((week) => {
+              const weekItems = items.filter((item) => item.week === week);
+              const isOpen = expanded.includes(week);
+              return (
+                <div key={week} className="border-b last:border-b-0">
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setExpanded((current) =>
+                        current.includes(week)
+                          ? current.filter((value) => value !== week)
+                          : [...current, week],
+                      )
+                    }
+                    aria-expanded={isOpen}
+                    className="flex w-full items-center gap-3 px-4 py-3 text-left transition-colors hover:bg-ink/[0.02] sm:px-5"
+                  >
+                    <span className="tabular w-16 shrink-0 text-sm font-medium">Week {week}</span>
+                    <span className="min-w-0 flex-1 truncate text-sm text-ink-muted">
+                      {weekItems.map((item) => item.skill).join(', ')}
+                    </span>
+                    <span className="tabular shrink-0 text-xs text-ink-faint">
+                      {weekItems.reduce((sum, item) => sum + item.est_hours, 0)} hours
+                    </span>
+                    <ChevronDown
+                      size={15}
+                      className={cn(
+                        'shrink-0 text-ink-faint transition-transform',
+                        isOpen && 'rotate-180',
+                      )}
+                      aria-hidden="true"
                     />
-                  ))}
+                  </button>
+                  {isOpen ? (
+                    <div className="divide-y border-t bg-canvas/60">
+                      {weekItems.map((item) => (
+                        <ItemLine key={item.id} item={item} onOpen={setOpen} />
+                      ))}
+                    </div>
+                  ) : null}
                 </div>
-              </li>
-            );
-          })}
-        </ol>
+              );
+            })}
+        </div>
       </Panel>
+
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <p className="text-xs text-ink-faint">
+          Version {roadmap.roadmap.version}. Anything you change stays as you left it when the plan
+          updates.
+        </p>
+        <Button variant="ghost" size="sm" onClick={generate} disabled={busy}>
+          Rebuild from what is missing now
+        </Button>
+      </div>
+
+      <ItemSheet
+        item={open}
+        busy={busy}
+        onOpenChange={(next) => {
+          if (!next) setOpen(null);
+        }}
+        onStatus={setStatus}
+      />
     </div>
   );
 }

@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 
 type Theme = 'light' | 'dark';
 
-export function ThemeToggle() {
+export function ThemeToggle({ className }: { className?: string }) {
   const [theme, setTheme] = useState<Theme>('light');
 
   useEffect(() => {
@@ -27,10 +27,11 @@ export function ThemeToggle() {
     <Button
       variant="ghost"
       size="icon"
+      className={className}
       onClick={() => apply(theme === 'dark' ? 'light' : 'dark')}
       aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
     >
-      {theme === 'dark' ? <Moon size={17} /> : <Sun size={17} />}
+      {theme === 'dark' ? <Moon size={16} /> : <Sun size={16} />}
     </Button>
   );
 }

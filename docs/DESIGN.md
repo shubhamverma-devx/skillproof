@@ -1,89 +1,130 @@
-# SkillProof design tokens
+# SkillProof design system
 
-Concept: **proof ledger**. The product exists to separate claimed skills from proven
-ones, so the interface borrows from verified documents: cool paper background,
-deep navy ink, one confident cobalt for action and verification, and a single
-bold element (the Proof Meter) that carries all the visual weight.
+The product tells a student something uncomfortable: most of what you claim is
+unproven. That only lands if the interface is calm, plain and confident. So the
+system is a neutral grayscale foundation, one accent, and colour used only where
+it carries meaning.
 
-Everything below is implemented in `app/globals.css` (CSS variables) and
-`tailwind.config.ts` (token names). UI code uses token names only, never raw hex.
+Everything here is implemented in `app/globals.css` (tokens) and
+`tailwind.config.ts` (names). Components reference token names, never raw hex.
+
+## Principles
+
+1. **One question per screen.** Every page answers a single question and offers
+   a single primary action.
+2. **Numbers never travel alone.** Every figure is followed by a sentence in
+   plain English saying what it means.
+3. **Colour means status, nothing else.** Decoration is grayscale.
+4. **Say it the way a student would.** No internal vocabulary in the interface.
+
+## Language
+
+The code keeps its names. The interface does not use them.
+
+| In code          | On screen                                           |
+| ---------------- | --------------------------------------------------- |
+| claimed          | On your resume                                      |
+| observed         | Seen in your code                                   |
+| verified         | Tested                                              |
+| missing          | Not shown yet                                       |
+| jd_frequency     | Asked in 62% of jobs                                |
+| readiness score  | Job readiness                                       |
+| evidence ceiling | You could reach 89 by proving what you already know |
+| agent trace      | How we worked this out                              |
+| proficiency      | How much of it you have shown                       |
+| gap              | What is missing                                     |
+
+## Type
+
+**Geist Sans** for everything, **Geist Mono** for figures inside dense rows.
+Loaded through the `geist` package, so there is no network font fetch at build.
+
+| Token          | Size | Use                              |
+| -------------- | ---- | -------------------------------- |
+| `text-xs`      | 12   | Meta, table headers              |
+| `text-sm`      | 14   | Body in dense UI, secondary text |
+| `text-base`    | 16   | Body                             |
+| `text-lg`      | 20   | Card titles                      |
+| `text-xl`      | 24   | Page titles                      |
+| `text-2xl`     | 32   | Section headlines                |
+| `text-display` | 48   | The score, once per screen       |
+
+Headings are semibold, never bold-black. Numbers use tabular figures through the
+`.tabular` utility so counting animations do not shift layout. Body copy is
+capped at 68 characters.
 
 ## Colour
 
-All tokens are stored as space separated RGB triplets so Tailwind can apply alpha
-(`bg-verified/12`, `border-ink/10`).
+Grayscale foundation, one accent, status colours desaturated so a screen full of
+badges still reads as calm.
 
-| Token     | Light     | Dark      | Use                                      |
-| --------- | --------- | --------- | ---------------------------------------- |
-| `bg`      | `#EEF1F6` | `#0E1330` | Page background (cool paper / real navy) |
-| `surface` | `#FFFFFF` | `#161C3F` | Panels, rows, popovers                   |
-| `ink`     | `#1B2240` | `#E8ECF8` | Primary text, borders via alpha          |
-| `muted`   | `#5E6785` | `#9AA3C2` | Secondary text, axis labels              |
-| `primary` | `#2F4BFF` | `#6A82FF` | Buttons, links, focus ring               |
+| Token            | Light     | Dark      | Use                                     |
+| ---------------- | --------- | --------- | --------------------------------------- |
+| `canvas`         | `#FAFAFA` | `#0B0C0E` | Page background                         |
+| `surface`        | `#FFFFFF` | `#141517` | Cards, sheets, rows                     |
+| `surface-raised` | `#FFFFFF` | `#1B1D20` | Sheets and menus above a card           |
+| `line`           | `#E7E7E9` | `#26282C` | 1px borders, the main structural device |
+| `ink`            | `#18181B` | `#F4F4F5` | Primary text                            |
+| `ink-muted`      | `#6B6F76` | `#9CA1A9` | Secondary text                          |
+| `ink-faint`      | `#9096A0` | `#71767E` | Meta text, axis labels                  |
+| `accent`         | `#3355FF` | `#6E86FF` | Primary action, focus ring, the score   |
 
-### Evidence scale (used identically everywhere)
+### Status colours
 
-| Level      | Light     | Dark      | Meaning              |
-| ---------- | --------- | --------- | -------------------- |
-| `claimed`  | `#D99A1E` | `#F0BA4A` | On the resume only   |
-| `observed` | `#14907F` | `#2DBEA8` | Found in GitHub code |
-| `verified` | `#2F4BFF` | `#7C91FF` | Passed the quiz      |
-| `missing`  | `#C9CEDA` | `#4A5378` | No evidence at all   |
+Used only to mean one of the four proof states, and only on small elements.
 
-Badge text uses the `-ink` variant of each hue (`claimed-ink`, `observed-ink`,
-`verified-ink`) so 12px to 14px labels clear WCAG AA against a 12% tint.
+| State    | On screen         | Light     | Dark      |
+| -------- | ----------------- | --------- | --------- |
+| verified | Tested            | `#2F6F4F` | `#6FC194` |
+| observed | Seen in your code | `#2D5B8C` | `#78ACE0` |
+| claimed  | On your resume    | `#8A6420` | `#D8AA5C` |
+| missing  | Not shown yet     | `#8A8F98` | `#787D85` |
 
-## Typography
+Each has a `-soft` background token at roughly 10 percent for badge fills. All
+combinations were checked for WCAG AA against their background.
 
-- Display and headings: **Schibsted Grotesk** 600/700, loaded with `next/font`.
-- Body and UI: **IBM Plex Sans** 400/500.
-- Numbers (score, percentages, hours) use `font-variant-numeric: tabular-nums`
-  via the `.tabular` utility, so counting animations do not shift layout.
-- Scale: 14 / 16 / 20 / 28 / 40 / 64 px, exposed as `text-ui-sm`, `text-ui`,
-  `text-h3`, `text-h2`, `text-h1`, `text-display`.
-- Sentence case everywhere. Body copy capped at 70ch.
+## Space and shape
 
-## Shape and depth
-
-- Radius: `rounded-panel` (14px) for page level panels, `rounded-inner` (8px)
-  for controls and rows, `rounded-full` only for badges and the meter caps.
-- Borders carry structure: 1px `border-ink/10` (light) and `border-ink/15`
-  (dark). One shadow level (`shadow-overlay`) exists and is reserved for
-  popovers and dialogs.
-
-## Signature element: the Proof Meter
-
-One horizontal bar, one segment per role skill, segment width proportional to
-that skill's JD frequency, fill colour the evidence level and fill fraction the
-proficiency. The readiness score sits beside it at `text-display`.
-
-- On dashboard load: segments fill left to right over 900ms, score counts up.
-- After a replan: segments animate from the previous state and the delta
-  (for example `+15`) fades in once.
-- `prefers-reduced-motion: reduce` renders the final state immediately.
-- No other decorative motion exists in the product.
-
-Verified skills carry the proof seal: a 1.5px ring with a check, drawn as inline
-SVG in `components/proof-seal.tsx` and reused as the product mark.
+- Strict 4px grid. Spacing steps: 4, 8, 12, 16, 24, 32, 48, 64.
+- Page gutter: 16px at 360px, 24px at `sm`, 32px at `lg`.
+- Main content max width 1120px.
+- Radius: 12px panels, 8px controls and rows, full for pills.
+- Borders carry structure. One shadow level exists, `shadow-overlay`, used only
+  on sheets, menus and tooltips.
 
 ## Layout
 
-- Dashboard: two columns at `lg` and above. Left holds the Proof Meter, top gaps
-  and the skills table; the narrow right column holds the score history chart
-  and the Agent Trace. Single column below `lg`.
-- Roadmap: a vertical week timeline. Items are expandable list rows, not a grid
-  of identical cards.
-- Page gutter: 16px at 360px, 24px at `sm`, 40px at `lg`. Content max width
-  1280px.
+After onboarding the product lives in an app shell.
+
+- **Desktop:** a 240px left sidebar with the mark, four sections (Overview,
+  Skills, Roadmap, Progress), and the student's name, target role and theme
+  toggle pinned at the bottom.
+- **Mobile:** a top bar with the page title and a bottom tab bar with the same
+  four sections, thumb reachable.
+- Every page has a title and one line saying what it shows.
+
+## Motion
+
+- 150ms to 250ms, ease-out. Hover and focus transitions only on colour.
+- Two signature moments survive: the meter filling with the score counting up on
+  first load, and the meter animating from old to new after a replan.
+- `prefers-reduced-motion: reduce` renders the end state immediately.
+
+## Components
+
+Buttons (primary, secondary, ghost, danger in three sizes), input, textarea,
+select, slider, tabs, badge, panel, side sheet, dialog, tooltip, toast,
+skeleton, empty state, stat tile. Every interactive element has hover,
+focus-visible, active and disabled states.
+
+## Charts
+
+Clean axes, no gridline noise, labels in `ink-faint`, hover tooltips that read as
+sentences rather than key and value pairs. Nothing is coloured unless the colour
+means something.
 
 ## Deliberately avoided
 
-Gradient washes, glow, purple to blue gradients, ALL CAPS eyebrows, dotted meta
-strings, arrows inside button labels, fade up on every section, hover lift on
-every card, one headline word in another colour, emoji, stock illustration.
-
-## Accessibility floor
-
-Usable at 360px, visible `focus-visible` ring in both themes, AA contrast for
-text and UI borders, reduced motion respected, every colour coded state also
-carries a text label.
+Gradient washes, glassmorphism, ALL CAPS eyebrows, emoji, rainbow badges, every
+section in an identical card, centred body text, one word of a headline in a
+different colour, stock illustration, fake testimonials, fake logos, fake counts.

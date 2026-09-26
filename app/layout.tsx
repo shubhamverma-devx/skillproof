@@ -1,23 +1,10 @@
 import type { Metadata } from 'next';
-import { IBM_Plex_Sans, Schibsted_Grotesk } from 'next/font/google';
+import { GeistMono } from 'geist/font/mono';
+import { GeistSans } from 'geist/font/sans';
 import { Toaster } from 'sonner';
 import { StorageWarning } from '@/components/layout/storage-warning';
 import { ThemeScript } from '@/components/layout/theme-script';
 import './globals.css';
-
-const display = Schibsted_Grotesk({
-  subsets: ['latin'],
-  weight: ['600', '700'],
-  variable: '--font-display',
-  display: 'swap',
-});
-
-const body = IBM_Plex_Sans({
-  subsets: ['latin'],
-  weight: ['400', '500'],
-  variable: '--font-body',
-  display: 'swap',
-});
 
 export const metadata: Metadata = {
   title: 'SkillProof',
@@ -27,14 +14,19 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" data-theme="light" suppressHydrationWarning>
+    <html
+      lang="en"
+      data-theme="light"
+      suppressHydrationWarning
+      className={`${GeistSans.variable} ${GeistMono.variable}`}
+    >
       <head>
         <ThemeScript />
       </head>
-      <body className={`${display.variable} ${body.variable} font-sans text-ui antialiased`}>
+      <body className="font-sans text-base antialiased">
         <StorageWarning />
         {children}
-        <Toaster position="bottom-right" toastOptions={{ className: 'font-sans text-ui-sm' }} />
+        <Toaster position="bottom-right" toastOptions={{ className: 'font-sans text-sm' }} />
       </body>
     </html>
   );

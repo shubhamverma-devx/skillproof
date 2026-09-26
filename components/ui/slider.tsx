@@ -13,10 +13,10 @@ export const Slider = forwardRef<
     className={cn('relative flex h-6 w-full touch-none select-none items-center', className)}
     {...props}
   >
-    <SliderPrimitive.Track className="bg-ink/12 relative h-1.5 w-full grow rounded-full">
-      <SliderPrimitive.Range className="absolute h-full rounded-full bg-primary" />
+    <SliderPrimitive.Track className="relative h-1.5 w-full grow rounded-full bg-ink/10">
+      <SliderPrimitive.Range className="absolute h-full rounded-full bg-accent" />
     </SliderPrimitive.Track>
-    <SliderPrimitive.Thumb className="block h-5 w-5 rounded-full border-2 border-primary bg-surface" />
+    <SliderPrimitive.Thumb className="block h-5 w-5 rounded-full border-2 border-accent bg-surface transition-shadow hover:shadow-overlay" />
   </SliderPrimitive.Root>
 ));
 Slider.displayName = 'Slider';

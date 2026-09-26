@@ -1,52 +1,56 @@
 import Link from 'next/link';
+import { Panel, PanelHeader, PanelNote, PanelTitle } from '@/components/ui/panel';
+import { ProofBadge } from '@/components/ui/proof-badge';
 import { Button } from '@/components/ui/button';
-import { EvidenceBadge } from '@/components/ui/evidence-badge';
-import { PanelHeader, PanelNote, PanelTitle } from '@/components/ui/panel';
+import { demandPhrase } from '@/lib/wording';
 import type { SkillAssessment } from '@/lib/scoring';
-import { formatPercent } from '@/lib/utils';
 
-export function TopGaps({
-  gaps,
-  profileId,
-  hasRoadmap,
-}: {
-  gaps: SkillAssessment[];
-  profileId: string;
-  hasRoadmap: boolean;
-}) {
+/** The three things costing this student the most, each with one line of why. */
+export function TopGaps({ gaps, profileId }: { gaps: SkillAssessment[]; profileId: string }) {
   return (
-    <>
-      <PanelHeader className="flex-col items-stretch gap-3 sm:flex-row sm:items-center">
+    <Panel>
+      <PanelHeader>
         <div>
-          <PanelTitle>What is costing you the most</PanelTitle>
-          <PanelNote>
-            Ranked by job description demand multiplied by how much of the skill is still unproven.
-          </PanelNote>
+          <PanelTitle>What is holding you back</PanelTitle>
+          <PanelNote>The three skills where the gap costs you the most.</PanelNote>
         </div>
-        <Button asChild variant={hasRoadmap ? 'outline' : 'primary'} className="shrink-0">
-          <Link href={`/roadmap/${profileId}`}>
-            {hasRoadmap ? 'Open roadmap' : 'Build my roadmap'}
-          </Link>
+        <Button asChild variant="secondary" size="sm">
+          <Link href={`/skills/${profileId}`}>See all skills</Link>
         </Button>
       </PanelHeader>
 
-      <ol className="divide-y">
-        {gaps.map((gap, index) => (
-          <li key={gap.skill} className="flex items-start gap-4 px-5 py-3">
-            <span className="tabular w-5 shrink-0 pt-0.5 text-ui-sm text-muted">{index + 1}</span>
-            <div className="min-w-0 flex-1">
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="font-medium">{gap.skill}</span>
-                <EvidenceBadge level={gap.level} />
-                <span className="tabular text-ui-sm text-muted">
-                  in {formatPercent(gap.frequency)} of job descriptions
-                </span>
-              </div>
-              <p className="mt-1 max-w-prose text-ui-sm text-muted">{gap.evidence_summary}</p>
-            </div>
+      <ol className="border-t">
+        {gaps.slice(0, 3).map((gap) => (
+          <li
+            key={gap.skill}
+            className="flex flex-wrap items-center gap-x-3 gap-y-1.5 border-b px-5 py-3.5 last:border-b-0"
+          >
+            <span className="font-medium">{gap.skill}</span>
+            <ProofBadge level={gap.level} />
+            <span className="tabular ml-auto text-sm text-ink-faint">
+              {demandPhrase(gap.frequency)}
+            </span>
+            <p className="basis-full text-sm text-ink-muted">{plainReason(gap)}</p>
           </li>
         ))}
       </ol>
-    </>
+    </Panel>
   );
+}
+
+/** The evidence summary rewritten as one sentence a student would say. */
+function plainReason(gap: SkillAssessment): string {
+  if (gap.level === 'missing') {
+    return `Nothing on your resume or in your code mentions ${gap.skill}.`;
+  }
+  if (gap.level === 'claimed') {
+    return `Your resume lists ${gap.skill}, but we could not find it in any of your projects.`;
+  }
+  if (gap.level === 'observed') {
+    const source = gap.observed_sources[0];
+    return source
+      ? `We found ${gap.skill} in ${source.file}, but you have not been tested on it.`
+      : `We found ${gap.skill} in your code, but you have not been tested on it.`;
+  }
+  return `You scored ${Math.round((gap.verified_score ?? 0) * 100)}% when tested on ${gap.skill}.`;
 }
