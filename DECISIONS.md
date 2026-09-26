@@ -50,3 +50,38 @@ Choices made while building, with the reason. Recorded as they happened.
   recovered from `skill_evidence`, which only records repositories that produced a
   hit. Storing a compact scan summary keeps the explanation honest and lets a
   replan run without touching the GitHub API again.
+
+## Scoring and evidence
+
+- **A failed quiz does not earn the verified badge, but it does set proficiency.**
+  Taking a quiz and scoring 25% means the skill is genuinely weak, so the number
+  drops and the badge stays at whatever the code and resume showed. A badge that
+  meant "attempted" would be worth nothing.
+- **Marking a roadmap item done never moves the score.** Self reported completion
+  is exactly the kind of claim this product exists to distrust. Progress is
+  recorded and the plan is replanned; the score moves when a repository or a quiz
+  proves the skill. This is stated in the interface where the student does it.
+- **README mentions count as evidence for concepts only.** There is no dependency
+  that proves "feature engineering", so the README is the only available signal.
+  Allowing it for tools as well would let a mention pass as an import.
+
+## Roadmap
+
+- **Items the student touched are locked.** Any edit, skip or status change sets
+  `user_edited`, and later versions copy that item across unchanged. The agent
+  replans the future, not the student's decisions.
+- **Weeks are packed in order and never backfilled.** Leaving three hours unused in
+  week one is cheaper than moving a skill ahead of its prerequisite to fill them.
+- **Proof projects combine two gaps only when they meet.** Either the same skill
+  category or a prerequisite relation. Forcing unrelated skills into one project
+  produces something nobody would build.
+- **Proof projects come from a curated blueprint per skill** rather than from the
+  model alone, so the offline path produces the same quality as the online one.
+
+## Testing
+
+- **56 tests rather than the 20 originally planned.** Every deterministic rule that
+  a judge might question has a test: the readiness formula, the proficiency table,
+  the badge threshold, alias collisions such as "js" inside "Node.js", manifest
+  parsing, the hour budget packer, the resource whitelist and the whole LLM
+  fallback chain against a mocked provider. None of them restate the code.
