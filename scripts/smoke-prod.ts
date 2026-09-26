@@ -33,7 +33,7 @@ async function api<T>(route: string, init?: RequestInit): Promise<T> {
 
 async function checkLanding(page: Page): Promise<void> {
   await timed('landing page', async () => {
-    await page.goto(BASE, { waitUntil: 'domcontentloaded' });
+    await page.goto(BASE, { waitUntil: 'networkidle' });
     await page.getByRole('heading', { name: 'Skills proven, not claimed' }).waitFor();
     const storageWarning = await page.getByText('Storage is not configured').count();
     if (storageWarning > 0) throw new Error('the deployment has no database configured');
@@ -43,8 +43,19 @@ async function checkLanding(page: Page): Promise<void> {
 
 async function checkDemoProfile(page: Page): Promise<string> {
   const id = await timed('demo profile analysis', async () => {
-    await page.getByRole('button', { name: 'Load demo profile' }).click();
-    await page.waitForURL('**/analyze/**');
+    // A click before React hydrates does nothing, and on a cold serverless start
+    // hydration can land well after the markup, so the click is retried.
+    const demoButton = page.getByRole('button', { name: 'Load demo profile' });
+    await demoButton.waitFor({ state: 'visible' });
+    for (let attempt = 0; attempt < 5; attempt += 1) {
+      await demoButton.click();
+      const navigated = await page
+        .waitForURL('**/analyze/**', { timeout: 6000 })
+        .then(() => true)
+        .catch(() => false);
+      if (navigated) break;
+      if (attempt === 4) throw new Error('the demo button never started an analysis');
+    }
     // The stream has to produce its first step quickly or a proxy may treat the
     // connection as idle.
     await page.getByText('Agent started').waitFor({ timeout: 15_000 });

@@ -22,3 +22,4 @@ docs/video/*.webm
 
 # Supabase CLI scratch state: machine specific, and it churns on every command
 supabase/.temp/
+.env*
