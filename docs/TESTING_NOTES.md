@@ -104,6 +104,31 @@ fixed it on the first attempt, and the prompt was also cut from about 2,800
 tokens to well under Groq's 8,000 token per minute free tier budget by sending
 only the gaps that fit the horizon and bare resource URLs rather than titles.
 
+## Supabase
+
+Project `skillproof` in South Asia (Mumbai), schema applied with
+`supabase db push` from `supabase/migrations/`.
+
+Full storyline against Postgres rather than the local JSON store: 8 score history
+rows, 3 verified skills, roadmap version 4 with 8 items, all surviving a reload.
+
+### Bug found and fixed: Next.js cached every database read
+
+The first run against Supabase looked like this: the quiz endpoints returned
+correct new scores, but `GET /api/profile/:id` kept returning the state from
+immediately after the analysis. Score history stayed at one row and the roadmap
+never appeared.
+
+Next.js patches global `fetch` and caches GET requests by default. The Supabase
+client uses `fetch` underneath, so every read was served from the framework data
+cache while the writes landed correctly in Postgres. The local JSON store never
+touches `fetch`, which is why this only surfaced once a real database was
+attached, and it would have shipped straight to production.
+
+Fix: the Supabase client is constructed with its own `fetch` that passes
+`cache: 'no-store'`. After the fix the same run produced the full history
+`46.6, 49.5, 49.3, 49.3, 49.3, 57.8, 59.5, 63.2` and all three verified skills.
+
 ## Production smoke test
 
 Recorded in the "Production" section below once the deployment exists.

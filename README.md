@@ -59,7 +59,7 @@ prices every gap against real job description demand.
 | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | AI reasoning             | `lib/llm/index.ts` (one entry point over Sarvam, Groq and Gemini), `lib/agent/ingestResume.ts`, `lib/agent/quiz.ts`, `lib/roadmap/prompt.ts`                           |
 | Real world data and APIs | `data/roles/*.json` and `data/raw_jds/` (job description demand), `lib/github/scan.ts` (GitHub REST), `lib/resume/pdf.ts` (PDF upload)                                 |
-| Persistent state         | `lib/db/` with one interface over Supabase and a local JSON store, schema in `supabase/schema.sql`                                                                     |
+| Persistent state         | `lib/db/` with one interface over Supabase and a local JSON store, schema in `supabase/migrations/`                                                                    |
 | Explainability           | `lib/scoring/evidence-summary.ts` builds every explanation from counted evidence, `components/dashboard/skill-row.tsx` shows the repository and file behind each skill |
 | Human in the loop        | `lib/services/roadmap-service.ts` (approve, edit, skip, reorder), `components/roadmap/roadmap-view.tsx`, `app/progress/[id]`                                           |
 | Graceful failure         | `lib/llm/index.ts` fallback chain, `lib/agent/ingestGithub.ts` resume only path, `lib/agent/quiz.ts` question bank fallback, `lib/db/json-store.ts`, `app/error.tsx`   |
@@ -161,9 +161,14 @@ agent trace says which path each step took.
 
 ### With Supabase
 
-Create a project, open the SQL editor, run `supabase/schema.sql`, then put the
-project URL and the service role key in `.env.local`. The service role key is
-only ever read in server code.
+```bash
+supabase link --project-ref <your project ref>
+supabase db push
+```
+
+The schema lives in `supabase/migrations/`. Put the project URL and the service
+role key in `.env.local` afterwards. The service role key is only ever read in
+server code and never reaches the browser bundle.
 
 ### Useful commands
 

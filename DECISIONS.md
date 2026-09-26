@@ -133,3 +133,15 @@ confirmed from the provider documentation before writing any adapter:
   window would stall a request that has a working alternative one line down.
 - **The chain order is data, not code.** `LLM_PRIMARY` promotes any configured
   provider to the front.
+
+## Persistence on a real database
+
+- **The Supabase client is given its own `fetch` with `cache: 'no-store'`.**
+  Next.js patches global fetch and caches GET requests, so every read through the
+  Supabase REST API came back as a stale snapshot: a profile would show the
+  initial analysis forever while the writes were landing correctly. The local
+  JSON store never touches fetch, so the bug only appeared once a real database
+  was connected. The store is the source of truth and always goes to the database.
+- **The schema moved from `supabase/schema.sql` into `supabase/migrations/`,** so
+  `supabase db push` is the one way the database changes and the history is
+  reviewable, rather than a file someone pastes into the SQL editor.

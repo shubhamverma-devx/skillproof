@@ -31,6 +31,12 @@ export class SupabaseStore implements SkillProofStore {
   constructor(url: string, serviceRoleKey: string) {
     this.client = createClient(url, serviceRoleKey, {
       auth: { persistSession: false, autoRefreshToken: false },
+      global: {
+        // Next.js patches global fetch and caches GET requests by default, which
+        // silently serves a stale snapshot of a profile after every write. The
+        // store is the source of truth, so it always goes to the database.
+        fetch: (input, init) => fetch(input, { ...init, cache: 'no-store' }),
+      },
     });
   }
 
