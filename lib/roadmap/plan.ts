@@ -23,27 +23,42 @@ function scorePointsAvailable(assessment: SkillAssessment, totalWeight: number):
 }
 
 /**
- * Picks the gaps that fit the student's time in the planning horizon, largest
- * readiness cost first. Anything that does not fit is returned separately so the
- * UI can say what was left for the next cycle rather than dropping it silently.
+ * Picks the gaps that fit inside the planning horizon, largest readiness cost
+ * first. Selection simulates the same week packing the plan will use, because
+ * comparing total hours against total capacity quietly overshoots: a five hour
+ * item in an eight hour week wastes three hours that the total never accounts
+ * for. Anything that does not fit is returned separately so the caller can say
+ * what was left for the next cycle rather than dropping it silently.
  */
 function selectGaps(
   gaps: SkillAssessment[],
-  availableHours: number,
+  context: PlanContext,
 ): { selected: SkillAssessment[]; deferred: SkillAssessment[] } {
-  const capacity = Math.max(ROADMAP.minItemHours, availableHours);
+  const budget = Math.max(ROADMAP.minItemHours, context.weekly_hours);
   const selected: SkillAssessment[] = [];
   const deferred: SkillAssessment[] = [];
-  let planned = 0;
+
+  let week = 1;
+  let used = context.reserved_weeks.get(1) ?? 0;
 
   for (const gap of gaps.slice(0, ROADMAP.maxPlannedSkills)) {
-    const hours = estimateHours(gap);
-    if (selected.length > 0 && planned + hours > capacity) {
+    const hours = Math.min(estimateHours(gap), budget);
+    let placeWeek = week;
+    let placeUsed = used;
+
+    while (placeUsed > 0 && placeUsed + hours > budget) {
+      placeWeek += 1;
+      placeUsed = context.reserved_weeks.get(placeWeek) ?? 0;
+    }
+
+    if (placeWeek > ROADMAP.defaultWeeks) {
       deferred.push(gap);
       continue;
     }
+
     selected.push(gap);
-    planned += hours;
+    week = placeWeek;
+    used = placeUsed + hours;
   }
 
   return { selected, deferred: [...deferred, ...gaps.slice(ROADMAP.maxPlannedSkills)] };
@@ -104,7 +119,7 @@ function buildProofProject(skill: string, partner: string | null): ProofProject 
  * a plan good enough to hand to a student as it is.
  */
 export function planRoadmap(gaps: SkillAssessment[], context: PlanContext): PlannedItem[] {
-  const { selected } = selectGaps(gaps, context.available_hours);
+  const { selected } = selectGaps(gaps, context);
   const ordered = orderForLearning(selected);
   const rankBySkill = new Map(gaps.map((gap, index) => [gap.skill, index + 1]));
 
@@ -123,7 +138,11 @@ export function planRoadmap(gaps: SkillAssessment[], context: PlanContext): Plan
     };
   });
 
-  return packIntoWeeks(drafts, context.weekly_hours) satisfies PlannedItem[];
+  return packIntoWeeks(
+    drafts,
+    context.weekly_hours,
+    context.reserved_weeks,
+  ) satisfies PlannedItem[];
 }
 
 /** Pairs a gap with a nearby one that fits, so one project can close two gaps. */

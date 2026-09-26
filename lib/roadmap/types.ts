@@ -21,4 +21,6 @@ export type PlanContext = {
   total_weight: number;
   /** Hours left in the planning horizon after items the student already owns. */
   available_hours: number;
+  /** Hours already committed per week by locked items, so weeks are not overfilled. */
+  reserved_weeks: Map<number, number>;
 };

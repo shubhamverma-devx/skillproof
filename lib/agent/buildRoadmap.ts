@@ -29,7 +29,11 @@ export type BuildRoadmapResult = {
  * agent is allowed to replan the future, never to rewrite decisions the student
  * already made. Everything else is planned again from the current gaps.
  */
-export async function buildRoadmap(profileId: string, reason: string): Promise<BuildRoadmapResult> {
+export async function buildRoadmap(
+  profileId: string,
+  reason: string,
+  options: { inheritApproval?: boolean } = {},
+): Promise<BuildRoadmapResult> {
   const store = getStore();
   const state = await loadProfileState(profileId);
   if (!state) throw new Error('Profile not found');
@@ -54,13 +58,19 @@ export async function buildRoadmap(profileId: string, reason: string): Promise<B
       state.profile.weekly_hours,
       horizonCapacity(state.profile.weekly_hours) - lockedHours,
     ),
+    reserved_weeks: hoursByWeek(locked),
   };
 
   const { items: planned, source } = await generatePlan(openGaps, context, tracer, state.demo);
 
-  const reserved = hoursByWeek(locked);
   const version = (state.roadmap?.roadmap.version ?? 0) + 1;
-  const roadmap = await store.createRoadmap(profileId, version);
+  const created = await store.createRoadmap(profileId, version);
+  // A replan triggered by progress keeps the approval the student already gave;
+  // asking them to approve again after every quiz would be noise, not control.
+  const roadmap =
+    options.inheritApproval && state.roadmap?.roadmap.status === 'approved'
+      ? await store.approveRoadmap(created.id)
+      : created;
 
   const rows: NewRoadmapItem[] = [
     ...locked.map((item) => ({ ...toNewItem(item), roadmap_id: roadmap.id })),
@@ -88,10 +98,10 @@ export async function buildRoadmap(profileId: string, reason: string): Promise<B
     'Roadmap version created',
     `Version ${version}: ${summarisePlan(planned)}${locked.length > 0 ? `, ${locked.length} items kept as you left them` : ''}. ${reason}`,
   );
-  if (reserved.size > 0) {
+  if (context.reserved_weeks.size > 0) {
     await tracer.info(
       'Existing weeks respected',
-      `Hours already committed in ${reserved.size} weeks were left in place when repacking`,
+      `Hours already committed in ${context.reserved_weeks.size} weeks were left in place when repacking`,
     );
   }
 

@@ -71,7 +71,7 @@ export function validatePlan(
   if (drafts.length === 0) throw new EmptyPlanError();
 
   const beforeWeeks = draft.items.map((item) => item.week);
-  const items = packIntoWeeks(drafts, context.weekly_hours);
+  const items = packIntoWeeks(drafts, context.weekly_hours, context.reserved_weeks);
   const rescheduled = items.some((item, index) => item.week !== beforeWeeks[index]);
 
   return { items, dropped_urls: droppedUrls, dropped_items: droppedItems, rescheduled };
