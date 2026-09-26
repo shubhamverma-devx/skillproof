@@ -17,7 +17,8 @@ export interface StepLogger {
 }
 
 export type JsonRequest<T> = {
-  schema: z.ZodType<T>;
+  /** Input side is unknown: the value being validated is raw model output. */
+  schema: z.ZodType<T, z.ZodTypeDef, unknown>;
   system: string;
   user: string;
   /** Stable key used to read and write the demo response cache. */

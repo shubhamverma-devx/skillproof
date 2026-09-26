@@ -1,0 +1,330 @@
+{
+  "username": "riya-sharma-demo",
+  "repos": [
+    {
+      "repo": "crop-yield-prediction",
+      "description": "Predicting district level crop yield from rainfall and soil data",
+      "languages": [
+        "Jupyter Notebook",
+        "Python"
+      ],
+      "topics": [
+        "machine-learning",
+        "python",
+        "pandas"
+      ],
+      "files": [
+        ".gitignore",
+        "README.md",
+        "requirements.txt",
+        "notebooks/01-eda.ipynb",
+        "notebooks/02-model.ipynb",
+        "src/train.py",
+        "src/features.py",
+        "data/README.md"
+      ],
+      "dependencies": [
+        {
+          "name": "pandas",
+          "file": "requirements.txt"
+        },
+        {
+          "name": "numpy",
+          "file": "requirements.txt"
+        },
+        {
+          "name": "scikit-learn",
+          "file": "requirements.txt"
+        },
+        {
+          "name": "matplotlib",
+          "file": "requirements.txt"
+        },
+        {
+          "name": "seaborn",
+          "file": "requirements.txt"
+        },
+        {
+          "name": "jupyter",
+          "file": "requirements.txt"
+        }
+      ],
+      "readme": "# Crop yield prediction\n\nMini project for our data science elective. I used rainfall, soil\nand area data for 12 districts and trained a random forest to predict\nyield per hectare.\n\nThe messy part was data cleaning: three sources used different district\nspellings and two years of rainfall data were missing. I documented every\ntransformation in notebooks/01-eda.ipynb.\n\nFeature engineering: rolling rainfall averages, monsoon onset week, and a\nsoil category encoding. Feature importance and basic statistics are at the\nend of the second notebook.\n\nBest validation R2 was 0.71 with 5 fold cross validation.\n",
+      "pushed_at": "2026-08-22T14:05:11Z"
+    },
+    {
+      "repo": "movie-recommender-flask",
+      "description": "Content based movie recommender served over a small Flask API",
+      "languages": [
+        "Python",
+        "HTML"
+      ],
+      "topics": [
+        "flask",
+        "recommender-system"
+      ],
+      "files": [
+        ".gitignore",
+        "README.md",
+        "requirements.txt",
+        "app.py",
+        "recommender.py",
+        "templates/index.html",
+        "static/style.css"
+      ],
+      "dependencies": [
+        {
+          "name": "flask",
+          "file": "requirements.txt"
+        },
+        {
+          "name": "pandas",
+          "file": "requirements.txt"
+        },
+        {
+          "name": "scikit-learn",
+          "file": "requirements.txt"
+        },
+        {
+          "name": "requests",
+          "file": "requirements.txt"
+        }
+      ],
+      "readme": "# Movie recommender\n\nTF-IDF over movie overviews and cosine similarity for the nearest\nneighbours. Flask serves two routes: a search page and a JSON REST API\nendpoint that the page calls with fetch.\n\nRun locally with: flask --app app run\n\nDataset is the TMDB 5000 movies CSV from Kaggle.\n",
+      "pushed_at": "2026-07-30T09:41:02Z"
+    },
+    {
+      "repo": "sentiment-analysis-tweets",
+      "description": "Sentiment classification on an airline tweets dataset",
+      "languages": [
+        "Jupyter Notebook",
+        "Python"
+      ],
+      "topics": [
+        "nlp",
+        "text-classification"
+      ],
+      "files": [
+        ".gitignore",
+        "README.md",
+        "requirements.txt",
+        "sentiment.ipynb",
+        "preprocess.py"
+      ],
+      "dependencies": [
+        {
+          "name": "nltk",
+          "file": "requirements.txt"
+        },
+        {
+          "name": "pandas",
+          "file": "requirements.txt"
+        },
+        {
+          "name": "scikit-learn",
+          "file": "requirements.txt"
+        },
+        {
+          "name": "matplotlib",
+          "file": "requirements.txt"
+        }
+      ],
+      "readme": "# Tweet sentiment analysis\n\nNLP practice project. Cleaning steps: lowercase, strip handles and URLs,\nremove stopwords with NLTK, then TF-IDF features into logistic regression\nand a linear SVM.\n\nMacro F1: 0.78 for logistic regression, 0.80 for the SVM. Confusion matrix\nand per class scores are plotted in the notebook.\n",
+      "pushed_at": "2026-07-11T17:22:45Z"
+    },
+    {
+      "repo": "student-marks-dashboard",
+      "description": "Streamlit dashboard for internal marks analysis",
+      "languages": [
+        "Python"
+      ],
+      "topics": [
+        "streamlit",
+        "data-visualization"
+      ],
+      "files": [
+        ".gitignore",
+        "README.md",
+        "requirements.txt",
+        "dashboard.py",
+        "utils.py"
+      ],
+      "dependencies": [
+        {
+          "name": "streamlit",
+          "file": "requirements.txt"
+        },
+        {
+          "name": "pandas",
+          "file": "requirements.txt"
+        },
+        {
+          "name": "matplotlib",
+          "file": "requirements.txt"
+        },
+        {
+          "name": "plotly",
+          "file": "requirements.txt"
+        }
+      ],
+      "readme": "# Marks dashboard\n\nBuilt this for our class representative. Upload the internal marks sheet\nand it produces subject wise distributions, a pass percentage summary and\na per student trend line.\n\nData visualisation with plotly for the interactive charts and matplotlib\nfor the static report export.\n",
+      "pushed_at": "2026-06-19T11:03:29Z"
+    },
+    {
+      "repo": "image-classifier-opencv",
+      "description": "Fruit image classifier with classical computer vision features",
+      "languages": [
+        "Python"
+      ],
+      "topics": [
+        "computer-vision",
+        "opencv"
+      ],
+      "files": [
+        ".gitignore",
+        "README.md",
+        "requirements.txt",
+        "classify.py",
+        "extract_features.py",
+        "samples/"
+      ],
+      "dependencies": [
+        {
+          "name": "opencv-python",
+          "file": "requirements.txt"
+        },
+        {
+          "name": "numpy",
+          "file": "requirements.txt"
+        },
+        {
+          "name": "matplotlib",
+          "file": "requirements.txt"
+        },
+        {
+          "name": "scikit-learn",
+          "file": "requirements.txt"
+        }
+      ],
+      "readme": "# Fruit classifier\n\nComputer vision assignment. Colour histogram plus HOG features into an SVM,\nno neural network here. OpenCV does the preprocessing: resize, blur, HSV\nconversion, contour based background removal.\n\nAccuracy 0.88 on a 6 class dataset of 1800 images.\n",
+      "pushed_at": "2026-05-28T08:15:53Z"
+    },
+    {
+      "repo": "college-attendance-tracker",
+      "description": "React app for marking and viewing attendance",
+      "languages": [
+        "JavaScript",
+        "CSS"
+      ],
+      "topics": [
+        "react"
+      ],
+      "files": [
+        ".gitignore",
+        "README.md",
+        "package.json",
+        "src/App.jsx",
+        "src/api.js",
+        "src/components/Table.jsx",
+        "public/index.html",
+        "vite.config.js"
+      ],
+      "dependencies": [
+        {
+          "name": "react",
+          "file": "package.json"
+        },
+        {
+          "name": "react-dom",
+          "file": "package.json"
+        },
+        {
+          "name": "axios",
+          "file": "package.json"
+        },
+        {
+          "name": "vite",
+          "file": "package.json"
+        }
+      ],
+      "readme": "# Attendance tracker\n\nSecond year web project. React front end with a table view per subject.\nData comes from a Google Sheet through a small proxy.\n",
+      "pushed_at": "2026-04-14T19:48:07Z"
+    },
+    {
+      "repo": "dsa-practice-python",
+      "description": "Daily data structures and algorithms practice",
+      "languages": [
+        "Python"
+      ],
+      "topics": [
+        "algorithms",
+        "problem-solving"
+      ],
+      "files": [
+        ".gitignore",
+        "README.md",
+        "arrays/two_sum.py",
+        "trees/level_order.py",
+        "graphs/bfs.py",
+        "dp/knapsack.py",
+        "Makefile"
+      ],
+      "dependencies": [],
+      "readme": "# DSA practice\n\nSolutions grouped by topic. 180 problems so far, mostly from LeetCode and\nGeeksforGeeks. Each file has the approach and complexity in a docstring.\n\nRun the tests with make test.\n",
+      "pushed_at": "2026-09-02T06:30:12Z"
+    },
+    {
+      "repo": "weather-cli",
+      "description": "Command line weather client",
+      "languages": [
+        "Python"
+      ],
+      "topics": [
+        "cli"
+      ],
+      "files": [
+        ".gitignore",
+        "README.md",
+        "requirements.txt",
+        "weather.py",
+        "Makefile"
+      ],
+      "dependencies": [
+        {
+          "name": "requests",
+          "file": "requirements.txt"
+        }
+      ],
+      "readme": "# Weather CLI\n\nSmall command line tool over the OpenWeather REST API. Caches the last\nresponse in a local JSON file so repeated calls in a minute do not hit the\nnetwork.\n",
+      "pushed_at": "2026-03-08T13:12:40Z"
+    },
+    {
+      "repo": "portfolio-site",
+      "description": "Personal portfolio page",
+      "languages": [
+        "HTML",
+        "CSS"
+      ],
+      "topics": [
+        "portfolio"
+      ],
+      "files": [
+        ".gitignore",
+        "README.md",
+        "index.html",
+        "styles.css",
+        "script.js",
+        "assets/"
+      ],
+      "dependencies": [],
+      "readme": "# Portfolio\n\nStatic page listing my projects and resume. Plain HTML and CSS with one\nsmall script for the theme toggle. Hosted on GitHub Pages.\n",
+      "pushed_at": "2026-02-21T10:00:00Z"
+    }
+  ],
+  "activity": {
+    "public_repos": 11,
+    "scanned_repos": 9,
+    "last_push": "2026-09-02T06:30:12Z",
+    "active_months": 8
+  }
+}

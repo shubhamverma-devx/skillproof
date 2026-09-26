@@ -1,0 +1,60 @@
+{
+  "repo": "ml-deploy-service",
+  "description": "FastAPI service that serves the crop yield model in a container",
+  "languages": [
+    "Python",
+    "Dockerfile"
+  ],
+  "topics": [
+    "docker",
+    "fastapi",
+    "mlops"
+  ],
+  "files": [
+    ".gitignore",
+    "README.md",
+    "requirements.txt",
+    "Dockerfile",
+    "docker-compose.yml",
+    ".github/workflows/ci.yml",
+    "app/main.py",
+    "app/model.py",
+    "tests/test_api.py"
+  ],
+  "dependencies": [
+    {
+      "name": "fastapi",
+      "file": "requirements.txt"
+    },
+    {
+      "name": "uvicorn",
+      "file": "requirements.txt"
+    },
+    {
+      "name": "torch",
+      "file": "requirements.txt"
+    },
+    {
+      "name": "boto3",
+      "file": "requirements.txt"
+    },
+    {
+      "name": "mlflow",
+      "file": "requirements.txt"
+    },
+    {
+      "name": "scikit-learn",
+      "file": "requirements.txt"
+    },
+    {
+      "name": "pandas",
+      "file": "requirements.txt"
+    },
+    {
+      "name": "pytest",
+      "file": "requirements.txt"
+    }
+  ],
+  "readme": "# ML deploy service\n\nProof project from week 2 of my roadmap. The crop yield model is now served\nas a REST API instead of a notebook.\n\nModel deployment: FastAPI app, model loaded once at startup, /predict takes\na JSON payload and returns the prediction with the model version. MLflow\ntracks the runs and the artifact lives in an S3 bucket read through boto3.\n\nThe Dockerfile is a two stage build, final image is 310 MB. GitHub Actions\nruns pytest and builds the image on every push.\n",
+  "pushed_at": "2026-09-24T07:45:00Z"
+}

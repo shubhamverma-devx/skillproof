@@ -12,6 +12,7 @@ import {
 } from './types';
 
 export { LlmUnavailableError } from './types';
+export { hashText, makeCacheKey } from './cache';
 export type { JsonRequest, JsonResult, LlmProvider, StepLogger } from './types';
 
 export function isDemoMode(): boolean {
@@ -43,7 +44,7 @@ export async function generateJson<T>(
 ): Promise<JsonResult<T>> {
   const { schema, cacheKey, logger, fallback } = request;
 
-  const cached = await readCachedResponse(cacheKey);
+  const cached = readCachedResponse(cacheKey);
   if (cached !== undefined) {
     const parsed = schema.safeParse(cached);
     if (parsed.success) {
