@@ -66,7 +66,7 @@ async function fetchReadme(fullName: string): Promise<string> {
  * manifests are then requested only when the tree proves they exist, which keeps
  * a full scan inside the unauthenticated rate limit.
  */
-async function scanRepo(repo: GithubRepo): Promise<RepoSignals> {
+export async function scanRepo(repo: GithubRepo): Promise<RepoSignals> {
   const [languages, files] = await Promise.all([
     fetchLanguages(repo.full_name),
     fetchTreePaths(repo.full_name, repo.default_branch),
@@ -92,6 +92,22 @@ async function scanRepo(repo: GithubRepo): Promise<RepoSignals> {
     readme: await fetchReadme(repo.full_name),
     pushed_at: repo.pushed_at,
   };
+}
+
+/** Scans one repository, used when a student links a new project as evidence. */
+export async function scanSingleRepo(fullName: string): Promise<RepoSignals> {
+  const repo = await githubFetch<GithubRepo>(`/repos/${fullName}`);
+  return scanRepo(repo);
+}
+
+/** Accepts a full GitHub URL or an owner/name pair and returns owner/name. */
+export function parseRepoReference(input: string): string | null {
+  const trimmed = input.trim().replace(/\.git$/, '').replace(/\/$/, '');
+  const fromUrl = trimmed.match(/github\.com\/([A-Za-z0-9-]+)\/([A-Za-z0-9._-]+)/);
+  if (fromUrl?.[1] && fromUrl[2]) return `${fromUrl[1]}/${fromUrl[2]}`;
+  const direct = trimmed.match(/^([A-Za-z0-9-]+)\/([A-Za-z0-9._-]+)$/);
+  if (direct?.[1] && direct[2]) return `${direct[1]}/${direct[2]}`;
+  return null;
 }
 
 function countActiveMonths(dates: string[]): number {

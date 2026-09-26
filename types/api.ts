@@ -6,6 +6,7 @@ import type {
   Profile,
   Roadmap,
   RoadmapItem,
+  RoadmapItemStatus,
   ScoreHistoryEntry,
 } from './domain';
 
@@ -54,4 +55,18 @@ export type QuizAnswerResponse = {
     readiness_delta: number | null;
     verified: boolean;
   } | null;
+};
+
+export type ProgressEvent =
+  | { type: 'item_status'; item_id: string; status: RoadmapItemStatus }
+  | { type: 'repo'; repo: string }
+  | { type: 'weekly_hours'; weekly_hours: number };
+
+export type ProgressResult = {
+  score: number;
+  delta: number | null;
+  summary: string;
+  changes: string[];
+  roadmap_version: number | null;
+  reason: string;
 };
