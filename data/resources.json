@@ -1,0 +1,930 @@
+{
+  "Python": [
+    {
+      "title": "Python official tutorial",
+      "url": "https://docs.python.org/3/tutorial/",
+      "type": "docs"
+    },
+    {
+      "title": "freeCodeCamp: scientific computing with Python",
+      "url": "https://www.freecodecamp.org/learn/scientific-computing-with-python/",
+      "type": "course"
+    },
+    {
+      "title": "roadmap.sh Python track",
+      "url": "https://roadmap.sh/python",
+      "type": "roadmap"
+    }
+  ],
+  "JavaScript": [
+    {
+      "title": "MDN JavaScript guide",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+      "type": "docs"
+    },
+    {
+      "title": "javascript.info",
+      "url": "https://javascript.info/",
+      "type": "course"
+    },
+    {
+      "title": "roadmap.sh JavaScript track",
+      "url": "https://roadmap.sh/javascript",
+      "type": "roadmap"
+    }
+  ],
+  "TypeScript": [
+    {
+      "title": "TypeScript handbook",
+      "url": "https://www.typescriptlang.org/docs/handbook/intro.html",
+      "type": "docs"
+    },
+    {
+      "title": "roadmap.sh TypeScript track",
+      "url": "https://roadmap.sh/typescript",
+      "type": "roadmap"
+    }
+  ],
+  "Java": [
+    {
+      "title": "dev.java learn",
+      "url": "https://dev.java/learn/",
+      "type": "docs"
+    },
+    {
+      "title": "roadmap.sh Java track",
+      "url": "https://roadmap.sh/java",
+      "type": "roadmap"
+    }
+  ],
+  "SQL": [
+    {
+      "title": "PostgreSQL tutorial",
+      "url": "https://www.postgresql.org/docs/current/tutorial.html",
+      "type": "docs"
+    },
+    {
+      "title": "SQLBolt interactive lessons",
+      "url": "https://sqlbolt.com/",
+      "type": "practice"
+    },
+    {
+      "title": "Kaggle Learn: intro to SQL",
+      "url": "https://www.kaggle.com/learn/intro-to-sql",
+      "type": "course"
+    }
+  ],
+  "HTML": [
+    {
+      "title": "MDN HTML basics",
+      "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content",
+      "type": "docs"
+    },
+    {
+      "title": "web.dev learn HTML",
+      "url": "https://web.dev/learn/html",
+      "type": "course"
+    }
+  ],
+  "CSS": [
+    {
+      "title": "MDN CSS learning area",
+      "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics",
+      "type": "docs"
+    },
+    {
+      "title": "web.dev learn CSS",
+      "url": "https://web.dev/learn/css",
+      "type": "course"
+    }
+  ],
+  "Shell scripting": [
+    {
+      "title": "GNU Bash manual",
+      "url": "https://www.gnu.org/software/bash/manual/bash.html",
+      "type": "docs"
+    },
+    {
+      "title": "MIT missing semester: shell tools",
+      "url": "https://missing.csail.mit.edu/2020/shell-tools/",
+      "type": "course"
+    }
+  ],
+  "React": [
+    {
+      "title": "React docs: learn",
+      "url": "https://react.dev/learn",
+      "type": "docs"
+    },
+    {
+      "title": "roadmap.sh React track",
+      "url": "https://roadmap.sh/react",
+      "type": "roadmap"
+    }
+  ],
+  "Next.js": [
+    {
+      "title": "Next.js learn course",
+      "url": "https://nextjs.org/learn",
+      "type": "course"
+    },
+    {
+      "title": "Next.js App Router docs",
+      "url": "https://nextjs.org/docs/app",
+      "type": "docs"
+    }
+  ],
+  "Node.js": [
+    {
+      "title": "Node.js learn",
+      "url": "https://nodejs.org/en/learn",
+      "type": "docs"
+    },
+    {
+      "title": "roadmap.sh Node.js track",
+      "url": "https://roadmap.sh/nodejs",
+      "type": "roadmap"
+    }
+  ],
+  "Express": [
+    {
+      "title": "Express getting started",
+      "url": "https://expressjs.com/en/starter/installing.html",
+      "type": "docs"
+    },
+    {
+      "title": "MDN Express tutorial",
+      "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs",
+      "type": "tutorial"
+    }
+  ],
+  "Redux": [
+    {
+      "title": "Redux essentials tutorial",
+      "url": "https://redux.js.org/tutorials/essentials/part-1-overview-concepts",
+      "type": "tutorial"
+    },
+    {
+      "title": "Redux fundamentals tutorial",
+      "url": "https://redux.js.org/tutorials/fundamentals/part-1-overview",
+      "type": "tutorial"
+    }
+  ],
+  "Tailwind CSS": [
+    {
+      "title": "Tailwind CSS docs",
+      "url": "https://tailwindcss.com/docs/styling-with-utility-classes",
+      "type": "docs"
+    }
+  ],
+  "Django": [
+    {
+      "title": "Django first app tutorial",
+      "url": "https://docs.djangoproject.com/en/stable/intro/tutorial01/",
+      "type": "tutorial"
+    },
+    {
+      "title": "Django REST framework quickstart",
+      "url": "https://www.django-rest-framework.org/tutorial/quickstart/",
+      "type": "tutorial"
+    }
+  ],
+  "Flask": [
+    {
+      "title": "Flask quickstart",
+      "url": "https://flask.palletsprojects.com/en/stable/quickstart/",
+      "type": "docs"
+    },
+    {
+      "title": "Flask tutorial",
+      "url": "https://flask.palletsprojects.com/en/stable/tutorial/",
+      "type": "tutorial"
+    }
+  ],
+  "FastAPI": [
+    {
+      "title": "FastAPI tutorial",
+      "url": "https://fastapi.tiangolo.com/tutorial/",
+      "type": "tutorial"
+    },
+    {
+      "title": "FastAPI deployment guide",
+      "url": "https://fastapi.tiangolo.com/deployment/",
+      "type": "docs"
+    }
+  ],
+  "Spring Boot": [
+    {
+      "title": "Spring quickstart guide",
+      "url": "https://spring.io/quickstart",
+      "type": "tutorial"
+    },
+    {
+      "title": "Spring Boot reference docs",
+      "url": "https://docs.spring.io/spring-boot/index.html",
+      "type": "docs"
+    }
+  ],
+  "PyTorch": [
+    {
+      "title": "PyTorch learn the basics",
+      "url": "https://pytorch.org/tutorials/beginner/basics/intro.html",
+      "type": "tutorial"
+    },
+    {
+      "title": "PyTorch 60 minute blitz",
+      "url": "https://pytorch.org/tutorials/beginner/deep_learning_60min_blitz.html",
+      "type": "tutorial"
+    }
+  ],
+  "TensorFlow": [
+    {
+      "title": "TensorFlow tutorials",
+      "url": "https://www.tensorflow.org/tutorials",
+      "type": "tutorial"
+    },
+    {
+      "title": "Keras developer guides",
+      "url": "https://keras.io/guides/",
+      "type": "docs"
+    }
+  ],
+  "scikit-learn": [
+    {
+      "title": "scikit-learn getting started",
+      "url": "https://scikit-learn.org/stable/getting_started.html",
+      "type": "docs"
+    },
+    {
+      "title": "Kaggle Learn: intro to machine learning",
+      "url": "https://www.kaggle.com/learn/intro-to-machine-learning",
+      "type": "course"
+    }
+  ],
+  "Pandas": [
+    {
+      "title": "pandas 10 minutes guide",
+      "url": "https://pandas.pydata.org/docs/user_guide/10min.html",
+      "type": "docs"
+    },
+    {
+      "title": "Kaggle Learn: pandas",
+      "url": "https://www.kaggle.com/learn/pandas",
+      "type": "course"
+    }
+  ],
+  "NumPy": [
+    {
+      "title": "NumPy absolute beginners guide",
+      "url": "https://numpy.org/doc/stable/user/absolute_beginners.html",
+      "type": "docs"
+    }
+  ],
+  "Matplotlib": [
+    {
+      "title": "Matplotlib pyplot tutorial",
+      "url": "https://matplotlib.org/stable/tutorials/pyplot.html",
+      "type": "tutorial"
+    },
+    {
+      "title": "seaborn tutorial",
+      "url": "https://seaborn.pydata.org/tutorial.html",
+      "type": "tutorial"
+    }
+  ],
+  "PostgreSQL": [
+    {
+      "title": "PostgreSQL tutorial",
+      "url": "https://www.postgresql.org/docs/current/tutorial.html",
+      "type": "docs"
+    },
+    {
+      "title": "PostgreSQL indexes chapter",
+      "url": "https://www.postgresql.org/docs/current/indexes.html",
+      "type": "docs"
+    }
+  ],
+  "MySQL": [
+    {
+      "title": "MySQL tutorial",
+      "url": "https://dev.mysql.com/doc/mysql-tutorial-excerpt/8.0/en/",
+      "type": "docs"
+    }
+  ],
+  "MongoDB": [
+    {
+      "title": "MongoDB CRUD operations",
+      "url": "https://www.mongodb.com/docs/manual/crud/",
+      "type": "docs"
+    },
+    {
+      "title": "Mongoose guide",
+      "url": "https://mongoosejs.com/docs/guide.html",
+      "type": "docs"
+    }
+  ],
+  "Redis": [
+    {
+      "title": "Redis get started",
+      "url": "https://redis.io/docs/latest/develop/get-started/",
+      "type": "docs"
+    },
+    {
+      "title": "Redis caching patterns",
+      "url": "https://redis.io/docs/latest/develop/use/patterns/",
+      "type": "docs"
+    }
+  ],
+  "Git": [
+    {
+      "title": "Pro Git book",
+      "url": "https://git-scm.com/book/en/v2",
+      "type": "docs"
+    },
+    {
+      "title": "roadmap.sh Git and GitHub track",
+      "url": "https://roadmap.sh/git-github",
+      "type": "roadmap"
+    }
+  ],
+  "GitHub Actions": [
+    {
+      "title": "GitHub Actions documentation",
+      "url": "https://docs.github.com/en/actions",
+      "type": "docs"
+    },
+    {
+      "title": "Building and testing with Actions",
+      "url": "https://docs.github.com/en/actions/automating-builds-and-tests",
+      "type": "tutorial"
+    }
+  ],
+  "Docker": [
+    {
+      "title": "Docker getting started",
+      "url": "https://docs.docker.com/get-started/",
+      "type": "docs"
+    },
+    {
+      "title": "roadmap.sh Docker track",
+      "url": "https://roadmap.sh/docker",
+      "type": "roadmap"
+    }
+  ],
+  "Kubernetes": [
+    {
+      "title": "Kubernetes basics tutorial",
+      "url": "https://kubernetes.io/docs/tutorials/kubernetes-basics/",
+      "type": "tutorial"
+    },
+    {
+      "title": "roadmap.sh Kubernetes track",
+      "url": "https://roadmap.sh/kubernetes",
+      "type": "roadmap"
+    }
+  ],
+  "AWS": [
+    {
+      "title": "AWS getting started",
+      "url": "https://aws.amazon.com/getting-started/",
+      "type": "docs"
+    },
+    {
+      "title": "roadmap.sh AWS track",
+      "url": "https://roadmap.sh/aws",
+      "type": "roadmap"
+    }
+  ],
+  "Azure": [
+    {
+      "title": "Microsoft Learn Azure training",
+      "url": "https://learn.microsoft.com/en-us/training/azure/",
+      "type": "course"
+    }
+  ],
+  "GCP": [
+    {
+      "title": "Google Cloud documentation",
+      "url": "https://cloud.google.com/docs",
+      "type": "docs"
+    },
+    {
+      "title": "BigQuery quickstarts",
+      "url": "https://cloud.google.com/bigquery/docs/quickstarts",
+      "type": "tutorial"
+    }
+  ],
+  "Terraform": [
+    {
+      "title": "Terraform tutorials",
+      "url": "https://developer.hashicorp.com/terraform/tutorials",
+      "type": "tutorial"
+    },
+    {
+      "title": "roadmap.sh Terraform track",
+      "url": "https://roadmap.sh/terraform",
+      "type": "roadmap"
+    }
+  ],
+  "Ansible": [
+    {
+      "title": "Ansible getting started",
+      "url": "https://docs.ansible.com/ansible/latest/getting_started/index.html",
+      "type": "docs"
+    }
+  ],
+  "Jenkins": [
+    {
+      "title": "Jenkins tutorials",
+      "url": "https://www.jenkins.io/doc/tutorials/",
+      "type": "tutorial"
+    },
+    {
+      "title": "Jenkins pipeline docs",
+      "url": "https://www.jenkins.io/doc/book/pipeline/",
+      "type": "docs"
+    }
+  ],
+  "Linux": [
+    {
+      "title": "Linux Journey",
+      "url": "https://linuxjourney.com/",
+      "type": "course"
+    },
+    {
+      "title": "MIT missing semester",
+      "url": "https://missing.csail.mit.edu/",
+      "type": "course"
+    }
+  ],
+  "Nginx": [
+    {
+      "title": "nginx beginners guide",
+      "url": "https://nginx.org/en/docs/beginners_guide.html",
+      "type": "docs"
+    }
+  ],
+  "Prometheus": [
+    {
+      "title": "Prometheus getting started",
+      "url": "https://prometheus.io/docs/tutorials/getting_started/",
+      "type": "tutorial"
+    },
+    {
+      "title": "Prometheus instrumentation practices",
+      "url": "https://prometheus.io/docs/practices/instrumentation/",
+      "type": "docs"
+    }
+  ],
+  "Grafana": [
+    {
+      "title": "Grafana fundamentals tutorial",
+      "url": "https://grafana.com/tutorials/grafana-fundamentals/",
+      "type": "tutorial"
+    }
+  ],
+  "Jupyter": [
+    {
+      "title": "Jupyter Notebook docs",
+      "url": "https://jupyter-notebook.readthedocs.io/en/stable/notebook.html",
+      "type": "docs"
+    }
+  ],
+  "MLflow": [
+    {
+      "title": "MLflow getting started",
+      "url": "https://mlflow.org/docs/latest/getting-started/",
+      "type": "docs"
+    }
+  ],
+  "Excel": [
+    {
+      "title": "Microsoft Excel help and learning",
+      "url": "https://support.microsoft.com/en-us/excel",
+      "type": "docs"
+    },
+    {
+      "title": "Excel functions reference",
+      "url": "https://support.microsoft.com/en-us/office/excel-functions-by-category-5f91f4e9-7b42-46d2-9bd1-63f26a86c0eb",
+      "type": "docs"
+    }
+  ],
+  "Power BI": [
+    {
+      "title": "Power BI learning paths",
+      "url": "https://learn.microsoft.com/en-us/training/powerplatform/power-bi",
+      "type": "course"
+    },
+    {
+      "title": "Power BI documentation",
+      "url": "https://learn.microsoft.com/en-us/power-bi/",
+      "type": "docs"
+    }
+  ],
+  "Tableau": [
+    {
+      "title": "Tableau free training videos",
+      "url": "https://www.tableau.com/learn/training",
+      "type": "course"
+    }
+  ],
+  "Postman": [
+    {
+      "title": "Postman learning centre",
+      "url": "https://learning.postman.com/docs/introduction/overview/",
+      "type": "docs"
+    }
+  ],
+  "Jest": [
+    {
+      "title": "Jest getting started",
+      "url": "https://jestjs.io/docs/getting-started",
+      "type": "docs"
+    },
+    {
+      "title": "Vitest guide",
+      "url": "https://vitest.dev/guide/",
+      "type": "docs"
+    }
+  ],
+  "Playwright": [
+    {
+      "title": "Playwright getting started",
+      "url": "https://playwright.dev/docs/intro",
+      "type": "docs"
+    }
+  ],
+  "Vite": [
+    {
+      "title": "Vite guide",
+      "url": "https://vite.dev/guide/",
+      "type": "docs"
+    }
+  ],
+  "Figma": [
+    {
+      "title": "Figma help centre",
+      "url": "https://help.figma.com/hc/en-us",
+      "type": "docs"
+    }
+  ],
+  "Machine learning": [
+    {
+      "title": "Google machine learning crash course",
+      "url": "https://developers.google.com/machine-learning/crash-course",
+      "type": "course"
+    },
+    {
+      "title": "Kaggle Learn: intro to machine learning",
+      "url": "https://www.kaggle.com/learn/intro-to-machine-learning",
+      "type": "course"
+    }
+  ],
+  "Deep learning": [
+    {
+      "title": "Dive into deep learning",
+      "url": "https://d2l.ai/",
+      "type": "course"
+    },
+    {
+      "title": "fast.ai practical deep learning",
+      "url": "https://course.fast.ai/",
+      "type": "course"
+    }
+  ],
+  "NLP": [
+    {
+      "title": "Hugging Face NLP course",
+      "url": "https://huggingface.co/learn/nlp-course",
+      "type": "course"
+    },
+    {
+      "title": "spaCy course",
+      "url": "https://course.spacy.io/en/",
+      "type": "course"
+    }
+  ],
+  "Computer vision": [
+    {
+      "title": "OpenCV tutorials",
+      "url": "https://docs.opencv.org/4.x/d9/df8/tutorial_root.html",
+      "type": "tutorial"
+    },
+    {
+      "title": "Kaggle Learn: computer vision",
+      "url": "https://www.kaggle.com/learn/computer-vision",
+      "type": "course"
+    }
+  ],
+  "Statistics": [
+    {
+      "title": "Khan Academy statistics and probability",
+      "url": "https://www.khanacademy.org/math/statistics-probability",
+      "type": "course"
+    },
+    {
+      "title": "Seeing theory",
+      "url": "https://seeing-theory.brown.edu/",
+      "type": "course"
+    }
+  ],
+  "Data visualisation": [
+    {
+      "title": "Kaggle Learn: data visualisation",
+      "url": "https://www.kaggle.com/learn/data-visualization",
+      "type": "course"
+    },
+    {
+      "title": "From data to viz chart chooser",
+      "url": "https://www.data-to-viz.com/",
+      "type": "docs"
+    }
+  ],
+  "Feature engineering": [
+    {
+      "title": "Kaggle Learn: feature engineering",
+      "url": "https://www.kaggle.com/learn/feature-engineering",
+      "type": "course"
+    }
+  ],
+  "Model deployment": [
+    {
+      "title": "FastAPI deployment guide",
+      "url": "https://fastapi.tiangolo.com/deployment/",
+      "type": "docs"
+    },
+    {
+      "title": "MLflow model serving",
+      "url": "https://mlflow.org/docs/latest/deployment/",
+      "type": "docs"
+    }
+  ],
+  "REST APIs": [
+    {
+      "title": "MDN HTTP overview",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP",
+      "type": "docs"
+    },
+    {
+      "title": "roadmap.sh API design track",
+      "url": "https://roadmap.sh/api-design",
+      "type": "roadmap"
+    }
+  ],
+  "GraphQL": [
+    {
+      "title": "GraphQL learn",
+      "url": "https://graphql.org/learn/",
+      "type": "docs"
+    },
+    {
+      "title": "roadmap.sh GraphQL track",
+      "url": "https://roadmap.sh/graphql",
+      "type": "roadmap"
+    }
+  ],
+  "Authentication": [
+    {
+      "title": "OWASP authentication cheat sheet",
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html",
+      "type": "docs"
+    },
+    {
+      "title": "JWT introduction",
+      "url": "https://jwt.io/introduction",
+      "type": "docs"
+    }
+  ],
+  "System design": [
+    {
+      "title": "System design primer",
+      "url": "https://github.com/donnemartin/system-design-primer",
+      "type": "docs"
+    },
+    {
+      "title": "roadmap.sh system design track",
+      "url": "https://roadmap.sh/system-design",
+      "type": "roadmap"
+    }
+  ],
+  "Data structures and algorithms": [
+    {
+      "title": "NeetCode roadmap",
+      "url": "https://neetcode.io/roadmap",
+      "type": "practice"
+    },
+    {
+      "title": "roadmap.sh DSA track",
+      "url": "https://roadmap.sh/datastructures-and-algorithms",
+      "type": "roadmap"
+    }
+  ],
+  "Testing": [
+    {
+      "title": "pytest getting started",
+      "url": "https://docs.pytest.org/en/stable/getting-started.html",
+      "type": "docs"
+    },
+    {
+      "title": "Martin Fowler: the practical test pyramid",
+      "url": "https://martinfowler.com/articles/practical-test-pyramid.html",
+      "type": "docs"
+    }
+  ],
+  "CI/CD": [
+    {
+      "title": "GitHub Actions CI documentation",
+      "url": "https://docs.github.com/en/actions/automating-builds-and-tests",
+      "type": "docs"
+    },
+    {
+      "title": "roadmap.sh DevOps track",
+      "url": "https://roadmap.sh/devops",
+      "type": "roadmap"
+    }
+  ],
+  "Web performance": [
+    {
+      "title": "web.dev learn performance",
+      "url": "https://web.dev/learn/performance",
+      "type": "course"
+    },
+    {
+      "title": "Lighthouse overview",
+      "url": "https://developer.chrome.com/docs/lighthouse/overview",
+      "type": "docs"
+    }
+  ],
+  "Accessibility": [
+    {
+      "title": "web.dev learn accessibility",
+      "url": "https://web.dev/learn/accessibility",
+      "type": "course"
+    },
+    {
+      "title": "W3C WAI tutorials",
+      "url": "https://www.w3.org/WAI/tutorials/",
+      "type": "tutorial"
+    }
+  ],
+  "Responsive design": [
+    {
+      "title": "MDN responsive design",
+      "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Responsive_Design",
+      "type": "docs"
+    },
+    {
+      "title": "web.dev learn design",
+      "url": "https://web.dev/learn/design",
+      "type": "course"
+    }
+  ],
+  "Data cleaning": [
+    {
+      "title": "Kaggle Learn: data cleaning",
+      "url": "https://www.kaggle.com/learn/data-cleaning",
+      "type": "course"
+    }
+  ],
+  "ETL": [
+    {
+      "title": "Airflow tutorials",
+      "url": "https://airflow.apache.org/docs/apache-airflow/stable/tutorial/index.html",
+      "type": "tutorial"
+    },
+    {
+      "title": "dbt best practices",
+      "url": "https://docs.getdbt.com/best-practices",
+      "type": "docs"
+    }
+  ],
+  "Data modelling": [
+    {
+      "title": "PostgreSQL data definition",
+      "url": "https://www.postgresql.org/docs/current/ddl.html",
+      "type": "docs"
+    },
+    {
+      "title": "Kimball dimensional modelling techniques",
+      "url": "https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/",
+      "type": "docs"
+    }
+  ],
+  "A/B testing": [
+    {
+      "title": "Khan Academy significance tests",
+      "url": "https://www.khanacademy.org/math/statistics-probability/significance-tests-one-sample",
+      "type": "course"
+    },
+    {
+      "title": "Evan Miller sample size calculator",
+      "url": "https://www.evanmiller.org/ab-testing/sample-size.html",
+      "type": "practice"
+    }
+  ],
+  "Business intelligence": [
+    {
+      "title": "Power BI learning paths",
+      "url": "https://learn.microsoft.com/en-us/training/powerplatform/power-bi",
+      "type": "course"
+    }
+  ],
+  "Monitoring": [
+    {
+      "title": "Google SRE book: monitoring distributed systems",
+      "url": "https://sre.google/sre-book/monitoring-distributed-systems/",
+      "type": "docs"
+    },
+    {
+      "title": "Grafana fundamentals tutorial",
+      "url": "https://grafana.com/tutorials/grafana-fundamentals/",
+      "type": "tutorial"
+    }
+  ],
+  "Infrastructure as code": [
+    {
+      "title": "Terraform get started on AWS",
+      "url": "https://developer.hashicorp.com/terraform/tutorials/aws-get-started",
+      "type": "tutorial"
+    },
+    {
+      "title": "roadmap.sh Terraform track",
+      "url": "https://roadmap.sh/terraform",
+      "type": "roadmap"
+    }
+  ],
+  "Networking": [
+    {
+      "title": "Beej's guide to network programming",
+      "url": "https://beej.us/guide/bgnet/",
+      "type": "docs"
+    },
+    {
+      "title": "Cloudflare learning centre: what is DNS",
+      "url": "https://www.cloudflare.com/learning/dns/what-is-dns/",
+      "type": "docs"
+    }
+  ],
+  "Caching": [
+    {
+      "title": "MDN HTTP caching",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Caching",
+      "type": "docs"
+    },
+    {
+      "title": "Redis caching patterns",
+      "url": "https://redis.io/docs/latest/develop/use/patterns/",
+      "type": "docs"
+    }
+  ],
+  "Message queues": [
+    {
+      "title": "Kafka quickstart",
+      "url": "https://kafka.apache.org/quickstart",
+      "type": "tutorial"
+    },
+    {
+      "title": "RabbitMQ tutorials",
+      "url": "https://www.rabbitmq.com/tutorials",
+      "type": "tutorial"
+    }
+  ],
+  "Microservices": [
+    {
+      "title": "Microservices patterns",
+      "url": "https://microservices.io/patterns/index.html",
+      "type": "docs"
+    }
+  ],
+  "Agile": [
+    {
+      "title": "The Scrum guide",
+      "url": "https://scrumguides.org/scrum-guide.html",
+      "type": "docs"
+    }
+  ],
+  "Cloud fundamentals": [
+    {
+      "title": "AWS cloud essentials",
+      "url": "https://aws.amazon.com/getting-started/cloud-essentials/",
+      "type": "docs"
+    },
+    {
+      "title": "Azure fundamentals: cloud concepts",
+      "url": "https://learn.microsoft.com/en-us/training/paths/microsoft-azure-fundamentals-describe-cloud-concepts/",
+      "type": "course"
+    }
+  ],
+  "Web scraping": [
+    {
+      "title": "Beautiful Soup documentation",
+      "url": "https://beautiful-soup-4.readthedocs.io/en/latest/",
+      "type": "docs"
+    },
+    {
+      "title": "Scrapy tutorial",
+      "url": "https://docs.scrapy.org/en/latest/intro/tutorial.html",
+      "type": "tutorial"
+    }
+  ]
+}
