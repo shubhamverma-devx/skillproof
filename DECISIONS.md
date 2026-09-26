@@ -80,7 +80,7 @@ Choices made while building, with the reason. Recorded as they happened.
 
 ## Testing
 
-- **56 tests rather than the 20 originally planned.** Every deterministic rule that
+- **59 tests rather than the 20 originally planned.** Every deterministic rule that
   a judge might question has a test: the readiness formula, the proficiency table,
   the badge threshold, alias collisions such as "js" inside "Node.js", manifest
   parsing, the hour budget packer, the resource whitelist and the whole LLM

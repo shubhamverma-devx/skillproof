@@ -163,7 +163,7 @@ only ever read in server code.
 ### Useful commands
 
 ```bash
-pnpm test         # 56 unit tests over the deterministic core
+pnpm test         # 59 unit tests over the deterministic core
 pnpm typecheck    # strict TypeScript, zero any
 pnpm lint         # ESLint with the project rules
 pnpm build:roles  # recompute role skill frequencies from data/raw_jds
