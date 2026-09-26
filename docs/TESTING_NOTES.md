@@ -129,6 +129,39 @@ Fix: the Supabase client is constructed with its own `fetch` that passes
 `cache: 'no-store'`. After the fix the same run produced the full history
 `46.6, 49.5, 49.3, 49.3, 49.3, 57.8, 59.5, 63.2` and all three verified skills.
 
+## Cost of one demo run
+
+Measured on Sarvam with a profile that bypasses the demo cache, so every call was
+live. Token totals reported by the API:
+
+| Call                               | Tokens    |
+| ---------------------------------- | --------- |
+| Resume extraction                  | 1,362     |
+| Roadmap generation                 | 4,527     |
+| Quiz, four questions               | 1,427     |
+| **Analysis, roadmap and one quiz** | **7,316** |
+
+A full demo storyline adds two more quizzes and three replanned roadmaps, which
+comes to roughly 24,000 tokens end to end. The demo profile replays from
+`data/demo/llm_cache.json`, so the recorded demo costs nothing to run again.
+
 ## Production smoke test
+
+`pnpm smoke` checks the things that break in production but not locally: a cold
+landing page, the storage banner, the analyse stream producing its first event
+quickly, a quiz round trip, roadmap generation, reads reflecting writes, and a
+live GitHub analysis. Against a local production build:
+
+| Check                                        | Time     |
+| -------------------------------------------- | -------- |
+| Landing page                                 | 41ms     |
+| Demo profile analysis, stream to dashboard   | 8,964ms  |
+| Quiz round trip                              | 1,537ms  |
+| Roadmap generation                           | 6,344ms  |
+| State after writes                           | 1,491ms  |
+| Live GitHub analysis for `shubhamverma-devx` | 14,798ms |
+
+The slowest step is 14.8 seconds, comfortably inside the 60 second function
+limit. Deployed timings are recorded below once the deployment exists.
 
 Recorded in the "Production" section below once the deployment exists.

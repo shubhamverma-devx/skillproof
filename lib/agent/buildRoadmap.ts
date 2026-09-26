@@ -1,6 +1,6 @@
 import { getStore } from '@/lib/db';
 import { getRoleStats } from '@/lib/dataset';
-import { generateJson, hashText, makeCacheKey } from '@/lib/llm';
+import { generateJson, hashText } from '@/lib/llm';
 import { planRoadmap, selectGaps, summarisePlan } from '@/lib/roadmap/plan';
 import { buildRoadmapPrompt, ROADMAP_SYSTEM_PROMPT } from '@/lib/roadmap/prompt';
 import { planSchema } from '@/lib/roadmap/schema';
@@ -130,11 +130,7 @@ async function generatePlan(
     user: buildRoadmapPrompt(plannable, context),
     // The gap signature is part of the key even for the demo profile: a replan
     // has a different gap set and must not replay the first plan from cache.
-    cacheKey: makeCacheKey(
-      isDemo,
-      ['roadmap', String(context.weekly_hours), gapSignature(plannable)],
-      gapSignature(plannable),
-    ),
+    cacheKey: `${isDemo ? 'demo' : 'live'}:roadmap:${context.weekly_hours}:${gapSignature(plannable)}`,
     logger: tracer,
     // An empty item list is the signal to plan deterministically below; the
     // planner produces finished items rather than the model's draft shape.
