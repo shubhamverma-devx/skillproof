@@ -2,6 +2,7 @@ import type { SkillAssessment } from '@/lib/scoring';
 import type { RoleSlug } from './data';
 import type {
   AgentLog,
+  ClientQuizQuestion,
   Profile,
   Roadmap,
   RoadmapItem,
@@ -34,3 +35,23 @@ export type AnalyzeStreamEvent =
   | { type: 'step'; step: string; detail: string; level: AgentLog['level'] }
   | { type: 'done'; score: number }
   | { type: 'error'; message: string };
+
+export type QuizStartResponse = {
+  attempt_id: string;
+  skill: string;
+  question: ClientQuizQuestion;
+  previous_score: number | null;
+};
+
+export type QuizAnswerResponse = {
+  correct: boolean;
+  correct_index: number;
+  explanation: string;
+  next: ClientQuizQuestion | null;
+  result: {
+    score: number;
+    readiness: number;
+    readiness_delta: number | null;
+    verified: boolean;
+  } | null;
+};
