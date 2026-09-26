@@ -134,11 +134,17 @@ export function QuizRunner({ profileId, skill }: { profileId: string; skill: str
       </div>
 
       <div className="px-5 py-5">
-        <p className="max-w-prose text-ui">{question.question}</p>
+        <p data-question className="max-w-prose text-ui">
+          {question.question}
+        </p>
 
         <RadioGroup
           className="mt-5"
-          value={selected === null ? undefined : String(selected)}
+          // An empty string keeps the group controlled while nothing is picked.
+          // Passing undefined hands control back to Radix, which then remembers
+          // the previous question's choice and swallows the next click on that
+          // same option, leaving the submit button stuck as disabled.
+          value={selected === null ? '' : String(selected)}
           onValueChange={(value) => setSelected(Number(value))}
           disabled={showingFeedback}
           aria-label="Answer options"
@@ -149,6 +155,9 @@ export function QuizRunner({ profileId, skill }: { profileId: string; skill: str
             return (
               <label
                 key={option}
+                // Without htmlFor only the small radio circle is clickable, so
+                // the whole option row would look interactive but not be.
+                htmlFor={`option-${index}`}
                 className={cn(
                   'flex cursor-pointer items-start gap-3 rounded-inner border px-4 py-3',
                   selected === index && !showingFeedback && 'border-primary bg-primary/[0.05]',

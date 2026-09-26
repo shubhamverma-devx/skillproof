@@ -15,7 +15,9 @@
     "screenshots": "tsx scripts/screenshots.ts",
     "demo:verify": "tsx scripts/verify-demo-story.ts",
     "providers:check": "tsx scripts/check-providers.ts",
-    "demo:record": "tsx scripts/record-demo-cache.ts"
+    "demo:record": "tsx scripts/record-demo-cache.ts",
+    "demo:shots": "tsx scripts/record-demo.ts",
+    "demo:record:video": "tsx scripts/record-demo.ts --video"
   },
   "dependencies": {
     "@google/generative-ai": "^0.21.0",
@@ -53,6 +55,7 @@
     "eslint-config-next": "14.2.33",
     "eslint-config-prettier": "^9.1.0",
     "postcss": "^8.4.47",
+    "pptxgenjs": "^4.0.1",
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.8",
     "tailwindcss": "^3.4.13",
