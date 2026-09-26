@@ -1,5 +1,8 @@
 import { describe, expect, it } from 'vitest';
+import { getResources } from '@/lib/dataset';
 import { hoursByWeek, packIntoWeeks } from '@/lib/roadmap/hours';
+import { planRoadmap } from '@/lib/roadmap/plan';
+import type { SkillAssessment } from '@/lib/scoring';
 import { diffRoadmaps } from '@/lib/roadmap/diff';
 import { whitelistResources } from '@/lib/roadmap/validate';
 import { prerequisiteDepth } from '@/lib/roadmap/prerequisites';
@@ -105,5 +108,78 @@ describe('diffRoadmaps', () => {
 
   it('says nothing when the plan did not move', () => {
     expect(diffRoadmaps([item('Docker', 1)], [item('Docker', 1)])).toEqual([]);
+  });
+});
+
+describe('planRoadmap', () => {
+  function gap(skill: string, frequency: number, proficiency = 0): SkillAssessment {
+    return {
+      skill,
+      claimed: false,
+      observed: false,
+      observed_sources: [],
+      verified_score: null,
+      category: 'tool',
+      frequency,
+      proficiency,
+      level: 'missing',
+      tested: false,
+      gap_weight: frequency * (1 - proficiency),
+      evidence_summary: `${skill} has no evidence.`,
+    };
+  }
+
+  const context = {
+    role: 'ML Engineer',
+    weekly_hours: 8,
+    total_weight: 13.11,
+    available_hours: 64,
+    reserved_weeks: new Map<number, number>(),
+  };
+
+  const manyGaps = [
+    'Docker',
+    'SQL',
+    'PyTorch',
+    'AWS',
+    'Kubernetes',
+    'Terraform',
+    'Testing',
+    'REST APIs',
+    'Linux',
+    'Git',
+    'Statistics',
+    'NLP',
+    'Redis',
+    'GraphQL',
+  ].map((skill, index) => gap(skill, 0.9 - index * 0.05));
+
+  it('keeps the plan inside the eight week horizon and the hour budget', () => {
+    const items = planRoadmap(manyGaps, context);
+    expect(items.length).toBeGreaterThan(0);
+    expect(Math.max(...items.map((item) => item.week))).toBeLessThanOrEqual(8);
+    for (const [, hours] of hoursByWeek(items)) {
+      expect(hours).toBeLessThanOrEqual(8);
+    }
+  });
+
+  it('plans around weeks already filled by finished items', () => {
+    const items = planRoadmap(manyGaps, {
+      ...context,
+      reserved_weeks: new Map([
+        [1, 8],
+        [2, 8],
+      ]),
+    });
+    expect(Math.min(...items.map((item) => item.week))).toBe(3);
+    expect(Math.max(...items.map((item) => item.week))).toBeLessThanOrEqual(8);
+  });
+
+  it('only picks resources from the approved list', () => {
+    const items = planRoadmap(manyGaps, context);
+    for (const item of items) {
+      const approved = new Set(getResources(item.skill).map((resource) => resource.url));
+      for (const resource of item.resources) expect(approved.has(resource.url)).toBe(true);
+    }
   });
 });
