@@ -8,14 +8,35 @@ function requestFrom(headers: Record<string, string>): Request {
 }
 
 describe('clientKey', () => {
-  it('takes the first address from x-forwarded-for, which is the real client', () => {
-    expect(clientKey(requestFrom({ 'x-forwarded-for': '203.0.113.7, 10.0.0.1, 10.0.0.2' }))).toBe(
-      '203.0.113.7',
-    );
+  it('prefers the platform header, which a client cannot set for itself', () => {
+    expect(
+      clientKey(
+        requestFrom({
+          'x-vercel-forwarded-for': '203.0.113.7',
+          'x-forwarded-for': '1.2.3.4',
+          'x-real-ip': '5.6.7.8',
+        }),
+      ),
+    ).toBe('203.0.113.7');
   });
 
   it('falls back to x-real-ip', () => {
     expect(clientKey(requestFrom({ 'x-real-ip': '203.0.113.9' }))).toBe('203.0.113.9');
+  });
+
+  it('ignores a spoofed leading entry and uses the address the proxy appended', () => {
+    // A caller sending "x-forwarded-for: 9.9.9.9" gets their real address
+    // appended by the proxy, so the rightmost entry is the one to count.
+    expect(clientKey(requestFrom({ 'x-forwarded-for': '9.9.9.9, 203.0.113.7' }))).toBe(
+      '203.0.113.7',
+    );
+  });
+
+  it('cannot be split into separate buckets by varying the spoofed prefix', () => {
+    const real = '203.0.113.7';
+    const first = clientKey(requestFrom({ 'x-forwarded-for': `1.1.1.1, ${real}` }));
+    const second = clientKey(requestFrom({ 'x-forwarded-for': `2.2.2.2, ${real}` }));
+    expect(first).toBe(second);
   });
 
   it('groups requests with no address together rather than exempting them', () => {

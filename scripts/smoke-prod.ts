@@ -111,6 +111,12 @@ async function checkLiveAnalysis(): Promise<void> {
     const created = await api<{ id: string }>('/api/profile', { method: 'POST', body: form });
     const response = await fetch(`${BASE}/api/analyze/${created.id}`, { method: 'POST' });
     const body = await response.text();
+
+    if (response.status === 429) {
+      throw new Error(
+        'rate limited: this IP has already run several analyses in the current window, which is the limiter working. Wait for the window or run from another network.',
+      );
+    }
     if (!body.includes('"type":"done"')) throw new Error('the analysis stream never completed');
 
     const state = await api<{ score: number; github: { scanned_repos: number } }>(

@@ -4,14 +4,31 @@ import { getStore } from '@/lib/db';
 import type { ApiResult } from '@/lib/api-response';
 
 /**
- * Identifies the caller. Vercel sets x-forwarded-for with the real client first;
- * a request that arrives without one is treated as a single shared caller rather
- * than as unlimited, so a missing header cannot be used to get past the limit.
+ * Identifies the caller, using only values a client cannot set for itself.
+ *
+ * `x-forwarded-for` is attacker controlled: anyone can send one, and a proxy
+ * appends the real address rather than replacing it, so the leftmost entry is
+ * whatever the caller typed. Vercel sets `x-vercel-forwarded-for` itself and
+ * overwrites any incoming copy, so it is preferred, and the fallback reads the
+ * rightmost entry of `x-forwarded-for`, which is the one the closest proxy
+ * added. A request with no address at all is treated as one shared caller rather
+ * than as unlimited.
  */
 export function clientKey(request: Request): string {
-  const forwarded = request.headers.get('x-forwarded-for');
-  const first = forwarded?.split(',')[0]?.trim();
-  return first || request.headers.get('x-real-ip')?.trim() || 'unknown-client';
+  const platform = request.headers.get('x-vercel-forwarded-for')?.split(',')[0]?.trim();
+  if (platform) return platform;
+
+  const real = request.headers.get('x-real-ip')?.trim();
+  if (real) return real;
+
+  const chain =
+    request.headers
+      .get('x-forwarded-for')
+      ?.split(',')
+      .map((entry) => entry.trim())
+      .filter(Boolean) ?? [];
+
+  return chain.at(-1) ?? 'unknown-client';
 }
 
 export type RateLimitResult = { allowed: true } | { allowed: false; retryAfter: number };
