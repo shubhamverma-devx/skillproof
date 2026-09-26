@@ -5,6 +5,7 @@ import { SiteHeader } from '@/components/layout/site-header';
 import { Button } from '@/components/ui/button';
 import { Panel } from '@/components/ui/panel';
 import { getTaxonomy, listRoles } from '@/lib/dataset';
+import { isDemoModeForced } from '@/lib/demo';
 
 const FEATURES = [
   {
@@ -47,6 +48,14 @@ export default function LandingPage() {
             your code, asks you four questions per skill, and turns the difference into a week by week
             plan you approve.
           </p>
+          {isDemoModeForced() ? (
+            <p className="mt-5 max-w-prose rounded-inner border border-claimed/40 bg-claimed/[0.08] px-4 py-2 text-ui-sm">
+              DEMO_MODE is on. Model replies are served from the recorded cache in data/demo and
+              written back to it, so this deployment is set up for the demo rather than for live
+              analysis.
+            </p>
+          ) : null}
+
           <div className="mt-7 flex flex-wrap gap-3">
             <Button asChild size="lg">
               <Link href="/start">Analyse my profile</Link>

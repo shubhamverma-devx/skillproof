@@ -31,7 +31,7 @@ export function ScoreHistoryChart({ history }: { history: ScoreHistoryEntry[] })
   return (
     <div className="px-2 py-4">
       <ResponsiveContainer width="100%" height={180}>
-        <LineChart data={data} margin={{ top: 6, right: 14, bottom: 0, left: -18 }}>
+        <LineChart data={data} margin={{ top: 8, right: 16, bottom: 0, left: -14 }}>
           <CartesianGrid stroke="rgb(var(--ink) / 0.08)" vertical={false} />
           <XAxis
             dataKey="index"
@@ -46,7 +46,7 @@ export function ScoreHistoryChart({ history }: { history: ScoreHistoryEntry[] })
             tick={{ fill: 'rgb(var(--muted))', fontSize: 12 }}
             stroke="rgb(var(--ink) / 0.15)"
             tickLine={false}
-            width={38}
+            width={44}
           />
           <Tooltip
             contentStyle={{
