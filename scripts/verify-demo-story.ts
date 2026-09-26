@@ -13,16 +13,49 @@ const BASE = process.env.DEMO_BASE ?? 'http://localhost:3000';
 
 type QuizResult = { score: number; readiness: number; verified: boolean };
 
-/** Correct answers for the offline bank, so the script can play a strong student. */
-function loadAnswerKey(): Map<string, number> {
-  const directory = path.join(process.cwd(), 'data', 'question_bank');
-  const key = new Map<string, number>();
-  for (const file of readdirSync(directory)) {
-    const parsed = JSON.parse(readFileSync(path.join(directory, file), 'utf8')) as {
-      questions: Array<{ question: string; correct_index: number }>;
-    };
-    for (const question of parsed.questions) key.set(question.question, question.correct_index);
+type Answerable = { question?: unknown; correct_index?: unknown };
+
+/** Questions are markdown stripped on the way out, so both sides are normalised. */
+function normalise(question: string): string {
+  return question.replace(/[`*]/g, '').replace(/\s+/g, ' ').trim();
+}
+
+function collect(key: Map<string, number>, value: unknown): void {
+  if (Array.isArray(value)) {
+    for (const entry of value) collect(key, entry);
+    return;
   }
+  if (typeof value !== 'object' || value === null) return;
+
+  const candidate = value as Answerable;
+  if (typeof candidate.question === 'string' && typeof candidate.correct_index === 'number') {
+    key.set(normalise(candidate.question), candidate.correct_index);
+    return;
+  }
+  for (const nested of Object.values(value)) collect(key, nested);
+}
+
+/**
+ * Correct answers for every question the demo can serve: the offline bank and
+ * any model written question already recorded in the demo cache. Without the
+ * cache the script would answer generated questions at random and the storyline
+ * numbers would be meaningless.
+ */
+function loadAnswerKey(): Map<string, number> {
+  const key = new Map<string, number>();
+
+  const bank = path.join(process.cwd(), 'data', 'question_bank');
+  for (const file of readdirSync(bank)) {
+    collect(key, JSON.parse(readFileSync(path.join(bank, file), 'utf8')));
+  }
+
+  try {
+    const cache = path.join(process.cwd(), 'data', 'demo', 'llm_cache.json');
+    collect(key, JSON.parse(readFileSync(cache, 'utf8')));
+  } catch {
+    // No recorded cache yet: the bank alone still covers the offline demo.
+  }
+
   return key;
 }
 
@@ -54,7 +87,7 @@ async function runQuiz(profileId: string, skill: string, wrongFrom = Number.MAX_
   let question = start.question;
 
   for (let step = 0; ; step += 1) {
-    const correct = answerKey.get(question.question) ?? 0;
+    const correct = answerKey.get(normalise(question.question)) ?? 0;
     const answer = step >= wrongFrom ? (correct + 1) % 4 : correct;
     const reply = await post<Answer>(`/api/quiz/${profileId}/answer`, {
       attempt_id: start.attempt_id,

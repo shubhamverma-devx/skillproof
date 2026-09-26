@@ -173,6 +173,8 @@ pnpm typecheck    # strict TypeScript, zero any
 pnpm lint         # ESLint with the project rules
 pnpm build:roles  # recompute role skill frequencies from data/raw_jds
 pnpm demo:verify  # replay the whole demo storyline against a running server
+pnpm demo:record  # record real model replies for the demo profile, then rebuild
+pnpm providers:check          # confirm each provider and model id with one real call
 pnpm screenshots <profileId>  # capture docs/screenshots in both themes
 ```
 
@@ -191,9 +193,15 @@ pnpm screenshots <profileId>  # capture docs/screenshots in both themes
 ## Demo mode
 
 The demo profile is a seeded student, Riya Sharma, targeting ML Engineer. Her
-resume text and a cached scan of nine repositories live in `data/demo/`. Demo
-mode is labelled in the interface and in this README because cached output must
-never be presented as a live API call.
+resume text and a cached scan of nine repositories live in `data/demo/`, along
+with `llm_cache.json`: real model replies recorded from Sarvam, replayed so the
+whole storyline runs with no keys and no network. Demo mode is labelled in the
+interface and in this README because recorded output must never be presented as
+a live API call.
+
+The cache is imported statically so the bundler traces it into a serverless
+deployment, which means `pnpm demo:record` must be followed by `pnpm build`
+before new entries take effect.
 
 The storyline, which `pnpm demo:verify` replays end to end:
 

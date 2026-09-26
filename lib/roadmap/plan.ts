@@ -30,7 +30,7 @@ function scorePointsAvailable(assessment: SkillAssessment, totalWeight: number):
  * for. Anything that does not fit is returned separately so the caller can say
  * what was left for the next cycle rather than dropping it silently.
  */
-function selectGaps(
+export function selectGaps(
   gaps: SkillAssessment[],
   context: PlanContext,
 ): { selected: SkillAssessment[]; deferred: SkillAssessment[] } {

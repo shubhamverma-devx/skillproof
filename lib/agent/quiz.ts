@@ -22,7 +22,7 @@ const SYSTEM_PROMPT = [
   'easy means a definition or syntax recall. medium means applying the concept.',
   'hard means reasoning about a failure mode or a tradeoff.',
   'The explanation is one or two sentences and states why the correct option is right.',
-  'Never mention that you are an AI and never use emoji.',
+  'Write plain text only: no markdown, no backticks, no asterisks, no emoji.',
 ].join(' ');
 
 /** Correct answers move the next question up a level, wrong answers move it down. */
@@ -90,7 +90,22 @@ export async function generateQuestion(
 
   // The model is asked for a difficulty but is not trusted to label it; the
   // adaptive path and the score both depend on this value.
-  return { ...value, difficulty };
+  return { ...stripMarkdown(value), difficulty };
+}
+
+/**
+ * Models reach for backticks around code even when told not to, and recorded
+ * answers keep them forever, so they are removed on the way out rather than
+ * rendered as literal characters in the options.
+ */
+function stripMarkdown(question: QuizQuestion): QuizQuestion {
+  const clean = (text: string) => text.replace(/[`*]/g, '').trim();
+  return {
+    ...question,
+    question: clean(question.question),
+    options: question.options.map(clean),
+    explanation: clean(question.explanation),
+  };
 }
 
 export function canQuiz(skill: string): boolean {

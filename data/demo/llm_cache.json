@@ -1,1 +1,2433 @@
-{}
+{
+  "demo:resume": {
+    "skills": [
+      {
+        "name": "Python",
+        "context": "Languages: Python, SQL, JavaScript, HTML, CSS"
+      },
+      {
+        "name": "SQL",
+        "context": "Languages: Python, SQL, JavaScript, HTML, CSS"
+      },
+      {
+        "name": "JavaScript",
+        "context": "Languages: Python, SQL, JavaScript, HTML, CSS"
+      },
+      {
+        "name": "HTML",
+        "context": "Languages: Python, SQL, JavaScript, HTML, CSS"
+      },
+      {
+        "name": "CSS",
+        "context": "Languages: Python, SQL, JavaScript, HTML, CSS"
+      },
+      {
+        "name": "scikit-learn",
+        "context": "Machine learning: scikit-learn, pandas, NumPy, matplotlib, seaborn"
+      },
+      {
+        "name": "pandas",
+        "context": "Machine learning: scikit-learn, pandas, NumPy, matplotlib, seaborn"
+      },
+      {
+        "name": "NumPy",
+        "context": "Machine learning: scikit-learn, pandas, NumPy, matplotlib, seaborn"
+      },
+      {
+        "name": "matplotlib",
+        "context": "Machine learning: scikit-learn, pandas, NumPy, matplotlib, seaborn"
+      },
+      {
+        "name": "seaborn",
+        "context": "Machine learning: scikit-learn, pandas, NumPy, matplotlib, seaborn"
+      },
+      {
+        "name": "TensorFlow",
+        "context": "Deep learning: TensorFlow (coursework), PyTorch basics, CNN fundamentals"
+      },
+      {
+        "name": "PyTorch",
+        "context": "Deep learning: TensorFlow (coursework), PyTorch basics, CNN fundamentals"
+      },
+      {
+        "name": "CNN fundamentals",
+        "context": "Deep learning: TensorFlow (coursework), PyTorch basics, CNN fundamentals"
+      },
+      {
+        "name": "Jupyter",
+        "context": "Other: Jupyter, Git, Flask, NLP, statistics, data cleaning, feature engineering, Excel, React (one project)"
+      },
+      {
+        "name": "Git",
+        "context": "Other: Jupyter, Git, Flask, NLP, statistics, data cleaning, feature engineering, Excel, React (one project)"
+      },
+      {
+        "name": "Flask",
+        "context": "Other: Jupyter, Git, Flask, NLP, statistics, data cleaning, feature engineering, Excel, React (one project)"
+      },
+      {
+        "name": "NLP",
+        "context": "Other: Jupyter, Git, Flask, NLP, statistics, data cleaning, feature engineering, Excel, React (one project)"
+      },
+      {
+        "name": "statistics",
+        "context": "Other: Jupyter, Git, Flask, NLP, statistics, data cleaning, feature engineering, Excel, React (one project)"
+      },
+      {
+        "name": "data cleaning",
+        "context": "Other: Jupyter, Git, Flask, NLP, statistics, data cleaning, feature engineering, Excel, React (one project)"
+      },
+      {
+        "name": "feature engineering",
+        "context": "Other: Jupyter, Git, Flask, NLP, statistics, data cleaning, feature engineering, Excel, React (one project)"
+      },
+      {
+        "name": "Excel",
+        "context": "Other: Jupyter, Git, Flask, NLP, statistics, data cleaning, feature engineering, Excel, React (one project)"
+      },
+      {
+        "name": "React",
+        "context": "Other: Jupyter, Git, Flask, NLP, statistics, data cleaning, feature engineering, Excel, React (one project)"
+      }
+    ],
+    "projects": [
+      {
+        "title": "Crop yield prediction",
+        "description": "Random forest on rainfall, soil and area data for 12 districts of Maharashtra. Cleaned and merged three inconsistent sources, engineered rolling rainfall and monsoon onset features. Validation R2 0.71 with 5 fold cross validation."
+      },
+      {
+        "title": "Movie recommender",
+        "description": "TF-IDF and cosine similarity recommender with a Flask API and a small web page. Served a JSON endpoint consumed by the front end."
+      },
+      {
+        "title": "Tweet sentiment analysis",
+        "description": "NLP pipeline with NLTK preprocessing and TF-IDF features. Logistic regression and linear SVM compared, best macro F1 0.80."
+      },
+      {
+        "title": "Marks dashboard",
+        "description": "Streamlit dashboard for class internal marks with subject wise distributions, used by our class representative every semester."
+      }
+    ],
+    "education": "B.Tech Computer Science and Engineering, 3rd year, Vishwakarma Institute of Technology, Pune | CGPA 8.4 / 10 | Expected 2027",
+    "experience": "Technical team member, Data Science Club: conducted two pandas workshops for second year students."
+  },
+  "demo:quiz:python:medium:0": {
+    "question": "Given the following code snippet, what is the output when the function `process_data` is called with the argument `[1, 2, 3, 4]`?",
+    "options": [
+      "None",
+      "[1, 4]",
+      "[4, 1, 4, 1]",
+      "IndexError"
+    ],
+    "correct_index": 1,
+    "explanation": "The function appends the first and last elements of the list, which are 1 and 4, resulting in [1, 4].",
+    "difficulty": "medium"
+  },
+  "demo:quiz:python:easy:1": {
+    "question": "Which built-in Python function returns a list of all items in an iterable for which the function returns true?",
+    "options": [
+      "filter()",
+      "map()",
+      "reduce()",
+      "any()"
+    ],
+    "correct_index": 0,
+    "explanation": "The filter() function constructs a list containing only the elements of an iterable that satisfy a given predicate.",
+    "difficulty": "easy"
+  },
+  "demo:quiz:python:medium:2": {
+    "question": "Given a list of dictionaries `records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]`, which of the following list comprehensions correctly filters to include only the dictionaries where the 'active' key is True?",
+    "options": [
+      "[d for d in records if d['active'] == True]",
+      "[d for d in records if d['active'] is True]",
+      "[d for d in records if d['active']]",
+      "[d for d in records if d['active'] != False]"
+    ],
+    "correct_index": 2,
+    "explanation": "Option C is the most Pythonic and concise way to check a boolean value, while the others are either verbose or unnecessarily explicit.",
+    "difficulty": "medium"
+  },
+  "demo:quiz:python:easy:3": {
+    "question": "What does the Python expression `list(filter(None, [0, 1, 2, '', 'a']))` evaluate to?",
+    "options": [
+      "[0, 1, 2, '', 'a']",
+      "[1, 2, 'a']",
+      "[0, 1, 2, 'a']",
+      "[1, 2]"
+    ],
+    "correct_index": 1,
+    "explanation": "`filter(None, ...)` removes falsy values, so 0 and the empty string are excluded while 1, 2, and 'a' are retained.",
+    "difficulty": "easy"
+  },
+  "demo:quiz:sql:medium:0": {
+    "question": "Given a table `orders` with columns `order_id`, `customer_id`, `order_date`, and `amount`, which SQL query correctly retrieves the total spending per customer for orders placed in January 2024, sorted by highest to lowest total?",
+    "options": [
+      "SELECT customer_id, SUM(amount) FROM orders WHERE order_date BETWEEN '2024-01-01' AND '2024-01-31' GROUP BY customer_id ORDER BY SUM(amount) DESC;",
+      "SELECT customer_id, SUM(amount) FROM orders WHERE order_date = '2024-01' GROUP BY customer_id ORDER BY amount DESC;",
+      "SELECT customer_id, AVG(amount) FROM orders WHERE order_date BETWEEN '2024-01-01' AND '2024-01-31' GROUP BY customer_id ORDER BY AVG(amount) DESC;",
+      "SELECT customer_id, SUM(amount) FROM orders WHERE order_date >= '2024-01-01' AND order_date <= '2024-01-31' GROUP BY customer_id ORDER BY SUM(amount) ASC;"
+    ],
+    "correct_index": 0,
+    "explanation": "Option 0 correctly filters the date range for January 2024, aggregates the total amount per customer, and sorts in descending order to show the highest spenders first.",
+    "difficulty": "medium"
+  },
+  "demo:quiz:sql:hard:1": {
+    "question": "When using a window function to calculate a running total of daily sales within each product category, what is the most likely cause of an incorrect cumulative sum if the ORDER BY clause inside the OVER() clause is omitted?",
+    "options": [
+      "The database will reject the query with a syntax error.",
+      "Rows within each category will be processed in an unpredictable or implementation-dependent order, leading to an incorrect or non-cumulative result.",
+      "The query will default to sorting by the primary key, which always produces the correct running total.",
+      "The running total will be computed across all categories instead of within each individual category."
+    ],
+    "correct_index": 1,
+    "explanation": "Without an ORDER BY clause, the database has no defined sequence for aggregating rows, so the running total may reflect an arbitrary row order rather than a chronological or logical sequence.",
+    "difficulty": "hard"
+  },
+  "demo:quiz:sql:hard:2": {
+    "question": "In a PostgreSQL database, you execute a query with a Common Table Expression (CTE) that references itself recursively to build a hierarchical employee reporting structure. The query runs indefinitely and consumes excessive memory. Which of the following is the most likely cause?",
+    "options": [
+      "The recursive CTE lacks a UNION ALL separator between the anchor and recursive members.",
+      "The recursive CTE does not include a termination condition in the recursive member that filters out rows already visited.",
+      "The base table is missing a primary key constraint on the employee_id column.",
+      "The query uses a JOIN instead of a comma-separated table list in the recursive member."
+    ],
+    "correct_index": 1,
+    "explanation": "Without a termination condition that excludes previously traversed nodes, the recursive CTE repeatedly re-evaluates the same rows, causing infinite recursion and unbounded memory growth.",
+    "difficulty": "hard"
+  },
+  "demo:quiz:sql:hard:3": {
+    "question": "A database administrator notices that a query using a correlated subquery in the SELECT clause to count the number of related records in a child table is performing poorly on a large dataset. What is the most likely underlying cause of this performance issue?",
+    "options": [
+      "The correlated subquery is executed once for every row in the outer query, resulting in repeated full table scans or index lookups.",
+      "The child table lacks a primary key, preventing the database from resolving the relationship between the tables.",
+      "The query optimizer automatically converts the correlated subquery into a join, which increases memory consumption.",
+      "The database engine caches the result of the correlated subquery, causing stale data to be returned across multiple executions."
+    ],
+    "correct_index": 0,
+    "explanation": "A correlated subquery depends on values from the outer query and is re-executed for each row processed by the outer query, which leads to significant redundant I/O and CPU overhead on large datasets.",
+    "difficulty": "hard"
+  },
+  "demo:roadmap:8:hkuclf": {
+    "items": [
+      {
+        "week": 1,
+        "skill": "Python",
+        "title": "Strengthen Python fundamentals",
+        "why": "Python appears in 95% of ML Engineer job descriptions and your quiz score is 19%.",
+        "est_hours": 5,
+        "resource_urls": [
+          "https://docs.python.org/3/tutorial/",
+          "https://roadmap.sh/python"
+        ],
+        "proof_project": {
+          "title": "Refactor a repository with cleaner Python",
+          "description": "Take one of your existing repositories and rewrite a script to use idiomatic Python structures and standard library tools.",
+          "skills_covered": [
+            "Python"
+          ],
+          "acceptance_criteria": [
+            "The script passes all tests without errors",
+            "The code uses list comprehensions or context managers where appropriate",
+            "A requirements.txt lists exact versions for all dependencies"
+          ]
+        }
+      },
+      {
+        "week": 2,
+        "skill": "Machine learning",
+        "title": "Core machine learning concepts",
+        "why": "Machine learning appears in 92% of ML Engineer job descriptions and is already present in your crop-yield-prediction repository.",
+        "est_hours": 5,
+        "resource_urls": [
+          "https://developers.google.com/machine-learning/crash-course",
+          "https://www.kaggle.com/learn/intro-to-machine-learning"
+        ],
+        "proof_project": {
+          "title": "Build a baseline regression model",
+          "description": "Use a public dataset to train and evaluate a simple regression model, then document the feature engineering choices.",
+          "skills_covered": [
+            "Machine learning"
+          ],
+          "acceptance_criteria": [
+            "A training script runs end to end",
+            "Metrics are reported in a markdown notebook",
+            "The dataset and split strategy are recorded"
+          ]
+        }
+      },
+      {
+        "week": 3,
+        "skill": "Deep learning",
+        "title": "Introduction to deep learning",
+        "why": "Deep learning appears in 66% of ML Engineer job descriptions and was not found in any of your 9 repositories.",
+        "est_hours": 5,
+        "resource_urls": [
+          "https://d2l.ai/",
+          "https://course.fast.ai/"
+        ],
+        "proof_project": {
+          "title": "Train a neural network on tabular data",
+          "description": "Apply a feedforward network to a classification task and compare accuracy against a classical model.",
+          "skills_covered": [
+            "Deep learning"
+          ],
+          "acceptance_criteria": [
+            "The model trains without errors",
+            "A confusion matrix is generated",
+            "Training and validation loss curves are saved"
+          ]
+        }
+      },
+      {
+        "week": 4,
+        "skill": "PyTorch",
+        "title": "PyTorch basics and model building",
+        "why": "PyTorch appears in 58% of ML Engineer job descriptions and was not found in any of your 9 scanned repositories.",
+        "est_hours": 5,
+        "resource_urls": [
+          "https://pytorch.org/tutorials/beginner/basics/intro.html",
+          "https://pytorch.org/tutorials/beginner/deep_learning_60min_blitz.html"
+        ],
+        "proof_project": {
+          "title": "Rebuild the crop yield model in PyTorch",
+          "description": "Replicate the earlier regression task using PyTorch tensors and a simple neural network, then log metrics.",
+          "skills_covered": [
+            "PyTorch"
+          ],
+          "acceptance_criteria": [
+            "The model trains for at least 10 epochs",
+            "Loss is printed per epoch",
+            "The code is runnable with a single python command"
+          ]
+        }
+      },
+      {
+        "week": 5,
+        "skill": "TensorFlow",
+        "title": "TensorFlow fundamentals",
+        "why": "TensorFlow appears in 54% of ML Engineer job descriptions and was not found in any of your 9 scanned repositories.",
+        "est_hours": 5,
+        "resource_urls": [
+          "https://www.tensorflow.org/tutorials",
+          "https://keras.io/guides/"
+        ],
+        "proof_project": {
+          "title": "Rebuild the crop yield model in TensorFlow",
+          "description": "Replicate the earlier regression task using TensorFlow and Keras, then save the trained weights.",
+          "skills_covered": [
+            "TensorFlow"
+          ],
+          "acceptance_criteria": [
+            "The model trains for at least 10 epochs",
+            "Validation loss is recorded",
+            "The saved weights can be loaded for inference"
+          ]
+        }
+      },
+      {
+        "week": 6,
+        "skill": "Model deployment",
+        "title": "Serve a model behind an API",
+        "why": "Model deployment appears in 42% of ML Engineer job descriptions and was not found in any of your 9 scanned repositories.",
+        "est_hours": 5,
+        "resource_urls": [
+          "https://fastapi.tiangolo.com/deployment/",
+          "https://mlflow.org/docs/latest/deployment/"
+        ],
+        "proof_project": {
+          "title": "Expose a model through a REST endpoint",
+          "description": "Wrap one of the trained models with FastAPI and add a health check route.",
+          "skills_covered": [
+            "Model deployment"
+          ],
+          "acceptance_criteria": [
+            "POST and GET requests return valid JSON",
+            "The health check returns 200",
+            "A requirements.txt includes fastapi and uvicorn"
+          ]
+        }
+      },
+      {
+        "week": 7,
+        "skill": "Docker",
+        "title": "Containerise the deployment service",
+        "why": "Docker appears in 46% of ML Engineer job descriptions and was not found in any of your 9 scanned repositories.",
+        "est_hours": 5,
+        "resource_urls": [
+          "https://docs.docker.com/get-started/",
+          "https://roadmap.sh/docker"
+        ],
+        "proof_project": {
+          "title": "Build and run the API in a container",
+          "description": "Write a Dockerfile for the FastAPI service and verify it runs with a single command.",
+          "skills_covered": [
+            "Docker",
+            "Model deployment"
+          ],
+          "acceptance_criteria": [
+            "The Dockerfile builds with no manual steps",
+            "The container starts with docker run",
+            "The README records the final image size"
+          ]
+        }
+      },
+      {
+        "week": 8,
+        "skill": "AWS",
+        "title": "Deploy the container to the cloud",
+        "why": "AWS appears in 34% of ML Engineer job descriptions and was not found in any of your 9 scanned repositories.",
+        "est_hours": 5,
+        "resource_urls": [
+          "https://aws.amazon.com/getting-started/",
+          "https://roadmap.sh/aws"
+        ],
+        "proof_project": {
+          "title": "Host the API on AWS",
+          "description": "Push the Docker image to Amazon ECR and run it on AWS Fargate with a public endpoint.",
+          "skills_covered": [
+            "AWS",
+            "Docker"
+          ],
+          "acceptance_criteria": [
+            "The image is pushed to ECR",
+            "Fargate returns 200 for the health check",
+            "The endpoint URL is recorded in the README"
+          ]
+        }
+      }
+    ]
+  },
+  "demo:roadmap:8:l2eovv": {
+    "items": [
+      {
+        "week": 1,
+        "skill": "Machine learning",
+        "title": "Refresh core ML concepts",
+        "why": "Machine learning appears in 92% of ML Engineer job descriptions and was found in your repository topics in crop-yield-prediction.",
+        "est_hours": 5,
+        "resource_urls": [
+          "https://developers.google.com/machine-learning/crash-course",
+          "https://www.kaggle.com/learn/intro-to-machine-learning"
+        ],
+        "proof_project": {
+          "title": "Rebuild crop-yield-prediction with explicit ML steps",
+          "description": "Revisit your existing crop-yield-prediction repository and document each stage from data cleaning to evaluation using standard ML terminology.",
+          "skills_covered": [
+            "Machine learning"
+          ],
+          "acceptance_criteria": [
+            "A README lists the full pipeline from raw data to metrics",
+            "A notebook demonstrates training and validation split",
+            "No deep learning or framework code is required"
+          ]
+        }
+      },
+      {
+        "week": 2,
+        "skill": "PyTorch",
+        "title": "Build a neural network from scratch",
+        "why": "PyTorch appears in 58% of ML Engineer job descriptions and was not found in any of your 9 scanned repositories though it is claimed on your resume.",
+        "est_hours": 8,
+        "resource_urls": [
+          "https://pytorch.org/tutorials/beginner/basics/intro.html",
+          "https://pytorch.org/tutorials/beginner/deep_learning_60min_blitz.html"
+        ],
+        "proof_project": {
+          "title": "Train a classifier in PyTorch",
+          "description": "Implement a simple image or tabular classifier using PyTorch tensors and standard layers, then log training loss.",
+          "skills_covered": [
+            "PyTorch"
+          ],
+          "acceptance_criteria": [
+            "The script runs end-to-end on CPU",
+            "At least one tensor operation is custom",
+            "Training loss is recorded to a file"
+          ]
+        }
+      },
+      {
+        "week": 3,
+        "skill": "Deep learning",
+        "title": "Extend the classifier with a neural network",
+        "why": "Deep learning appears in 66% of ML Engineer job descriptions and was not found in any of your 9 scanned repositories though it is claimed on your resume.",
+        "est_hours": 8,
+        "resource_urls": [
+          "https://d2l.ai/",
+          "https://course.fast.ai/"
+        ],
+        "proof_project": {
+          "title": "Add a neural network layer to the PyTorch project",
+          "description": "Take the classifier from the previous week and replace or extend it with a deeper architecture, then compare validation accuracy.",
+          "skills_covered": [
+            "Deep learning",
+            "PyTorch"
+          ],
+          "acceptance_criteria": [
+            "The model has at least two hidden layers",
+            "Validation accuracy is reported for both versions",
+            "A short note explains the change in performance"
+          ]
+        }
+      },
+      {
+        "week": 4,
+        "skill": "TensorFlow",
+        "title": "Replicate the model in TensorFlow",
+        "why": "TensorFlow appears in 54% of ML Engineer job descriptions and was not found in any of your 9 scanned repositories though it is claimed on your resume.",
+        "est_hours": 8,
+        "resource_urls": [
+          "https://www.tensorflow.org/tutorials",
+          "https://keras.io/guides/"
+        ],
+        "proof_project": {
+          "title": "Rebuild the neural network in TensorFlow",
+          "description": "Create an equivalent model to the PyTorch version using TensorFlow and Keras, then run training and compare results.",
+          "skills_covered": [
+            "TensorFlow"
+          ],
+          "acceptance_criteria": [
+            "The model architecture matches the PyTorch version",
+            "Training completes on CPU",
+            "A summary table compares both frameworks"
+          ]
+        }
+      },
+      {
+        "week": 5,
+        "skill": "Docker",
+        "title": "Package the ML pipeline",
+        "why": "Docker appears in 46% of ML Engineer job descriptions and was not found in any of your 9 scanned repositories and is not claimed on your resume.",
+        "est_hours": 6,
+        "resource_urls": [
+          "https://docs.docker.com/get-started/",
+          "https://roadmap.sh/docker"
+        ],
+        "proof_project": {
+          "title": "Containerise the crop yield model",
+          "description": "Write a Dockerfile for the TensorFlow or PyTorch project so it runs in an isolated environment with one command.",
+          "skills_covered": [
+            "Docker",
+            "Model deployment"
+          ],
+          "acceptance_criteria": [
+            "A Dockerfile builds the image without manual steps",
+            "The container starts with a single docker run command",
+            "The README records the final image size"
+          ]
+        }
+      },
+      {
+        "week": 6,
+        "skill": "Model deployment",
+        "title": "Serve the model behind an API",
+        "why": "Model deployment appears in 42% of ML Engineer job descriptions and was not found in any of your 9 scanned repositories and is not claimed on your resume.",
+        "est_hours": 6,
+        "resource_urls": [
+          "https://fastapi.tiangolo.com/deployment/",
+          "https://mlflow.org/docs/latest/deployment/"
+        ],
+        "proof_project": {
+          "title": "Expose the model through a REST endpoint",
+          "description": "Wrap the trained model in a FastAPI service and add an MLflow tracking step to log the artifact.",
+          "skills_covered": [
+            "Model deployment",
+            "Docker"
+          ],
+          "acceptance_criteria": [
+            "A POST endpoint accepts input and returns a prediction",
+            "MLflow records the model version and metrics",
+            "The service runs inside the Docker image from week 5"
+          ]
+        }
+      },
+      {
+        "week": 7,
+        "skill": "AWS",
+        "title": "Deploy the API to the cloud",
+        "why": "AWS appears in 34% of ML Engineer job descriptions and was not found in any of your 9 scanned repositories and is not claimed on your resume.",
+        "est_hours": 6,
+        "resource_urls": [
+          "https://aws.amazon.com/getting-started/",
+          "https://roadmap.sh/aws"
+        ],
+        "proof_project": {
+          "title": "Host the API on AWS",
+          "description": "Push the Docker image to AWS and configure a service that keeps the API running, then verify external access.",
+          "skills_covered": [
+            "AWS",
+            "Model deployment",
+            "Docker"
+          ],
+          "acceptance_criteria": [
+            "The image is stored in AWS ECR",
+            "A service keeps the container running after restart",
+            "A public URL returns a valid prediction"
+          ]
+        }
+      }
+    ]
+  },
+  "demo:roadmap:8:l8fqgq": {
+    "items": [
+      {
+        "week": 1,
+        "skill": "PyTorch",
+        "title": "Build a PyTorch training script",
+        "why": "PyTorch appears in 58% of ML Engineer job descriptions and was not found in any of your 9 repositories.",
+        "est_hours": 4,
+        "resource_urls": [
+          "https://pytorch.org/tutorials/beginner/basics/intro.html"
+        ],
+        "proof_project": {
+          "title": "Train a classifier from scratch",
+          "description": "Implement a small neural network in PyTorch and train it on a public dataset.",
+          "skills_covered": [
+            "PyTorch"
+          ],
+          "acceptance_criteria": [
+            "The script runs end to end with one command",
+            "Loss decreases over epochs",
+            "A saved checkpoint file is produced"
+          ]
+        }
+      },
+      {
+        "week": 1,
+        "skill": "TensorFlow",
+        "title": "Build a TensorFlow training script",
+        "why": "TensorFlow appears in 54% of ML Engineer job descriptions and was not found in any of your 9 repositories.",
+        "est_hours": 4,
+        "resource_urls": [
+          "https://www.tensorflow.org/tutorials"
+        ],
+        "proof_project": {
+          "title": "Train a classifier from scratch",
+          "description": "Implement a small neural network in TensorFlow and train it on a public dataset.",
+          "skills_covered": [
+            "TensorFlow"
+          ],
+          "acceptance_criteria": [
+            "The script runs end to end with one command",
+            "Loss decreases over epochs",
+            "A saved checkpoint file is produced"
+          ]
+        }
+      },
+      {
+        "week": 2,
+        "skill": "Deep learning",
+        "title": "Study deep learning fundamentals",
+        "why": "Deep learning appears in 66% of ML Engineer job descriptions and was not found in any of your 9 repositories.",
+        "est_hours": 4,
+        "resource_urls": [
+          "https://d2l.ai/"
+        ],
+        "proof_project": {
+          "title": "Replicate a core deep learning pattern",
+          "description": "Implement one chapter from the deep learning text and compare results against the reference.",
+          "skills_covered": [
+            "Deep learning"
+          ],
+          "acceptance_criteria": [
+            "Code reproduces the chapter output within tolerance",
+            "A short summary of the architecture is included",
+            "Training and test metrics are logged"
+          ]
+        }
+      },
+      {
+        "week": 2,
+        "skill": "Docker",
+        "title": "Containerise a local script",
+        "why": "Docker appears in 46% of ML Engineer job descriptions and was not found in any of your 9 repositories.",
+        "est_hours": 4,
+        "resource_urls": [
+          "https://docs.docker.com/get-started/"
+        ],
+        "proof_project": {
+          "title": "Containerise one of your existing projects",
+          "description": "Make a project that runs only on your laptop start with one command anywhere.",
+          "skills_covered": [
+            "Docker",
+            "PyTorch"
+          ],
+          "acceptance_criteria": [
+            "A Dockerfile builds the project with no manual steps",
+            "The image runs with a single docker run command",
+            "The README records the final image size"
+          ]
+        }
+      },
+      {
+        "week": 3,
+        "skill": "Model deployment",
+        "title": "Expose a model through an API",
+        "why": "Model deployment appears in 42% of ML Engineer job descriptions and was not found in any of your 9 repositories.",
+        "est_hours": 4,
+        "resource_urls": [
+          "https://fastapi.tiangolo.com/deployment/"
+        ],
+        "proof_project": {
+          "title": "Serve a trained model",
+          "description": "Wrap a trained model in a REST endpoint and validate predictions with a client.",
+          "skills_covered": [
+            "Model deployment",
+            "Docker"
+          ],
+          "acceptance_criteria": [
+            "The endpoint returns valid predictions",
+            "The service starts with docker compose up",
+            "A curl request succeeds against the running container"
+          ]
+        }
+      },
+      {
+        "week": 3,
+        "skill": "AWS",
+        "title": "Create a basic AWS account and S3 bucket",
+        "why": "AWS appears in 34% of ML Engineer job descriptions and was not found in any of your 9 repositories.",
+        "est_hours": 4,
+        "resource_urls": [
+          "https://aws.amazon.com/getting-started/"
+        ],
+        "proof_project": {
+          "title": "Store model artifacts in S3",
+          "description": "Upload a model artifact to an S3 bucket and list it via the console.",
+          "skills_covered": [
+            "AWS",
+            "Model deployment"
+          ],
+          "acceptance_criteria": [
+            "A model file appears in the S3 bucket",
+            "The file is retrievable via the AWS CLI",
+            "IAM permissions are scoped to read-only for the task"
+          ]
+        }
+      },
+      {
+        "week": 4,
+        "skill": "Deep learning",
+        "title": "Extend the deep learning project",
+        "why": "Deep learning appears in 66% of ML Engineer job descriptions and was not found in any of your 9 repositories.",
+        "est_hours": 4,
+        "resource_urls": [
+          "https://course.fast.ai/"
+        ],
+        "proof_project": {
+          "title": "Replicate a fast.ai lesson",
+          "description": "Run a fast.ai lesson end to end and compare its results to the notebook.",
+          "skills_covered": [
+            "Deep learning"
+          ],
+          "acceptance_criteria": [
+            "Training loss and accuracy match the lesson output",
+            "A short write-up explains any divergence",
+            "The notebook is committed to version control"
+          ]
+        }
+      },
+      {
+        "week": 4,
+        "skill": "Docker",
+        "title": "Refine the Docker setup",
+        "why": "Docker appears in 46% of ML Engineer job descriptions and was not found in any of your 9 repositories.",
+        "est_hours": 4,
+        "resource_urls": [
+          "https://roadmap.sh/docker"
+        ],
+        "proof_project": {
+          "title": "Optimise the deployment image",
+          "description": "Reduce image size and add a health check to the existing container.",
+          "skills_covered": [
+            "Docker",
+            "Model deployment"
+          ],
+          "acceptance_criteria": [
+            "The new image is smaller than the previous one",
+            "A health check endpoint returns 200",
+            "The service still starts with one command"
+          ]
+        }
+      },
+      {
+        "week": 5,
+        "skill": "Model deployment",
+        "title": "Add model versioning with MLflow",
+        "why": "Model deployment appears in 42% of ML Engineer job descriptions and was not found in any of your 9 repositories.",
+        "est_hours": 4,
+        "resource_urls": [
+          "https://mlflow.org/docs/latest/deployment/"
+        ],
+        "proof_project": {
+          "title": "Track and deploy a model with MLflow",
+          "description": "Log parameters, metrics, and artifacts with MLflow and promote a registered model.",
+          "skills_covered": [
+            "Model deployment",
+            "AWS"
+          ],
+          "acceptance_criteria": [
+            "A model version is registered in MLflow",
+            "The model can be loaded from the registered version",
+            "The artifact is stored in the S3 bucket created earlier"
+          ]
+        }
+      },
+      {
+        "week": 5,
+        "skill": "AWS",
+        "title": "Deploy an endpoint on AWS",
+        "why": "AWS appears in 34% of ML Engineer job descriptions and was not found in any of your 9 repositories.",
+        "est_hours": 4,
+        "resource_urls": [
+          "https://roadmap.sh/aws"
+        ],
+        "proof_project": {
+          "title": "Host the model on AWS",
+          "description": "Deploy the containerised model to a cloud service and verify external access.",
+          "skills_covered": [
+            "AWS",
+            "Docker",
+            "Model deployment"
+          ],
+          "acceptance_criteria": [
+            "The service is reachable from the public internet",
+            "A request returns a valid prediction",
+            "Costs are estimated and documented"
+          ]
+        }
+      },
+      {
+        "week": 6,
+        "skill": "Deep learning",
+        "title": "Complete an advanced deep learning exercise",
+        "why": "Deep learning appears in 66% of ML Engineer job descriptions and was not found in any of your 9 repositories.",
+        "est_hours": 4,
+        "resource_urls": [
+          "https://d2l.ai/"
+        ],
+        "proof_project": {
+          "title": "Implement a CNN from scratch",
+          "description": "Build a convolutional network without using high-level vision APIs and evaluate on a test set.",
+          "skills_covered": [
+            "Deep learning"
+          ],
+          "acceptance_criteria": [
+            "The network trains without errors",
+            "Test accuracy is reported",
+            "The code is documented and version controlled"
+          ]
+        }
+      },
+      {
+        "week": 6,
+        "skill": "PyTorch",
+        "title": "Build a PyTorch advanced example",
+        "why": "PyTorch appears in 58% of ML Engineer job descriptions and was not found in any of your 9 repositories.",
+        "est_hours": 4,
+        "resource_urls": [
+          "https://pytorch.org/tutorials/beginner/deep_learning_60min_blitz.html"
+        ],
+        "proof_project": {
+          "title": "Extend the PyTorch training pipeline",
+          "description": "Add data loading, validation, and checkpoint saving to the existing script.",
+          "skills_covered": [
+            "PyTorch",
+            "Deep learning"
+          ],
+          "acceptance_criteria": [
+            "Validation loss is logged each epoch",
+            "The best model is saved automatically",
+            "The script runs with a single command"
+          ]
+        }
+      },
+      {
+        "week": 7,
+        "skill": "TensorFlow",
+        "title": "Build a TensorFlow advanced example",
+        "why": "TensorFlow appears in 54% of ML Engineer job descriptions and was not found in any of your 9 repositories.",
+        "est_hours": 4,
+        "resource_urls": [
+          "https://keras.io/guides/"
+        ],
+        "proof_project": {
+          "title": "Extend the TensorFlow training pipeline",
+          "description": "Add data loading, validation, and checkpoint saving to the existing script.",
+          "skills_covered": [
+            "TensorFlow",
+            "Deep learning"
+          ],
+          "acceptance_criteria": [
+            "Validation loss is logged each epoch",
+            "The best model is saved automatically",
+            "The script runs with a single command"
+          ]
+        }
+      },
+      {
+        "week": 7,
+        "skill": "Docker",
+        "title": "Automate the full build and test",
+        "why": "Docker appears in 46% of ML Engineer job descriptions and was not found in any of your 9 repositories.",
+        "est_hours": 4,
+        "resource_urls": [
+          "https://docs.docker.com/get-started/"
+        ],
+        "proof_project": {
+          "title": "Full CI pipeline for the model service",
+          "description": "Add a GitHub Actions workflow that builds the image, runs tests, and pushes to a registry.",
+          "skills_covered": [
+            "Docker",
+            "Model deployment"
+          ],
+          "acceptance_criteria": [
+            "The workflow passes on every push",
+            "The image is pushed to a registry",
+            "A test container starts and responds"
+          ]
+        }
+      },
+      {
+        "week": 8,
+        "skill": "AWS",
+        "title": "Automate infrastructure with IaC",
+        "why": "AWS appears in 34% of ML Engineer job descriptions and was not found in any of your 9 repositories.",
+        "est_hours": 4,
+        "resource_urls": [
+          "https://roadmap.sh/aws"
+        ],
+        "proof_project": {
+          "title": "Reproduce the environment from code",
+          "description": "Define the S3 bucket, IAM role, and endpoint resources in infrastructure as code.",
+          "skills_covered": [
+            "AWS",
+            "Model deployment",
+            "Docker"
+          ],
+          "acceptance_criteria": [
+            "The code creates the resources in a new account",
+            "The model endpoint is reachable after apply",
+            "A destroy command removes all created resources"
+          ]
+        }
+      },
+      {
+        "week": 8,
+        "skill": "Model deployment",
+        "title": "Monitor and scale the deployed model",
+        "why": "Model deployment appears in 42% of ML Engineer job descriptions and was not found in any of your 9 repositories.",
+        "est_hours": 4,
+        "resource_urls": [
+          "https://mlflow.org/docs/latest/deployment/"
+        ],
+        "proof_project": {
+          "title": "Add observability to the live service",
+          "description": "Instrument the endpoint with logging and set up a basic alert for failure rates.",
+          "skills_covered": [
+            "Model deployment",
+            "AWS"
+          ],
+          "acceptance_criteria": [
+            "Logs are written to a cloud storage bucket",
+            "An alert triggers on a simulated failure",
+            "The dashboard shows request count and latency"
+          ]
+        }
+      }
+    ]
+  },
+  "demo:roadmap:8:z4tzkh": {
+    "items": [
+      {
+        "week": 1,
+        "skill": "Pandas",
+        "title": "Clean and aggregate the crop yield dataset",
+        "why": "Pandas appears in 84% of ML Engineer job descriptions and was found in your requirements.txt in crop-yield-prediction and 3 more repositories.",
+        "est_hours": 5,
+        "resource_urls": [
+          "https://pandas.pydata.org/docs/user_guide/10min.html",
+          "https://www.kaggle.com/learn/pandas"
+        ],
+        "proof_project": {
+          "title": "Data cleaning and aggregation pipeline",
+          "description": "Load a raw CSV, handle missing values, group by region, and export a cleaned DataFrame.",
+          "skills_covered": [
+            "Pandas"
+          ],
+          "acceptance_criteria": [
+            "The script reads a CSV with missing values",
+            "Missing values are imputed or dropped",
+            "A grouped summary is saved to a new CSV"
+          ]
+        }
+      },
+      {
+        "week": 2,
+        "skill": "NumPy",
+        "title": "Vectorise crop yield feature engineering",
+        "why": "NumPy appears in 78% of ML Engineer job descriptions and was found in your requirements.txt in crop-yield-prediction and 1 more repository.",
+        "est_hours": 5,
+        "resource_urls": [
+          "https://numpy.org/doc/stable/user/absolute_beginners.html"
+        ],
+        "proof_project": {
+          "title": "NumPy feature engineering",
+          "description": "Replace Python loops in a feature pipeline with NumPy vectorised operations for a crop yield dataset.",
+          "skills_covered": [
+            "NumPy",
+            "Pandas"
+          ],
+          "acceptance_criteria": [
+            "All feature calculations use NumPy arrays",
+            "Execution time is measured and reported",
+            "The output matches the original loop-based results"
+          ]
+        }
+      },
+      {
+        "week": 3,
+        "skill": "scikit-learn",
+        "title": "Build a baseline regression model",
+        "why": "scikit-learn appears in 72% of ML Engineer job descriptions and was found in your requirements.txt in crop-yield-prediction and 3 more repositories.",
+        "est_hours": 5,
+        "resource_urls": [
+          "https://scikit-learn.org/stable/getting_started.html",
+          "https://www.kaggle.com/learn/intro-to-machine-learning"
+        ],
+        "proof_project": {
+          "title": "Baseline regression model",
+          "description": "Split the crop yield data, train a RandomForestRegressor, and evaluate with RMSE.",
+          "skills_covered": [
+            "scikit-learn",
+            "NumPy"
+          ],
+          "acceptance_criteria": [
+            "Train and test sets are created with a fixed random state",
+            "RMSE is computed on the test set",
+            "The model is saved to a file"
+          ]
+        }
+      },
+      {
+        "week": 4,
+        "skill": "Git",
+        "title": "Version control the crop yield project",
+        "why": "Git appears in 70% of ML Engineer job descriptions and was found in your .gitignore in crop-yield-prediction and 8 more repositories.",
+        "est_hours": 5,
+        "resource_urls": [
+          "https://git-scm.com/book/en/v2",
+          "https://roadmap.sh/git-github"
+        ],
+        "proof_project": {
+          "title": "Git workflow for the crop yield project",
+          "description": "Initialise a repository, commit the cleaned data and model artefacts, and push to a remote branch.",
+          "skills_covered": [
+            "Git",
+            "scikit-learn"
+          ],
+          "acceptance_criteria": [
+            "The repository has an initial commit with a README",
+            "A feature branch is created and merged via a pull request",
+            "The remote contains all committed files"
+          ]
+        }
+      },
+      {
+        "week": 5,
+        "skill": "TensorFlow",
+        "title": "Implement a neural network with TensorFlow",
+        "why": "TensorFlow appears in 54% of ML Engineer job descriptions and was not found in any of your 10 scanned repositories; claimed on your resume.",
+        "est_hours": 8,
+        "resource_urls": [
+          "https://www.tensorflow.org/tutorials",
+          "https://keras.io/guides/"
+        ],
+        "proof_project": {
+          "title": "TensorFlow neural network for crop yield",
+          "description": "Build a feedforward network in TensorFlow/Keras, train on the same crop yield data, and compare RMSE to the scikit-learn baseline.",
+          "skills_covered": [
+            "TensorFlow",
+            "NumPy"
+          ],
+          "acceptance_criteria": [
+            "The model uses at least one hidden layer",
+            "Training history is logged",
+            "Final test RMSE is recorded and compared to the baseline"
+          ]
+        }
+      },
+      {
+        "week": 6,
+        "skill": "Deep learning",
+        "title": "Apply deep learning to tabular crop data",
+        "why": "Deep learning appears in 66% of ML Engineer job descriptions and was not found in any of your 10 scanned repositories; claimed on your resume.",
+        "est_hours": 8,
+        "resource_urls": [
+          "https://d2l.ai/",
+          "https://course.fast.ai/"
+        ],
+        "proof_project": {
+          "title": "Deep learning model comparison",
+          "description": "Implement an additional deep learning architecture, such as a simple MLP or tabular network, and compare its performance against the TensorFlow baseline.",
+          "skills_covered": [
+            "Deep learning",
+            "TensorFlow"
+          ],
+          "acceptance_criteria": [
+            "A second deep learning model is trained on the same data",
+            "Metrics are logged for both models",
+            "A short report explains which model performed better and why"
+          ]
+        }
+      }
+    ]
+  },
+  "demo:quiz:docker:medium:0": {
+    "question": "You run a Docker container with the command `docker run -d -p 8080:80 nginx`. What is the primary effect of the `-p 8080:80` flag on the host system?",
+    "options": [
+      "It exposes port 80 on the host and maps it to port 8080 inside the container.",
+      "It exposes port 8080 on the host and maps it to port 80 inside the container.",
+      "It maps port 8080 on the host to port 8080 inside the container, leaving port 80 unused.",
+      "It publishes port 80 inside the container to all network interfaces on the host without specifying a host port."
+    ],
+    "correct_index": 1,
+    "explanation": "The `-p` flag syntax is `<host_port>:<container_port>`, so 8080 on the host is mapped to 80 inside the container.",
+    "difficulty": "medium"
+  },
+  "demo:quiz:docker:easy:1": {
+    "question": "Which Dockerfile instruction creates a new layer by copying files from the host into the image during the build process?",
+    "options": [
+      "RUN",
+      "COPY",
+      "ADD",
+      "COPY_FROM"
+    ],
+    "correct_index": 1,
+    "explanation": "COPY is the dedicated instruction for copying files from the host into the image, whereas RUN executes commands and ADD has additional capabilities like remote URL fetching.",
+    "difficulty": "easy"
+  },
+  "demo:quiz:docker:easy:2": {
+    "question": "What command lists all running Docker containers?",
+    "options": [
+      "docker ps -a",
+      "docker container list",
+      "docker images",
+      "docker ps"
+    ],
+    "correct_index": 3,
+    "explanation": "The `docker ps` command displays only currently running containers, whereas `docker ps -a` shows all containers including stopped ones.",
+    "difficulty": "easy"
+  },
+  "demo:quiz:docker:easy:3": {
+    "question": "What does the `-v` flag accomplish when used with the `docker run` command?",
+    "options": [
+      "It exposes a container port to the host network interface.",
+      "It mounts a host directory or file into the container at a specified path.",
+      "It sets an environment variable inside the container.",
+      "It assigns a name to the running container."
+    ],
+    "correct_index": 1,
+    "explanation": "The `-v` flag is used to mount a host directory or file into the container, enabling data persistence or sharing between the host and container.",
+    "difficulty": "easy"
+  },
+  "demo:quiz:sql:medium:2": {
+    "question": "A database table `employees` contains `employee_id`, `department`, and `salary`. Which query returns the average salary per department, but only for departments where the average salary exceeds $80,000?",
+    "options": [
+      "SELECT department, AVG(salary) FROM employees GROUP BY department HAVING AVG(salary) > 80000;",
+      "SELECT department, AVG(salary) FROM employees WHERE AVG(salary) > 80000 GROUP BY department;",
+      "SELECT department, AVG(salary) FROM employees GROUP BY department WHERE AVG(salary) > 80000;",
+      "SELECT department, SUM(salary) / COUNT(*) FROM employees GROUP BY department HAVING SUM(salary) / COUNT(*) > 80000;"
+    ],
+    "correct_index": 0,
+    "explanation": "The HAVING clause is required to filter results after aggregation, whereas WHERE cannot evaluate aggregate functions.",
+    "difficulty": "medium"
+  },
+  "demo:quiz:python:hard:1": {
+    "question": "When using Python's `multiprocessing.Pool.map` with an iterable of 10,000 large objects, what is a likely performance bottleneck if the worker processes are CPU-bound and the objects are not pickleable?",
+    "options": [
+      "The objects are serialized via pickle for inter-process communication, incurring high overhead.",
+      "The operating system limits the number of concurrent file descriptors.",
+      "The Global Interpreter Lock prevents multiple processes from executing Python bytecode.",
+      "The iterable is consumed too quickly by the main process before workers request items."
+    ],
+    "correct_index": 0,
+    "explanation": "Non-pickleable objects cannot be passed to worker processes via `multiprocessing`, forcing fallback serialization methods that add substantial overhead.",
+    "difficulty": "hard"
+  },
+  "demo:quiz:python:hard:2": {
+    "question": "In a Python application that uses `asyncio` to manage thousands of concurrent network connections, what is a critical risk when a long-running CPU-bound task is executed directly inside an event loop callback without offloading it to a thread pool or process pool?",
+    "options": [
+      "The event loop will automatically spawn additional worker threads to handle the load.",
+      "The task will be scheduled across multiple CPU cores by the asyncio scheduler.",
+      "The entire event loop will block, causing all pending I/O operations to stall.",
+      "The task will be transparently offloaded to a background process by the interpreter."
+    ],
+    "correct_index": 2,
+    "explanation": "A blocking CPU-bound task prevents the single-threaded event loop from switching to other tasks, freezing all I/O-bound operations.",
+    "difficulty": "hard"
+  },
+  "demo:quiz:python:hard:3": {
+    "question": "A Python application uses `asyncio` with `loop.run_in_executor` to offload a CPU-bound computation to a process pool. Under what condition will this approach fail to improve concurrency, even though the work is offloaded to a separate process?",
+    "options": [
+      "The executor is configured with a single worker process and the main process is also blocked by an I/O operation.",
+      "The computation involves only primitive numeric types and does not require memory-mapped files.",
+      "The event loop is running in a separate thread from the main application thread.",
+      "The process pool uses the default `fork` start method on a system that does not support it."
+    ],
+    "correct_index": 0,
+    "explanation": "If the single worker process is blocked by an I/O operation, no additional CPU-bound tasks can be processed in parallel, eliminating the concurrency benefit of the process pool.",
+    "difficulty": "hard"
+  },
+  "demo:quiz:python:easy:2": {
+    "question": "What is the return type of the built-in `len()` function when called on a dictionary?",
+    "options": [
+      "int",
+      "list",
+      "dict",
+      "NoneType"
+    ],
+    "correct_index": 0,
+    "explanation": "The `len()` function returns the number of key-value pairs in a dictionary, which is an integer.",
+    "difficulty": "easy"
+  },
+  "demo:quiz:sql:easy:1": {
+    "question": "Which SQL keyword is used to filter rows based on a specified condition before any grouping occurs?",
+    "options": [
+      "GROUP BY",
+      "HAVING",
+      "WHERE",
+      "ORDER BY"
+    ],
+    "correct_index": 2,
+    "explanation": "WHERE filters individual rows prior to aggregation, whereas HAVING filters groups after aggregation.",
+    "difficulty": "easy"
+  },
+  "demo:quiz:sql:easy:2": {
+    "question": "Which SQL clause is used to limit the number of rows returned by a query to a specific number?",
+    "options": [
+      "LIMIT",
+      "FILTER",
+      "RESTRICT",
+      "TRUNCATE"
+    ],
+    "correct_index": 0,
+    "explanation": "LIMIT is the standard SQL clause for restricting the output row count, while the other options serve different purposes or are not valid for this operation.",
+    "difficulty": "easy"
+  },
+  "demo:quiz:sql:easy:3": {
+    "question": "In SQL, which clause is used to remove duplicate rows from the result set of a query?",
+    "options": [
+      "DISTINCT",
+      "UNIQUE",
+      "FILTER",
+      "REMOVE"
+    ],
+    "correct_index": 0,
+    "explanation": "DISTINCT is the standard SQL clause that eliminates duplicate rows from query results.",
+    "difficulty": "easy"
+  },
+  "demo:quiz:docker:hard:1": {
+    "question": "When using `docker build` with a multi-stage Dockerfile, what is the primary security benefit of copying artifacts from a builder stage to a minimal final stage rather than installing build tools in the final image?",
+    "options": [
+      "It reduces the final image size, which indirectly lowers the attack surface.",
+      "It prevents build-time secrets and intermediate layers from being present in the runtime image.",
+      "It ensures that the application runs faster due to fewer installed packages.",
+      "It enables automatic garbage collection of unused Docker layers during the build process."
+    ],
+    "correct_index": 1,
+    "explanation": "Isolating build tools and intermediate artifacts in a discarded builder stage ensures they are not persisted in the final runtime image, eliminating exposure of build-time secrets and unnecessary binaries.",
+    "difficulty": "hard"
+  },
+  "demo:quiz:docker:hard:2": {
+    "question": "You have a Docker Compose service that mounts a named volume to a path containing sensitive configuration files. After a `docker-compose down --volumes` command, the volume is removed. What is a potential security risk if the volume was previously used to store credentials and the underlying storage was not encrypted at rest?",
+    "options": [
+      "The credentials remain recoverable from the container's writable layer because Docker does not purge intermediate layers.",
+      "The credentials may persist on the host filesystem in the volume's data directory, potentially accessible to other users or processes with host-level access.",
+      "Docker automatically encrypts all named volume data before deletion, so no residual data can be recovered by an attacker.",
+      "The credentials are only exposed if the container was restarted with the same volume name, otherwise they are permanently lost."
+    ],
+    "correct_index": 1,
+    "explanation": "Removing a named volume deletes the metadata but the underlying data may remain on the host filesystem until overwritten, exposing sensitive files to anyone with host access.",
+    "difficulty": "hard"
+  },
+  "demo:quiz:docker:hard:3": {
+    "question": "A Docker image is built with `FROM ubuntu:22.04 AS base` followed by `FROM base AS runtime`, and the final stage copies only `/app` from the runtime stage. If the base stage contains a known CVE in a library that is not used by the application but remains in the final image because it was copied via a shared cache layer, what is the most likely outcome when the image is scanned with a static analysis tool?",
+    "options": [
+      "The scanner will flag the CVE as a critical vulnerability because it is present in the final image filesystem.",
+      "The scanner will ignore the CVE because it is only present in the base stage, which is not part of the final image.",
+      "The scanner will report the CVE as low risk because it is not actively loaded by the running process.",
+      "The scanner will fail to detect the CVE because the shared cache layer prevents layer inspection."
+    ],
+    "correct_index": 0,
+    "explanation": "Static analysis tools inspect the final image layers, and any files copied into the final stage—including those from shared cache layers—are subject to vulnerability scanning regardless of runtime usage.",
+    "difficulty": "hard"
+  },
+  "demo:quiz:docker:medium:2": {
+    "question": "A developer builds a Docker image using a Dockerfile that copies a large configuration file via COPY in the first instruction, then installs dependencies in a subsequent RUN instruction. Which optimization would most effectively reduce image rebuild times when only the configuration file changes?",
+    "options": [
+      "Move the COPY instruction after the RUN instruction that installs dependencies.",
+      "Combine the COPY and RUN instructions into a single RUN command using a shell.",
+      "Add a .dockerignore file to exclude the configuration file from the build context.",
+      "Reorder the Dockerfile so that dependency installation occurs before the COPY instruction."
+    ],
+    "correct_index": 3,
+    "explanation": "Placing the dependency installation before the COPY instruction ensures the dependency layer is cached and reused, so only the configuration layer must be rebuilt when that file changes.",
+    "difficulty": "medium"
+  },
+  "demo:roadmap:8:s0djd3": {
+    "items": [
+      {
+        "week": 1,
+        "skill": "Python",
+        "title": "Strengthen Python fundamentals",
+        "why": "Python appears in 95% of ML Engineer job descriptions and your quiz score is 19%.",
+        "est_hours": 8,
+        "resource_urls": [
+          "https://docs.python.org/3/tutorial/",
+          "https://www.freecodecamp.org/learn/scientific-computing-with-python/",
+          "https://roadmap.sh/python"
+        ],
+        "proof_project": {
+          "title": "Refactor a repository with clean Python",
+          "description": "Take one of your existing repositories and refactor a script to use modern Python practices and type hints.",
+          "skills_covered": [
+            "Python"
+          ],
+          "acceptance_criteria": [
+            "The script passes all existing tests",
+            "A requirements.txt is present and pinned",
+            "Code is formatted with black"
+          ]
+        }
+      },
+      {
+        "week": 2,
+        "skill": "Machine learning",
+        "title": "Review core ML concepts",
+        "why": "Machine learning appears in 92% of ML Engineer job descriptions and is already present in your crop-yield-prediction repository.",
+        "est_hours": 5,
+        "resource_urls": [
+          "https://developers.google.com/machine-learning/crash-course",
+          "https://www.kaggle.com/learn/intro-to-machine-learning"
+        ],
+        "proof_project": {
+          "title": "Rebuild a baseline model",
+          "description": "Reimplement the core model from your crop-yield-prediction repository using scikit-learn and document the train-test split and evaluation metric.",
+          "skills_covered": [
+            "Machine learning"
+          ],
+          "acceptance_criteria": [
+            "The notebook runs end to end",
+            "A confusion matrix or ROC curve is plotted",
+            "Hyperparameters are logged with a simple tracker"
+          ]
+        }
+      },
+      {
+        "week": 3,
+        "skill": "PyTorch",
+        "title": "Learn PyTorch basics",
+        "why": "PyTorch appears in 58% of ML Engineer job descriptions and was not found in any of your 9 repositories.",
+        "est_hours": 8,
+        "resource_urls": [
+          "https://pytorch.org/tutorials/beginner/basics/intro.html",
+          "https://pytorch.org/tutorials/beginner/deep_learning_60min_blitz.html"
+        ],
+        "proof_project": {
+          "title": "Train a simple neural network",
+          "description": "Build a feedforward network in PyTorch to classify a public dataset and save the trained weights.",
+          "skills_covered": [
+            "PyTorch"
+          ],
+          "acceptance_criteria": [
+            "The script trains for at least 5 epochs",
+            "Loss decreases over epochs",
+            "The model file is saved and reloaded successfully"
+          ]
+        }
+      },
+      {
+        "week": 4,
+        "skill": "TensorFlow",
+        "title": "Learn TensorFlow fundamentals",
+        "why": "TensorFlow appears in 54% of ML Engineer job descriptions and was not found in any of your 9 repositories.",
+        "est_hours": 8,
+        "resource_urls": [
+          "https://www.tensorflow.org/tutorials",
+          "https://keras.io/guides/"
+        ],
+        "proof_project": {
+          "title": "Replicate a PyTorch model in TensorFlow",
+          "description": "Convert the PyTorch network from week 3 into an equivalent Keras model and train it on the same dataset.",
+          "skills_covered": [
+            "TensorFlow"
+          ],
+          "acceptance_criteria": [
+            "The Keras model achieves comparable accuracy",
+            "The training history is plotted",
+            "The model is saved in SavedModel format"
+          ]
+        }
+      },
+      {
+        "week": 5,
+        "skill": "Deep learning",
+        "title": "Study deep learning theory and practice",
+        "why": "Deep learning appears in 66% of ML Engineer job descriptions and was not found in any of your 9 repositories.",
+        "est_hours": 8,
+        "resource_urls": [
+          "https://d2l.ai/",
+          "https://course.fast.ai/"
+        ],
+        "proof_project": {
+          "title": "Build a convolutional network",
+          "description": "Implement a CNN from scratch or with a high-level API to classify images and evaluate on a held-out test set.",
+          "skills_covered": [
+            "Deep learning"
+          ],
+          "acceptance_criteria": [
+            "The architecture summary is documented",
+            "Validation accuracy exceeds 80%",
+            "A learning curve plot is saved"
+          ]
+        }
+      },
+      {
+        "week": 6,
+        "skill": "SQL",
+        "title": "Learn SQL querying and joins",
+        "why": "SQL appears in 64% of ML Engineer job descriptions and was not found in any of your 9 repositories.",
+        "est_hours": 8,
+        "resource_urls": [
+          "https://www.postgresql.org/docs/current/tutorial.html",
+          "https://sqlbolt.com/",
+          "https://www.kaggle.com/learn/intro-to-sql"
+        ],
+        "proof_project": {
+          "title": "Extract and transform a dataset",
+          "description": "Write a SQL script that joins two tables, filters for a relevant subset, and exports the result to CSV.",
+          "skills_covered": [
+            "SQL"
+          ],
+          "acceptance_criteria": [
+            "The script runs without errors",
+            "The output CSV has the correct row count",
+            "A brief README explains the query logic"
+          ]
+        }
+      },
+      {
+        "week": 7,
+        "skill": "Docker",
+        "title": "Containerise an application",
+        "why": "Docker appears in 46% of ML Engineer job descriptions and was not found in any of your 9 repositories.",
+        "est_hours": 8,
+        "resource_urls": [
+          "https://docs.docker.com/get-started/",
+          "https://roadmap.sh/docker"
+        ],
+        "proof_project": {
+          "title": "Containerise the crop yield model",
+          "description": "Create a Dockerfile for your crop-yield-prediction repository, build the image, and run it with a single command.",
+          "skills_covered": [
+            "Docker",
+            "Model deployment"
+          ],
+          "acceptance_criteria": [
+            "The Dockerfile builds with no manual steps",
+            "The container starts with one docker run command",
+            "The README records the final image size"
+          ]
+        }
+      },
+      {
+        "week": 8,
+        "skill": "Model deployment",
+        "title": "Deploy a model as an API",
+        "why": "Model deployment appears in 42% of ML Engineer job descriptions and was not found in any of your 9 repositories.",
+        "est_hours": 8,
+        "resource_urls": [
+          "https://fastapi.tiangolo.com/deployment/",
+          "https://mlflow.org/docs/latest/deployment/"
+        ],
+        "proof_project": {
+          "title": "Expose the model via an API",
+          "description": "Wrap the crop-yield-prediction model from week 2 in a FastAPI service, log predictions with MLflow, and deploy it locally.",
+          "skills_covered": [
+            "Model deployment"
+          ],
+          "acceptance_criteria": [
+            "The API returns predictions for a sample payload",
+            "MLflow logs show the prediction run",
+            "The service is documented with a curl example"
+          ]
+        }
+      }
+    ]
+  },
+  "demo:roadmap:8:xd0nsx": {
+    "items": [
+      {
+        "week": 1,
+        "skill": "SQL",
+        "title": "Query datasets for model features",
+        "why": "SQL appears in 64% of ML Engineer job descriptions and was not found in any of your 9 repositories.",
+        "est_hours": 6,
+        "resource_urls": [
+          "https://www.postgresql.org/docs/current/tutorial.html",
+          "https://sqlbolt.com/"
+        ],
+        "proof_project": {
+          "title": "Extract and transform a dataset",
+          "description": "Write SQL queries to filter, join, and aggregate data from a public dataset, then export the result to CSV.",
+          "skills_covered": [
+            "SQL"
+          ],
+          "acceptance_criteria": [
+            "The query returns the correct row count for the target subset",
+            "The output CSV matches the expected schema",
+            "The README includes the query and a brief explanation of the transformations"
+          ]
+        }
+      },
+      {
+        "week": 2,
+        "skill": "Machine learning",
+        "title": "Refine the crop yield model",
+        "why": "Machine learning appears in 92% of ML Engineer job descriptions and was found in your code (repository topics in crop-yield-prediction).",
+        "est_hours": 5,
+        "resource_urls": [
+          "https://developers.google.com/machine-learning/crash-course",
+          "https://www.kaggle.com/learn/intro-to-machine-learning"
+        ],
+        "proof_project": {
+          "title": "Improve the existing crop yield model",
+          "description": "Re-train the crop yield prediction model with one additional preprocessing step and compare validation metrics.",
+          "skills_covered": [
+            "Machine learning",
+            "SQL"
+          ],
+          "acceptance_criteria": [
+            "The updated model achieves a higher validation score than the baseline",
+            "The training script is reproducible from the README",
+            "A short report documents the metric change and the preprocessing step"
+          ]
+        }
+      },
+      {
+        "week": 3,
+        "skill": "PyTorch",
+        "title": "Build a neural network from scratch",
+        "why": "PyTorch appears in 58% of ML Engineer job descriptions and was not found in any of your 9 scanned repositories.",
+        "est_hours": 8,
+        "resource_urls": [
+          "https://pytorch.org/tutorials/beginner/basics/intro.html",
+          "https://pytorch.org/tutorials/beginner/deep_learning_60min_blitz.html"
+        ],
+        "proof_project": {
+          "title": "Implement a feed-forward network",
+          "description": "Code a simple classifier in PyTorch, train it on a tabular dataset, and log loss and accuracy.",
+          "skills_covered": [
+            "PyTorch",
+            "Machine learning"
+          ],
+          "acceptance_criteria": [
+            "The script runs end-to-end without errors",
+            "Final training loss and accuracy are printed",
+            "The README lists the dataset and hyperparameters used"
+          ]
+        }
+      },
+      {
+        "week": 4,
+        "skill": "TensorFlow",
+        "title": "Replicate the PyTorch model in TensorFlow",
+        "why": "TensorFlow appears in 54% of ML Engineer job descriptions and was not found in any of your 9 scanned repositories.",
+        "est_hours": 8,
+        "resource_urls": [
+          "https://www.tensorflow.org/tutorials",
+          "https://keras.io/guides/"
+        ],
+        "proof_project": {
+          "title": "Port the PyTorch classifier to TensorFlow",
+          "description": "Build the same feed-forward network using TensorFlow and Keras, then compare training curves.",
+          "skills_covered": [
+            "TensorFlow",
+            "PyTorch"
+          ],
+          "acceptance_criteria": [
+            "The TensorFlow model matches the PyTorch architecture",
+            "Training loss and accuracy are logged for both frameworks",
+            "The README notes any differences in convergence speed"
+          ]
+        }
+      },
+      {
+        "week": 5,
+        "skill": "Deep learning",
+        "title": "Train a convolutional network",
+        "why": "Deep learning appears in 66% of ML Engineer job descriptions and was not found in any of your 9 scanned repositories.",
+        "est_hours": 8,
+        "resource_urls": [
+          "https://d2l.ai/",
+          "https://course.fast.ai/"
+        ],
+        "proof_project": {
+          "title": "Image classification with a CNN",
+          "description": "Train a convolutional neural network on a small image dataset and report top-1 accuracy.",
+          "skills_covered": [
+            "Deep learning",
+            "PyTorch"
+          ],
+          "acceptance_criteria": [
+            "The model trains to convergence within the allocated time",
+            "Top-1 accuracy on the test set is recorded",
+            "The README includes the dataset source and model architecture summary"
+          ]
+        }
+      },
+      {
+        "week": 6,
+        "skill": "Docker",
+        "title": "Package the crop yield pipeline",
+        "why": "Docker appears in 46% of ML Engineer job descriptions and was not found in any of your 9 scanned repositories.",
+        "est_hours": 6,
+        "resource_urls": [
+          "https://docs.docker.com/get-started/",
+          "https://roadmap.sh/docker"
+        ],
+        "proof_project": {
+          "title": "Containerise the crop yield pipeline",
+          "description": "Create a Docker image that runs the crop yield prediction script from the existing repository.",
+          "skills_covered": [
+            "Docker",
+            "Machine learning"
+          ],
+          "acceptance_criteria": [
+            "The Dockerfile builds without manual intervention",
+            "The image starts with a single docker run command",
+            "The README records the final image size"
+          ]
+        }
+      },
+      {
+        "week": 7,
+        "skill": "Model deployment",
+        "title": "Expose the model via an API",
+        "why": "Model deployment appears in 42% of ML Engineer job descriptions and was not found in any of your 9 scanned repositories.",
+        "est_hours": 8,
+        "resource_urls": [
+          "https://fastapi.tiangolo.com/deployment/",
+          "https://mlflow.org/docs/latest/deployment/"
+        ],
+        "proof_project": {
+          "title": "Serve the crop yield model",
+          "description": "Wrap the trained model in a FastAPI endpoint and deploy it with Docker.",
+          "skills_covered": [
+            "Model deployment",
+            "Docker",
+            "Machine learning"
+          ],
+          "acceptance_criteria": [
+            "The API accepts a JSON payload and returns a prediction",
+            "The service runs inside the Docker image from week 6",
+            "The README documents the endpoint and a curl test command"
+          ]
+        }
+      },
+      {
+        "week": 8,
+        "skill": "Deep learning",
+        "title": "Fine-tune the image model",
+        "why": "Deep learning appears in 66% of ML Engineer job descriptions and was not found in any of your 9 scanned repositories.",
+        "est_hours": 8,
+        "resource_urls": [
+          "https://d2l.ai/",
+          "https://course.fast.ai/"
+        ],
+        "proof_project": {
+          "title": "Hyperparameter tuning for the CNN",
+          "description": "Run a small grid search on learning rate and batch size, then select the best configuration.",
+          "skills_covered": [
+            "Deep learning",
+            "PyTorch"
+          ],
+          "acceptance_criteria": [
+            "At least three hyperparameter configurations are tested",
+            "The best configuration achieves the highest test accuracy",
+            "The README lists the tested values and the chosen settings"
+          ]
+        }
+      }
+    ]
+  },
+  "demo:roadmap:8:4pc20i": {
+    "items": [
+      {
+        "week": 1,
+        "skill": "SQL",
+        "title": "Query relational data for model features",
+        "why": "SQL appears in 64% of ML Engineer job descriptions and was not found in any of your 9 repositories, while your quiz score is 25%.",
+        "est_hours": 8,
+        "resource_urls": [
+          "https://www.postgresql.org/docs/current/tutorial.html",
+          "https://sqlbolt.com/",
+          "https://www.kaggle.com/learn/intro-to-sql"
+        ],
+        "proof_project": {
+          "title": "Extract and transform a dataset",
+          "description": "Load a CSV into a PostgreSQL database and write queries to produce a clean feature table.",
+          "skills_covered": [
+            "SQL"
+          ],
+          "acceptance_criteria": [
+            "The database schema is documented",
+            "Five SQL queries return the expected rows",
+            "A README explains how to recreate the table"
+          ]
+        }
+      },
+      {
+        "week": 2,
+        "skill": "PyTorch",
+        "title": "Build a simple neural network",
+        "why": "PyTorch appears in 58% of ML Engineer job descriptions and was not found in any of your 9 repositories, though it is claimed on your resume.",
+        "est_hours": 8,
+        "resource_urls": [
+          "https://pytorch.org/tutorials/beginner/basics/intro.html",
+          "https://pytorch.org/tutorials/beginner/deep_learning_60min_blitz.html"
+        ],
+        "proof_project": {
+          "title": "Train a regression model",
+          "description": "Implement a feedforward network in PyTorch to predict a continuous target from tabular data.",
+          "skills_covered": [
+            "PyTorch"
+          ],
+          "acceptance_criteria": [
+            "The script trains for at least 10 epochs",
+            "Loss decreases across epochs",
+            "The final model file is saved and loaded"
+          ]
+        }
+      },
+      {
+        "week": 3,
+        "skill": "TensorFlow",
+        "title": "Replicate the model in TensorFlow",
+        "why": "TensorFlow appears in 54% of ML Engineer job descriptions and was not found in any of your 9 repositories, though it is claimed on your resume.",
+        "est_hours": 8,
+        "resource_urls": [
+          "https://www.tensorflow.org/tutorials",
+          "https://keras.io/guides/"
+        ],
+        "proof_project": {
+          "title": "Reimplement the PyTorch model in TensorFlow",
+          "description": "Build the same regression task using the TensorFlow Keras API and compare training curves.",
+          "skills_covered": [
+            "TensorFlow"
+          ],
+          "acceptance_criteria": [
+            "The model architecture matches the PyTorch version",
+            "Training runs without errors",
+            "A short report notes accuracy or loss differences"
+          ]
+        }
+      },
+      {
+        "week": 4,
+        "skill": "Deep learning",
+        "title": "Apply deep learning to a classification task",
+        "why": "Deep learning appears in 66% of ML Engineer job descriptions and was not found in any of your 9 repositories, though it is claimed on your resume.",
+        "est_hours": 8,
+        "resource_urls": [
+          "https://d2l.ai/",
+          "https://course.fast.ai/"
+        ],
+        "proof_project": {
+          "title": "Train an image classifier",
+          "description": "Fine-tune a convolutional network on a small image dataset and evaluate on a held-out set.",
+          "skills_covered": [
+            "Deep learning"
+          ],
+          "acceptance_criteria": [
+            "The dataset is split and documented",
+            "Accuracy is reported on the validation set",
+            "The training script is reproducible"
+          ]
+        }
+      },
+      {
+        "week": 5,
+        "skill": "Docker",
+        "title": "Package a training script",
+        "why": "Docker appears in 46% of ML Engineer job descriptions and was not found in any of your 9 repositories and is not claimed on your resume.",
+        "est_hours": 6,
+        "resource_urls": [
+          "https://docs.docker.com/get-started/",
+          "https://roadmap.sh/docker"
+        ],
+        "proof_project": {
+          "title": "Containerise the crop yield model",
+          "description": "Write a Dockerfile for the training script from week 2 and run it in a container.",
+          "skills_covered": [
+            "Docker"
+          ],
+          "acceptance_criteria": [
+            "The Dockerfile builds without manual steps",
+            "The container starts with one command",
+            "The README lists the image size"
+          ]
+        }
+      },
+      {
+        "week": 6,
+        "skill": "Model deployment",
+        "title": "Expose a model via an API",
+        "why": "Model deployment appears in 42% of ML Engineer job descriptions and was not found in any of your 9 repositories and is not claimed on your resume.",
+        "est_hours": 6,
+        "resource_urls": [
+          "https://fastapi.tiangolo.com/deployment/",
+          "https://mlflow.org/docs/latest/deployment/"
+        ],
+        "proof_project": {
+          "title": "Serve the model with FastAPI",
+          "description": "Wrap the trained model from week 2 in a FastAPI endpoint and test it with curl.",
+          "skills_covered": [
+            "Model deployment"
+          ],
+          "acceptance_criteria": [
+            "The endpoint accepts JSON input",
+            "It returns a prediction in under one second",
+            "A requirements.txt is included"
+          ]
+        }
+      },
+      {
+        "week": 7,
+        "skill": "Docker",
+        "title": "Deploy the API in a container",
+        "why": "Docker appears in 46% of ML Engineer job descriptions and was not found in any of your 9 repositories and is not claimed on your resume.",
+        "est_hours": 6,
+        "resource_urls": [
+          "https://docs.docker.com/get-started/",
+          "https://roadmap.sh/docker"
+        ],
+        "proof_project": {
+          "title": "Containerise the deployment",
+          "description": "Extend the Dockerfile from week 5 to include the FastAPI service and verify end-to-end execution.",
+          "skills_covered": [
+            "Docker",
+            "Model deployment"
+          ],
+          "acceptance_criteria": [
+            "The image contains the API and its dependencies",
+            "The service responds to a health check",
+            "The README explains how to run the container"
+          ]
+        }
+      },
+      {
+        "week": 8,
+        "skill": "Deep learning",
+        "title": "Automate training in a pipeline",
+        "why": "Deep learning appears in 66% of ML Engineer job descriptions and was not found in any of your 9 repositories, though it is claimed on your resume.",
+        "est_hours": 6,
+        "resource_urls": [
+          "https://d2l.ai/",
+          "https://course.fast.ai/"
+        ],
+        "proof_project": {
+          "title": "End-to-end model training and serving",
+          "description": "Combine the containerised deep learning training from week 4 with the containerised API from week 7 into one reproducible workflow.",
+          "skills_covered": [
+            "Deep learning",
+            "Docker",
+            "Model deployment"
+          ],
+          "acceptance_criteria": [
+            "The workflow trains the model and starts the API container",
+            "A single command triggers the full sequence",
+            "Results are logged and versioned"
+          ]
+        }
+      }
+    ]
+  },
+  "demo:roadmap:8:bel0ei": {
+    "items": [
+      {
+        "week": 1,
+        "skill": "SQL",
+        "title": "Query a dataset with joins",
+        "why": "SQL appears in 64% of ML Engineer job descriptions and was not found in any of your 10 scanned repositories.",
+        "est_hours": 4,
+        "resource_urls": [
+          "https://www.postgresql.org/docs/current/tutorial.html",
+          "https://sqlbolt.com/"
+        ],
+        "proof_project": {
+          "title": "Extract and clean a dataset",
+          "description": "Load a public dataset, write SQL queries to filter and join tables, and export the result to CSV.",
+          "skills_covered": [
+            "SQL"
+          ],
+          "acceptance_criteria": [
+            "A single SQL script selects, filters, and joins the required tables",
+            "The output CSV matches the expected row count and schema",
+            "The script runs without manual intervention"
+          ]
+        }
+      },
+      {
+        "week": 2,
+        "skill": "SQL",
+        "title": "Aggregate and index a table",
+        "why": "SQL appears in 64% of ML Engineer job descriptions and was not found in any of your 10 scanned repositories.",
+        "est_hours": 4,
+        "resource_urls": [
+          "https://sqlbolt.com/",
+          "https://www.kaggle.com/learn/intro-to-sql"
+        ],
+        "proof_project": {
+          "title": "Build a reporting query",
+          "description": "Create summary statistics and an index on a table from a previous exercise.",
+          "skills_covered": [
+            "SQL"
+          ],
+          "acceptance_criteria": [
+            "The query returns grouped aggregates correctly",
+            "An index is created and verified with an explain plan",
+            "The query runs under two seconds on the full table"
+          ]
+        }
+      },
+      {
+        "week": 3,
+        "skill": "NumPy",
+        "title": "Vectorise operations on arrays",
+        "why": "NumPy appears in 78% of ML Engineer job descriptions and was found in your code.",
+        "est_hours": 5,
+        "resource_urls": [
+          "https://numpy.org/doc/stable/user/absolute_beginners.html"
+        ],
+        "proof_project": {
+          "title": "Numerical preprocessing",
+          "description": "Take a CSV of crop measurements, load it with NumPy, and compute normalised features without loops.",
+          "skills_covered": [
+            "NumPy"
+          ],
+          "acceptance_criteria": [
+            "The array operations replace all explicit Python loops",
+            "The output shape and dtype match the specification",
+            "A timing comparison shows a speed improvement over the loop version"
+          ]
+        }
+      },
+      {
+        "week": 4,
+        "skill": "Pandas",
+        "title": "Clean and merge tabular data",
+        "why": "Pandas appears in 84% of ML Engineer job descriptions and was found in your code.",
+        "est_hours": 5,
+        "resource_urls": [
+          "https://pandas.pydata.org/docs/user_guide/10min.html",
+          "https://www.kaggle.com/learn/pandas"
+        ],
+        "proof_project": {
+          "title": "End-to-end data prep",
+          "description": "Load two messy CSV files, handle missing values, merge them, and save a clean training set.",
+          "skills_covered": [
+            "NumPy",
+            "Pandas"
+          ],
+          "acceptance_criteria": [
+            "Missing values are imputed or dropped according to a documented rule",
+            "The merge produces the expected row count with no duplicate keys",
+            "The final CSV is validated against a checksum"
+          ]
+        }
+      },
+      {
+        "week": 5,
+        "skill": "scikit-learn",
+        "title": "Train and evaluate a classifier",
+        "why": "scikit-learn appears in 72% of ML Engineer job descriptions and was found in your code.",
+        "est_hours": 5,
+        "resource_urls": [
+          "https://scikit-learn.org/stable/getting_started.html",
+          "https://www.kaggle.com/learn/intro-to-machine-learning"
+        ],
+        "proof_project": {
+          "title": "Predict crop yield",
+          "description": "Split the cleaned dataset from week 4, train a model, and report accuracy and a confusion matrix.",
+          "skills_covered": [
+            "scikit-learn",
+            "Pandas"
+          ],
+          "acceptance_criteria": [
+            "The train-test split is stratified and reproducible",
+            "The model achieves at least baseline accuracy on the test set",
+            "The confusion matrix and feature importances are logged"
+          ]
+        }
+      },
+      {
+        "week": 6,
+        "skill": "Deep learning",
+        "title": "Build a simple neural network",
+        "why": "Deep learning appears in 66% of ML Engineer job descriptions and was not found in any of your 10 scanned repositories.",
+        "est_hours": 4,
+        "resource_urls": [
+          "https://d2l.ai/"
+        ],
+        "proof_project": {
+          "title": "Neural network on tabular data",
+          "description": "Implement a small feed-forward network for the same crop-yield task and compare its test accuracy to the scikit-learn baseline.",
+          "skills_covered": [
+            "Deep learning",
+            "scikit-learn"
+          ],
+          "acceptance_criteria": [
+            "The network architecture is defined in code with at least one hidden layer",
+            "Training loss decreases over epochs",
+            "The final test accuracy is within 10% of the scikit-learn baseline"
+          ]
+        }
+      },
+      {
+        "week": 7,
+        "skill": "TensorFlow",
+        "title": "Construct and train a Keras model",
+        "why": "TensorFlow appears in 54% of ML Engineer job descriptions and was not found in any of your 10 scanned repositories.",
+        "est_hours": 4,
+        "resource_urls": [
+          "https://www.tensorflow.org/tutorials",
+          "https://keras.io/guides/"
+        ],
+        "proof_project": {
+          "title": "Rebuild the crop-yield model in TensorFlow",
+          "description": "Replicate the deep-learning network from week 6 using the Keras API and log training history.",
+          "skills_covered": [
+            "TensorFlow",
+            "Deep learning"
+          ],
+          "acceptance_criteria": [
+            "The model is built with the Keras Sequential or Functional API",
+            "Training and validation curves are saved to files",
+            "The model file can be loaded and used for a single prediction"
+          ]
+        }
+      },
+      {
+        "week": 8,
+        "skill": "TensorFlow",
+        "title": "Export and serve a saved model",
+        "why": "TensorFlow appears in 54% of ML Engineer job descriptions and was not found in any of your 10 scanned repositories.",
+        "est_hours": 4,
+        "resource_urls": [
+          "https://www.tensorflow.org/tutorials",
+          "https://keras.io/guides/"
+        ],
+        "proof_project": {
+          "title": "Serve the saved model",
+          "description": "Save the trained Keras model from week 7, load it in a standalone script, and serve a prediction via a local HTTP endpoint.",
+          "skills_covered": [
+            "TensorFlow"
+          ],
+          "acceptance_criteria": [
+            "The model is saved in SavedModel format",
+            "A local server returns a valid JSON prediction",
+            "The endpoint handles malformed input with a 400 response"
+          ]
+        }
+      }
+    ]
+  },
+  "demo:roadmap:8:4bfw2e": {
+    "items": [
+      {
+        "week": 1,
+        "skill": "Machine learning",
+        "title": "Review ML fundamentals",
+        "why": "Machine learning appears in 92% of ML Engineer job descriptions and was found in your code repository topics in crop-yield-prediction.",
+        "est_hours": 5,
+        "resource_urls": [
+          "https://developers.google.com/machine-learning/crash-course",
+          "https://www.kaggle.com/learn/intro-to-machine-learning"
+        ],
+        "proof_project": {
+          "title": "Summarise core ML concepts",
+          "description": "Write a short document explaining the supervised and unsupervised learning pipeline.",
+          "skills_covered": [
+            "Machine learning"
+          ],
+          "acceptance_criteria": [
+            "The document lists at least five core ML concepts",
+            "Each concept includes one real-world example",
+            "The document is under two pages"
+          ]
+        }
+      },
+      {
+        "week": 2,
+        "skill": "SQL",
+        "title": "Learn basic SQL queries",
+        "why": "SQL appears in 64% of ML Engineer job descriptions and was not found in any of your 9 repositories.",
+        "est_hours": 8,
+        "resource_urls": [
+          "https://www.postgresql.org/docs/current/tutorial.html",
+          "https://sqlbolt.com/",
+          "https://www.kaggle.com/learn/intro-to-sql"
+        ],
+        "proof_project": {
+          "title": "Query a public dataset",
+          "description": "Load a dataset and answer three business questions using SQL.",
+          "skills_covered": [
+            "SQL"
+          ],
+          "acceptance_criteria": [
+            "Three SELECT queries return the correct results",
+            "One JOIN query is included",
+            "A brief README explains the query logic"
+          ]
+        }
+      },
+      {
+        "week": 3,
+        "skill": "Deep learning",
+        "title": "Build a neural network",
+        "why": "Deep learning appears in 66% of ML Engineer job descriptions and was not found in any of your 9 repositories.",
+        "est_hours": 8,
+        "resource_urls": [
+          "https://d2l.ai/",
+          "https://course.fast.ai/"
+        ],
+        "proof_project": {
+          "title": "Train a simple classifier",
+          "description": "Implement a feed-forward network on a standard image or tabular dataset.",
+          "skills_covered": [
+            "Deep learning"
+          ],
+          "acceptance_criteria": [
+            "The model achieves at least 80% accuracy on a held-out test set",
+            "Training and validation loss curves are plotted",
+            "Hyperparameters and final metrics are recorded in a log"
+          ]
+        }
+      },
+      {
+        "week": 4,
+        "skill": "PyTorch",
+        "title": "Implement a model in PyTorch",
+        "why": "PyTorch appears in 58% of ML Engineer job descriptions and was not found in any of your 9 repositories.",
+        "est_hours": 8,
+        "resource_urls": [
+          "https://pytorch.org/tutorials/beginner/basics/intro.html",
+          "https://pytorch.org/tutorials/beginner/deep_learning_60min_blitz.html"
+        ],
+        "proof_project": {
+          "title": "Rebuild the deep learning project in PyTorch",
+          "description": "Port the neural network from the previous week into PyTorch.",
+          "skills_covered": [
+            "Deep learning",
+            "PyTorch"
+          ],
+          "acceptance_criteria": [
+            "The PyTorch version matches the accuracy of the prior implementation",
+            "The training script runs end-to-end with one command",
+            "A requirements.txt lists the exact PyTorch version used"
+          ]
+        }
+      },
+      {
+        "week": 5,
+        "skill": "TensorFlow",
+        "title": "Build the same model in TensorFlow",
+        "why": "TensorFlow appears in 54% of ML Engineer job descriptions and was not found in any of your 9 repositories.",
+        "est_hours": 8,
+        "resource_urls": [
+          "https://www.tensorflow.org/tutorials",
+          "https://keras.io/guides/"
+        ],
+        "proof_project": {
+          "title": "Rebuild the classifier in TensorFlow",
+          "description": "Replicate the PyTorch model from the previous week using TensorFlow and Keras.",
+          "skills_covered": [
+            "TensorFlow",
+            "Deep learning"
+          ],
+          "acceptance_criteria": [
+            "The TensorFlow model matches the prior accuracy within 1 percentage point",
+            "The model is saved in SavedModel format",
+            "A short script loads and predicts on a sample input"
+          ]
+        }
+      },
+      {
+        "week": 6,
+        "skill": "Docker",
+        "title": "Containerise a model",
+        "why": "Docker appears in 46% of ML Engineer job descriptions and was not found in any of your 9 repositories.",
+        "est_hours": 6,
+        "resource_urls": [
+          "https://docs.docker.com/get-started/",
+          "https://roadmap.sh/docker"
+        ],
+        "proof_project": {
+          "title": "Package the TensorFlow model",
+          "description": "Write a Dockerfile that packages the TensorFlow model and a prediction script.",
+          "skills_covered": [
+            "Docker",
+            "TensorFlow",
+            "Model deployment"
+          ],
+          "acceptance_criteria": [
+            "The Dockerfile builds with no manual steps",
+            "The image runs with a single docker run command",
+            "The README records the final image size",
+            "A sample prediction is returned when the container starts"
+          ]
+        }
+      },
+      {
+        "week": 7,
+        "skill": "Model deployment",
+        "title": "Expose the model via an API",
+        "why": "Model deployment appears in 42% of ML Engineer job descriptions and was not found in any of your 9 repositories.",
+        "est_hours": 8,
+        "resource_urls": [
+          "https://fastapi.tiangolo.com/deployment/",
+          "https://mlflow.org/docs/latest/deployment/"
+        ],
+        "proof_project": {
+          "title": "Serve the containerised model",
+          "description": "Add a FastAPI layer that loads the model from the Docker image and exposes a /predict endpoint.",
+          "skills_covered": [
+            "Model deployment",
+            "Docker"
+          ],
+          "acceptance_criteria": [
+            "The API responds to a POST request with valid JSON predictions",
+            "The endpoint is documented with an OpenAPI schema",
+            "The service runs inside the Docker container from the prior week"
+          ]
+        }
+      },
+      {
+        "week": 8,
+        "skill": "AWS",
+        "title": "Deploy to the cloud",
+        "why": "AWS appears in 34% of ML Engineer job descriptions and was not found in any of your 9 repositories.",
+        "est_hours": 8,
+        "resource_urls": [
+          "https://aws.amazon.com/getting-started/",
+          "https://roadmap.sh/aws"
+        ],
+        "proof_project": {
+          "title": "Host the API on AWS",
+          "description": "Deploy the containerised API to an AWS service and verify end-to-end predictions.",
+          "skills_covered": [
+            "AWS",
+            "Model deployment",
+            "Docker"
+          ],
+          "acceptance_criteria": [
+            "The API is reachable from the public internet",
+            "A health check endpoint returns 200 OK",
+            "Deployment logs show zero errors over a 30-minute test window"
+          ]
+        }
+      }
+    ]
+  },
+  "demo:roadmap:8:9jgqdl": {
+    "items": [
+      {
+        "week": 1,
+        "skill": "SQL",
+        "title": "Query and aggregate a dataset",
+        "why": "SQL appears in 64% of ML Engineer job descriptions and was not found in any of your 9 repositories, with a quiz score of 25%.",
+        "est_hours": 8,
+        "resource_urls": [
+          "https://www.postgresql.org/docs/current/tutorial.html",
+          "https://sqlbolt.com/",
+          "https://www.kaggle.com/learn/intro-to-sql"
+        ],
+        "proof_project": {
+          "title": "Data extraction and summary",
+          "description": "Load a CSV into a local database and write queries to filter, join, and aggregate the data.",
+          "skills_covered": [
+            "SQL"
+          ],
+          "acceptance_criteria": [
+            "The database schema is documented",
+            "Three SELECT queries return correct results",
+            "The final output is a summary table"
+          ]
+        }
+      },
+      {
+        "week": 2,
+        "skill": "Deep learning",
+        "title": "Build a basic neural network",
+        "why": "Deep learning appears in 66% of ML Engineer job descriptions and was not found in any of your 9 scanned repositories.",
+        "est_hours": 8,
+        "resource_urls": [
+          "https://d2l.ai/",
+          "https://course.fast.ai/"
+        ],
+        "proof_project": {
+          "title": "Image classification baseline",
+          "description": "Train a simple convolutional network on a small image dataset and report training loss.",
+          "skills_covered": [
+            "Deep learning"
+          ],
+          "acceptance_criteria": [
+            "A script trains for at least one epoch",
+            "Loss and accuracy are logged",
+            "The model file is saved"
+          ]
+        }
+      },
+      {
+        "week": 3,
+        "skill": "PyTorch",
+        "title": "Implement a training loop",
+        "why": "PyTorch appears in 58% of ML Engineer job descriptions and was not found in any of your 9 scanned repositories.",
+        "est_hours": 8,
+        "resource_urls": [
+          "https://pytorch.org/tutorials/beginner/basics/intro.html",
+          "https://pytorch.org/tutorials/beginner/deep_learning_60min_blitz.html"
+        ],
+        "proof_project": {
+          "title": "PyTorch training script",
+          "description": "Write a script that loads data, defines a model, runs a training loop, and evaluates on a hold-out set.",
+          "skills_covered": [
+            "PyTorch"
+          ],
+          "acceptance_criteria": [
+            "The script runs end to end",
+            "Loss is printed each epoch",
+            "A test accuracy is reported"
+          ]
+        }
+      },
+      {
+        "week": 4,
+        "skill": "TensorFlow",
+        "title": "Build and train a model",
+        "why": "TensorFlow appears in 54% of ML Engineer job descriptions and was not found in any of your 9 scanned repositories.",
+        "est_hours": 8,
+        "resource_urls": [
+          "https://www.tensorflow.org/tutorials",
+          "https://keras.io/guides/"
+        ],
+        "proof_project": {
+          "title": "TensorFlow model pipeline",
+          "description": "Create a dataset pipeline, define a Keras model, train it, and save the weights.",
+          "skills_covered": [
+            "TensorFlow"
+          ],
+          "acceptance_criteria": [
+            "The model compiles without errors",
+            "Training completes for at least one epoch",
+            "The weights file is saved"
+          ]
+        }
+      },
+      {
+        "week": 5,
+        "skill": "Docker",
+        "title": "Package an application",
+        "why": "Docker appears in 46% of ML Engineer job descriptions and was not found in any of your 9 repositories.",
+        "est_hours": 6,
+        "resource_urls": [
+          "https://docs.docker.com/get-started/",
+          "https://roadmap.sh/docker"
+        ],
+        "proof_project": {
+          "title": "Containerise a script",
+          "description": "Write a Dockerfile for a Python script and verify it builds and runs in a fresh container.",
+          "skills_covered": [
+            "Docker"
+          ],
+          "acceptance_criteria": [
+            "A Dockerfile exists with no manual steps",
+            "The image builds successfully",
+            "The container runs with one command"
+          ]
+        }
+      },
+      {
+        "week": 6,
+        "skill": "Model deployment",
+        "title": "Expose a model as an API",
+        "why": "Model deployment appears in 42% of ML Engineer job descriptions and was not found in any of your 9 scanned repositories.",
+        "est_hours": 8,
+        "resource_urls": [
+          "https://fastapi.tiangolo.com/deployment/",
+          "https://mlflow.org/docs/latest/deployment/"
+        ],
+        "proof_project": {
+          "title": "Serve a model locally",
+          "description": "Wrap a saved model in a FastAPI endpoint and test predictions with curl.",
+          "skills_covered": [
+            "Model deployment"
+          ],
+          "acceptance_criteria": [
+            "The API returns valid JSON predictions",
+            "A health check endpoint exists",
+            "The endpoint handles one request without crashing"
+          ]
+        }
+      },
+      {
+        "week": 7,
+        "skill": "AWS",
+        "title": "Launch a cloud resource",
+        "why": "AWS appears in 34% of ML Engineer job descriptions and was not found in any of your 9 scanned repositories.",
+        "est_hours": 6,
+        "resource_urls": [
+          "https://aws.amazon.com/getting-started/",
+          "https://roadmap.sh/aws"
+        ],
+        "proof_project": {
+          "title": "Deploy to the cloud",
+          "description": "Provision a basic AWS resource and verify connectivity from the console.",
+          "skills_covered": [
+            "AWS"
+          ],
+          "acceptance_criteria": [
+            "A resource is created in the AWS console",
+            "Access permissions are documented",
+            "A connectivity test succeeds"
+          ]
+        }
+      },
+      {
+        "week": 8,
+        "skill": "Docker",
+        "title": "Orchestrate a multi-service setup",
+        "why": "Docker appears in 46% of ML Engineer job descriptions and was not found in any of your 9 repositories.",
+        "est_hours": 8,
+        "resource_urls": [
+          "https://docs.docker.com/get-started/",
+          "https://roadmap.sh/docker"
+        ],
+        "proof_project": {
+          "title": "Multi-container application",
+          "description": "Use Docker Compose to run an API and a database together and confirm they communicate.",
+          "skills_covered": [
+            "Docker",
+            "Model deployment"
+          ],
+          "acceptance_criteria": [
+            "A docker-compose.yml file exists",
+            "Both services start with one command",
+            "The API can query the database"
+          ]
+        }
+      }
+    ]
+  }
+}

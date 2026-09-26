@@ -1,7 +1,7 @@
 import { getStore } from '@/lib/db';
 import { getRoleStats } from '@/lib/dataset';
 import { generateJson, hashText, makeCacheKey } from '@/lib/llm';
-import { planRoadmap, summarisePlan } from '@/lib/roadmap/plan';
+import { planRoadmap, selectGaps, summarisePlan } from '@/lib/roadmap/plan';
 import { buildRoadmapPrompt, ROADMAP_SYSTEM_PROMPT } from '@/lib/roadmap/prompt';
 import { planSchema } from '@/lib/roadmap/schema';
 import { validatePlan } from '@/lib/roadmap/validate';
@@ -120,15 +120,20 @@ async function generatePlan(
   }
 
   const fallback = () => planRoadmap(gaps, context);
+  // The model only sees the gaps that can fit the horizon, which keeps the
+  // prompt inside the tightest free tier token budget in the chain.
+  const plannable = selectGaps(gaps, context).selected;
 
   const { value, source } = await generateJson({
     schema: planSchema,
     system: ROADMAP_SYSTEM_PROMPT,
-    user: buildRoadmapPrompt(gaps, context),
+    user: buildRoadmapPrompt(plannable, context),
+    // The gap signature is part of the key even for the demo profile: a replan
+    // has a different gap set and must not replay the first plan from cache.
     cacheKey: makeCacheKey(
       isDemo,
-      ['roadmap', String(context.weekly_hours)],
-      hashText(gaps.map((gap) => `${gap.skill}:${gap.proficiency}`).join('|')),
+      ['roadmap', String(context.weekly_hours), gapSignature(plannable)],
+      gapSignature(plannable),
     ),
     logger: tracer,
     // An empty item list is the signal to plan deterministically below; the
@@ -173,6 +178,10 @@ async function generatePlan(
     );
     return { items: fallback(), source: 'planner' };
   }
+}
+
+function gapSignature(gaps: SkillAssessment[]): string {
+  return hashText(gaps.map((gap) => `${gap.skill}:${gap.proficiency}`).join('|'));
 }
 
 function isLocked(item: RoadmapItem): boolean {

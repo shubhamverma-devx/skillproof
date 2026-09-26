@@ -14,7 +14,8 @@
     "build:roles": "tsx scripts/build-role-stats.ts",
     "screenshots": "tsx scripts/screenshots.ts",
     "demo:verify": "tsx scripts/verify-demo-story.ts",
-    "providers:check": "tsx scripts/check-providers.ts"
+    "providers:check": "tsx scripts/check-providers.ts",
+    "demo:record": "tsx scripts/record-demo-cache.ts"
   },
   "dependencies": {
     "@google/generative-ai": "^0.21.0",

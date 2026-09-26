@@ -26,7 +26,15 @@ export const LLM = {
   temperature: 0.2,
   /** One repair attempt with the validation error appended, then provider swap. */
   jsonRepairAttempts: 1,
-  sarvam: { baseUrl: 'https://api.sarvam.ai/v1', model: 'sarvam-105b' },
+  sarvam: {
+    baseUrl: 'https://api.sarvam.ai/v1',
+    // The conversations variant of the same 105B family. Measured against
+    // sarvam-105b on this workload it answers in under a second instead of two
+    // to twenty four seconds, and emits no reasoning tokens, which are billed as
+    // completion tokens. Every call here is structured extraction, not open
+    // ended reasoning, so the tradeoff is free. Override with SARVAM_MODEL.
+    model: 'sarvam-105b-conversations',
+  },
   groq: { baseUrl: 'https://api.groq.com/openai/v1', model: 'openai/gpt-oss-120b' },
   gemini: { model: 'gemini-3.8-flash' },
 } as const;
