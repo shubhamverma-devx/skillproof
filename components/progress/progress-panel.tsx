@@ -153,7 +153,9 @@ export function ProgressPanel({ state }: { state: ProfileState }) {
           ) : (
             testedSkills.map((assessment) => (
               <Button key={assessment.skill} asChild variant="outline" size="sm">
-                <Link href={`/quiz/${state.profile.id}?skill=${encodeURIComponent(assessment.skill)}`}>
+                <Link
+                  href={`/quiz/${state.profile.id}?skill=${encodeURIComponent(assessment.skill)}`}
+                >
                   {assessment.skill}, last {formatPercent(assessment.verified_score ?? 0)}
                 </Link>
               </Button>
@@ -185,7 +187,9 @@ export function ProgressPanel({ state }: { state: ProfileState }) {
           <Button
             className="mt-4"
             disabled={busy || hours === state.profile.weekly_hours}
-            onClick={() => send({ type: 'weekly_hours', weekly_hours: hours }, 'Weekly hours saved')}
+            onClick={() =>
+              send({ type: 'weekly_hours', weekly_hours: hours }, 'Weekly hours saved')
+            }
           >
             Save and replan
           </Button>

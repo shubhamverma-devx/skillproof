@@ -30,9 +30,9 @@ function assessment(partial: Partial<SkillAssessment>): SkillAssessment {
 
 describe('computeProficiency', () => {
   it('prefers a quiz score over every other signal', () => {
-    expect(computeProficiency(evidence({ claimed: true, observed: true, verified_score: 0.25 }))).toBe(
-      0.25,
-    );
+    expect(
+      computeProficiency(evidence({ claimed: true, observed: true, verified_score: 0.25 })),
+    ).toBe(0.25);
   });
 
   it('rates code plus resume above code alone', () => {
@@ -95,10 +95,7 @@ describe('computeReadinessScore', () => {
   it('scores zero with no evidence and 100 when everything is proven', () => {
     expect(computeReadinessScore(roleSkills, new Map()).score).toBe(0);
     expect(
-      computeReadinessScore(
-        roleSkills,
-        new Map(roleSkills.map((skill) => [skill.skill, 1])),
-      ).score,
+      computeReadinessScore(roleSkills, new Map(roleSkills.map((skill) => [skill.skill, 1]))).score,
     ).toBe(100);
   });
 

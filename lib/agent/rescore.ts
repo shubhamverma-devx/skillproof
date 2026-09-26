@@ -32,7 +32,7 @@ export async function recomputeAndRecord(
   const verified = await verifiedScoresFor(profileId);
 
   const claimed = new Map<string, string>();
-  const observed = new Map<string, typeof stored[number]['observed_sources']>();
+  const observed = new Map<string, (typeof stored)[number]['observed_sources']>();
   for (const row of stored) {
     if (row.claimed) claimed.set(row.skill, 'Listed on the resume');
     if (row.observed) observed.set(row.skill, row.observed_sources);
@@ -53,8 +53,7 @@ export async function recomputeAndRecord(
   const previous = history.at(-1)?.score ?? null;
   await store.addScore(profileId, analysis.score.score, reason);
 
-  const delta =
-    previous === null ? null : Math.round((analysis.score.score - previous) * 10) / 10;
+  const delta = previous === null ? null : Math.round((analysis.score.score - previous) * 10) / 10;
   await tracer?.info(
     'Readiness recalculated',
     `${analysis.score.score} out of 100${delta === null ? '' : ` (${delta >= 0 ? '+' : ''}${delta})`}. ${reason}`,

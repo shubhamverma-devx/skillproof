@@ -23,8 +23,8 @@ export default async function ProgressPage({ params }: { params: { id: string } 
         <div className="mb-6">
           <h1 className="text-h2">Log progress</h1>
           <p className="mt-1 max-w-prose text-ui-sm text-muted">
-            Readiness is {state.score} out of 100 right now. Anything you record here recalculates it
-            and replans the weeks you have not finished.
+            Readiness is {state.score} out of 100 right now. Anything you record here recalculates
+            it and replans the weeks you have not finished.
           </p>
         </div>
         {state.demo ? <DemoNotice className="mb-4" /> : null}

@@ -186,9 +186,7 @@ export function QuizRunner({ profileId, skill }: { profileId: string; skill: str
 
       <div className="flex justify-end border-t px-5 py-4">
         {showingFeedback ? (
-          <Button onClick={continueToNext}>
-            {result ? 'See your result' : 'Next question'}
-          </Button>
+          <Button onClick={continueToNext}>{result ? 'See your result' : 'Next question'}</Button>
         ) : (
           <Button onClick={submitAnswer} disabled={selected === null || busy}>
             {busy ? 'Checking' : 'Submit answer'}

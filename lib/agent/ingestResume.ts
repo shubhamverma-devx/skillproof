@@ -52,16 +52,14 @@ export async function ingestResume(
     `${resumeText.split(/\s+/).length} words, ${keywordSkills.length} known skills matched by name`,
   );
 
-  const { value, source } = await generateJson(
-    {
-      schema: resumeExtractionSchema,
-      system: SYSTEM_PROMPT,
-      user: `Resume text:\n\n${resumeText.slice(0, 12_000)}`,
-      cacheKey: makeCacheKey(isDemo, ['resume'], hashText(resumeText)),
-      logger: tracer,
-      fallback: () => keywordFallback(resumeText, keywordSkills),
-    },
-  );
+  const { value, source } = await generateJson({
+    schema: resumeExtractionSchema,
+    system: SYSTEM_PROMPT,
+    user: `Resume text:\n\n${resumeText.slice(0, 12_000)}`,
+    cacheKey: makeCacheKey(isDemo, ['resume'], hashText(resumeText)),
+    logger: tracer,
+    fallback: () => keywordFallback(resumeText, keywordSkills),
+  });
 
   const claimed = new Map<string, string>();
   for (const skill of keywordSkills) {

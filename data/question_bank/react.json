@@ -51,12 +51,7 @@
     },
     {
       "question": "When does useEffect with an empty dependency array run?",
-      "options": [
-        "On every render",
-        "Once after the first render",
-        "Only on unmount",
-        "Never"
-      ],
+      "options": ["On every render", "Once after the first render", "Only on unmount", "Never"],
       "correct_index": 1,
       "explanation": "An empty array means no dependencies change, so the effect runs after mount and the cleanup on unmount.",
       "difficulty": "medium"

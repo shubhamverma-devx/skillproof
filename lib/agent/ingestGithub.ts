@@ -79,11 +79,7 @@ async function logDetections(
   );
 }
 
-async function reportFailure(
-  error: unknown,
-  username: string,
-  tracer: Tracer,
-): Promise<string> {
+async function reportFailure(error: unknown, username: string, tracer: Tracer): Promise<string> {
   if (error instanceof GithubError) {
     const message =
       error.kind === 'not_found'

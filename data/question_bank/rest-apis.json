@@ -3,24 +3,14 @@
   "questions": [
     {
       "question": "Which HTTP method is expected to be idempotent?",
-      "options": [
-        "POST",
-        "PUT",
-        "PATCH in all cases",
-        "None of them"
-      ],
+      "options": ["POST", "PUT", "PATCH in all cases", "None of them"],
       "correct_index": 1,
       "explanation": "Repeating the same PUT leaves the resource in the same state. POST typically creates a new resource each time.",
       "difficulty": "easy"
     },
     {
       "question": "Which status code means the request was understood but the resource does not exist?",
-      "options": [
-        "400",
-        "404",
-        "500",
-        "204"
-      ],
+      "options": ["400", "404", "500", "204"],
       "correct_index": 1,
       "explanation": "404 is the standard not found response; 400 signals a malformed request.",
       "difficulty": "easy"

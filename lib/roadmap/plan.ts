@@ -19,7 +19,7 @@ export function estimateHours(assessment: SkillAssessment): number {
 /** What closing this gap completely is worth on the 0 to 100 readiness scale. */
 function scorePointsAvailable(assessment: SkillAssessment, totalWeight: number): number {
   if (totalWeight === 0) return 0;
-  return Math.round((100 * assessment.gap_weight) / totalWeight * 10) / 10;
+  return Math.round(((100 * assessment.gap_weight) / totalWeight) * 10) / 10;
 }
 
 /**
@@ -58,11 +58,7 @@ function orderForLearning(gaps: SkillAssessment[]): SkillAssessment[] {
   });
 }
 
-export function buildWhy(
-  assessment: SkillAssessment,
-  rank: number,
-  context: PlanContext,
-): string {
+export function buildWhy(assessment: SkillAssessment, rank: number, context: PlanContext): string {
   const points = scorePointsAvailable(assessment, context.total_weight);
   return [
     `Ranked ${rank} among your ${context.role} gaps by readiness cost.`,

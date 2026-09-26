@@ -13,12 +13,7 @@ export function ProfileNav({ profileId, active }: { profileId: string; active: T
   return (
     <nav className="flex gap-1" aria-label="Profile sections">
       {TABS.map((tab) => (
-        <Button
-          key={tab.id}
-          asChild
-          size="sm"
-          variant={tab.id === active ? 'primary' : 'ghost'}
-        >
+        <Button key={tab.id} asChild size="sm" variant={tab.id === active ? 'primary' : 'ghost'}>
           <Link href={tab.href(profileId)} aria-current={tab.id === active ? 'page' : undefined}>
             {tab.label}
           </Link>

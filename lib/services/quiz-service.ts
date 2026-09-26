@@ -1,6 +1,13 @@
 import { QUIZ, SCORING } from '@/lib/config';
 import { getStore } from '@/lib/db';
-import { canQuiz, generateQuestion, lastAttemptScore, nextDifficulty, QuizUnavailableError, scoreAttempt } from '@/lib/agent/quiz';
+import {
+  canQuiz,
+  generateQuestion,
+  lastAttemptScore,
+  nextDifficulty,
+  QuizUnavailableError,
+  scoreAttempt,
+} from '@/lib/agent/quiz';
 import { recomputeAndRecord } from '@/lib/agent/rescore';
 import { Tracer } from '@/lib/agent/trace';
 import { normaliseSkillName } from '@/lib/skills/taxonomy';

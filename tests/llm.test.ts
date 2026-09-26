@@ -75,12 +75,18 @@ describe('generateJson', () => {
 
   it('treats a thrown provider error like an invalid response', async () => {
     const primary = provider('anthropic', ['throw:timeout', 'throw:timeout']);
-    const result = await generateJson(request(() => ({ answer: 'deterministic' })), [primary]);
+    const result = await generateJson(
+      request(() => ({ answer: 'deterministic' })),
+      [primary],
+    );
     expect(result).toEqual({ value: { answer: 'deterministic' }, source: 'fallback' });
   });
 
   it('uses the deterministic fallback when no provider is configured', async () => {
-    const result = await generateJson(request(() => ({ answer: 'deterministic' })), []);
+    const result = await generateJson(
+      request(() => ({ answer: 'deterministic' })),
+      [],
+    );
     expect(result).toEqual({ value: { answer: 'deterministic' }, source: 'fallback' });
   });
 

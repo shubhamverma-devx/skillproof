@@ -3,36 +3,21 @@
   "questions": [
     {
       "question": "What does the expression len([1, 2, 3][1:]) evaluate to?",
-      "options": [
-        "1",
-        "2",
-        "3",
-        "An IndexError"
-      ],
+      "options": ["1", "2", "3", "An IndexError"],
       "correct_index": 1,
       "explanation": "Slicing from index 1 gives [2, 3], which has length 2. Slices never raise IndexError for out of range bounds.",
       "difficulty": "easy"
     },
     {
       "question": "Which of these is immutable in Python?",
-      "options": [
-        "list",
-        "dict",
-        "tuple",
-        "set"
-      ],
+      "options": ["list", "dict", "tuple", "set"],
       "correct_index": 2,
       "explanation": "Tuples cannot be changed after creation. Lists, dicts and sets can all be mutated in place.",
       "difficulty": "easy"
     },
     {
       "question": "What is printed by: x = '5'; print(x * 2)?",
-      "options": [
-        "10",
-        "55",
-        "25",
-        "TypeError"
-      ],
+      "options": ["10", "55", "25", "TypeError"],
       "correct_index": 1,
       "explanation": "Multiplying a string by an integer repeats the string, so '5' * 2 is '55'.",
       "difficulty": "easy"

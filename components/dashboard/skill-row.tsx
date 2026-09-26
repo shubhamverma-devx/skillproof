@@ -16,20 +16,15 @@ const BAR_CLASS: Record<string, string> = {
   missing: 'bg-missing',
 };
 
-function Meter({
-  label,
-  value,
-  className,
-}: {
-  label: string;
-  value: number;
-  className: string;
-}) {
+function Meter({ label, value, className }: { label: string; value: number; className: string }) {
   return (
     <div className="flex min-w-0 flex-1 items-center gap-2 sm:flex-none">
       <span className="text-ui-sm text-muted sm:hidden">{label}</span>
       <div className="h-1.5 min-w-8 flex-1 rounded-full bg-ink/[0.08] sm:w-24 sm:flex-none">
-        <div className={cn('h-full rounded-full', className)} style={{ width: `${value * 100}%` }} />
+        <div
+          className={cn('h-full rounded-full', className)}
+          style={{ width: `${value * 100}%` }}
+        />
       </div>
       <span className="tabular w-9 shrink-0 text-right text-ui-sm text-muted">
         {formatPercent(value)}
@@ -69,7 +64,7 @@ export function SkillRow({
           <EvidenceBadge level={assessment.level} />
         </div>
 
-        <div className="flex w-full items-center gap-4 sm:order-2 sm:w-auto sm:contents">
+        <div className="flex w-full items-center gap-4 sm:order-2 sm:contents sm:w-auto">
           <Meter label="Demand" value={assessment.frequency} className="bg-ink/25" />
           <Meter
             label="You"
@@ -112,7 +107,10 @@ export function SkillRow({
           {sources.length > 0 ? (
             <ul className="mt-2 space-y-1">
               {sources.slice(0, 6).map((source, index) => (
-                <li key={`${source.repo}-${source.file}-${index}`} className="text-ui-sm text-muted">
+                <li
+                  key={`${source.repo}-${source.file}-${index}`}
+                  className="text-ui-sm text-muted"
+                >
                   <span className="font-medium text-ink">{source.repo}</span>
                   {': '}
                   {source.hint}

@@ -108,7 +108,10 @@ async function tryProvider<T>(
       repairNote = `\n\nYour previous reply was rejected by schema validation: ${issues}\nReturn corrected JSON only, with no commentary.`;
     } catch (error) {
       const message = error instanceof Error ? error.message : 'unknown error';
-      await logger?.warn('Model call failed', `${provider.name} attempt ${attempt + 1}: ${message}`);
+      await logger?.warn(
+        'Model call failed',
+        `${provider.name} attempt ${attempt + 1}: ${message}`,
+      );
       repairNote = '';
     }
   }

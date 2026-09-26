@@ -32,13 +32,7 @@ const LEVELS: Record<
   },
 };
 
-export function EvidenceBadge({
-  level,
-  className,
-}: {
-  level: EvidenceLevel;
-  className?: string;
-}) {
+export function EvidenceBadge({ level, className }: { level: EvidenceLevel; className?: string }) {
   const { label, className: tone, Icon, title } = LEVELS[level];
   return (
     <span

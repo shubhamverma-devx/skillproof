@@ -122,7 +122,8 @@ export function RoadmapView({ state }: { state: ProfileState }) {
         <PanelHeader className="flex-col items-stretch gap-3 sm:flex-row sm:items-center">
           <div>
             <PanelTitle>
-              Version {roadmap.roadmap.version}, {roadmap.roadmap.status === 'approved' ? 'approved' : 'draft'}
+              Version {roadmap.roadmap.version},{' '}
+              {roadmap.roadmap.status === 'approved' ? 'approved' : 'draft'}
             </PanelTitle>
             <PanelNote>
               {items.length} items, {weeks.length} weeks, {totalHours} hours in total, {doneCount}{' '}
@@ -172,7 +173,8 @@ export function RoadmapView({ state }: { state: ProfileState }) {
                           if (dragged?.week === week) event.preventDefault();
                         },
                         onDrop: () => {
-                          if (dragged && dragged.week === week) void reorder(week, dragged.id, item.id);
+                          if (dragged && dragged.week === week)
+                            void reorder(week, dragged.id, item.id);
                           setDragged(null);
                         },
                       }}

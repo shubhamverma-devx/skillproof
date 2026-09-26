@@ -41,7 +41,9 @@ export function packIntoWeeks<T extends Schedulable>(
 }
 
 /** Hours per week, used by the roadmap header and by the replan diff. */
-export function hoursByWeek(items: Array<{ week: number; est_hours: number }>): Map<number, number> {
+export function hoursByWeek(
+  items: Array<{ week: number; est_hours: number }>,
+): Map<number, number> {
   const totals = new Map<number, number>();
   for (const item of items) {
     totals.set(item.week, (totals.get(item.week) ?? 0) + item.est_hours);

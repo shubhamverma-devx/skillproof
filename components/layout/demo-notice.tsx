@@ -9,8 +9,9 @@ export function DemoNotice({ className }: { className?: string }) {
       <Info size={16} className="mt-0.5 shrink-0 text-claimed-ink" aria-hidden="true" />
       <p className="max-w-prose">
         <span className="font-medium">Demo profile.</span> Riya Sharma is a seeded student. Her
-        GitHub scan is replayed from a cached copy in this repository and language model replies come
-        from the recorded cache or the deterministic planner, so nothing here is a live API call.
+        GitHub scan is replayed from a cached copy in this repository and language model replies
+        come from the recorded cache or the deterministic planner, so nothing here is a live API
+        call.
       </p>
     </div>
   );

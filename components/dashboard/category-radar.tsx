@@ -53,10 +53,7 @@ export function CategoryRadar({ assessments }: { assessments: SkillAssessment[] 
       <ResponsiveContainer width="100%" height={260}>
         <RadarChart data={data} outerRadius="72%">
           <PolarGrid stroke="rgb(var(--ink) / 0.12)" />
-          <PolarAngleAxis
-            dataKey="category"
-            tick={{ fill: 'rgb(var(--muted))', fontSize: 12 }}
-          />
+          <PolarAngleAxis dataKey="category" tick={{ fill: 'rgb(var(--muted))', fontSize: 12 }} />
           <PolarRadiusAxis domain={[0, 100]} tick={false} axisLine={false} />
           <Radar
             name="Role requirement"

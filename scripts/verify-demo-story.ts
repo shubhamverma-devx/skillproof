@@ -72,7 +72,10 @@ async function main(): Promise<void> {
 
   type State = {
     score: number;
-    roadmap: { roadmap: { version: number }; items: Array<{ id: string; skill: string; week: number }> } | null;
+    roadmap: {
+      roadmap: { version: number };
+      items: Array<{ id: string; skill: string; week: number }>;
+    } | null;
     history: Array<{ score: number }>;
     assessments: Array<{ skill: string; level: string }>;
   };
@@ -97,7 +100,12 @@ async function main(): Promise<void> {
   for (const item of items.slice(0, 2)) {
     await post(`/api/progress/${id}`, { type: 'item_status', item_id: item.id, status: 'done' });
   }
-  process.stdout.write(`5. Marked ${items.slice(0, 2).map((item) => item.skill).join(' and ')} done\n`);
+  process.stdout.write(
+    `5. Marked ${items
+      .slice(0, 2)
+      .map((item) => item.skill)
+      .join(' and ')} done\n`,
+  );
 
   const repo = await post<{ summary: string; changes: string[] }>(`/api/progress/${id}`, {
     type: 'repo',
@@ -113,9 +121,14 @@ async function main(): Promise<void> {
   process.stdout.write(`8. SQL retake ${pct(sqlRetake.score)}, readiness ${sqlRetake.readiness}\n`);
 
   state = await get<State>(`/api/profile/${id}`);
-  process.stdout.write(`\nScore history: ${state.history.map((entry) => entry.score).join(' to ')}\n`);
   process.stdout.write(
-    `Verified skills: ${state.assessments.filter((a) => a.level === 'verified').map((a) => a.skill).join(', ')}\n`,
+    `\nScore history: ${state.history.map((entry) => entry.score).join(' to ')}\n`,
+  );
+  process.stdout.write(
+    `Verified skills: ${state.assessments
+      .filter((a) => a.level === 'verified')
+      .map((a) => a.skill)
+      .join(', ')}\n`,
   );
   process.stdout.write(`Dashboard: ${BASE}/dashboard/${id}\n`);
 }

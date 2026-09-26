@@ -2,11 +2,7 @@ import { getStore } from '@/lib/db';
 import type { AgentLogLevel } from '@/types/domain';
 import type { StepLogger } from '@/lib/llm/types';
 
-export type TraceListener = (entry: {
-  step: string;
-  detail: string;
-  level: AgentLogLevel;
-}) => void;
+export type TraceListener = (entry: { step: string; detail: string; level: AgentLogLevel }) => void;
 
 /**
  * Writes one agent step to the database and, when the analyse route is

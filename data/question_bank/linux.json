@@ -3,12 +3,7 @@
   "questions": [
     {
       "question": "Which command lists files including hidden ones?",
-      "options": [
-        "ls -l",
-        "ls -a",
-        "ls -h",
-        "ls -r"
-      ],
+      "options": ["ls -l", "ls -a", "ls -h", "ls -r"],
       "correct_index": 1,
       "explanation": "-a includes entries starting with a dot.",
       "difficulty": "easy"
@@ -27,12 +22,7 @@
     },
     {
       "question": "Which command shows disk space used by mounted filesystems?",
-      "options": [
-        "du",
-        "df -h",
-        "free -m",
-        "top"
-      ],
+      "options": ["du", "df -h", "free -m", "top"],
       "correct_index": 1,
       "explanation": "df reports filesystem level usage; du sums directory sizes.",
       "difficulty": "easy"
@@ -75,24 +65,14 @@
     },
     {
       "question": "Where do you look first for a failing systemd service?",
-      "options": [
-        "dmesg",
-        "journalctl -u service-name",
-        "/etc/passwd",
-        "top"
-      ],
+      "options": ["dmesg", "journalctl -u service-name", "/etc/passwd", "top"],
       "correct_index": 1,
       "explanation": "journalctl scoped to the unit shows its logs and the failure reason.",
       "difficulty": "hard"
     },
     {
       "question": "What does the exit code 0 conventionally mean in a shell script?",
-      "options": [
-        "Failure",
-        "Success",
-        "Warning",
-        "Unknown"
-      ],
+      "options": ["Failure", "Success", "Warning", "Unknown"],
       "correct_index": 1,
       "explanation": "Zero is success; any non zero value signals an error, which is why set -e reacts to it.",
       "difficulty": "hard"

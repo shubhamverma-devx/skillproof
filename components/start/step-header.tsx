@@ -1,13 +1,7 @@
 import { Check } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-export function StepHeader({
-  steps,
-  current,
-}: {
-  steps: readonly string[];
-  current: number;
-}) {
+export function StepHeader({ steps, current }: { steps: readonly string[]; current: number }) {
   return (
     <ol className="flex flex-wrap gap-x-6 gap-y-2 border-b px-5 py-4">
       {steps.map((label, index) => {

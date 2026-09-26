@@ -30,7 +30,11 @@ export const Textarea = forwardRef<
   HTMLTextAreaElement,
   React.TextareaHTMLAttributes<HTMLTextAreaElement>
 >(({ className, ...props }, ref) => (
-  <textarea ref={ref} className={cn(fieldStyles, 'min-h-40 leading-relaxed', className)} {...props} />
+  <textarea
+    ref={ref}
+    className={cn(fieldStyles, 'min-h-40 leading-relaxed', className)}
+    {...props}
+  />
 ));
 Textarea.displayName = 'Textarea';
 

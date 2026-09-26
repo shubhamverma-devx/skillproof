@@ -102,7 +102,10 @@ export async function scanSingleRepo(fullName: string): Promise<RepoSignals> {
 
 /** Accepts a full GitHub URL or an owner/name pair and returns owner/name. */
 export function parseRepoReference(input: string): string | null {
-  const trimmed = input.trim().replace(/\.git$/, '').replace(/\/$/, '');
+  const trimmed = input
+    .trim()
+    .replace(/\.git$/, '')
+    .replace(/\/$/, '');
   const fromUrl = trimmed.match(/github\.com\/([A-Za-z0-9-]+)\/([A-Za-z0-9._-]+)/);
   if (fromUrl?.[1] && fromUrl[2]) return `${fromUrl[1]}/${fromUrl[2]}`;
   const direct = trimmed.match(/^([A-Za-z0-9-]+)\/([A-Za-z0-9._-]+)$/);

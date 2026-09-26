@@ -24,9 +24,13 @@ export function assessSkills(input: AssessInput): SkillAssessment[] {
 
   return [...skills]
     .map((skill) => {
-      const evidence: EvidenceInput =
-        bySkill.get(skill) ??
-        { skill, claimed: false, observed: false, observed_sources: [], verified_score: null };
+      const evidence: EvidenceInput = bySkill.get(skill) ?? {
+        skill,
+        claimed: false,
+        observed: false,
+        observed_sources: [],
+        verified_score: null,
+      };
       const frequency = frequencies.get(skill) ?? 0;
       const proficiency = computeProficiency(evidence);
 

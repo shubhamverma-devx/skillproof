@@ -19,7 +19,13 @@ describe('packIntoWeeks', () => {
   });
 
   it('keeps the given order, so prerequisites stay ahead', () => {
-    const packed = packIntoWeeks([{ id: 'a', est_hours: 6 }, { id: 'b', est_hours: 6 }], 8);
+    const packed = packIntoWeeks(
+      [
+        { id: 'a', est_hours: 6 },
+        { id: 'b', est_hours: 6 },
+      ],
+      8,
+    );
     expect(packed.map((item) => item.id)).toEqual(['a', 'b']);
   });
 

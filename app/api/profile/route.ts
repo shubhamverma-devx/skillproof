@@ -13,7 +13,8 @@ export async function POST(request: NextRequest) {
       const body: unknown = await request.json();
       const wantsDemo =
         typeof body === 'object' && body !== null && (body as { demo?: unknown }).demo === true;
-      if (!wantsDemo) return failFromError(new Error('Send the onboarding form as form data.'), 400);
+      if (!wantsDemo)
+        return failFromError(new Error('Send the onboarding form as form data.'), 400);
       const profile = await createDemoProfile();
       return ok({ id: profile.id, demo: true }, { status: 201 });
     }

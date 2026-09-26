@@ -4,15 +4,8 @@
     {
       "repo": "crop-yield-prediction",
       "description": "Predicting district level crop yield from rainfall and soil data",
-      "languages": [
-        "Jupyter Notebook",
-        "Python"
-      ],
-      "topics": [
-        "machine-learning",
-        "python",
-        "pandas"
-      ],
+      "languages": ["Jupyter Notebook", "Python"],
+      "topics": ["machine-learning", "python", "pandas"],
       "files": [
         ".gitignore",
         "README.md",
@@ -55,14 +48,8 @@
     {
       "repo": "movie-recommender-flask",
       "description": "Content based movie recommender served over a small Flask API",
-      "languages": [
-        "Python",
-        "HTML"
-      ],
-      "topics": [
-        "flask",
-        "recommender-system"
-      ],
+      "languages": ["Python", "HTML"],
+      "topics": ["flask", "recommender-system"],
       "files": [
         ".gitignore",
         "README.md",
@@ -96,21 +83,9 @@
     {
       "repo": "sentiment-analysis-tweets",
       "description": "Sentiment classification on an airline tweets dataset",
-      "languages": [
-        "Jupyter Notebook",
-        "Python"
-      ],
-      "topics": [
-        "nlp",
-        "text-classification"
-      ],
-      "files": [
-        ".gitignore",
-        "README.md",
-        "requirements.txt",
-        "sentiment.ipynb",
-        "preprocess.py"
-      ],
+      "languages": ["Jupyter Notebook", "Python"],
+      "topics": ["nlp", "text-classification"],
+      "files": [".gitignore", "README.md", "requirements.txt", "sentiment.ipynb", "preprocess.py"],
       "dependencies": [
         {
           "name": "nltk",
@@ -135,20 +110,9 @@
     {
       "repo": "student-marks-dashboard",
       "description": "Streamlit dashboard for internal marks analysis",
-      "languages": [
-        "Python"
-      ],
-      "topics": [
-        "streamlit",
-        "data-visualization"
-      ],
-      "files": [
-        ".gitignore",
-        "README.md",
-        "requirements.txt",
-        "dashboard.py",
-        "utils.py"
-      ],
+      "languages": ["Python"],
+      "topics": ["streamlit", "data-visualization"],
+      "files": [".gitignore", "README.md", "requirements.txt", "dashboard.py", "utils.py"],
       "dependencies": [
         {
           "name": "streamlit",
@@ -173,13 +137,8 @@
     {
       "repo": "image-classifier-opencv",
       "description": "Fruit image classifier with classical computer vision features",
-      "languages": [
-        "Python"
-      ],
-      "topics": [
-        "computer-vision",
-        "opencv"
-      ],
+      "languages": ["Python"],
+      "topics": ["computer-vision", "opencv"],
       "files": [
         ".gitignore",
         "README.md",
@@ -212,13 +171,8 @@
     {
       "repo": "college-attendance-tracker",
       "description": "React app for marking and viewing attendance",
-      "languages": [
-        "JavaScript",
-        "CSS"
-      ],
-      "topics": [
-        "react"
-      ],
+      "languages": ["JavaScript", "CSS"],
+      "topics": ["react"],
       "files": [
         ".gitignore",
         "README.md",
@@ -253,13 +207,8 @@
     {
       "repo": "dsa-practice-python",
       "description": "Daily data structures and algorithms practice",
-      "languages": [
-        "Python"
-      ],
-      "topics": [
-        "algorithms",
-        "problem-solving"
-      ],
+      "languages": ["Python"],
+      "topics": ["algorithms", "problem-solving"],
       "files": [
         ".gitignore",
         "README.md",
@@ -276,19 +225,9 @@
     {
       "repo": "weather-cli",
       "description": "Command line weather client",
-      "languages": [
-        "Python"
-      ],
-      "topics": [
-        "cli"
-      ],
-      "files": [
-        ".gitignore",
-        "README.md",
-        "requirements.txt",
-        "weather.py",
-        "Makefile"
-      ],
+      "languages": ["Python"],
+      "topics": ["cli"],
+      "files": [".gitignore", "README.md", "requirements.txt", "weather.py", "Makefile"],
       "dependencies": [
         {
           "name": "requests",
@@ -301,21 +240,9 @@
     {
       "repo": "portfolio-site",
       "description": "Personal portfolio page",
-      "languages": [
-        "HTML",
-        "CSS"
-      ],
-      "topics": [
-        "portfolio"
-      ],
-      "files": [
-        ".gitignore",
-        "README.md",
-        "index.html",
-        "styles.css",
-        "script.js",
-        "assets/"
-      ],
+      "languages": ["HTML", "CSS"],
+      "topics": ["portfolio"],
+      "files": [".gitignore", "README.md", "index.html", "styles.css", "script.js", "assets/"],
       "dependencies": [],
       "readme": "# Portfolio\n\nStatic page listing my projects and resume. Plain HTML and CSS with one\nsmall script for the theme toggle. Hosted on GitHub Pages.\n",
       "pushed_at": "2026-02-21T10:00:00Z"

@@ -3,36 +3,21 @@
   "questions": [
     {
       "question": "What does typeof null return?",
-      "options": [
-        "'null'",
-        "'object'",
-        "'undefined'",
-        "'boolean'"
-      ],
+      "options": ["'null'", "'object'", "'undefined'", "'boolean'"],
       "correct_index": 1,
       "explanation": "typeof null is 'object', a long standing quirk of the language kept for backward compatibility.",
       "difficulty": "easy"
     },
     {
       "question": "Which method returns a new array rather than mutating the original?",
-      "options": [
-        "push",
-        "splice",
-        "map",
-        "sort"
-      ],
+      "options": ["push", "splice", "map", "sort"],
       "correct_index": 2,
       "explanation": "map builds a new array. push, splice and sort all change the array in place.",
       "difficulty": "easy"
     },
     {
       "question": "What is the result of '5' + 3 and '5' - 3?",
-      "options": [
-        "'53' and 2",
-        "8 and 2",
-        "'53' and '53'",
-        "NaN and 2"
-      ],
+      "options": ["'53' and 2", "8 and 2", "'53' and '53'", "NaN and 2"],
       "correct_index": 0,
       "explanation": "Plus prefers string concatenation when either side is a string, while minus coerces both sides to numbers.",
       "difficulty": "easy"
@@ -99,12 +84,7 @@
     },
     {
       "question": "What does async function always return?",
-      "options": [
-        "The resolved value",
-        "A Promise",
-        "undefined",
-        "A generator"
-      ],
+      "options": ["The resolved value", "A Promise", "undefined", "A generator"],
       "correct_index": 1,
       "explanation": "An async function wraps its return value in a promise, so callers must await or chain then.",
       "difficulty": "hard"

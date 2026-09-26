@@ -136,9 +136,9 @@ Go back to the dashboard.
 
 ## Recovery notes
 
-| If this happens | Do this |
-| --- | --- |
-| The analysis screen hangs | Refresh once. If it still hangs, open `/dashboard/<id>` directly, the analysis writes as it goes |
+| If this happens             | Do this                                                                                                                          |
+| --------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| The analysis screen hangs   | Refresh once. If it still hangs, open `/dashboard/<id>` directly, the analysis writes as it goes                                 |
 | A quiz question looks wrong | Say "the offline question bank is running because there is no API key", it is the honest answer and it is on screen in the trace |
-| The repository scan fails | It cannot on the demo profile: the scan is replayed from `data/demo/progress_repo.json` |
-| You lose the profile URL | `pnpm demo:verify` prints a fresh dashboard link with the whole storyline already applied |
+| The repository scan fails   | It cannot on the demo profile: the scan is replayed from `data/demo/progress_repo.json`                                          |
+| You lose the profile URL    | `pnpm demo:verify` prints a fresh dashboard link with the whole storyline already applied                                        |

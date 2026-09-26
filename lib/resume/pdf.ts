@@ -17,7 +17,10 @@ export async function extractPdfText(buffer: Buffer): Promise<string> {
   try {
     const pdfParse = (await import('pdf-parse/lib/pdf-parse.js')).default;
     const parsed = await pdfParse(buffer);
-    text = parsed.text.replace(/\r/g, '').replace(/\n{3,}/g, '\n\n').trim();
+    text = parsed.text
+      .replace(/\r/g, '')
+      .replace(/\n{3,}/g, '\n\n')
+      .trim();
   } catch (error) {
     throw new ResumeParseError(
       `Could not read that PDF: ${error instanceof Error ? error.message : 'unknown error'}. Paste your resume text instead.`,

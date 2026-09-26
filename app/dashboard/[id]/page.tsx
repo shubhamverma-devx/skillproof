@@ -55,8 +55,8 @@ export default async function DashboardPage({ params }: { params: { id: string }
             />
             <p className="max-w-prose">
               We could not read {state.github.username}&apos;s repositories, so this score uses your
-              resume only. Check the username on the progress page, or add a GitHub token and run the
-              analysis again.
+              resume only. Check the username on the progress page, or add a GitHub token and run
+              the analysis again.
             </p>
           </div>
         ) : null}

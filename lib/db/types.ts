@@ -72,11 +72,6 @@ export interface SkillProofStore {
   addScore(profileId: string, score: number, reason: string): Promise<ScoreHistoryEntry>;
   listScores(profileId: string): Promise<ScoreHistoryEntry[]>;
 
-  addLog(
-    profileId: string,
-    step: string,
-    detail: string,
-    level: AgentLogLevel,
-  ): Promise<AgentLog>;
+  addLog(profileId: string, step: string, detail: string, level: AgentLogLevel): Promise<AgentLog>;
   listLogs(profileId: string): Promise<AgentLog[]>;
 }

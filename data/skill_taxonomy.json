@@ -3,1456 +3,793 @@
     {
       "canonical": "Python",
       "category": "language",
-      "aliases": [
-        "py",
-        "python3"
-      ],
+      "aliases": ["py", "python3"],
       "hints": {
-        "packages": [
-          "python"
-        ],
-        "files": [
-          "requirements.txt",
-          "pyproject.toml",
-          "Pipfile",
-          "setup.py"
-        ],
-        "languages": [
-          "Python"
-        ],
-        "topics": [
-          "python"
-        ]
+        "packages": ["python"],
+        "files": ["requirements.txt", "pyproject.toml", "Pipfile", "setup.py"],
+        "languages": ["Python"],
+        "topics": ["python"]
       }
     },
     {
       "canonical": "JavaScript",
       "category": "language",
-      "aliases": [
-        "js",
-        "javascript",
-        "es6",
-        "ecmascript",
-        "vanilla js"
-      ],
+      "aliases": ["js", "javascript", "es6", "ecmascript", "vanilla js"],
       "hints": {
         "packages": [],
-        "files": [
-          "package.json",
-          ".eslintrc.json"
-        ],
-        "languages": [
-          "JavaScript"
-        ],
-        "topics": [
-          "javascript"
-        ]
+        "files": ["package.json", ".eslintrc.json"],
+        "languages": ["JavaScript"],
+        "topics": ["javascript"]
       }
     },
     {
       "canonical": "TypeScript",
       "category": "language",
-      "aliases": [
-        "ts",
-        "typescript"
-      ],
+      "aliases": ["ts", "typescript"],
       "hints": {
-        "packages": [
-          "typescript"
-        ],
-        "files": [
-          "tsconfig.json"
-        ],
-        "languages": [
-          "TypeScript"
-        ],
-        "topics": [
-          "typescript"
-        ]
+        "packages": ["typescript"],
+        "files": ["tsconfig.json"],
+        "languages": ["TypeScript"],
+        "topics": ["typescript"]
       }
     },
     {
       "canonical": "Java",
       "category": "language",
-      "aliases": [
-        "core java",
-        "java 8",
-        "java8"
-      ],
+      "aliases": ["core java", "java 8", "java8"],
       "hints": {
         "packages": [],
-        "files": [
-          "pom.xml",
-          "build.gradle"
-        ],
-        "languages": [
-          "Java"
-        ],
-        "topics": [
-          "java"
-        ]
+        "files": ["pom.xml", "build.gradle"],
+        "languages": ["Java"],
+        "topics": ["java"]
       }
     },
     {
       "canonical": "SQL",
       "category": "language",
-      "aliases": [
-        "structured query language",
-        "ansi sql"
-      ],
+      "aliases": ["structured query language", "ansi sql"],
       "hints": {
-        "packages": [
-          "psycopg2",
-          "mysqlclient",
-          "sqlalchemy",
-          "pg",
-          "mysql2",
-          "sqlite3"
-        ],
-        "files": [
-          "schema.sql",
-          "migrations"
-        ],
-        "languages": [
-          "PLpgSQL",
-          "TSQL"
-        ],
-        "topics": [
-          "sql"
-        ]
+        "packages": ["psycopg2", "mysqlclient", "sqlalchemy", "pg", "mysql2", "sqlite3"],
+        "files": ["schema.sql", "migrations"],
+        "languages": ["PLpgSQL", "TSQL"],
+        "topics": ["sql"]
       }
     },
     {
       "canonical": "HTML",
       "category": "language",
-      "aliases": [
-        "html5",
-        "markup"
-      ],
+      "aliases": ["html5", "markup"],
       "hints": {
         "packages": [],
-        "files": [
-          "index.html"
-        ],
-        "languages": [
-          "HTML"
-        ],
-        "topics": [
-          "html"
-        ]
+        "files": ["index.html"],
+        "languages": ["HTML"],
+        "topics": ["html"]
       }
     },
     {
       "canonical": "CSS",
       "category": "language",
-      "aliases": [
-        "css3",
-        "stylesheets"
-      ],
+      "aliases": ["css3", "stylesheets"],
       "hints": {
         "packages": [],
-        "files": [
-          "styles.css",
-          "global.css"
-        ],
-        "languages": [
-          "CSS",
-          "SCSS",
-          "Less"
-        ],
-        "topics": [
-          "css"
-        ]
+        "files": ["styles.css", "global.css"],
+        "languages": ["CSS", "SCSS", "Less"],
+        "topics": ["css"]
       }
     },
     {
       "canonical": "Shell scripting",
       "category": "language",
-      "aliases": [
-        "bash",
-        "shell",
-        "zsh",
-        "sh scripting"
-      ],
+      "aliases": ["bash", "shell", "zsh", "sh scripting"],
       "hints": {
         "packages": [],
-        "files": [
-          "entrypoint.sh",
-          "setup.sh",
-          "deploy.sh"
-        ],
-        "languages": [
-          "Shell"
-        ],
-        "topics": [
-          "bash"
-        ]
+        "files": ["entrypoint.sh", "setup.sh", "deploy.sh"],
+        "languages": ["Shell"],
+        "topics": ["bash"]
       }
     },
     {
       "canonical": "React",
       "category": "framework",
-      "aliases": [
-        "react.js",
-        "reactjs",
-        "react js"
-      ],
+      "aliases": ["react.js", "reactjs", "react js"],
       "hints": {
-        "packages": [
-          "react"
-        ],
+        "packages": ["react"],
         "files": [],
         "languages": [],
-        "topics": [
-          "react"
-        ]
+        "topics": ["react"]
       }
     },
     {
       "canonical": "Next.js",
       "category": "framework",
-      "aliases": [
-        "next js",
-        "nextjs"
-      ],
+      "aliases": ["next js", "nextjs"],
       "hints": {
-        "packages": [
-          "next"
-        ],
-        "files": [
-          "next.config.js",
-          "next.config.mjs"
-        ],
+        "packages": ["next"],
+        "files": ["next.config.js", "next.config.mjs"],
         "languages": [],
-        "topics": [
-          "nextjs"
-        ]
+        "topics": ["nextjs"]
       }
     },
     {
       "canonical": "Node.js",
       "category": "framework",
-      "aliases": [
-        "node",
-        "nodejs",
-        "node js"
-      ],
+      "aliases": ["node", "nodejs", "node js"],
       "hints": {
-        "packages": [
-          "express",
-          "fastify",
-          "nest"
-        ],
-        "files": [
-          "server.js",
-          "app.js"
-        ],
+        "packages": ["express", "fastify", "nest"],
+        "files": ["server.js", "app.js"],
         "languages": [],
-        "topics": [
-          "nodejs"
-        ]
+        "topics": ["nodejs"]
       }
     },
     {
       "canonical": "Express",
       "category": "framework",
-      "aliases": [
-        "express.js",
-        "expressjs"
-      ],
+      "aliases": ["express.js", "expressjs"],
       "hints": {
-        "packages": [
-          "express"
-        ],
+        "packages": ["express"],
         "files": [],
         "languages": [],
-        "topics": [
-          "express"
-        ]
+        "topics": ["express"]
       }
     },
     {
       "canonical": "Redux",
       "category": "library",
-      "aliases": [
-        "redux toolkit",
-        "rtk"
-      ],
+      "aliases": ["redux toolkit", "rtk"],
       "hints": {
-        "packages": [
-          "redux",
-          "@reduxjs/toolkit",
-          "zustand"
-        ],
+        "packages": ["redux", "@reduxjs/toolkit", "zustand"],
         "files": [],
         "languages": [],
-        "topics": [
-          "redux"
-        ]
+        "topics": ["redux"]
       }
     },
     {
       "canonical": "Tailwind CSS",
       "category": "framework",
-      "aliases": [
-        "tailwind",
-        "tailwindcss"
-      ],
+      "aliases": ["tailwind", "tailwindcss"],
       "hints": {
-        "packages": [
-          "tailwindcss"
-        ],
-        "files": [
-          "tailwind.config.js",
-          "tailwind.config.ts"
-        ],
+        "packages": ["tailwindcss"],
+        "files": ["tailwind.config.js", "tailwind.config.ts"],
         "languages": [],
-        "topics": [
-          "tailwindcss"
-        ]
+        "topics": ["tailwindcss"]
       }
     },
     {
       "canonical": "Django",
       "category": "framework",
-      "aliases": [
-        "django rest framework",
-        "drf"
-      ],
+      "aliases": ["django rest framework", "drf"],
       "hints": {
-        "packages": [
-          "django",
-          "djangorestframework"
-        ],
-        "files": [
-          "manage.py"
-        ],
+        "packages": ["django", "djangorestframework"],
+        "files": ["manage.py"],
         "languages": [],
-        "topics": [
-          "django"
-        ]
+        "topics": ["django"]
       }
     },
     {
       "canonical": "Flask",
       "category": "framework",
-      "aliases": [
-        "flask api"
-      ],
+      "aliases": ["flask api"],
       "hints": {
-        "packages": [
-          "flask"
-        ],
+        "packages": ["flask"],
         "files": [],
         "languages": [],
-        "topics": [
-          "flask"
-        ]
+        "topics": ["flask"]
       }
     },
     {
       "canonical": "FastAPI",
       "category": "framework",
-      "aliases": [
-        "fast api"
-      ],
+      "aliases": ["fast api"],
       "hints": {
-        "packages": [
-          "fastapi",
-          "uvicorn"
-        ],
+        "packages": ["fastapi", "uvicorn"],
         "files": [],
         "languages": [],
-        "topics": [
-          "fastapi"
-        ]
+        "topics": ["fastapi"]
       }
     },
     {
       "canonical": "Spring Boot",
       "category": "framework",
-      "aliases": [
-        "spring",
-        "springboot"
-      ],
+      "aliases": ["spring", "springboot"],
       "hints": {
         "packages": [],
-        "files": [
-          "application.properties",
-          "application.yml"
-        ],
+        "files": ["application.properties", "application.yml"],
         "languages": [],
-        "topics": [
-          "spring-boot"
-        ]
+        "topics": ["spring-boot"]
       }
     },
     {
       "canonical": "PyTorch",
       "category": "framework",
-      "aliases": [
-        "torch",
-        "pytorch lightning"
-      ],
+      "aliases": ["torch", "pytorch lightning"],
       "hints": {
-        "packages": [
-          "torch",
-          "pytorch-lightning",
-          "torchvision"
-        ],
+        "packages": ["torch", "pytorch-lightning", "torchvision"],
         "files": [],
         "languages": [],
-        "topics": [
-          "pytorch"
-        ]
+        "topics": ["pytorch"]
       }
     },
     {
       "canonical": "TensorFlow",
       "category": "framework",
-      "aliases": [
-        "tf",
-        "tensorflow 2",
-        "keras"
-      ],
+      "aliases": ["tf", "tensorflow 2", "keras"],
       "hints": {
-        "packages": [
-          "tensorflow",
-          "keras",
-          "tensorflow-cpu"
-        ],
+        "packages": ["tensorflow", "keras", "tensorflow-cpu"],
         "files": [],
         "languages": [],
-        "topics": [
-          "tensorflow"
-        ]
+        "topics": ["tensorflow"]
       }
     },
     {
       "canonical": "scikit-learn",
       "category": "library",
-      "aliases": [
-        "sklearn",
-        "sci-kit learn",
-        "scikit learn"
-      ],
+      "aliases": ["sklearn", "sci-kit learn", "scikit learn"],
       "hints": {
-        "packages": [
-          "scikit-learn",
-          "sklearn"
-        ],
+        "packages": ["scikit-learn", "sklearn"],
         "files": [],
         "languages": [],
-        "topics": [
-          "scikit-learn"
-        ]
+        "topics": ["scikit-learn"]
       }
     },
     {
       "canonical": "Pandas",
       "category": "library",
-      "aliases": [
-        "pandas dataframe"
-      ],
+      "aliases": ["pandas dataframe"],
       "hints": {
-        "packages": [
-          "pandas"
-        ],
+        "packages": ["pandas"],
         "files": [],
         "languages": [],
-        "topics": [
-          "pandas"
-        ]
+        "topics": ["pandas"]
       }
     },
     {
       "canonical": "NumPy",
       "category": "library",
-      "aliases": [
-        "numpy arrays",
-        "np"
-      ],
+      "aliases": ["numpy arrays", "np"],
       "hints": {
-        "packages": [
-          "numpy"
-        ],
+        "packages": ["numpy"],
         "files": [],
         "languages": [],
-        "topics": [
-          "numpy"
-        ]
+        "topics": ["numpy"]
       }
     },
     {
       "canonical": "Matplotlib",
       "category": "library",
-      "aliases": [
-        "pyplot",
-        "seaborn"
-      ],
+      "aliases": ["pyplot", "seaborn"],
       "hints": {
-        "packages": [
-          "matplotlib",
-          "seaborn"
-        ],
+        "packages": ["matplotlib", "seaborn"],
         "files": [],
         "languages": [],
-        "topics": [
-          "matplotlib"
-        ]
+        "topics": ["matplotlib"]
       }
     },
     {
       "canonical": "PostgreSQL",
       "category": "database",
-      "aliases": [
-        "postgres",
-        "psql"
-      ],
+      "aliases": ["postgres", "psql"],
       "hints": {
-        "packages": [
-          "psycopg2",
-          "psycopg2-binary",
-          "pg",
-          "asyncpg"
-        ],
+        "packages": ["psycopg2", "psycopg2-binary", "pg", "asyncpg"],
         "files": [],
         "languages": [],
-        "topics": [
-          "postgresql"
-        ]
+        "topics": ["postgresql"]
       }
     },
     {
       "canonical": "MySQL",
       "category": "database",
-      "aliases": [
-        "maria db",
-        "mariadb"
-      ],
+      "aliases": ["maria db", "mariadb"],
       "hints": {
-        "packages": [
-          "mysqlclient",
-          "mysql2",
-          "pymysql"
-        ],
+        "packages": ["mysqlclient", "mysql2", "pymysql"],
         "files": [],
         "languages": [],
-        "topics": [
-          "mysql"
-        ]
+        "topics": ["mysql"]
       }
     },
     {
       "canonical": "MongoDB",
       "category": "database",
-      "aliases": [
-        "mongo",
-        "mongoose"
-      ],
+      "aliases": ["mongo", "mongoose"],
       "hints": {
-        "packages": [
-          "mongoose",
-          "pymongo",
-          "mongodb"
-        ],
+        "packages": ["mongoose", "pymongo", "mongodb"],
         "files": [],
         "languages": [],
-        "topics": [
-          "mongodb"
-        ]
+        "topics": ["mongodb"]
       }
     },
     {
       "canonical": "Redis",
       "category": "database",
-      "aliases": [
-        "redis cache"
-      ],
+      "aliases": ["redis cache"],
       "hints": {
-        "packages": [
-          "redis",
-          "ioredis"
-        ],
+        "packages": ["redis", "ioredis"],
         "files": [],
         "languages": [],
-        "topics": [
-          "redis"
-        ]
+        "topics": ["redis"]
       }
     },
     {
       "canonical": "Git",
       "category": "tool",
-      "aliases": [
-        "version control",
-        "git vcs"
-      ],
+      "aliases": ["version control", "git vcs"],
       "hints": {
         "packages": [],
-        "files": [
-          ".gitignore",
-          ".gitattributes"
-        ],
+        "files": [".gitignore", ".gitattributes"],
         "languages": [],
-        "topics": [
-          "git"
-        ]
+        "topics": ["git"]
       }
     },
     {
       "canonical": "GitHub Actions",
       "category": "tool",
-      "aliases": [
-        "gh actions",
-        "github ci"
-      ],
+      "aliases": ["gh actions", "github ci"],
       "hints": {
         "packages": [],
-        "files": [
-          ".github/workflows"
-        ],
+        "files": [".github/workflows"],
         "languages": [],
-        "topics": [
-          "github-actions"
-        ]
+        "topics": ["github-actions"]
       }
     },
     {
       "canonical": "Docker",
       "category": "tool",
-      "aliases": [
-        "containers",
-        "containerisation",
-        "containerization",
-        "docker compose"
-      ],
+      "aliases": ["containers", "containerisation", "containerization", "docker compose"],
       "hints": {
         "packages": [],
-        "files": [
-          "Dockerfile",
-          "docker-compose.yml",
-          "compose.yaml",
-          ".dockerignore"
-        ],
-        "languages": [
-          "Dockerfile"
-        ],
-        "topics": [
-          "docker"
-        ]
+        "files": ["Dockerfile", "docker-compose.yml", "compose.yaml", ".dockerignore"],
+        "languages": ["Dockerfile"],
+        "topics": ["docker"]
       }
     },
     {
       "canonical": "Kubernetes",
       "category": "platform",
-      "aliases": [
-        "k8s",
-        "kubectl",
-        "helm"
-      ],
+      "aliases": ["k8s", "kubectl", "helm"],
       "hints": {
         "packages": [],
-        "files": [
-          "k8s",
-          "helm",
-          "deployment.yaml"
-        ],
+        "files": ["k8s", "helm", "deployment.yaml"],
         "languages": [],
-        "topics": [
-          "kubernetes"
-        ]
+        "topics": ["kubernetes"]
       }
     },
     {
       "canonical": "AWS",
       "category": "platform",
-      "aliases": [
-        "amazon web services",
-        "ec2",
-        "s3",
-        "lambda"
-      ],
+      "aliases": ["amazon web services", "ec2", "s3", "lambda"],
       "hints": {
-        "packages": [
-          "boto3",
-          "aws-sdk",
-          "@aws-sdk/client-s3"
-        ],
-        "files": [
-          "buildspec.yml",
-          "serverless.yml"
-        ],
+        "packages": ["boto3", "aws-sdk", "@aws-sdk/client-s3"],
+        "files": ["buildspec.yml", "serverless.yml"],
         "languages": [],
-        "topics": [
-          "aws"
-        ]
+        "topics": ["aws"]
       }
     },
     {
       "canonical": "Azure",
       "category": "platform",
-      "aliases": [
-        "microsoft azure",
-        "azure devops"
-      ],
+      "aliases": ["microsoft azure", "azure devops"],
       "hints": {
-        "packages": [
-          "azure-storage-blob"
-        ],
-        "files": [
-          "azure-pipelines.yml"
-        ],
+        "packages": ["azure-storage-blob"],
+        "files": ["azure-pipelines.yml"],
         "languages": [],
-        "topics": [
-          "azure"
-        ]
+        "topics": ["azure"]
       }
     },
     {
       "canonical": "GCP",
       "category": "platform",
-      "aliases": [
-        "google cloud",
-        "google cloud platform",
-        "bigquery"
-      ],
+      "aliases": ["google cloud", "google cloud platform", "bigquery"],
       "hints": {
-        "packages": [
-          "google-cloud-storage",
-          "google-cloud-bigquery"
-        ],
-        "files": [
-          "app.yaml",
-          "cloudbuild.yaml"
-        ],
+        "packages": ["google-cloud-storage", "google-cloud-bigquery"],
+        "files": ["app.yaml", "cloudbuild.yaml"],
         "languages": [],
-        "topics": [
-          "gcp"
-        ]
+        "topics": ["gcp"]
       }
     },
     {
       "canonical": "Terraform",
       "category": "tool",
-      "aliases": [
-        "hcl",
-        "terraform cloud"
-      ],
+      "aliases": ["hcl", "terraform cloud"],
       "hints": {
         "packages": [],
-        "files": [
-          "main.tf",
-          "variables.tf"
-        ],
-        "languages": [
-          "HCL"
-        ],
-        "topics": [
-          "terraform"
-        ]
+        "files": ["main.tf", "variables.tf"],
+        "languages": ["HCL"],
+        "topics": ["terraform"]
       }
     },
     {
       "canonical": "Ansible",
       "category": "tool",
-      "aliases": [
-        "ansible playbooks"
-      ],
+      "aliases": ["ansible playbooks"],
       "hints": {
         "packages": [],
-        "files": [
-          "playbook.yml",
-          "ansible.cfg"
-        ],
+        "files": ["playbook.yml", "ansible.cfg"],
         "languages": [],
-        "topics": [
-          "ansible"
-        ]
+        "topics": ["ansible"]
       }
     },
     {
       "canonical": "Jenkins",
       "category": "tool",
-      "aliases": [
-        "jenkins pipeline",
-        "groovy pipeline"
-      ],
+      "aliases": ["jenkins pipeline", "groovy pipeline"],
       "hints": {
         "packages": [],
-        "files": [
-          "Jenkinsfile"
-        ],
+        "files": ["Jenkinsfile"],
         "languages": [],
-        "topics": [
-          "jenkins"
-        ]
+        "topics": ["jenkins"]
       }
     },
     {
       "canonical": "Linux",
       "category": "platform",
-      "aliases": [
-        "unix",
-        "ubuntu",
-        "linux administration"
-      ],
+      "aliases": ["unix", "ubuntu", "linux administration"],
       "hints": {
         "packages": [],
-        "files": [
-          "Makefile"
-        ],
+        "files": ["Makefile"],
         "languages": [],
-        "topics": [
-          "linux"
-        ]
+        "topics": ["linux"]
       }
     },
     {
       "canonical": "Nginx",
       "category": "tool",
-      "aliases": [
-        "reverse proxy",
-        "nginx conf"
-      ],
+      "aliases": ["reverse proxy", "nginx conf"],
       "hints": {
         "packages": [],
-        "files": [
-          "nginx.conf"
-        ],
+        "files": ["nginx.conf"],
         "languages": [],
-        "topics": [
-          "nginx"
-        ]
+        "topics": ["nginx"]
       }
     },
     {
       "canonical": "Prometheus",
       "category": "tool",
-      "aliases": [
-        "promql"
-      ],
+      "aliases": ["promql"],
       "hints": {
         "packages": [],
-        "files": [
-          "prometheus.yml"
-        ],
+        "files": ["prometheus.yml"],
         "languages": [],
-        "topics": [
-          "prometheus"
-        ]
+        "topics": ["prometheus"]
       }
     },
     {
       "canonical": "Grafana",
       "category": "tool",
-      "aliases": [
-        "grafana dashboards"
-      ],
+      "aliases": ["grafana dashboards"],
       "hints": {
         "packages": [],
-        "files": [
-          "grafana"
-        ],
+        "files": ["grafana"],
         "languages": [],
-        "topics": [
-          "grafana"
-        ]
+        "topics": ["grafana"]
       }
     },
     {
       "canonical": "Jupyter",
       "category": "tool",
-      "aliases": [
-        "jupyter notebook",
-        "notebooks",
-        "colab"
-      ],
+      "aliases": ["jupyter notebook", "notebooks", "colab"],
       "hints": {
-        "packages": [
-          "jupyter",
-          "notebook",
-          "ipykernel"
-        ],
+        "packages": ["jupyter", "notebook", "ipykernel"],
         "files": [],
-        "languages": [
-          "Jupyter Notebook"
-        ],
-        "topics": [
-          "jupyter-notebook"
-        ]
+        "languages": ["Jupyter Notebook"],
+        "topics": ["jupyter-notebook"]
       }
     },
     {
       "canonical": "MLflow",
       "category": "tool",
-      "aliases": [
-        "ml flow",
-        "experiment tracking",
-        "weights and biases"
-      ],
+      "aliases": ["ml flow", "experiment tracking", "weights and biases"],
       "hints": {
-        "packages": [
-          "mlflow",
-          "wandb"
-        ],
+        "packages": ["mlflow", "wandb"],
         "files": [],
         "languages": [],
-        "topics": [
-          "mlflow"
-        ]
+        "topics": ["mlflow"]
       }
     },
     {
       "canonical": "Excel",
       "category": "tool",
-      "aliases": [
-        "ms excel",
-        "spreadsheets",
-        "pivot tables",
-        "vlookup"
-      ],
+      "aliases": ["ms excel", "spreadsheets", "pivot tables", "vlookup"],
       "hints": {
-        "packages": [
-          "openpyxl",
-          "xlrd"
-        ],
+        "packages": ["openpyxl", "xlrd"],
         "files": [],
         "languages": [],
-        "topics": [
-          "excel"
-        ]
+        "topics": ["excel"]
       }
     },
     {
       "canonical": "Power BI",
       "category": "tool",
-      "aliases": [
-        "powerbi",
-        "dax"
-      ],
+      "aliases": ["powerbi", "dax"],
       "hints": {
         "packages": [],
         "files": [],
         "languages": [],
-        "topics": [
-          "power-bi"
-        ]
+        "topics": ["power-bi"]
       }
     },
     {
       "canonical": "Tableau",
       "category": "tool",
-      "aliases": [
-        "tableau desktop"
-      ],
+      "aliases": ["tableau desktop"],
       "hints": {
         "packages": [],
         "files": [],
         "languages": [],
-        "topics": [
-          "tableau"
-        ]
+        "topics": ["tableau"]
       }
     },
     {
       "canonical": "Postman",
       "category": "tool",
-      "aliases": [
-        "api testing tool",
-        "postman collection"
-      ],
+      "aliases": ["api testing tool", "postman collection"],
       "hints": {
         "packages": [],
-        "files": [
-          "postman_collection.json"
-        ],
+        "files": ["postman_collection.json"],
         "languages": [],
-        "topics": [
-          "postman"
-        ]
+        "topics": ["postman"]
       }
     },
     {
       "canonical": "Jest",
       "category": "tool",
-      "aliases": [
-        "jest testing",
-        "vitest"
-      ],
+      "aliases": ["jest testing", "vitest"],
       "hints": {
-        "packages": [
-          "jest",
-          "vitest",
-          "@testing-library/react"
-        ],
-        "files": [
-          "jest.config.js",
-          "vitest.config.ts"
-        ],
+        "packages": ["jest", "vitest", "@testing-library/react"],
+        "files": ["jest.config.js", "vitest.config.ts"],
         "languages": [],
-        "topics": [
-          "jest"
-        ]
+        "topics": ["jest"]
       }
     },
     {
       "canonical": "Playwright",
       "category": "tool",
-      "aliases": [
-        "e2e testing",
-        "cypress"
-      ],
+      "aliases": ["e2e testing", "cypress"],
       "hints": {
-        "packages": [
-          "@playwright/test",
-          "playwright",
-          "cypress"
-        ],
-        "files": [
-          "playwright.config.ts"
-        ],
+        "packages": ["@playwright/test", "playwright", "cypress"],
+        "files": ["playwright.config.ts"],
         "languages": [],
-        "topics": [
-          "playwright"
-        ]
+        "topics": ["playwright"]
       }
     },
     {
       "canonical": "Vite",
       "category": "tool",
-      "aliases": [
-        "webpack",
-        "bundler",
-        "build tooling"
-      ],
+      "aliases": ["webpack", "bundler", "build tooling"],
       "hints": {
-        "packages": [
-          "vite",
-          "webpack"
-        ],
-        "files": [
-          "vite.config.ts",
-          "webpack.config.js"
-        ],
+        "packages": ["vite", "webpack"],
+        "files": ["vite.config.ts", "webpack.config.js"],
         "languages": [],
-        "topics": [
-          "vite"
-        ]
+        "topics": ["vite"]
       }
     },
     {
       "canonical": "Figma",
       "category": "tool",
-      "aliases": [
-        "figma handoff",
-        "design handoff"
-      ],
+      "aliases": ["figma handoff", "design handoff"],
       "hints": {
         "packages": [],
         "files": [],
         "languages": [],
-        "topics": [
-          "figma"
-        ]
+        "topics": ["figma"]
       }
     },
     {
       "canonical": "Machine learning",
       "category": "concept",
-      "aliases": [
-        "ml",
-        "supervised learning",
-        "classification models",
-        "regression models"
-      ],
+      "aliases": ["ml", "supervised learning", "classification models", "regression models"],
       "hints": {
         "packages": [],
         "files": [],
         "languages": [],
-        "topics": [
-          "machine-learning"
-        ]
+        "topics": ["machine-learning"]
       }
     },
     {
       "canonical": "Deep learning",
       "category": "concept",
-      "aliases": [
-        "neural networks",
-        "cnn",
-        "rnn",
-        "transformers"
-      ],
+      "aliases": ["neural networks", "cnn", "rnn", "transformers"],
       "hints": {
         "packages": [],
         "files": [],
         "languages": [],
-        "topics": [
-          "deep-learning"
-        ]
+        "topics": ["deep-learning"]
       }
     },
     {
       "canonical": "NLP",
       "category": "concept",
-      "aliases": [
-        "natural language processing",
-        "text classification",
-        "llm"
-      ],
+      "aliases": ["natural language processing", "text classification", "llm"],
       "hints": {
-        "packages": [
-          "nltk",
-          "spacy",
-          "transformers"
-        ],
+        "packages": ["nltk", "spacy", "transformers"],
         "files": [],
         "languages": [],
-        "topics": [
-          "nlp"
-        ]
+        "topics": ["nlp"]
       }
     },
     {
       "canonical": "Computer vision",
       "category": "concept",
-      "aliases": [
-        "cv",
-        "image classification",
-        "opencv"
-      ],
+      "aliases": ["cv", "image classification", "opencv"],
       "hints": {
-        "packages": [
-          "opencv-python",
-          "albumentations"
-        ],
+        "packages": ["opencv-python", "albumentations"],
         "files": [],
         "languages": [],
-        "topics": [
-          "computer-vision"
-        ]
+        "topics": ["computer-vision"]
       }
     },
     {
       "canonical": "Statistics",
       "category": "concept",
-      "aliases": [
-        "probability",
-        "hypothesis testing",
-        "statistical analysis"
-      ],
+      "aliases": ["probability", "hypothesis testing", "statistical analysis"],
       "hints": {
-        "packages": [
-          "scipy",
-          "statsmodels"
-        ],
+        "packages": ["scipy", "statsmodels"],
         "files": [],
         "languages": [],
-        "topics": [
-          "statistics"
-        ]
+        "topics": ["statistics"]
       }
     },
     {
       "canonical": "Data visualisation",
       "category": "concept",
-      "aliases": [
-        "data visualization",
-        "charts",
-        "dashboards",
-        "plotting"
-      ],
+      "aliases": ["data visualization", "charts", "dashboards", "plotting"],
       "hints": {
-        "packages": [
-          "plotly",
-          "altair"
-        ],
+        "packages": ["plotly", "altair"],
         "files": [],
         "languages": [],
-        "topics": [
-          "data-visualization"
-        ]
+        "topics": ["data-visualization"]
       }
     },
     {
       "canonical": "Feature engineering",
       "category": "concept",
-      "aliases": [
-        "feature extraction",
-        "feature selection"
-      ],
+      "aliases": ["feature extraction", "feature selection"],
       "hints": {
         "packages": [],
         "files": [],
         "languages": [],
-        "topics": [
-          "feature-engineering"
-        ]
+        "topics": ["feature-engineering"]
       }
     },
     {
       "canonical": "Model deployment",
       "category": "concept",
-      "aliases": [
-        "model serving",
-        "mlops",
-        "inference api"
-      ],
+      "aliases": ["model serving", "mlops", "inference api"],
       "hints": {
-        "packages": [
-          "bentoml",
-          "gunicorn"
-        ],
+        "packages": ["bentoml", "gunicorn"],
         "files": [],
         "languages": [],
-        "topics": [
-          "mlops"
-        ]
+        "topics": ["mlops"]
       }
     },
     {
       "canonical": "REST APIs",
       "category": "concept",
-      "aliases": [
-        "rest",
-        "restful api",
-        "api development",
-        "http api"
-      ],
+      "aliases": ["rest", "restful api", "api development", "http api"],
       "hints": {
-        "packages": [
-          "axios",
-          "requests"
-        ],
+        "packages": ["axios", "requests"],
         "files": [],
         "languages": [],
-        "topics": [
-          "rest-api"
-        ]
+        "topics": ["rest-api"]
       }
     },
     {
       "canonical": "GraphQL",
       "category": "concept",
-      "aliases": [
-        "apollo",
-        "graph ql"
-      ],
+      "aliases": ["apollo", "graph ql"],
       "hints": {
-        "packages": [
-          "graphql",
-          "@apollo/client"
-        ],
-        "files": [
-          "schema.graphql"
-        ],
+        "packages": ["graphql", "@apollo/client"],
+        "files": ["schema.graphql"],
         "languages": [],
-        "topics": [
-          "graphql"
-        ]
+        "topics": ["graphql"]
       }
     },
     {
       "canonical": "Authentication",
       "category": "concept",
-      "aliases": [
-        "auth",
-        "jwt",
-        "oauth",
-        "authorisation",
-        "authorization"
-      ],
+      "aliases": ["auth", "jwt", "oauth", "authorisation", "authorization"],
       "hints": {
-        "packages": [
-          "jsonwebtoken",
-          "passport",
-          "next-auth",
-          "bcrypt"
-        ],
+        "packages": ["jsonwebtoken", "passport", "next-auth", "bcrypt"],
         "files": [],
         "languages": [],
-        "topics": [
-          "authentication"
-        ]
+        "topics": ["authentication"]
       }
     },
     {
       "canonical": "System design",
       "category": "concept",
-      "aliases": [
-        "scalability",
-        "high level design",
-        "hld",
-        "architecture design"
-      ],
+      "aliases": ["scalability", "high level design", "hld", "architecture design"],
       "hints": {
         "packages": [],
         "files": [],
         "languages": [],
-        "topics": [
-          "system-design"
-        ]
+        "topics": ["system-design"]
       }
     },
     {
       "canonical": "Data structures and algorithms",
       "category": "concept",
-      "aliases": [
-        "dsa",
-        "algorithms",
-        "data structures",
-        "problem solving"
-      ],
+      "aliases": ["dsa", "algorithms", "data structures", "problem solving"],
       "hints": {
         "packages": [],
         "files": [],
         "languages": [],
-        "topics": [
-          "algorithms"
-        ]
+        "topics": ["algorithms"]
       }
     },
     {
       "canonical": "Testing",
       "category": "concept",
-      "aliases": [
-        "unit testing",
-        "integration testing",
-        "tdd",
-        "test automation"
-      ],
+      "aliases": ["unit testing", "integration testing", "tdd", "test automation"],
       "hints": {
-        "packages": [
-          "pytest",
-          "mocha"
-        ],
-        "files": [
-          "tests",
-          "test"
-        ],
+        "packages": ["pytest", "mocha"],
+        "files": ["tests", "test"],
         "languages": [],
-        "topics": [
-          "testing"
-        ]
+        "topics": ["testing"]
       }
     },
     {
       "canonical": "CI/CD",
       "category": "concept",
-      "aliases": [
-        "continuous integration",
-        "continuous deployment",
-        "build pipelines"
-      ],
+      "aliases": ["continuous integration", "continuous deployment", "build pipelines"],
       "hints": {
         "packages": [],
-        "files": [
-          ".github/workflows",
-          ".gitlab-ci.yml",
-          "Jenkinsfile"
-        ],
+        "files": [".github/workflows", ".gitlab-ci.yml", "Jenkinsfile"],
         "languages": [],
-        "topics": [
-          "ci-cd"
-        ]
+        "topics": ["ci-cd"]
       }
     },
     {
       "canonical": "Web performance",
       "category": "concept",
-      "aliases": [
-        "core web vitals",
-        "lighthouse",
-        "page speed",
-        "performance optimisation"
-      ],
+      "aliases": ["core web vitals", "lighthouse", "page speed", "performance optimisation"],
       "hints": {
         "packages": [],
-        "files": [
-          "lighthouserc.json"
-        ],
+        "files": ["lighthouserc.json"],
         "languages": [],
-        "topics": [
-          "web-performance"
-        ]
+        "topics": ["web-performance"]
       }
     },
     {
       "canonical": "Accessibility",
       "category": "concept",
-      "aliases": [
-        "a11y",
-        "wcag",
-        "screen reader support"
-      ],
+      "aliases": ["a11y", "wcag", "screen reader support"],
       "hints": {
-        "packages": [
-          "eslint-plugin-jsx-a11y",
-          "axe-core"
-        ],
+        "packages": ["eslint-plugin-jsx-a11y", "axe-core"],
         "files": [],
         "languages": [],
-        "topics": [
-          "accessibility"
-        ]
+        "topics": ["accessibility"]
       }
     },
     {
       "canonical": "Responsive design",
       "category": "concept",
-      "aliases": [
-        "mobile first",
-        "media queries",
-        "responsive ui"
-      ],
+      "aliases": ["mobile first", "media queries", "responsive ui"],
       "hints": {
         "packages": [],
         "files": [],
         "languages": [],
-        "topics": [
-          "responsive-design"
-        ]
+        "topics": ["responsive-design"]
       }
     },
     {
       "canonical": "Data cleaning",
       "category": "concept",
-      "aliases": [
-        "data wrangling",
-        "data preparation",
-        "missing values"
-      ],
+      "aliases": ["data wrangling", "data preparation", "missing values"],
       "hints": {
         "packages": [],
         "files": [],
         "languages": [],
-        "topics": [
-          "data-cleaning"
-        ]
+        "topics": ["data-cleaning"]
       }
     },
     {
       "canonical": "ETL",
       "category": "concept",
-      "aliases": [
-        "etl pipelines",
-        "elt",
-        "data pipelines",
-        "airflow"
-      ],
+      "aliases": ["etl pipelines", "elt", "data pipelines", "airflow"],
       "hints": {
-        "packages": [
-          "apache-airflow",
-          "prefect"
-        ],
-        "files": [
-          "dags"
-        ],
+        "packages": ["apache-airflow", "prefect"],
+        "files": ["dags"],
         "languages": [],
-        "topics": [
-          "etl"
-        ]
+        "topics": ["etl"]
       }
     },
     {
@@ -1469,214 +806,128 @@
         "packages": [],
         "files": [],
         "languages": [],
-        "topics": [
-          "data-modeling"
-        ]
+        "topics": ["data-modeling"]
       }
     },
     {
       "canonical": "A/B testing",
       "category": "concept",
-      "aliases": [
-        "ab testing",
-        "experimentation",
-        "split testing"
-      ],
+      "aliases": ["ab testing", "experimentation", "split testing"],
       "hints": {
         "packages": [],
         "files": [],
         "languages": [],
-        "topics": [
-          "ab-testing"
-        ]
+        "topics": ["ab-testing"]
       }
     },
     {
       "canonical": "Business intelligence",
       "category": "concept",
-      "aliases": [
-        "bi reporting",
-        "kpi reporting",
-        "business reporting"
-      ],
+      "aliases": ["bi reporting", "kpi reporting", "business reporting"],
       "hints": {
         "packages": [],
         "files": [],
         "languages": [],
-        "topics": [
-          "business-intelligence"
-        ]
+        "topics": ["business-intelligence"]
       }
     },
     {
       "canonical": "Monitoring",
       "category": "concept",
-      "aliases": [
-        "observability",
-        "alerting",
-        "logging",
-        "sre practices"
-      ],
+      "aliases": ["observability", "alerting", "logging", "sre practices"],
       "hints": {
-        "packages": [
-          "prometheus-client",
-          "opentelemetry-api"
-        ],
+        "packages": ["prometheus-client", "opentelemetry-api"],
         "files": [],
         "languages": [],
-        "topics": [
-          "monitoring"
-        ]
+        "topics": ["monitoring"]
       }
     },
     {
       "canonical": "Infrastructure as code",
       "category": "concept",
-      "aliases": [
-        "iac",
-        "infra as code",
-        "provisioning"
-      ],
+      "aliases": ["iac", "infra as code", "provisioning"],
       "hints": {
         "packages": [],
-        "files": [
-          "main.tf",
-          "playbook.yml"
-        ],
+        "files": ["main.tf", "playbook.yml"],
         "languages": [],
-        "topics": [
-          "infrastructure-as-code"
-        ]
+        "topics": ["infrastructure-as-code"]
       }
     },
     {
       "canonical": "Networking",
       "category": "concept",
-      "aliases": [
-        "tcp/ip",
-        "dns",
-        "load balancing",
-        "vpc"
-      ],
+      "aliases": ["tcp/ip", "dns", "load balancing", "vpc"],
       "hints": {
         "packages": [],
         "files": [],
         "languages": [],
-        "topics": [
-          "networking"
-        ]
+        "topics": ["networking"]
       }
     },
     {
       "canonical": "Caching",
       "category": "concept",
-      "aliases": [
-        "cache invalidation",
-        "cdn caching",
-        "response caching"
-      ],
+      "aliases": ["cache invalidation", "cdn caching", "response caching"],
       "hints": {
         "packages": [],
         "files": [],
         "languages": [],
-        "topics": [
-          "caching"
-        ]
+        "topics": ["caching"]
       }
     },
     {
       "canonical": "Message queues",
       "category": "concept",
-      "aliases": [
-        "kafka",
-        "rabbitmq",
-        "pub sub",
-        "event driven"
-      ],
+      "aliases": ["kafka", "rabbitmq", "pub sub", "event driven"],
       "hints": {
-        "packages": [
-          "kafka-python",
-          "amqplib",
-          "bullmq"
-        ],
+        "packages": ["kafka-python", "amqplib", "bullmq"],
         "files": [],
         "languages": [],
-        "topics": [
-          "kafka"
-        ]
+        "topics": ["kafka"]
       }
     },
     {
       "canonical": "Microservices",
       "category": "concept",
-      "aliases": [
-        "service oriented architecture",
-        "distributed services"
-      ],
+      "aliases": ["service oriented architecture", "distributed services"],
       "hints": {
         "packages": [],
         "files": [],
         "languages": [],
-        "topics": [
-          "microservices"
-        ]
+        "topics": ["microservices"]
       }
     },
     {
       "canonical": "Agile",
       "category": "concept",
-      "aliases": [
-        "scrum",
-        "sprint planning",
-        "kanban",
-        "jira"
-      ],
+      "aliases": ["scrum", "sprint planning", "kanban", "jira"],
       "hints": {
         "packages": [],
         "files": [],
         "languages": [],
-        "topics": [
-          "agile"
-        ]
+        "topics": ["agile"]
       }
     },
     {
       "canonical": "Cloud fundamentals",
       "category": "concept",
-      "aliases": [
-        "cloud basics",
-        "cloud computing",
-        "iaas",
-        "paas"
-      ],
+      "aliases": ["cloud basics", "cloud computing", "iaas", "paas"],
       "hints": {
         "packages": [],
         "files": [],
         "languages": [],
-        "topics": [
-          "cloud"
-        ]
+        "topics": ["cloud"]
       }
     },
     {
       "canonical": "Web scraping",
       "category": "concept",
-      "aliases": [
-        "scraping",
-        "crawler",
-        "beautifulsoup"
-      ],
+      "aliases": ["scraping", "crawler", "beautifulsoup"],
       "hints": {
-        "packages": [
-          "beautifulsoup4",
-          "scrapy",
-          "selenium"
-        ],
+        "packages": ["beautifulsoup4", "scrapy", "selenium"],
         "files": [],
         "languages": [],
-        "topics": [
-          "web-scraping"
-        ]
+        "topics": ["web-scraping"]
       }
     }
   ]

@@ -27,12 +27,7 @@
     },
     {
       "question": "Which metric is misleading on a heavily imbalanced dataset?",
-      "options": [
-        "Precision",
-        "Accuracy",
-        "Recall",
-        "F1 score"
-      ],
+      "options": ["Precision", "Accuracy", "Recall", "F1 score"],
       "correct_index": 1,
       "explanation": "Predicting the majority class always can give high accuracy while finding none of the minority cases.",
       "difficulty": "easy"

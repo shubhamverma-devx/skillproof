@@ -15,24 +15,14 @@
     },
     {
       "question": "Which attribute gives the number of rows and columns?",
-      "options": [
-        "df.size",
-        "df.shape",
-        "df.count()",
-        "df.len"
-      ],
+      "options": ["df.size", "df.shape", "df.count()", "df.len"],
       "correct_index": 1,
       "explanation": "df.shape returns a (rows, columns) tuple. size returns the total cell count.",
       "difficulty": "easy"
     },
     {
       "question": "How do you select the column 'age' as a Series?",
-      "options": [
-        "df['age']",
-        "df.age()",
-        "df.col('age')",
-        "df[['age']]"
-      ],
+      "options": ["df['age']", "df.age()", "df.col('age')", "df[['age']]"],
       "correct_index": 0,
       "explanation": "df['age'] returns a Series; df[['age']] returns a one column DataFrame.",
       "difficulty": "easy"

@@ -49,7 +49,9 @@ export function QuizResult({
           <p className="tabular text-ui">
             Readiness is now <span className="font-semibold">{result.readiness}</span> out of 100
             {result.readiness_delta !== null && result.readiness_delta !== 0 ? (
-              <span className={result.readiness_delta > 0 ? 'text-observed-ink' : 'text-claimed-ink'}>
+              <span
+                className={result.readiness_delta > 0 ? 'text-observed-ink' : 'text-claimed-ink'}
+              >
                 {' '}
                 ({result.readiness_delta > 0 ? '+' : ''}
                 {result.readiness_delta})

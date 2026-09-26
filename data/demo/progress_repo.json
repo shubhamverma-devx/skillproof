@@ -1,15 +1,8 @@
 {
   "repo": "ml-deploy-service",
   "description": "FastAPI service that serves the crop yield model in a container",
-  "languages": [
-    "Python",
-    "Dockerfile"
-  ],
-  "topics": [
-    "docker",
-    "fastapi",
-    "mlops"
-  ],
+  "languages": ["Python", "Dockerfile"],
+  "topics": ["docker", "fastapi", "mlops"],
   "files": [
     ".gitignore",
     "README.md",

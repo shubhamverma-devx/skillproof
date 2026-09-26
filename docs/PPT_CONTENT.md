@@ -32,12 +32,12 @@ Bit N Build 2026, UP Regionals. Problem statement 05, education and employabilit
 
 ## Slide 3, why existing tools fall short
 
-| Tool | What it does | What it misses |
-| --- | --- | --- |
-| Course platforms | Sell a fixed syllabus | No idea what you already know |
-| Resume scanners | Match keywords to a job description | Trusts the resume completely |
-| A chatbot | Writes a plausible roadmap | No evidence, no score, no memory, invented links |
-| Placement portals | List openings | Never say what you are missing for them |
+| Tool              | What it does                        | What it misses                                   |
+| ----------------- | ----------------------------------- | ------------------------------------------------ |
+| Course platforms  | Sell a fixed syllabus               | No idea what you already know                    |
+| Resume scanners   | Match keywords to a job description | Trusts the resume completely                     |
+| A chatbot         | Writes a plausible roadmap          | No evidence, no score, no memory, invented links |
+| Placement portals | List openings                       | Never say what you are missing for them          |
 
 None of them can answer "prove it".
 

@@ -3,36 +3,21 @@
   "questions": [
     {
       "question": "Which clause filters rows before any grouping happens?",
-      "options": [
-        "HAVING",
-        "WHERE",
-        "ORDER BY",
-        "LIMIT"
-      ],
+      "options": ["HAVING", "WHERE", "ORDER BY", "LIMIT"],
       "correct_index": 1,
       "explanation": "WHERE filters individual rows before GROUP BY. HAVING filters the groups afterwards.",
       "difficulty": "easy"
     },
     {
       "question": "What does SELECT COUNT(*) FROM orders return when the table is empty?",
-      "options": [
-        "NULL",
-        "0",
-        "An error",
-        "No rows at all"
-      ],
+      "options": ["NULL", "0", "An error", "No rows at all"],
       "correct_index": 1,
       "explanation": "COUNT(*) on an empty table returns a single row containing 0.",
       "difficulty": "easy"
     },
     {
       "question": "Which join keeps every row from the left table even without a match?",
-      "options": [
-        "INNER JOIN",
-        "LEFT JOIN",
-        "CROSS JOIN",
-        "SELF JOIN"
-      ],
+      "options": ["INNER JOIN", "LEFT JOIN", "CROSS JOIN", "SELF JOIN"],
       "correct_index": 1,
       "explanation": "LEFT JOIN keeps all left rows and fills unmatched right columns with NULL.",
       "difficulty": "easy"

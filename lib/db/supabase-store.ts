@@ -72,7 +72,9 @@ export class SupabaseStore implements SkillProofStore {
   }
 
   async getQuizAttempt(id: string): Promise<QuizAttempt | null> {
-    return this.maybe<QuizAttempt>(this.table('quiz_attempts').select('*').eq('id', id).maybeSingle());
+    return this.maybe<QuizAttempt>(
+      this.table('quiz_attempts').select('*').eq('id', id).maybeSingle(),
+    );
   }
 
   async updateQuizAttempt(id: string, patch: QuizAttemptPatch): Promise<QuizAttempt> {
@@ -97,7 +99,9 @@ export class SupabaseStore implements SkillProofStore {
   }
 
   async getRoadmap(roadmapId: string): Promise<Roadmap | null> {
-    return this.maybe<Roadmap>(this.table('roadmaps').select('*').eq('id', roadmapId).maybeSingle());
+    return this.maybe<Roadmap>(
+      this.table('roadmaps').select('*').eq('id', roadmapId).maybeSingle(),
+    );
   }
 
   async getLatestRoadmap(profileId: string): Promise<Roadmap | null> {
@@ -146,7 +150,10 @@ export class SupabaseStore implements SkillProofStore {
 
   async addScore(profileId: string, score: number, reason: string): Promise<ScoreHistoryEntry> {
     return this.one<ScoreHistoryEntry>(
-      this.table('score_history').insert({ profile_id: profileId, score, reason }).select().single(),
+      this.table('score_history')
+        .insert({ profile_id: profileId, score, reason })
+        .select()
+        .single(),
     );
   }
 

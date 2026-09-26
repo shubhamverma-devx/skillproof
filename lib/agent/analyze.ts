@@ -38,6 +38,7 @@ export async function runAnalysis(
   );
 
   const resume = await ingestResume(profile.resume_text, tracer, profile.is_demo);
+  await describeResume(resume, tracer);
   const github = await ingestGithub(
     profile.github_username,
     tracer,
@@ -80,6 +81,24 @@ export async function runAnalysis(
     assessments: analysis.assessments,
     github_warning: github.warning,
   };
+}
+
+/**
+ * The resume extraction carries more than skills. None of it changes the score,
+ * so it is surfaced on the trace rather than stored: the student can see what the
+ * agent actually read out of their resume.
+ */
+async function describeResume(
+  resume: Awaited<ReturnType<typeof ingestResume>>,
+  tracer: Tracer,
+): Promise<void> {
+  const { projects, education } = resume.extraction;
+  const parts: string[] = [
+    `skills read by ${resume.source === 'model' ? 'the model' : 'keyword matching'}`,
+  ];
+  if (projects.length > 0) parts.push(`${projects.length} projects`);
+  if (education.trim().length > 0) parts.push(`education: ${education.slice(0, 80)}`);
+  await tracer.info('Resume contents', parts.join(', '));
 }
 
 export function toEvidenceRows(assessments: SkillAssessment[]): EvidenceUpsert[] {

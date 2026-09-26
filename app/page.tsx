@@ -43,10 +43,10 @@ export default function LandingPage() {
             Skills proven, not claimed
           </h1>
           <p className="mt-4 max-w-prose text-ui text-muted">
-            Most students know the role they want. SkillProof works out which skills they can actually
-            prove, which ones the market asks for, and what to build next. It reads your resume, reads
-            your code, asks you four questions per skill, and turns the difference into a week by week
-            plan you approve.
+            Most students know the role they want. SkillProof works out which skills they can
+            actually prove, which ones the market asks for, and what to build next. It reads your
+            resume, reads your code, asks you four questions per skill, and turns the difference
+            into a week by week plan you approve.
           </p>
           {isDemoModeForced() ? (
             <p className="mt-5 max-w-prose rounded-inner border border-claimed/40 bg-claimed/[0.08] px-4 py-2 text-ui-sm">

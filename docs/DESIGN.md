@@ -13,22 +13,22 @@ Everything below is implemented in `app/globals.css` (CSS variables) and
 All tokens are stored as space separated RGB triplets so Tailwind can apply alpha
 (`bg-verified/12`, `border-ink/10`).
 
-| Token | Light | Dark | Use |
-| --- | --- | --- | --- |
-| `bg` | `#EEF1F6` | `#0E1330` | Page background (cool paper / real navy) |
-| `surface` | `#FFFFFF` | `#161C3F` | Panels, rows, popovers |
-| `ink` | `#1B2240` | `#E8ECF8` | Primary text, borders via alpha |
-| `muted` | `#5E6785` | `#9AA3C2` | Secondary text, axis labels |
-| `primary` | `#2F4BFF` | `#6A82FF` | Buttons, links, focus ring |
+| Token     | Light     | Dark      | Use                                      |
+| --------- | --------- | --------- | ---------------------------------------- |
+| `bg`      | `#EEF1F6` | `#0E1330` | Page background (cool paper / real navy) |
+| `surface` | `#FFFFFF` | `#161C3F` | Panels, rows, popovers                   |
+| `ink`     | `#1B2240` | `#E8ECF8` | Primary text, borders via alpha          |
+| `muted`   | `#5E6785` | `#9AA3C2` | Secondary text, axis labels              |
+| `primary` | `#2F4BFF` | `#6A82FF` | Buttons, links, focus ring               |
 
 ### Evidence scale (used identically everywhere)
 
-| Level | Light | Dark | Meaning |
-| --- | --- | --- | --- |
-| `claimed` | `#D99A1E` | `#F0BA4A` | On the resume only |
+| Level      | Light     | Dark      | Meaning              |
+| ---------- | --------- | --------- | -------------------- |
+| `claimed`  | `#D99A1E` | `#F0BA4A` | On the resume only   |
 | `observed` | `#14907F` | `#2DBEA8` | Found in GitHub code |
-| `verified` | `#2F4BFF` | `#7C91FF` | Passed the quiz |
-| `missing` | `#C9CEDA` | `#4A5378` | No evidence at all |
+| `verified` | `#2F4BFF` | `#7C91FF` | Passed the quiz      |
+| `missing`  | `#C9CEDA` | `#4A5378` | No evidence at all   |
 
 Badge text uses the `-ink` variant of each hue (`claimed-ink`, `observed-ink`,
 `verified-ink`) so 12px to 14px labels clear WCAG AA against a 12% tint.

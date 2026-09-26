@@ -15,24 +15,14 @@
     },
     {
       "question": "Which instruction in a Dockerfile sets the command run when the container starts?",
-      "options": [
-        "RUN",
-        "CMD",
-        "COPY",
-        "ENV"
-      ],
+      "options": ["RUN", "CMD", "COPY", "ENV"],
       "correct_index": 1,
       "explanation": "CMD (or ENTRYPOINT) defines the start command. RUN executes during the build.",
       "difficulty": "easy"
     },
     {
       "question": "What does docker ps show by default?",
-      "options": [
-        "All images",
-        "Only running containers",
-        "Stopped containers only",
-        "Volumes"
-      ],
+      "options": ["All images", "Only running containers", "Stopped containers only", "Volumes"],
       "correct_index": 1,
       "explanation": "docker ps lists running containers; -a adds stopped ones.",
       "difficulty": "easy"

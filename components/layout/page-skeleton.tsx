@@ -13,9 +13,7 @@ export function PageSkeleton({ columns = 1 }: { columns?: 1 | 2 }) {
         <Skeleton className="mt-2 h-4 w-80" />
         <div
           className={
-            columns === 2
-              ? 'mt-6 grid gap-4 lg:grid-cols-[minmax(0,1fr)_21rem]'
-              : 'mt-6 grid gap-4'
+            columns === 2 ? 'mt-6 grid gap-4 lg:grid-cols-[minmax(0,1fr)_21rem]' : 'mt-6 grid gap-4'
           }
         >
           <div className="flex flex-col gap-4">

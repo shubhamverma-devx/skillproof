@@ -101,11 +101,7 @@ function hasLlmProvider(): boolean {
   return Boolean(process.env.ANTHROPIC_API_KEY ?? process.env.GEMINI_API_KEY);
 }
 
-function pickFromBank(
-  skill: string,
-  difficulty: Difficulty,
-  asked: string[],
-): QuizQuestion | null {
+function pickFromBank(skill: string, difficulty: Difficulty, asked: string[]): QuizQuestion | null {
   const bank = getBankedQuestions(skillSlug(skill));
   const unused = bank.filter(
     (question) => question.difficulty === difficulty && !asked.includes(question.question),
@@ -116,10 +112,7 @@ function pickFromBank(
 }
 
 /** Latest completed attempt for a skill, used to show the previous result. */
-export async function lastAttemptScore(
-  profileId: string,
-  skill: string,
-): Promise<number | null> {
+export async function lastAttemptScore(profileId: string, skill: string): Promise<number | null> {
   const attempts = await getStore().listQuizAttempts(profileId);
   const completed = attempts
     .filter((attempt) => attempt.skill === skill && attempt.score !== null)
