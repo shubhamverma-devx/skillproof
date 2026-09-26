@@ -30,7 +30,14 @@ const C = {
   line: 'D7DCE6',
 } as const;
 
-const FONT = { display: 'Schibsted Grotesk', body: 'IBM Plex Sans' } as const;
+/**
+ * A pptx carries one font name per run with no fallback list, so a brand font
+ * the viewer does not have is substituted by whatever the renderer picks, which
+ * on a fresh machine means a serif. Arial is present on macOS, Windows and in
+ * Office, so the deck looks the same for everyone. The brand comes through in
+ * the colour, the layout and the seal instead.
+ */
+const FONT = { display: 'Arial', body: 'Arial' } as const;
 const W = 13.33;
 const H = 7.5;
 
@@ -133,7 +140,7 @@ function titleSlide(slide: Slidely): void {
   });
   slide.addText(
     'SkillProof turns a student profile into a measurable readiness score and an adaptive roadmap, with the evidence behind every number.',
-    { x: 0.9, y: 4.1, w: 9.6, h: 0.9, fontFace: FONT.body, fontSize: 17, color: 'AEB7D6' },
+    { x: 0.9, y: 4.1, w: 8.8, h: 1.1, fontFace: FONT.body, fontSize: 16, color: 'AEB7D6' },
   );
   slide.addText(
     'Bit N Build 2026, UP Regionals  |  Problem statement 05, education and employability',
@@ -151,15 +158,10 @@ function titleSlide(slide: Slidely): void {
 
 function shotSlide(slide: Slidely, data: Extract<Slide, { kind: 'shot' }>): void {
   frame(slide, data.title, data.lead);
-  slide.addImage({
-    path: path.join(SHOTS, data.image),
-    x: 0.55,
-    y: 2.6,
-    w: 8.0,
-    h: 4.4,
-    sizing: { type: 'contain', w: 8.0, h: 4.4 },
-  });
-  bulletBlock(slide, data.bullets, 9.0, 2.7, 3.6);
+  // The screenshots are 1440 by 900, so the box keeps that ratio exactly rather
+  // than leaving the renderer to letterbox it into a mismatched frame.
+  slide.addImage({ path: path.join(SHOTS, data.image), x: 0.55, y: 2.65, w: 7.2, h: 4.5 });
+  bulletBlock(slide, data.bullets, 8.15, 2.8, 4.5);
 }
 
 function tableSlide(slide: Slidely, data: Extract<Slide, { kind: 'table' }>): void {
@@ -176,11 +178,11 @@ function tableSlide(slide: Slidely, data: Extract<Slide, { kind: 'table' }>): vo
     ],
     {
       x: 0.55,
-      y: data.lead ? 2.7 : 2.3,
+      y: data.lead ? 2.7 : 2.4,
       w: W - 1.1,
       fontSize: 13,
       border: { type: 'solid', color: C.line, pt: 1 },
-      rowH: 0.5,
+      rowH: 0.72,
       valign: 'middle',
       margin: 10,
     },
@@ -215,7 +217,9 @@ async function main(): Promise<void> {
   await renderSeal();
 
   const pptx = new PptxGenJS();
-  pptx.layout = 'LAYOUT_16x9';
+  // LAYOUT_16x9 is 10 by 5.625 inches in pptxgenjs. LAYOUT_WIDE is the 13.33 by
+  // 7.5 inch slide these coordinates are drawn for.
+  pptx.layout = 'LAYOUT_WIDE';
   pptx.author = 'SkillProof';
   pptx.title = 'SkillProof';
 

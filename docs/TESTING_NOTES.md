@@ -145,6 +145,28 @@ A full demo storyline adds two more quizzes and three replanned roadmaps, which
 comes to roughly 24,000 tokens end to end. The demo profile replays from
 `data/demo/llm_cache.json`, so the recorded demo costs nothing to run again.
 
+## Pitch deck
+
+`pnpm deck` builds `docs/SkillProof_Pitch.pptx` from `scripts/deck-content.ts`,
+using the app's colour tokens, the real product seal and screenshots captured by
+`pnpm demo:shots`. Checked by converting to PDF with LibreOffice and rendering
+every page:
+
+- **Slide size was wrong.** `LAYOUT_16x9` in pptxgenjs is 10 by 5.625 inches, not
+  13.33 by 7.5. Everything laid out past those bounds was silently clipped, which
+  cut the right hand column off every screenshot slide. Fixed with `LAYOUT_WIDE`.
+- **Screenshots overlapped the bullet column.** The image box is now sized to the
+  exact 1440 by 900 ratio of the captures instead of relying on the renderer.
+- **Brand fonts were substituted with a serif.** A pptx carries one font name per
+  run with no fallback list, so Schibsted Grotesk and IBM Plex Sans became Frank
+  Ruhl on a machine without them. The deck uses Arial, which exists on macOS,
+  Windows and in Office, so it renders the same everywhere. The brand carries
+  through colour, layout and the seal instead.
+- Table rows were raised so the table slides are not top heavy.
+
+`docs/SkillProof_Pitch.pdf` is exported from the same file for anyone without
+PowerPoint.
+
 ## Production smoke test
 
 `pnpm smoke` checks the things that break in production but not locally: a cold

@@ -178,7 +178,10 @@ export const SLIDES: Slide[] = [
         'Agent',
         'Resume and GitHub ingestion, 84 skill taxonomy, deterministic scoring and planner',
       ],
-      ['Models', 'Sarvam AI sarvam-105b, then Groq gpt-oss-120b, then Gemini 3.8 Flash'],
+      [
+        'Models',
+        'Sarvam AI sarvam-105b-conversations, then Groq gpt-oss-120b, then Gemini 3.8 Flash',
+      ],
       ['Data', 'Supabase Postgres in Mumbai, local JSON store when unconfigured'],
       ['Quality', '69 unit tests, typecheck, lint and build in GitHub Actions'],
     ],
