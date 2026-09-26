@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Panel } from '@/components/ui/panel';
 import { getTaxonomy, listRoles } from '@/lib/dataset';
 import { isDemoModeForced } from '@/lib/demo';
+import { isSarvamPrimary } from '@/lib/llm';
 
 const FEATURES = [
   {
@@ -93,9 +94,12 @@ export default function LandingPage() {
       </main>
 
       <footer className="border-t">
-        <div className="mx-auto max-w-shell px-4 py-6 text-ui-sm text-muted sm:px-6 lg:px-10">
-          Built for Bit N Build 2026, problem statement 05: education and employability. The job
-          description dataset is a curated sample, described in the README.
+        <div className="mx-auto flex max-w-shell flex-col gap-1 px-4 py-6 text-ui-sm text-muted sm:px-6 lg:px-10">
+          <p>
+            Built for Bit N Build 2026, problem statement 05: education and employability. The job
+            description dataset is a curated sample, described in the README.
+          </p>
+          {isSarvamPrimary() ? <p>AI by Sarvam, with Groq and Gemini as fallbacks.</p> : null}
         </div>
       </footer>
     </>

@@ -57,7 +57,7 @@ prices every gap against real job description demand.
 
 | Theme requirement        | Where it lives                                                                                                                                                         |
 | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AI reasoning             | `lib/llm/index.ts` (single entry point), `lib/agent/ingestResume.ts`, `lib/agent/quiz.ts`, `lib/roadmap/prompt.ts`                                                     |
+| AI reasoning             | `lib/llm/index.ts` (one entry point over Sarvam, Groq and Gemini), `lib/agent/ingestResume.ts`, `lib/agent/quiz.ts`, `lib/roadmap/prompt.ts`                           |
 | Real world data and APIs | `data/roles/*.json` and `data/raw_jds/` (job description demand), `lib/github/scan.ts` (GitHub REST), `lib/resume/pdf.ts` (PDF upload)                                 |
 | Persistent state         | `lib/db/` with one interface over Supabase and a local JSON store, schema in `supabase/schema.sql`                                                                     |
 | Explainability           | `lib/scoring/evidence-summary.ts` builds every explanation from counted evidence, `components/dashboard/skill-row.tsx` shows the repository and file behind each skill |
@@ -100,7 +100,7 @@ flowchart TD
     D3[(resources.json whitelist)]
     D4[(proof_projects.json)]
     D5[(question_bank/*.json)]
-    L[LLM: Anthropic, then Gemini, then deterministic]
+    L[LLM chain: Sarvam, then Groq, then Gemini, then deterministic]
     GH[GitHub REST API]
     DB[(Supabase Postgres or .data JSON store)]
   end
@@ -127,8 +127,8 @@ flowchart TD
 
 Next.js 14 App Router, TypeScript in strict mode, Tailwind CSS with a custom
 token system, shadcn/ui style components on Radix primitives, Recharts,
-Supabase Postgres, `@anthropic-ai/sdk` with a Google Gemini fallback, zod for
-every boundary, Vitest, pnpm, deployed on Vercel.
+Supabase Postgres, a three provider model chain (Sarvam AI, then Groq, then
+Google Gemini), zod for every boundary, Vitest, pnpm, deployed on Vercel.
 
 ## Running it
 
@@ -145,14 +145,19 @@ database and no network.
 
 ### Environment variables
 
-| Variable                                                   | Needed for                                                                           | Without it                                                                                    |
-| ---------------------------------------------------------- | ------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------- |
-| `ANTHROPIC_API_KEY`                                        | Model written explanations, generated quiz questions, model sequenced roadmaps       | The deterministic planner and the stored question bank take over, and the agent trace says so |
-| `LLM_MODEL`                                                | Choosing the model, default `claude-sonnet-5`                                        | Uses the default                                                                              |
-| `GEMINI_API_KEY`                                           | Second provider in the fallback chain                                                | The chain skips straight to deterministic logic                                               |
-| `GITHUB_TOKEN`                                             | Raising the GitHub rate limit from 60 to 5000 requests an hour                       | Scans are capped at 8 repositories and rate limits degrade to resume only                     |
-| `NEXT_PUBLIC_SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` | Storing profiles in Postgres                                                         | Everything is written to a local JSON store in `.data/`                                       |
-| `DEMO_MODE`                                                | Recording model replies into `data/demo/llm_cache.json` and labelling the deployment | Off                                                                                           |
+| Variable                                                   | Needed for                                                                           | Without it                                                                |
+| ---------------------------------------------------------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------- |
+| `SARVAM_API_KEY`                                           | Primary provider, Sarvam AI `sarvam-105b`                                            | The chain drops to Groq                                                   |
+| `GROQ_API_KEY`                                             | First fallback, `openai/gpt-oss-120b` on the free tier                               | The chain drops to Gemini                                                 |
+| `GEMINI_API_KEY`                                           | Second fallback, `gemini-3.8-flash` on the free tier                                 | The chain drops to deterministic logic                                    |
+| `LLM_PRIMARY`                                              | Promotes one provider to the front of the chain                                      | Order is Sarvam, then Groq, then Gemini                                   |
+| `GITHUB_TOKEN`                                             | Raising the GitHub rate limit from 60 to 5000 requests an hour                       | Scans are capped at 8 repositories and rate limits degrade to resume only |
+| `NEXT_PUBLIC_SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` | Storing profiles in Postgres                                                         | Everything is written to a local JSON store in `.data/`                   |
+| `DEMO_MODE`                                                | Recording model replies into `data/demo/llm_cache.json` and labelling the deployment | Off                                                                       |
+
+With no provider key at all the product still runs end to end: the deterministic
+planner, keyword resume parsing and the stored question bank take over, and the
+agent trace says which path each step took.
 
 ### With Supabase
 
@@ -207,18 +212,24 @@ Marking an item done deliberately does not move the score. Proof does.
 
 ## Graceful failure
 
-| Failure                           | What happens                                                                                                                                                         |
-| --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Model returns invalid JSON        | zod rejects it, one retry carries the validation error back to the model, then the other provider, then deterministic logic. Each step is written to the agent trace |
-| Model times out after 20 seconds  | Same chain                                                                                                                                                           |
-| No API key at all                 | Deterministic planner, keyword resume extraction and the stored question bank run the whole product                                                                  |
-| GitHub rate limit or unknown user | Analysis continues with resume evidence only, with a warning in the trace and a banner on the dashboard                                                              |
-| Resume PDF is a scan with no text | The upload is rejected with a message asking for pasted text                                                                                                         |
-| No Supabase credentials           | Local JSON store in `.data/`, written atomically through one queue                                                                                                   |
-| Quiz generation fails             | Falls back to `data/question_bank/<skill>.json` for ten common skills                                                                                                |
-| A page throws                     | `app/error.tsx` shows what happened and offers a retry, never a blank screen                                                                                         |
+| Failure                           | What happens                                                                                                                                                                     |
+| --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Model returns invalid JSON        | zod rejects it, one retry carries the validation error back to the model, then the next provider in the chain, then deterministic logic. Each step is written to the agent trace |
+| A provider reports a rate limit   | The chain moves on immediately rather than waiting out a free tier window, and the trace records the switch                                                                      |
+| Model times out after 20 seconds  | Same chain                                                                                                                                                                       |
+| No API key at all                 | Deterministic planner, keyword resume extraction and the stored question bank run the whole product                                                                              |
+| GitHub rate limit or unknown user | Analysis continues with resume evidence only, with a warning in the trace and a banner on the dashboard                                                                          |
+| Resume PDF is a scan with no text | The upload is rejected with a message asking for pasted text                                                                                                                     |
+| No Supabase credentials           | Local JSON store in `.data/`, written atomically through one queue                                                                                                               |
+| Quiz generation fails             | Falls back to `data/question_bank/<skill>.json` for ten common skills                                                                                                            |
+| A page throws                     | `app/error.tsx` shows what happened and offers a retry, never a blank screen                                                                                                     |
 
 ## Design decisions
+
+**Three providers, all optional.** Sarvam AI is primary: an Indian platform for
+an Indian student problem, and its signup credits cover the whole build. Groq and
+Gemini follow on their free tiers. Sarvam and Groq are both OpenAI shaped, so one
+adapter serves both, and the order is set by `LLM_PRIMARY` rather than by code.
 
 **Scoring is deterministic, the model only writes prose.** Readiness, proficiency
 and gap order are plain TypeScript in `lib/scoring/`. A model that hallucinates

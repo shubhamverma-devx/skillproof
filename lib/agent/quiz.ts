@@ -1,7 +1,7 @@
 import { QUIZ } from '@/lib/config';
 import { getBankedQuestions } from '@/lib/dataset';
 import { getStore } from '@/lib/db';
-import { generateJson, hashText, makeCacheKey } from '@/lib/llm';
+import { buildProviderChain, generateJson, hashText, makeCacheKey } from '@/lib/llm';
 import { skillSlug } from '@/lib/skills/taxonomy';
 import { quizQuestionSchema, type Difficulty, type QuizQuestion } from '@/types/domain';
 import type { Tracer } from './trace';
@@ -94,11 +94,7 @@ export async function generateQuestion(
 }
 
 export function canQuiz(skill: string): boolean {
-  return getBankedQuestions(skillSlug(skill)).length > 0 || hasLlmProvider();
-}
-
-function hasLlmProvider(): boolean {
-  return Boolean(process.env.ANTHROPIC_API_KEY ?? process.env.GEMINI_API_KEY);
+  return getBankedQuestions(skillSlug(skill)).length > 0 || buildProviderChain().length > 0;
 }
 
 function pickFromBank(skill: string, difficulty: Difficulty, asked: string[]): QuizQuestion | null {

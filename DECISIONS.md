@@ -85,3 +85,51 @@ Choices made while building, with the reason. Recorded as they happened.
   the badge threshold, alias collisions such as "js" inside "Node.js", manifest
   parsing, the hour budget packer, the resource whitelist and the whole LLM
   fallback chain against a mocked provider. None of them restate the code.
+
+## Model providers
+
+Replaced the single Anthropic dependency with a free tier chain. What was
+confirmed from the provider documentation before writing any adapter:
+
+**Sarvam AI (primary), confirmed at docs.sarvam.ai**
+
+- `POST https://api.sarvam.ai/v1/chat/completions`, OpenAI shaped.
+- Auth is `Authorization: Bearer <key>`, with `api-subscription-key` as an
+  alternative header.
+- Chat models are `sarvam-105b` (128K context) and `sarvam-105b-conversations`
+  (32K, tuned for voice and dialogue). **`sarvam-30b` and `sarvam-m` are
+  deprecated and no longer served**, so there is no smaller Sarvam model to fall
+  back to. A rate limited Sarvam call goes straight to Groq instead.
+- `response_format` supports `json_object` and `json_schema`, so JSON mode is
+  requested rather than asked for politely in the prompt.
+- Reasoning is controlled by `reasoning_effort` (`low`, `high`, `max`, default
+  `medium`). There is no off switch, so structured calls use `low`. Reasoning
+  comes back in `message.reasoning_content` and is billed as completion tokens,
+  which is why `max_tokens` has to cover both.
+- Rate limit for the 105B model on the Starter plan is 40 requests a minute.
+  Signup credits are worth 100 rupees across all Sarvam APIs and do not expire.
+
+**Groq (first fallback), confirmed at console.groq.com/docs/rate-limits**
+
+- OpenAI compatible at `https://api.groq.com/openai/v1`.
+- `openai/gpt-oss-120b` on the free tier: 30 requests a minute, 8k tokens a
+  minute, 1k requests a day. Rate limits return HTTP 429 with `retry-after`.
+- That 8k tokens a minute is the tightest budget in the chain, so the resume
+  prompt is capped at 6000 characters and READMEs are never sent to a model.
+
+**Google Gemini (second fallback), confirmed at ai.google.dev**
+
+- `gemini-3.8-flash` is the current generally available Flash model. The old
+  `gemini-1.5-flash` id this project shipped with was out of date.
+
+**Decisions that follow from this**
+
+- **One adapter for Sarvam and Groq.** Both are OpenAI shaped, so a second copy
+  of the same request code would only be a second place for bugs to live.
+- **`@anthropic-ai/sdk` was removed outright** rather than kept behind an env
+  flag. An unused SDK in the dependency list is a claim the project does not
+  back up, and the chain already has three providers.
+- **A rate limited provider is abandoned immediately.** Waiting out a free tier
+  window would stall a request that has a working alternative one line down.
+- **The chain order is data, not code.** `LLM_PRIMARY` promotes any configured
+  provider to the front.

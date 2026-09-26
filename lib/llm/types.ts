@@ -1,12 +1,30 @@
 import type { z } from 'zod';
 
-export type ProviderName = 'anthropic' | 'gemini';
+export type ProviderName = 'sarvam' | 'groq' | 'gemini';
 export type JsonSource = ProviderName | 'cache' | 'fallback';
+
+export type TokenUsage = { prompt: number; completion: number; total: number };
+
+export type LlmReply = { text: string; usage: TokenUsage | null };
 
 export interface LlmProvider {
   readonly name: ProviderName;
+  readonly model: string;
   /** Returns raw model text; JSON parsing and validation happen one layer up. */
-  complete(system: string, user: string): Promise<string>;
+  complete(system: string, user: string): Promise<LlmReply>;
+}
+
+/** Thrown when a provider says it is out of quota, so the chain moves on at once. */
+export class RateLimitedError extends Error {
+  constructor(
+    readonly provider: ProviderName,
+    readonly retryAfterSeconds: number | null,
+  ) {
+    super(
+      `${provider} is rate limited${retryAfterSeconds ? `, retry after ${retryAfterSeconds}s` : ''}`,
+    );
+    this.name = 'RateLimitedError';
+  }
 }
 
 /** Subset of the agent tracer the LLM layer needs, kept structural to avoid a cycle. */
@@ -28,7 +46,13 @@ export type JsonRequest<T> = {
   fallback?: () => T;
 };
 
-export type JsonResult<T> = { value: T; source: JsonSource };
+export type JsonResult<T> = {
+  value: T;
+  source: JsonSource;
+  /** Which model produced it, for the agent trace. Null for cache and fallback. */
+  model: string | null;
+  usage: TokenUsage | null;
+};
 
 export class LlmUnavailableError extends Error {
   constructor(message: string) {

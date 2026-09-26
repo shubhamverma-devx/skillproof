@@ -21,11 +21,14 @@ export const QUIZ = {
 
 export const LLM = {
   timeoutMs: 20_000,
+  /** Sarvam bills reasoning as completion tokens, so the cap covers both. */
   maxOutputTokens: 4096,
+  temperature: 0.2,
   /** One repair attempt with the validation error appended, then provider swap. */
   jsonRepairAttempts: 1,
-  defaultModel: 'claude-sonnet-5',
-  geminiModel: 'gemini-1.5-flash',
+  sarvam: { baseUrl: 'https://api.sarvam.ai/v1', model: 'sarvam-105b' },
+  groq: { baseUrl: 'https://api.groq.com/openai/v1', model: 'openai/gpt-oss-120b' },
+  gemini: { model: 'gemini-3.8-flash' },
 } as const;
 
 export const ROADMAP = {

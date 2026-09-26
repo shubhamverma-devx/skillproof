@@ -84,8 +84,9 @@ Four steps, all visible to the student:
 - **Scoring:** proficiency rules and the readiness formula, in plain TypeScript.
 - **Planning:** gap ranking, prerequisite graph, hour budget packer, resource
   whitelist, proof project blueprints.
-- **Model layer:** Anthropic first, Gemini second, deterministic logic last.
-  Every reply is validated with zod and repaired once before the chain moves on.
+- **Model layer:** Sarvam AI first, Groq second, Gemini third, deterministic
+  logic last. Every reply is validated with zod and repaired once before the
+  chain moves on, and a rate limited provider is skipped immediately.
 - **Storage:** Supabase Postgres, or a local JSON store when there are no
   credentials.
 
@@ -98,7 +99,7 @@ Show the Mermaid diagram from the README here.
 - Next.js 14, TypeScript strict, Tailwind CSS with a custom token system
 - shadcn/ui style components on Radix primitives, Recharts, lucide-react
 - Supabase Postgres, `@supabase/supabase-js`, server side only
-- `@anthropic-ai/sdk` with a Google Gemini fallback, zod at every boundary
+- Sarvam AI, India's sovereign LLM, with Groq and Gemini fallbacks, zod at every boundary
 - Vitest, ESLint, Prettier, GitHub Actions, deployed on Vercel
 
 ---
@@ -115,6 +116,8 @@ Show the Mermaid diagram from the README here.
   debug tool.
 - **The whole product runs with zero API keys,** because every model step has a
   deterministic fallback.
+- **Built on Sarvam AI,** an Indian LLM platform for an Indian student problem,
+  with two free tier fallbacks behind it.
 
 ---
 
