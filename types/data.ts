@@ -18,6 +18,12 @@ export const taxonomyEntrySchema = z.object({
   canonical: z.string(),
   category: skillCategorySchema,
   aliases: z.array(z.string()),
+  /**
+   * Concepts that using this skill necessarily demonstrates. Someone with
+   * PyTorch in a manifest is doing deep learning whether or not the README
+   * happens to use the phrase.
+   */
+  implies: z.array(z.string()).default([]),
   hints: z.object({
     packages: z.array(z.string()).default([]),
     files: z.array(z.string()).default([]),

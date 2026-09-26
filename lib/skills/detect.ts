@@ -124,6 +124,22 @@ export function detectSkillsFromRepo(signals: RepoSignals): DetectedSkill[] {
     }
   }
 
+  // A tool proves the concept behind it. Using PyTorch is deep learning work
+  // whether or not the README happens to say the words.
+  for (const entry of getTaxonomy().skills) {
+    const sources = detected.get(entry.canonical);
+    const first = sources?.[0];
+    if (!first) continue;
+    for (const implied of entry.implies) {
+      if (detected.has(implied)) continue;
+      add(implied, {
+        repo: signals.repo,
+        file: first.file,
+        hint: `${entry.canonical} in ${first.file} is ${implied.toLowerCase()} work`,
+      });
+    }
+  }
+
   // Concepts leave no dependency behind, so for those only the README can show
   // intent. Applying this to every skill would let a mention pass as code.
   const readmeSkills = findSkillsInText(`${signals.readme}\n${signals.description}`);

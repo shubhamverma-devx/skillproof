@@ -9,7 +9,8 @@
         "files": ["requirements.txt", "pyproject.toml", "Pipfile", "setup.py"],
         "languages": ["Python"],
         "topics": ["python"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "JavaScript",
@@ -20,7 +21,8 @@
         "files": ["package.json", ".eslintrc.json"],
         "languages": ["JavaScript"],
         "topics": ["javascript"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "TypeScript",
@@ -31,7 +33,8 @@
         "files": ["tsconfig.json"],
         "languages": ["TypeScript"],
         "topics": ["typescript"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "Java",
@@ -42,7 +45,8 @@
         "files": ["pom.xml", "build.gradle"],
         "languages": ["Java"],
         "topics": ["java"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "SQL",
@@ -53,7 +57,8 @@
         "files": ["schema.sql", "migrations"],
         "languages": ["PLpgSQL", "TSQL"],
         "topics": ["sql"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "HTML",
@@ -64,7 +69,8 @@
         "files": ["index.html"],
         "languages": ["HTML"],
         "topics": ["html"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "CSS",
@@ -75,7 +81,8 @@
         "files": ["styles.css", "global.css"],
         "languages": ["CSS", "SCSS", "Less"],
         "topics": ["css"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "Shell scripting",
@@ -86,7 +93,8 @@
         "files": ["entrypoint.sh", "setup.sh", "deploy.sh"],
         "languages": ["Shell"],
         "topics": ["bash"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "React",
@@ -97,7 +105,8 @@
         "files": [],
         "languages": [],
         "topics": ["react"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "Next.js",
@@ -108,7 +117,8 @@
         "files": ["next.config.js", "next.config.mjs"],
         "languages": [],
         "topics": ["nextjs"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "Node.js",
@@ -119,7 +129,8 @@
         "files": ["server.js", "app.js"],
         "languages": [],
         "topics": ["nodejs"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "Express",
@@ -130,7 +141,8 @@
         "files": [],
         "languages": [],
         "topics": ["express"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "Redux",
@@ -141,7 +153,8 @@
         "files": [],
         "languages": [],
         "topics": ["redux"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "Tailwind CSS",
@@ -152,7 +165,8 @@
         "files": ["tailwind.config.js", "tailwind.config.ts"],
         "languages": [],
         "topics": ["tailwindcss"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "Django",
@@ -163,7 +177,8 @@
         "files": ["manage.py"],
         "languages": [],
         "topics": ["django"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "Flask",
@@ -174,7 +189,8 @@
         "files": [],
         "languages": [],
         "topics": ["flask"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "FastAPI",
@@ -185,7 +201,8 @@
         "files": [],
         "languages": [],
         "topics": ["fastapi"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "Spring Boot",
@@ -196,7 +213,8 @@
         "files": ["application.properties", "application.yml"],
         "languages": [],
         "topics": ["spring-boot"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "PyTorch",
@@ -207,7 +225,8 @@
         "files": [],
         "languages": [],
         "topics": ["pytorch"]
-      }
+      },
+      "implies": ["Deep learning", "Machine learning"]
     },
     {
       "canonical": "TensorFlow",
@@ -218,7 +237,8 @@
         "files": [],
         "languages": [],
         "topics": ["tensorflow"]
-      }
+      },
+      "implies": ["Deep learning", "Machine learning"]
     },
     {
       "canonical": "scikit-learn",
@@ -229,7 +249,8 @@
         "files": [],
         "languages": [],
         "topics": ["scikit-learn"]
-      }
+      },
+      "implies": ["Machine learning"]
     },
     {
       "canonical": "Pandas",
@@ -240,7 +261,8 @@
         "files": [],
         "languages": [],
         "topics": ["pandas"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "NumPy",
@@ -251,7 +273,8 @@
         "files": [],
         "languages": [],
         "topics": ["numpy"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "Matplotlib",
@@ -262,7 +285,8 @@
         "files": [],
         "languages": [],
         "topics": ["matplotlib"]
-      }
+      },
+      "implies": ["Data visualisation"]
     },
     {
       "canonical": "PostgreSQL",
@@ -273,7 +297,8 @@
         "files": [],
         "languages": [],
         "topics": ["postgresql"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "MySQL",
@@ -284,7 +309,8 @@
         "files": [],
         "languages": [],
         "topics": ["mysql"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "MongoDB",
@@ -295,7 +321,8 @@
         "files": [],
         "languages": [],
         "topics": ["mongodb"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "Redis",
@@ -306,7 +333,8 @@
         "files": [],
         "languages": [],
         "topics": ["redis"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "Git",
@@ -317,7 +345,8 @@
         "files": [".gitignore", ".gitattributes"],
         "languages": [],
         "topics": ["git"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "GitHub Actions",
@@ -328,7 +357,8 @@
         "files": [".github/workflows"],
         "languages": [],
         "topics": ["github-actions"]
-      }
+      },
+      "implies": ["CI/CD"]
     },
     {
       "canonical": "Docker",
@@ -339,7 +369,8 @@
         "files": ["Dockerfile", "docker-compose.yml", "compose.yaml", ".dockerignore"],
         "languages": ["Dockerfile"],
         "topics": ["docker"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "Kubernetes",
@@ -350,7 +381,8 @@
         "files": ["k8s", "helm", "deployment.yaml"],
         "languages": [],
         "topics": ["kubernetes"]
-      }
+      },
+      "implies": ["Docker"]
     },
     {
       "canonical": "AWS",
@@ -361,7 +393,8 @@
         "files": ["buildspec.yml", "serverless.yml"],
         "languages": [],
         "topics": ["aws"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "Azure",
@@ -372,7 +405,8 @@
         "files": ["azure-pipelines.yml"],
         "languages": [],
         "topics": ["azure"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "GCP",
@@ -383,7 +417,8 @@
         "files": ["app.yaml", "cloudbuild.yaml"],
         "languages": [],
         "topics": ["gcp"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "Terraform",
@@ -394,7 +429,8 @@
         "files": ["main.tf", "variables.tf"],
         "languages": ["HCL"],
         "topics": ["terraform"]
-      }
+      },
+      "implies": ["Infrastructure as code"]
     },
     {
       "canonical": "Ansible",
@@ -405,7 +441,8 @@
         "files": ["playbook.yml", "ansible.cfg"],
         "languages": [],
         "topics": ["ansible"]
-      }
+      },
+      "implies": ["Infrastructure as code"]
     },
     {
       "canonical": "Jenkins",
@@ -416,7 +453,8 @@
         "files": ["Jenkinsfile"],
         "languages": [],
         "topics": ["jenkins"]
-      }
+      },
+      "implies": ["CI/CD"]
     },
     {
       "canonical": "Linux",
@@ -427,7 +465,8 @@
         "files": ["Makefile"],
         "languages": [],
         "topics": ["linux"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "Nginx",
@@ -438,7 +477,8 @@
         "files": ["nginx.conf"],
         "languages": [],
         "topics": ["nginx"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "Prometheus",
@@ -449,7 +489,8 @@
         "files": ["prometheus.yml"],
         "languages": [],
         "topics": ["prometheus"]
-      }
+      },
+      "implies": ["Monitoring"]
     },
     {
       "canonical": "Grafana",
@@ -460,7 +501,8 @@
         "files": ["grafana"],
         "languages": [],
         "topics": ["grafana"]
-      }
+      },
+      "implies": ["Monitoring"]
     },
     {
       "canonical": "Jupyter",
@@ -471,7 +513,8 @@
         "files": [],
         "languages": ["Jupyter Notebook"],
         "topics": ["jupyter-notebook"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "MLflow",
@@ -482,7 +525,8 @@
         "files": [],
         "languages": [],
         "topics": ["mlflow"]
-      }
+      },
+      "implies": ["Machine learning"]
     },
     {
       "canonical": "Excel",
@@ -493,7 +537,8 @@
         "files": [],
         "languages": [],
         "topics": ["excel"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "Power BI",
@@ -504,7 +549,8 @@
         "files": [],
         "languages": [],
         "topics": ["power-bi"]
-      }
+      },
+      "implies": ["Data visualisation"]
     },
     {
       "canonical": "Tableau",
@@ -515,7 +561,8 @@
         "files": [],
         "languages": [],
         "topics": ["tableau"]
-      }
+      },
+      "implies": ["Data visualisation"]
     },
     {
       "canonical": "Postman",
@@ -526,7 +573,8 @@
         "files": ["postman_collection.json"],
         "languages": [],
         "topics": ["postman"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "Jest",
@@ -537,7 +585,8 @@
         "files": ["jest.config.js", "vitest.config.ts"],
         "languages": [],
         "topics": ["jest"]
-      }
+      },
+      "implies": ["Testing"]
     },
     {
       "canonical": "Playwright",
@@ -548,7 +597,8 @@
         "files": ["playwright.config.ts"],
         "languages": [],
         "topics": ["playwright"]
-      }
+      },
+      "implies": ["Testing"]
     },
     {
       "canonical": "Vite",
@@ -559,7 +609,8 @@
         "files": ["vite.config.ts", "webpack.config.js"],
         "languages": [],
         "topics": ["vite"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "Figma",
@@ -570,7 +621,8 @@
         "files": [],
         "languages": [],
         "topics": ["figma"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "Machine learning",
@@ -581,7 +633,8 @@
         "files": [],
         "languages": [],
         "topics": ["machine-learning"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "Deep learning",
@@ -592,7 +645,8 @@
         "files": [],
         "languages": [],
         "topics": ["deep-learning"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "NLP",
@@ -603,7 +657,8 @@
         "files": [],
         "languages": [],
         "topics": ["nlp"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "Computer vision",
@@ -614,7 +669,8 @@
         "files": [],
         "languages": [],
         "topics": ["computer-vision"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "Statistics",
@@ -625,7 +681,8 @@
         "files": [],
         "languages": [],
         "topics": ["statistics"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "Data visualisation",
@@ -636,7 +693,8 @@
         "files": [],
         "languages": [],
         "topics": ["data-visualization"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "Feature engineering",
@@ -647,7 +705,8 @@
         "files": [],
         "languages": [],
         "topics": ["feature-engineering"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "Model deployment",
@@ -658,7 +717,8 @@
         "files": [],
         "languages": [],
         "topics": ["mlops"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "REST APIs",
@@ -669,7 +729,8 @@
         "files": [],
         "languages": [],
         "topics": ["rest-api"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "GraphQL",
@@ -680,7 +741,8 @@
         "files": ["schema.graphql"],
         "languages": [],
         "topics": ["graphql"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "Authentication",
@@ -691,7 +753,8 @@
         "files": [],
         "languages": [],
         "topics": ["authentication"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "System design",
@@ -702,7 +765,8 @@
         "files": [],
         "languages": [],
         "topics": ["system-design"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "Data structures and algorithms",
@@ -713,7 +777,8 @@
         "files": [],
         "languages": [],
         "topics": ["algorithms"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "Testing",
@@ -724,7 +789,8 @@
         "files": ["tests", "test"],
         "languages": [],
         "topics": ["testing"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "CI/CD",
@@ -735,7 +801,8 @@
         "files": [".github/workflows", ".gitlab-ci.yml", "Jenkinsfile"],
         "languages": [],
         "topics": ["ci-cd"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "Web performance",
@@ -746,7 +813,8 @@
         "files": ["lighthouserc.json"],
         "languages": [],
         "topics": ["web-performance"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "Accessibility",
@@ -757,7 +825,8 @@
         "files": [],
         "languages": [],
         "topics": ["accessibility"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "Responsive design",
@@ -768,7 +837,8 @@
         "files": [],
         "languages": [],
         "topics": ["responsive-design"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "Data cleaning",
@@ -779,7 +849,8 @@
         "files": [],
         "languages": [],
         "topics": ["data-cleaning"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "ETL",
@@ -790,7 +861,8 @@
         "files": ["dags"],
         "languages": [],
         "topics": ["etl"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "Data modelling",
@@ -807,7 +879,8 @@
         "files": [],
         "languages": [],
         "topics": ["data-modeling"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "A/B testing",
@@ -818,7 +891,8 @@
         "files": [],
         "languages": [],
         "topics": ["ab-testing"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "Business intelligence",
@@ -829,7 +903,8 @@
         "files": [],
         "languages": [],
         "topics": ["business-intelligence"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "Monitoring",
@@ -840,7 +915,8 @@
         "files": [],
         "languages": [],
         "topics": ["monitoring"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "Infrastructure as code",
@@ -851,7 +927,8 @@
         "files": ["main.tf", "playbook.yml"],
         "languages": [],
         "topics": ["infrastructure-as-code"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "Networking",
@@ -862,7 +939,8 @@
         "files": [],
         "languages": [],
         "topics": ["networking"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "Caching",
@@ -873,7 +951,8 @@
         "files": [],
         "languages": [],
         "topics": ["caching"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "Message queues",
@@ -884,7 +963,8 @@
         "files": [],
         "languages": [],
         "topics": ["kafka"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "Microservices",
@@ -895,7 +975,8 @@
         "files": [],
         "languages": [],
         "topics": ["microservices"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "Agile",
@@ -906,7 +987,8 @@
         "files": [],
         "languages": [],
         "topics": ["agile"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "Cloud fundamentals",
@@ -917,7 +999,8 @@
         "files": [],
         "languages": [],
         "topics": ["cloud"]
-      }
+      },
+      "implies": []
     },
     {
       "canonical": "Web scraping",
@@ -928,7 +1011,8 @@
         "files": [],
         "languages": [],
         "topics": ["web-scraping"]
-      }
+      },
+      "implies": []
     }
   ]
 }

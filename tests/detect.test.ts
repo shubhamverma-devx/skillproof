@@ -109,3 +109,42 @@ describe('mergeDetections', () => {
     expect(merged.get('Docker')?.map((source) => source.repo)).toEqual(['a', 'b']);
   });
 });
+
+describe('concept implication', () => {
+  it('counts a deep learning framework as evidence of the concept behind it', () => {
+    const detected = detectSkillsFromRepo(
+      signals({
+        files: ['requirements.txt'],
+        dependencies: [{ name: 'torch', file: 'requirements.txt' }],
+      }),
+    );
+    const skills = detected.map((entry) => entry.skill);
+
+    expect(skills).toContain('PyTorch');
+    expect(skills).toContain('Deep learning');
+    expect(skills).toContain('Machine learning');
+
+    const implied = detected.find((entry) => entry.skill === 'Machine learning');
+    expect(implied?.sources[0]).toMatchObject({
+      file: 'requirements.txt',
+      hint: 'PyTorch in requirements.txt is machine learning work',
+    });
+  });
+
+  it('does not invent a concept with no tool behind it', () => {
+    const detected = detectSkillsFromRepo(signals({ files: ['README.md'] }));
+    expect(detected.map((entry) => entry.skill)).not.toContain('Machine learning');
+  });
+
+  it('keeps the stronger direct evidence when both are present', () => {
+    const detected = detectSkillsFromRepo(
+      signals({
+        topics: ['machine-learning'],
+        dependencies: [{ name: 'scikit-learn', file: 'requirements.txt' }],
+        files: ['requirements.txt'],
+      }),
+    );
+    const ml = detected.find((entry) => entry.skill === 'Machine learning');
+    expect(ml?.sources[0]?.file).toBe('repository topics');
+  });
+});
