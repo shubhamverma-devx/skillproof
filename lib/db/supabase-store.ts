@@ -96,6 +96,10 @@ export class SupabaseStore implements SkillProofStore {
     );
   }
 
+  async getRoadmap(roadmapId: string): Promise<Roadmap | null> {
+    return this.maybe<Roadmap>(this.table('roadmaps').select('*').eq('id', roadmapId).maybeSingle());
+  }
+
   async getLatestRoadmap(profileId: string): Promise<Roadmap | null> {
     return this.maybe<Roadmap>(
       this.table('roadmaps')

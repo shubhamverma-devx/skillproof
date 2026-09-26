@@ -123,6 +123,10 @@ export class JsonStore implements SkillProofStore {
     });
   }
 
+  getRoadmap(roadmapId: string): Promise<Roadmap | null> {
+    return this.select((t) => t.roadmaps.find((r) => r.id === roadmapId) ?? null);
+  }
+
   getLatestRoadmap(profileId: string): Promise<Roadmap | null> {
     return this.select(
       (t) =>

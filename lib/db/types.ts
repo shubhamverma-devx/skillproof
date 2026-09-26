@@ -60,6 +60,7 @@ export interface SkillProofStore {
   listQuizAttempts(profileId: string): Promise<QuizAttempt[]>;
 
   createRoadmap(profileId: string, version: number): Promise<Roadmap>;
+  getRoadmap(roadmapId: string): Promise<Roadmap | null>;
   getLatestRoadmap(profileId: string): Promise<Roadmap | null>;
   approveRoadmap(roadmapId: string): Promise<Roadmap>;
 
