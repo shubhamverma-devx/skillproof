@@ -33,8 +33,10 @@ function mark(phase: string): void {
 const BEAT = { short: 500, read: 1500, long: 2200, hold: 5500 } as const;
 
 /**
- * The opening and the dashboard carry the densest narration, so they get a
- * little more room than the beat scale alone would give them.
+ * The dashboard carries the densest narration, so it gets a little more room
+ * than the beat scale alone would give it. Everything else is kept tight,
+ * because a slow production run adds two or three seconds to every network
+ * bound beat and the finished video has to stay under three minutes.
  */
 const EXTRA_DWELL = 2000;
 
@@ -73,7 +75,7 @@ async function run(page: Page): Promise<string> {
   startedAt = Date.now();
   mark('The problem, on the landing page');
   await page.goto(BASE, { waitUntil: 'networkidle' });
-  await pause(page, BEAT.hold + EXTRA_DWELL);
+  await pause(page, BEAT.hold);
   await shot(page, 'landing');
 
   await page.getByRole('button', { name: 'See a demo' }).click();
@@ -101,7 +103,7 @@ async function run(page: Page): Promise<string> {
 
   // The narration reads the score, the meter and the ceiling over this beat, so
   // the recording holds on the whole card rather than cutting away early.
-  await pause(page, BEAT.hold + BEAT.read * 2 + EXTRA_DWELL);
+  await pause(page, BEAT.hold + BEAT.read);
 
   mark('Every skill, and what backs it up');
   await page.goto(`${BASE}/skills/${profileId}`, { waitUntil: 'networkidle' });
@@ -171,14 +173,14 @@ async function run(page: Page): Promise<string> {
   mark('Back to the dashboard with the new score');
   await page.goto(`${BASE}/dashboard/${profileId}`, { waitUntil: 'networkidle' });
   await page.getByRole('heading', { name: /ready for .* roles\./ }).waitFor();
-  await pause(page, BEAT.hold + EXTRA_DWELL);
+  await pause(page, BEAT.hold);
   await shot(page, 'overview-final');
   mark('Closing on the score history chart');
   await page.locator('text=Your score over time').scrollIntoViewIfNeeded();
   await pause(page, BEAT.read);
   await shot(page, 'score-history');
   // The closing line and the tagline both land over this chart, so it holds.
-  await pause(page, BEAT.hold + EXTRA_DWELL);
+  await pause(page, BEAT.hold);
 
   return profileId;
 }
