@@ -147,6 +147,7 @@ export function ProgressPanel({ state }: { state: ProfileState }) {
             </Label>
             <Slider
               id="hours"
+              label="Hours available each week"
               className="mt-3"
               value={[hours]}
               min={WEEKLY_HOURS.min}

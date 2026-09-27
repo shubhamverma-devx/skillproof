@@ -129,7 +129,7 @@ function MobileBar({ title }: { title: string }) {
 function BottomTabs({ profileId, active }: Pick<ShellProps, 'profileId' | 'active'>) {
   return (
     <nav
-      className="fixed inset-x-0 bottom-0 z-30 grid grid-cols-4 border-t bg-surface/95 backdrop-blur lg:hidden"
+      className="fixed inset-x-0 bottom-0 z-30 grid grid-cols-4 border-t bg-surface lg:hidden"
       aria-label="Sections"
     >
       {SECTIONS.map((section) => {
@@ -142,7 +142,7 @@ function BottomTabs({ profileId, active }: Pick<ShellProps, 'profileId' | 'activ
             aria-current={current ? 'page' : undefined}
             className={cn(
               'flex flex-col items-center gap-1 px-2 py-2.5 text-xs transition-colors',
-              current ? 'text-accent' : 'text-ink-faint hover:text-ink',
+              current ? 'text-accent' : 'text-ink-muted hover:text-ink',
             )}
           >
             <Icon size={18} aria-hidden="true" />

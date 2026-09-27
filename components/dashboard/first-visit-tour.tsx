@@ -22,7 +22,12 @@ const STEPS = [
   },
 ];
 
-/** Teaches the three ideas the product depends on, once, then never again. */
+/**
+ * Teaches the three ideas the product depends on, once, then never again. It
+ * floats above the page rather than sitting in the flow, because it can only
+ * decide whether to appear after reading localStorage, and an element that
+ * appears late in the flow pushes the score off the first screen.
+ */
 export function FirstVisitTour() {
   const [step, setStep] = useState<number | null>(null);
 
@@ -49,7 +54,10 @@ export function FirstVisitTour() {
   const last = step === STEPS.length - 1;
 
   return (
-    <aside className="rounded-panel border bg-surface px-5 py-4" aria-label="Quick introduction">
+    <aside
+      className="fixed inset-x-4 bottom-20 z-40 animate-fade-in rounded-panel border bg-surface-raised px-5 py-4 shadow-overlay sm:inset-x-auto sm:right-6 sm:max-w-sm lg:bottom-6"
+      aria-label="Quick introduction"
+    >
       <div className="flex items-start justify-between gap-4">
         <div className="min-w-0">
           <p className="tabular text-xs text-ink-faint">

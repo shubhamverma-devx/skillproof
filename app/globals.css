@@ -9,8 +9,8 @@
     --surface-raised: 255 255 255;
     --line: 231 231 233;
     --ink: 24 24 27;
-    --ink-muted: 107 111 118;
-    --ink-faint: 144 150 160;
+    --ink-muted: 90 95 102;
+    --ink-faint: 103 108 117;
     --accent: 51 85 255;
     --accent-ink: 255 255 255;
 
@@ -20,7 +20,7 @@
     --observed-soft: 45 91 140;
     --claimed: 138 100 32;
     --claimed-soft: 138 100 32;
-    --missing: 138 143 152;
+    --missing: 111 115 122;
     --missing-soft: 138 143 152;
     --danger: 168 47 47;
   }
@@ -31,8 +31,8 @@
     --surface-raised: 27 29 32;
     --line: 38 40 44;
     --ink: 244 244 245;
-    --ink-muted: 156 161 169;
-    --ink-faint: 113 118 126;
+    --ink-muted: 166 171 179;
+    --ink-faint: 138 143 152;
     --accent: 110 134 255;
     --accent-ink: 8 10 20;
 
@@ -42,7 +42,7 @@
     --observed-soft: 120 172 224;
     --claimed: 216 170 92;
     --claimed-soft: 216 170 92;
-    --missing: 120 125 133;
+    --missing: 134 140 149;
     --missing-soft: 120 125 133;
     --danger: 240 128 128;
   }

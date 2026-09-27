@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { EmptyState } from '@/components/ui/empty-state';
 import { Input } from '@/components/ui/field';
 import { Panel } from '@/components/ui/panel';
-import { PROOF_LABEL, PROOF_MEANING, PROOF_ORDER } from '@/lib/wording';
+import { PROOF_LABEL, PROOF_ORDER } from '@/lib/wording';
 import type { SkillAssessment } from '@/lib/scoring';
 import type { EvidenceLevel } from '@/types/domain';
 import { SkillRow } from './skill-row';
@@ -87,7 +87,7 @@ export function SkillsView({
               onClick={() => setFilter(option)}
             >
               {option === 'all' ? 'All' : PROOF_LABEL[option]}
-              <span className="tabular text-xs opacity-70">{counts[option]}</span>
+              <span className="tabular text-xs">{counts[option]}</span>
             </Button>
           ))}
         </div>
@@ -155,7 +155,7 @@ export function SkillsView({
       />
 
       <p className="text-xs text-ink-faint">
-        {PROOF_MEANING.verified} Tap any skill to see the exact file behind it.
+        Open any skill to see the exact repository and file behind it.
       </p>
     </div>
   );

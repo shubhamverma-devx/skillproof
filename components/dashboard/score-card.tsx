@@ -33,7 +33,14 @@ export function ScoreCard({
     <Panel className="px-5 py-5 sm:px-6 sm:py-6">
       <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
         <h2 className="text-2xl">
-          You are <span className="tabular font-mono tracking-tight">{Math.round(animated)}%</span>{' '}
+          You are{' '}
+          {/* Width is reserved for the final score so counting up cannot rewrap the line. */}
+          <span
+            className="tabular inline-block font-mono tracking-tight"
+            style={{ minWidth: `${String(Math.round(score)).length + 1}ch` }}
+          >
+            {Math.round(animated)}%
+          </span>{' '}
           ready for {roleName} roles.
         </h2>
         {delta !== null && delta !== 0 ? (

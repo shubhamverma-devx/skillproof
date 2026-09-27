@@ -37,16 +37,15 @@ export function ProofMeter({
       <div
         className="flex h-11 w-full gap-px overflow-hidden rounded-control"
         role="img"
-        aria-label={`${Math.round(animated)} out of 100, across ${segments.length} skills this role asks for`}
+        aria-label={`${Math.round(animated)} out of 100, across ${segments.length} skills this role asks for. The full list follows.`}
       >
         {segments.map((segment, index) => (
           <Tooltip key={segment.skill}>
             <TooltipTrigger asChild>
-              <button
-                type="button"
+              <span
                 style={{ flexGrow: segment.frequency }}
-                className="group relative h-full min-w-[3px] bg-ink/[0.06] transition-opacity hover:opacity-80 focus-visible:outline-offset-0"
-                aria-label={`${segment.skill}, ${demandPhrase(segment.frequency)}, ${PROOF_LABEL[segment.level]}`}
+                className="group relative h-full min-w-[3px] bg-ink/[0.06] transition-opacity hover:opacity-80"
+                aria-hidden="true"
               >
                 <span
                   className={cn(
@@ -59,7 +58,7 @@ export function ProofMeter({
                     transitionDelay: `${Math.min(index * 30, 360)}ms`,
                   }}
                 />
-              </button>
+              </span>
             </TooltipTrigger>
             <TooltipContent>
               <p className="font-medium">{segment.skill}</p>
@@ -69,6 +68,18 @@ export function ProofMeter({
           </Tooltip>
         ))}
       </div>
+      {/*
+        The bar is a summary graphic made of slivers, too narrow to be a usable
+        touch target. The same data is listed here for screen readers, and the
+        Skills page is the keyboard reachable version of it.
+      */}
+      <ul className="sr-only">
+        {segments.map((segment) => (
+          <li key={segment.skill}>
+            {segment.skill}. {demandPhrase(segment.frequency)}. {PROOF_LABEL[segment.level]}.
+          </li>
+        ))}
+      </ul>
     </TooltipProvider>
   );
 }

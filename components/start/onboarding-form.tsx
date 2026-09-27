@@ -151,7 +151,7 @@ export function OnboardingForm({ roles }: { roles: RoleSummary[] }) {
                 max={WEEKLY_HOURS.max}
                 step={WEEKLY_HOURS.step}
                 onValueChange={([value]) => setHours(value ?? WEEKLY_HOURS.default)}
-                aria-label="Hours available each week"
+                label="Hours available each week"
               />
               <div className="tabular mt-1 flex justify-between text-xs text-ink-faint">
                 <span>{WEEKLY_HOURS.min}</span>

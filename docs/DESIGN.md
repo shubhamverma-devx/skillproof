@@ -65,8 +65,8 @@ badges still reads as calm.
 | `surface-raised` | `#FFFFFF` | `#1B1D20` | Sheets and menus above a card           |
 | `line`           | `#E7E7E9` | `#26282C` | 1px borders, the main structural device |
 | `ink`            | `#18181B` | `#F4F4F5` | Primary text                            |
-| `ink-muted`      | `#6B6F76` | `#9CA1A9` | Secondary text                          |
-| `ink-faint`      | `#9096A0` | `#71767E` | Meta text, axis labels                  |
+| `ink-muted`      | `#5A5F66` | `#A6ABB3` | Secondary text                          |
+| `ink-faint`      | `#676C75` | `#8A8F98` | Meta text, axis labels                  |
 | `accent`         | `#3355FF` | `#6E86FF` | Primary action, focus ring, the score   |
 
 ### Status colours
@@ -78,10 +78,19 @@ Used only to mean one of the four proof states, and only on small elements.
 | verified | Tested            | `#2F6F4F` | `#6FC194` |
 | observed | Seen in your code | `#2D5B8C` | `#78ACE0` |
 | claimed  | On your resume    | `#8A6420` | `#D8AA5C` |
-| missing  | Not shown yet     | `#8A8F98` | `#787D85` |
+| missing  | Not shown yet     | `#6F737A` | `#868C95` |
 
-Each has a `-soft` background token at roughly 10 percent for badge fills. All
-combinations were checked for WCAG AA against their background.
+Each has a `-soft` token used at roughly 10 percent opacity for badge fills and
+meter segments, where contrast rules do not apply, so `missing-soft` stays a
+lighter grey than the text token.
+
+Every text colour was measured against every background it actually sits on,
+using Lighthouse and an axe sweep across six pages, two themes and two widths,
+not estimated. Three rounds of darkening were needed: the first pass failed AA on
+small muted text, the second failed on `missing` badges in dark mode, and the
+third failed on `ink-faint` over tinted panels and raised surfaces, which are
+not the flat surface the colour had been checked against. The table above is the measured
+result and every value in it passes 4.5:1 at 12px.
 
 ## Space and shape
 
