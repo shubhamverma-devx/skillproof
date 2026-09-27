@@ -101,14 +101,23 @@ The review ran four times. Fixes that came out of it, in order:
 | ----------------------------- | -------- | ------- |
 | Overview height at 390px      | 13,510px | 2,666px |
 | Overview CLS (mobile)         | 0.19     | 0       |
-| Overview performance (mobile) | 80       | 91      |
+| Overview performance (mobile) | 80       | 94      |
 | Accessibility, every page     | 96       | 100     |
 | Horizontal overflow at 360px  | yes      | none    |
 
-Lighthouse was run on all six pages at both the desktop and the throttled mobile
-preset. Every page scores at least 90 on performance, and 100 on both
-accessibility and best practices. An axe sweep over six pages, two themes, two
-widths and two scroll positions reports zero violations.
+Lighthouse was run against the live deployment on every page, at both the desktop
+and the throttled mobile preset. Desktop scores 100 on all three categories
+everywhere. Mobile scores 100 on accessibility and best practices everywhere, and
+94 to 98 on performance. An axe sweep over six pages, two themes, two widths and
+two scroll positions reports zero violations.
+
+| Page     | Desktop perf | Mobile perf | Accessibility | Best practices |
+| -------- | ------------ | ----------- | ------------- | -------------- |
+| Landing  | 100          | 96          | 100           | 100            |
+| Overview | 100          | 94          | 100           | 100            |
+| Skills   | 100          | 98          | 100           | 100            |
+| Roadmap  | 100          | 97          | 100           | 100            |
+| Progress | 100          | 97          | 100           | 100            |
 
 `pnpm test:journey` walks a first time user from the landing page through
 onboarding, a test, roadmap approval and logging a project, and checks the score
