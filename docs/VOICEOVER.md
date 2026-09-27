@@ -1,14 +1,28 @@
 # Voice over script
 
-Read over `docs/video/skillproof-demo.mp4`. The video is silent, recorded against
-the live deployment, and runs 2 minutes 50 seconds. Timestamps come from
-`docs/video/timings.json`, which the recorder writes on every run, so if you
-re record the video the beats here move with it.
+This is the narration for the demo. It is already spoken and shipped:
+
+| File                                      | What it is                                                                                                                                      |
+| ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| `docs/video/skillproof-demo-narrated.mp4` | The one to show. Sarvam AI voice, English subtitles burned in, and the same subtitles as a track a player can switch off. 2 minutes 49 seconds. |
+| `docs/video/skillproof-demo.srt`          | The subtitles on their own, for YouTube or Drive.                                                                                               |
+| `docs/video/skillproof-demo.mp4`          | The silent recording, if you would rather read this script yourself.                                                                            |
+
+`pnpm narrate` rebuilds the narrated video from this file. It speaks every line
+through Sarvam AI (`bulbul:v3`, voice `shubh`; `--speaker ritu` or any other
+Sarvam voice swaps it), measures each clip, places it at the beat it belongs to,
+and writes the subtitles from where the audio actually lands. Clips are cached,
+so changing one sentence only re-speaks that sentence.
+
+Timestamps come from `docs/video/timings.json`, which the recorder writes on
+every run, so if you re record the video the beats here move with it.
 
 Every line was counted against its window at a normal speaking pace of about 150
 words a minute, which is two and a half words a second. The word budget for each
-beat is printed beside it, and every line was measured to fit inside it. Speak
-plainly. The numbers on screen are real, so do not round them up.
+beat is printed beside it, and every line was measured to fit inside it. The
+build then checks the real thing: it prints the window and the spoken length for
+each beat and slows the voice down as far as the window allows. The numbers on
+screen are real, so do not round them up.
 
 The interface no longer says claimed, observed, verified or evidence, so the
 narration does not either. It says on your resume, seen in your code, and tested.
@@ -92,7 +106,7 @@ narration does not either. It says on your resume, seen in your code, and tested
 
 ---
 
-## Recording tips
+## If you re record it yourself
 
 - Record in one take if you can. Every window was sized against its own line, so
   a natural pace lands correctly without rushing.

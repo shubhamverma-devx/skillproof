@@ -7,7 +7,7 @@ student proves things.
 
 **[Live demo](https://skillproof-dev-x9.vercel.app)** ·
 **[Source](https://github.com/shubhamverma-devx/skillproof)** ·
-[Demo video](docs/video/skillproof-demo.mp4) ·
+[Demo video](docs/video/skillproof-demo-narrated.mp4) ·
 [Pitch deck](docs/SkillProof_Pitch.pdf)
 
 Built for Bit N Build 2026, UP Regionals, problem statement 05: education and

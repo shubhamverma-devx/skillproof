@@ -20,6 +20,11 @@ test-results
 playwright-report
 docs/video/*.webm
 
+# Text to speech and caption caches: rebuildable from docs/VOICEOVER.md, and
+# they churn on every wording change
+docs/video/narration/
+docs/video/captions/
+
 # Supabase CLI scratch state: machine specific, and it churns on every command
 supabase/.temp/
 .env*

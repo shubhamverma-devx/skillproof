@@ -20,7 +20,8 @@
     "demo:record:video": "tsx scripts/record-demo.ts --video",
     "deck": "tsx scripts/build-deck.ts",
     "smoke": "tsx scripts/smoke-prod.ts",
-    "test:journey": "tsx scripts/first-time-user.ts"
+    "test:journey": "tsx scripts/first-time-user.ts",
+    "narrate": "tsx scripts/build-narration.ts"
   },
   "dependencies": {
     "@google/generative-ai": "^0.21.0",
