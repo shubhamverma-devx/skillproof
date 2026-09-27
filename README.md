@@ -13,7 +13,7 @@ student proves things.
 Built for Bit N Build 2026, UP Regionals, problem statement 05: education and
 employability.
 
-![Dashboard](docs/screenshots/dashboard-desktop-light.png)
+![Overview](docs/screenshots/overview-desktop-light.png)
 
 ## Try it
 
@@ -205,15 +205,16 @@ pnpm screenshots <profileId>  # capture docs/screenshots in both themes
 
 ## Screenshots
 
-|               |                                                                  |
-| ------------- | ---------------------------------------------------------------- |
-| Dashboard     | ![Dashboard](docs/screenshots/dashboard-desktop-light.png)       |
-| Roadmap       | ![Roadmap](docs/screenshots/roadmap-desktop-light.png)           |
-| Adaptive quiz | ![Quiz](docs/screenshots/quiz-desktop-light.png)                 |
-| Onboarding    | ![Onboarding](docs/screenshots/start-desktop-light.png)          |
-| Log progress  | ![Progress](docs/screenshots/progress-desktop-light.png)         |
-| Dark theme    | ![Dark dashboard](docs/screenshots/dashboard-desktop-dark.png)   |
-| Phone width   | ![Mobile dashboard](docs/screenshots/dashboard-mobile-light.png) |
+|               |                                                                |
+| ------------- | -------------------------------------------------------------- |
+| Overview      | ![Overview](docs/screenshots/overview-desktop-light.png)       |
+| Skills        | ![Skills](docs/screenshots/skills-desktop-light.png)           |
+| Roadmap       | ![Roadmap](docs/screenshots/roadmap-desktop-light.png)         |
+| Adaptive test | ![Test](docs/screenshots/quiz-desktop-light.png)               |
+| Onboarding    | ![Onboarding](docs/screenshots/onboarding-desktop-light.png)   |
+| Log progress  | ![Progress](docs/screenshots/progress-desktop-light.png)       |
+| Dark theme    | ![Dark overview](docs/screenshots/overview-desktop-dark.png)   |
+| Phone width   | ![Mobile overview](docs/screenshots/overview-mobile-light.png) |
 
 ## Demo mode
 

@@ -1,7 +1,7 @@
 'use client';
 
 import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
-import { formatDateTime } from '@/lib/utils';
+import { formatClock, formatDateTime, formatDay } from '@/lib/utils';
 import type { ScoreHistoryEntry } from '@/types/domain';
 
 /** Every recalculation, with the reason it happened. No gridline noise. */
@@ -15,8 +15,13 @@ export function ScoreHistoryChart({ history }: { history: ScoreHistoryEntry[] })
     );
   }
 
-  const data = history.map((entry, index) => ({
-    index: index + 1,
+  // Several readings in one sitting all carry the same date, so the tick shows
+  // the clock instead whenever the whole history fits inside a single day.
+  const days = new Set(history.map((entry) => formatDay(entry.created_at)));
+  const tickOf = (iso: string) => (days.size > 1 ? formatDay(iso) : formatClock(iso).slice(0, 5));
+
+  const data = history.map((entry) => ({
+    day: tickOf(entry.created_at),
     score: entry.score,
     reason: entry.reason,
     at: formatDateTime(entry.created_at),
@@ -25,10 +30,11 @@ export function ScoreHistoryChart({ history }: { history: ScoreHistoryEntry[] })
   return (
     <div className="px-2 pb-4">
       <ResponsiveContainer width="100%" height={150}>
-        <LineChart data={data} margin={{ top: 8, right: 16, bottom: 0, left: -18 }}>
+        <LineChart data={data} margin={{ top: 8, right: 16, bottom: 0, left: 0 }}>
           <XAxis
-            dataKey="index"
-            allowDecimals={false}
+            dataKey="day"
+            interval="preserveStartEnd"
+            minTickGap={28}
             tick={{ fill: 'rgb(var(--ink-faint))', fontSize: 11 }}
             axisLine={{ stroke: 'rgb(var(--line))' }}
             tickLine={false}
@@ -40,7 +46,7 @@ export function ScoreHistoryChart({ history }: { history: ScoreHistoryEntry[] })
             tick={{ fill: 'rgb(var(--ink-faint))', fontSize: 11 }}
             axisLine={false}
             tickLine={false}
-            width={36}
+            width={34}
           />
           <Tooltip
             cursor={{ stroke: 'rgb(var(--line))' }}

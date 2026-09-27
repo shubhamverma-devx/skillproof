@@ -198,7 +198,7 @@ export function RoadmapView({ state }: { state: ProfileState }) {
           Version {roadmap.roadmap.version}. Anything you change stays as you left it when the plan
           updates.
         </p>
-        <Button variant="ghost" size="sm" onClick={generate} disabled={busy}>
+        <Button variant="secondary" size="sm" onClick={generate} disabled={busy}>
           Rebuild from what is missing now
         </Button>
       </div>

@@ -128,7 +128,12 @@ export function SkillsView({
               </div>
               <div className="divide-y border-t">
                 {group.map((skill) => (
-                  <SkillRow key={skill.skill} skill={skill} onOpen={setOpen} />
+                  <SkillRow
+                    key={skill.skill}
+                    skill={skill}
+                    profileId={profileId}
+                    onOpen={setOpen}
+                  />
                 ))}
               </div>
             </Panel>

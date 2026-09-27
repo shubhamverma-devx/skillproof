@@ -3,15 +3,19 @@ import { PROOF_LABEL, PROOF_MEANING } from '@/lib/wording';
 import type { SkillAssessment } from '@/lib/scoring';
 import type { EvidenceLevel } from '@/types/domain';
 
-const SHOWN: EvidenceLevel[] = ['verified', 'observed', 'missing'];
+const SHOWN: EvidenceLevel[] = ['verified', 'observed', 'claimed', 'missing'];
 
 const ACCENT: Record<string, string> = {
   verified: 'text-verified',
   observed: 'text-observed',
+  claimed: 'text-claimed',
   missing: 'text-missing',
 };
 
-/** Three counts that answer "where do I stand", each a way into the skills list. */
+/**
+ * One count per proof state, so the four numbers add up to every skill the role
+ * asks for, and each one is a way into the filtered skills list.
+ */
 export function ProofStats({
   assessments,
   profileId,
@@ -22,7 +26,7 @@ export function ProofStats({
   const roleSkills = assessments.filter((assessment) => assessment.frequency > 0);
 
   return (
-    <div className="grid gap-3 sm:grid-cols-3">
+    <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
       {SHOWN.map((level) => {
         const count = roleSkills.filter((assessment) => assessment.level === level).length;
         return (
