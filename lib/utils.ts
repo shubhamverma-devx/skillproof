@@ -18,6 +18,11 @@ export function formatDateTime(iso: string): string {
   });
 }
 
+/** Day and month only, for chart ticks where the time would not fit. */
+export function formatDay(iso: string): string {
+  return new Date(iso).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' });
+}
+
 export function formatClock(iso: string): string {
   return new Date(iso).toLocaleTimeString('en-IN', {
     hour: '2-digit',

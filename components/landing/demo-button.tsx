@@ -22,8 +22,8 @@ export function DemoProfileButton() {
   }
 
   return (
-    <Button variant="outline" size="lg" onClick={loadDemo} disabled={loading}>
-      {loading ? 'Loading demo profile' : 'Load demo profile'}
+    <Button variant="secondary" size="lg" onClick={loadDemo} disabled={loading}>
+      {loading ? 'Opening the demo' : 'See a demo'}
     </Button>
   );
 }

@@ -83,9 +83,9 @@ export function QuizRunner({ profileId, skill }: { profileId: string; skill: str
   if (error) {
     return (
       <Panel className="px-5 py-6">
-        <h2 className="text-h3">This quiz cannot start</h2>
-        <p className="mt-2 max-w-prose text-ui-sm text-muted">{error}</p>
-        <Button asChild variant="outline" className="mt-4">
+        <h2 className="text-lg">This quiz cannot start</h2>
+        <p className="mt-2 max-w-prose text-sm text-ink-muted">{error}</p>
+        <Button asChild variant="secondary" className="mt-4">
           <Link href={`/dashboard/${profileId}`}>Back to dashboard</Link>
         </Button>
       </Panel>
@@ -116,25 +116,25 @@ export function QuizRunner({ profileId, skill }: { profileId: string; skill: str
     <Panel>
       <div className="flex flex-wrap items-center justify-between gap-2 border-b px-5 py-4">
         <div>
-          <p className="tabular text-ui-sm text-muted">
+          <p className="tabular text-sm text-ink-muted">
             Question {question.index} of {question.total}
           </p>
-          <h2 className="text-h3">{skill}</h2>
+          <h2 className="text-lg">{skill}</h2>
         </div>
         <div className="flex items-center gap-3">
           {previousScore !== null ? (
-            <span className="tabular text-ui-sm text-muted">
+            <span className="tabular text-sm text-ink-muted">
               Last attempt {formatPercent(previousScore)}
             </span>
           ) : null}
-          <span className="rounded-full bg-ink/[0.06] px-2.5 py-0.5 text-ui-sm">
+          <span className="rounded-full bg-ink/[0.06] px-2.5 py-0.5 text-sm">
             {DIFFICULTY_LABEL[question.difficulty]}
           </span>
         </div>
       </div>
 
       <div className="px-5 py-5">
-        <p data-question className="max-w-prose text-ui">
+        <p data-question className="max-w-prose text-base">
           {question.question}
         </p>
 
@@ -159,20 +159,20 @@ export function QuizRunner({ profileId, skill }: { profileId: string; skill: str
                 // the whole option row would look interactive but not be.
                 htmlFor={`option-${index}`}
                 className={cn(
-                  'flex cursor-pointer items-start gap-3 rounded-inner border px-4 py-3',
-                  selected === index && !showingFeedback && 'border-primary bg-primary/[0.05]',
-                  isCorrect && 'border-observed bg-observed/[0.08]',
+                  'flex cursor-pointer items-start gap-3 rounded-control border px-4 py-3',
+                  selected === index && !showingFeedback && 'border-accent bg-accent/[0.05]',
+                  isCorrect && 'border-verified bg-verified-soft/[0.08]',
                   isWrongPick && 'border-danger bg-danger/[0.07]',
                   showingFeedback && 'cursor-default',
                 )}
               >
                 <RadioGroupItem value={String(index)} id={`option-${index}`} className="mt-0.5" />
-                <span className="flex-1 text-ui-sm">{option}</span>
+                <span className="flex-1 text-sm">{option}</span>
                 {isCorrect ? (
-                  <Check size={16} className="mt-0.5 text-observed-ink" aria-hidden="true" />
+                  <Check size={16} className="mt-0.5 text-verified" aria-hidden="true" />
                 ) : null}
                 {isWrongPick ? (
-                  <X size={16} className="mt-0.5 text-danger-ink" aria-hidden="true" />
+                  <X size={16} className="mt-0.5 text-danger" aria-hidden="true" />
                 ) : null}
               </label>
             );
@@ -182,8 +182,8 @@ export function QuizRunner({ profileId, skill }: { profileId: string; skill: str
         {showingFeedback ? (
           <div
             className={cn(
-              'mt-4 rounded-inner px-4 py-3 text-ui-sm',
-              feedback.correct ? 'bg-observed/[0.09]' : 'bg-claimed/[0.1]',
+              'mt-4 rounded-control px-4 py-3 text-sm',
+              feedback.correct ? 'bg-verified-soft/[0.09]' : 'bg-claimed-soft/[0.1]',
             )}
             aria-live="polite"
           >

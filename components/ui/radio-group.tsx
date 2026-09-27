@@ -19,13 +19,13 @@ export const RadioGroupItem = forwardRef<
   <RadioGroupPrimitive.Item
     ref={ref}
     className={cn(
-      'h-5 w-5 shrink-0 rounded-full border-2 border-ink/25 data-[state=checked]:border-primary',
+      'h-4.5 w-4.5 shrink-0 rounded-full border-2 border-ink/25 transition-colors data-[state=checked]:border-accent',
       className,
     )}
     {...props}
   >
     <RadioGroupPrimitive.Indicator className="flex items-center justify-center">
-      <span className="block h-2.5 w-2.5 rounded-full bg-primary" />
+      <span className="block h-2 w-2 rounded-full bg-accent" />
     </RadioGroupPrimitive.Indicator>
   </RadioGroupPrimitive.Item>
 ));

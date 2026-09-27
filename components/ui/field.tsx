@@ -10,14 +10,14 @@ export const Label = forwardRef<
 >(({ className, ...props }, ref) => (
   <LabelPrimitive.Root
     ref={ref}
-    className={cn('block text-ui-sm font-medium text-ink', className)}
+    className={cn('block text-sm font-medium text-ink', className)}
     {...props}
   />
 ));
 Label.displayName = 'Label';
 
 const fieldStyles =
-  'w-full rounded-inner border bg-surface px-3 py-2 text-ui text-ink placeholder:text-muted/70 focus-visible:border-primary';
+  'w-full rounded-control border bg-surface px-3 text-base text-ink transition-colors placeholder:text-ink-faint hover:border-ink/20 focus-visible:border-accent';
 
 export const Input = forwardRef<HTMLInputElement, React.InputHTMLAttributes<HTMLInputElement>>(
   ({ className, ...props }, ref) => (
@@ -32,12 +32,12 @@ export const Textarea = forwardRef<
 >(({ className, ...props }, ref) => (
   <textarea
     ref={ref}
-    className={cn(fieldStyles, 'min-h-40 leading-relaxed', className)}
+    className={cn(fieldStyles, 'min-h-44 py-2.5 leading-relaxed', className)}
     {...props}
   />
 ));
 Textarea.displayName = 'Textarea';
 
 export function FieldHint({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) {
-  return <p className={cn('text-ui-sm text-muted', className)} {...props} />;
+  return <p className={cn('text-sm text-ink-muted', className)} {...props} />;
 }

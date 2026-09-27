@@ -34,7 +34,11 @@ async function api<T>(route: string, init?: RequestInit): Promise<T> {
 async function checkLanding(page: Page): Promise<void> {
   await timed('landing page', async () => {
     await page.goto(BASE, { waitUntil: 'networkidle' });
-    await page.getByRole('heading', { name: 'Skills proven, not claimed' }).waitFor();
+    await page
+      .getByRole('heading', {
+        name: 'Know exactly what stands between you and your first tech job.',
+      })
+      .waitFor();
     const storageWarning = await page.getByText('Storage is not configured').count();
     if (storageWarning > 0) throw new Error('the deployment has no database configured');
     return [null, 'headline rendered, storage configured'];
@@ -45,7 +49,7 @@ async function checkDemoProfile(page: Page): Promise<string> {
   const id = await timed('demo profile analysis', async () => {
     // A click before React hydrates does nothing, and on a cold serverless start
     // hydration can land well after the markup, so the click is retried.
-    const demoButton = page.getByRole('button', { name: 'Load demo profile' });
+    const demoButton = page.getByRole('button', { name: 'See a demo' });
     await demoButton.waitFor({ state: 'visible' });
     for (let attempt = 0; attempt < 5; attempt += 1) {
       await demoButton.click();
@@ -58,10 +62,10 @@ async function checkDemoProfile(page: Page): Promise<string> {
     }
     // The stream has to produce its first step quickly or a proxy may treat the
     // connection as idle.
-    await page.getByText('Agent started').waitFor({ timeout: 15_000 });
+    await page.getByText('Reading your resume').waitFor({ timeout: 15_000 });
     await page.waitForURL('**/dashboard/**', { timeout: 120_000 });
     const profileId = page.url().split('/dashboard/')[1] ?? '';
-    await page.getByText('Readiness for').waitFor();
+    await page.getByRole('heading', { name: /ready for .* roles\./ }).waitFor();
     return [profileId, `profile ${profileId.slice(0, 8)} reached the dashboard`];
   });
 
