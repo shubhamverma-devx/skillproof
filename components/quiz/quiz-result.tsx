@@ -39,15 +39,15 @@ export function QuizResult({
         </div>
         <p className="mt-3 max-w-prose text-sm text-ink-muted">
           {result.verified
-            ? `${skill} now counts as verified evidence. Your proficiency for it is the quiz score itself, not an assumption.`
-            : `That is below the bar for a verified badge, so ${skill} keeps its earlier evidence level and its proficiency is now the quiz score. That is useful: it says the gap is real.`}
+            ? `${skill} counts as tested now. How much of it you have shown is the score you just got, not our guess at it.`
+            : `That is under the bar for a tested badge, so ${skill} stays where it was, and how much of it you have shown is now this score instead of our guess. That is worth knowing: the gap is real.`}
         </p>
       </div>
 
       <div className="flex flex-wrap items-center justify-between gap-3 px-5 py-4">
         <div>
           <p className="tabular text-base">
-            Readiness is now <span className="font-semibold">{result.readiness}</span> out of 100
+            Your score is now <span className="font-semibold">{result.readiness}</span> out of 100
             {result.readiness_delta !== null && result.readiness_delta !== 0 ? (
               <span className={result.readiness_delta > 0 ? 'text-verified' : 'text-claimed'}>
                 {' '}
@@ -60,10 +60,10 @@ export function QuizResult({
         </div>
         <div className="flex gap-2">
           <Button asChild variant="secondary">
-            <Link href={`/roadmap/${profileId}`}>Open roadmap</Link>
+            <Link href={`/roadmap/${profileId}`}>Open my plan</Link>
           </Button>
           <Button asChild>
-            <Link href={`/dashboard/${profileId}`}>Back to dashboard</Link>
+            <Link href={`/dashboard/${profileId}`}>Back to overview</Link>
           </Button>
         </div>
       </div>

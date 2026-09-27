@@ -1,60 +1,60 @@
 {
-  "total_seconds": 162.8,
+  "total_seconds": 172.2,
   "marks": [
     {
       "at": 0,
       "phase": "The problem, on the landing page"
     },
     {
-      "at": 8.9,
+      "at": 9,
       "phase": "The agent works in the open"
     },
     {
-      "at": 17.3,
+      "at": 17.1,
       "phase": "The score and the Proof Meter"
     },
     {
-      "at": 34.9,
-      "phase": "Expanding the SQL evidence"
+      "at": 36.8,
+      "phase": "Every skill, and what backs it up"
     },
     {
-      "at": 38.8,
+      "at": 45.2,
       "phase": "Verifying Python"
     },
     {
-      "at": 65.8,
+      "at": 69.5,
       "phase": "Verifying SQL, the claimed but weak skill"
     },
     {
-      "at": 93.3,
+      "at": 92.9,
       "phase": "Building the roadmap"
     },
     {
-      "at": 102.6,
+      "at": 100.4,
       "phase": "Opening a roadmap item and its proof project"
     },
     {
-      "at": 108.2,
+      "at": 106.1,
       "phase": "Approving the roadmap"
     },
     {
-      "at": 110.1,
+      "at": 109.1,
       "phase": "Logging progress"
     },
     {
-      "at": 114.4,
+      "at": 112.7,
       "phase": "Marking an item done, and the score not moving"
     },
     {
-      "at": 125.1,
+      "at": 125.5,
       "phase": "Linking the repository that proves the work"
     },
     {
-      "at": 154.9,
+      "at": 162,
       "phase": "Back to the dashboard with the new score"
     },
     {
-      "at": 162.8,
+      "at": 172.2,
       "phase": "Closing on the score history chart"
     }
   ]

@@ -39,6 +39,12 @@ const BEAT = { short: 500, read: 1500, long: 2200, hold: 5500 } as const;
  */
 const EXTRA_DWELL = 2000;
 
+/**
+ * The quiz beats carry the shortest narration lines of the demo, so they run
+ * tighter than the rest and give their slack back to the dashboard.
+ */
+const QUIZ_PAUSE = 1000;
+
 async function shot(page: Page, name: string): Promise<void> {
   shotIndex += 1;
   await page.screenshot({
@@ -84,7 +90,7 @@ async function playQuiz(page: Page, skill: string, deliberateMistakes: number): 
 
     await page.waitForSelector('text=/Correct|Not quite/');
     if (question === 1) await shot(page, `quiz-${skill.toLowerCase()}-feedback`);
-    await pause(page, BEAT.read);
+    await pause(page, QUIZ_PAUSE);
 
     const next = page.getByRole('button', { name: /Next question|See your result/ });
     await next.click();
@@ -93,7 +99,7 @@ async function playQuiz(page: Page, skill: string, deliberateMistakes: number): 
 
   await page.waitForSelector('text=Quiz result');
   await shot(page, `quiz-${skill.toLowerCase()}-result`);
-  await pause(page, BEAT.read);
+  await pause(page, QUIZ_PAUSE);
 }
 
 /** Plays a quiz through the API, for the steps the narration covers off camera. */
@@ -132,7 +138,7 @@ async function run(page: Page): Promise<string> {
   await pause(page, BEAT.hold + EXTRA_DWELL);
   await shot(page, 'landing');
 
-  await page.getByRole('button', { name: 'Load demo profile' }).click();
+  await page.getByRole('button', { name: 'See a demo' }).click();
 
   mark('The agent works in the open');
   await page.waitForURL('**/analyze/**');
@@ -142,25 +148,32 @@ async function run(page: Page): Promise<string> {
   const profileId = page.url().split('/dashboard/')[1] ?? '';
 
   mark('The score and the Proof Meter');
-  await page.waitForSelector('text=Readiness for');
+  await page.getByRole('heading', { name: /ready for .* roles\./ }).waitFor();
+
+  // The first visit tour floats over the page. It is worth a beat on camera,
+  // then it is dismissed so it does not sit on top of the rest of the demo.
+  const skipTour = page.getByRole('button', { name: 'Skip' });
+  if (await skipTour.isVisible().catch(() => false)) {
+    await pause(page, BEAT.long);
+    await skipTour.click();
+  }
+
   await pause(page, BEAT.hold);
-  await shot(page, 'dashboard');
+  await shot(page, 'overview');
 
-  // The narration explains what the meter means and reads the evidence ceiling
-  // here, so the recording dwells and shows a proven segment against an empty
-  // one rather than sitting still.
-  const segments = page.locator('[role="img"] button');
-  await segments.first().hover();
-  await pause(page, BEAT.read);
-  await segments.nth(Math.max(0, (await segments.count()) - 4)).hover();
-  await pause(page, BEAT.read);
-  await pause(page, BEAT.hold + EXTRA_DWELL);
+  // The narration reads the score, the meter and the ceiling over this beat, so
+  // the recording holds on the whole card rather than cutting away early.
+  await pause(page, BEAT.hold + BEAT.read * 2 + EXTRA_DWELL);
 
-  mark('Expanding the SQL evidence');
-  await page.getByRole('button', { name: /^Why SQL matters$/ }).click();
+  mark('Every skill, and what backs it up');
+  await page.goto(`${BASE}/skills/${profileId}`, { waitUntil: 'networkidle' });
+  await pause(page, BEAT.read);
+  await shot(page, 'skills');
+  await page.getByRole('button', { name: /^SQL/ }).first().click();
   await pause(page, BEAT.read);
   await shot(page, 'evidence-sql');
   await pause(page, BEAT.long);
+  await page.keyboard.press('Escape');
 
   mark('Verifying Python');
   await page.goto(`${BASE}/quiz/${profileId}?skill=Python`, { waitUntil: 'networkidle' });
@@ -173,21 +186,19 @@ async function run(page: Page): Promise<string> {
 
   mark('Building the roadmap');
   await page.goto(`${BASE}/roadmap/${profileId}`, { waitUntil: 'networkidle' });
-  await page.getByRole('button', { name: 'Build my roadmap' }).click();
-  await page.waitForSelector('text=Approve roadmap', { timeout: 120_000 });
+  await page.getByRole('button', { name: 'Build my plan' }).click();
+  await page.waitForSelector('text=Approve plan', { timeout: 120_000 });
   await pause(page, BEAT.read);
   await shot(page, 'roadmap');
 
   mark('Opening a roadmap item and its proof project');
-  await page
-    .getByRole('button', { name: /^Details for/ })
-    .first()
-    .click();
+  await page.locator('button:has-text("about")').first().click();
   await pause(page, BEAT.hold);
   await shot(page, 'roadmap-item');
+  await page.keyboard.press('Escape');
 
   mark('Approving the roadmap');
-  await page.getByRole('button', { name: 'Approve roadmap' }).click();
+  await page.getByRole('button', { name: 'Approve plan' }).click();
   await page.waitForSelector('text=approved', { timeout: 60_000 });
   await pause(page, BEAT.short);
 
@@ -196,19 +207,19 @@ async function run(page: Page): Promise<string> {
   await pause(page, BEAT.read);
 
   mark('Marking an item done, and the score not moving');
-  await page.getByRole('button', { name: 'Mark done' }).first().click();
-  await page.waitForSelector('text=What changed', { timeout: 120_000 });
+  await page.getByRole('button', { name: 'Done', exact: true }).first().click();
+  await page.waitForSelector('text=/Your score (went to|stayed at)/', { timeout: 120_000 });
   await pause(page, BEAT.short);
   await shot(page, 'progress-marked-done');
   await pause(page, BEAT.long);
 
   mark('Linking the repository that proves the work');
   await page
-    .getByLabel('Repository URL or owner/name')
+    .getByLabel('Repository address')
     .fill('riya-sharma-demo/ml-deploy-service', { timeout: 15_000 });
   await pause(page, BEAT.short);
-  await page.getByRole('button', { name: 'Scan repository' }).click();
-  await page.waitForSelector('text=Readiness moved', { timeout: 120_000 });
+  await page.getByRole('button', { name: 'Scan it' }).click();
+  await page.waitForSelector('text=/Your score went to/', { timeout: 120_000 });
   await pause(page, BEAT.read);
   await shot(page, 'progress-replan');
 
@@ -221,14 +232,14 @@ async function run(page: Page): Promise<string> {
 
   mark('Back to the dashboard with the new score');
   await page.goto(`${BASE}/dashboard/${profileId}`, { waitUntil: 'networkidle' });
-  await page.waitForSelector('text=Readiness for');
-  await pause(page, BEAT.hold);
-  await shot(page, 'dashboard-final');
+  await page.getByRole('heading', { name: /ready for .* roles\./ }).waitFor();
+  await pause(page, BEAT.hold + EXTRA_DWELL);
+  await shot(page, 'overview-final');
   mark('Closing on the score history chart');
-  await page.locator('text=Score history').scrollIntoViewIfNeeded();
+  await page.locator('text=Your score over time').scrollIntoViewIfNeeded();
   await pause(page, BEAT.read);
   await shot(page, 'score-history');
-  await pause(page, BEAT.hold);
+  await pause(page, BEAT.long);
 
   return profileId;
 }
