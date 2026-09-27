@@ -61,37 +61,38 @@ prices every gap against real job description demand.
 
 ## Key features
 
-| Feature             | What it does                                                                                                                             |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| Evidence levels     | Every skill is `claimed`, `observed`, `verified` or missing, with the badge shown everywhere                                             |
-| Readiness score     | 0 to 100, weighted by how often each skill appears in job descriptions for the role                                                      |
-| Evidence ceiling    | The score reachable by proving what you already show, so a gap reads as "not shown yet" or "not learned yet"                             |
-| Explainable gaps    | "Docker appears in 46% of ML Engineer job descriptions; not found in any of your 9 scanned repositories; not claimed on your resume"     |
-| Proof projects      | Each roadmap item ends in a small portfolio project with 3 to 5 checkable acceptance criteria, usually covering two gaps                 |
-| Adaptive quiz       | Four questions per skill, harder after a correct answer, easier after a wrong one, scored by difficulty weight                           |
-| Human in the loop   | Approve the roadmap, edit or skip items, reorder within a week, change your hours, or say "I already know this" and prove it with a quiz |
-| Adaptive replanning | Every progress event recalculates the score, writes a history point with its reason, and shows a "what changed" diff                     |
-| Agent trace         | Every step the agent took, including the ones that failed and what it did instead                                                        |
+| Feature             | What it does                                                                                                                                                       |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Proof levels        | Every skill is `claimed`, `observed`, `verified` or missing in the code, and reads as "On your resume", "Seen in your code", "Tested" or "Not shown yet" on screen |
+| Job readiness score | 0 to 100, weighted by how often each skill appears in job descriptions for the role                                                                                |
+| Evidence ceiling    | The score reachable by proving what you already show, so a gap reads as "not shown yet" or "not learned yet"                                                       |
+| Explainable gaps    | "Docker appears in 46% of ML Engineer job descriptions; not found in any of your 9 scanned repositories; not claimed on your resume"                               |
+| Proof projects      | Each roadmap item ends in a small portfolio project with 3 to 5 checkable acceptance criteria, usually covering two gaps                                           |
+| Adaptive quiz       | Four questions per skill, harder after a correct answer, easier after a wrong one, scored by difficulty weight                                                     |
+| Human in the loop   | Approve the roadmap, edit or skip items, reorder within a week, change your hours, or say "I already know this" and prove it with a quiz                           |
+| Adaptive replanning | Every progress event recalculates the score, writes a history point with its reason, and shows a "what changed" diff                                               |
+| Agent trace         | Every step the agent took, including the ones that failed and what it did instead                                                                                  |
 
 ## How this meets the theme
 
-| Theme requirement        | Where it lives                                                                                                                                                         |
-| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AI reasoning             | `lib/llm/index.ts` (one entry point over Sarvam, Groq and Gemini), `lib/agent/ingestResume.ts`, `lib/agent/quiz.ts`, `lib/roadmap/prompt.ts`                           |
-| Real world data and APIs | `data/roles/*.json` and `data/raw_jds/` (job description demand), `lib/github/scan.ts` (GitHub REST), `lib/resume/pdf.ts` (PDF upload)                                 |
-| Persistent state         | `lib/db/` with one interface over Supabase and a local JSON store, schema in `supabase/migrations/`                                                                    |
-| Explainability           | `lib/scoring/evidence-summary.ts` builds every explanation from counted evidence, `components/dashboard/skill-row.tsx` shows the repository and file behind each skill |
-| Human in the loop        | `lib/services/roadmap-service.ts` (approve, edit, skip, reorder), `components/roadmap/roadmap-view.tsx`, `app/progress/[id]`                                           |
-| Graceful failure         | `lib/llm/index.ts` fallback chain, `lib/agent/ingestGithub.ts` resume only path, `lib/agent/quiz.ts` question bank fallback, `lib/db/json-store.ts`, `app/error.tsx`   |
+| Theme requirement        | Where it lives                                                                                                                                                        |
+| ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| AI reasoning             | `lib/llm/index.ts` (one entry point over Sarvam, Groq and Gemini), `lib/agent/ingestResume.ts`, `lib/agent/quiz.ts`, `lib/roadmap/prompt.ts`                          |
+| Real world data and APIs | `data/roles/*.json` and `data/raw_jds/` (job description demand), `lib/github/scan.ts` (GitHub REST), `lib/resume/pdf.ts` (PDF upload)                                |
+| Persistent state         | `lib/db/` with one interface over Supabase and a local JSON store, schema in `supabase/migrations/`                                                                   |
+| Explainability           | `lib/scoring/evidence-summary.ts` builds every explanation from counted evidence, `components/skills/skill-sheet.tsx` shows the repository and file behind each skill |
+| Human in the loop        | `lib/services/roadmap-service.ts` (approve, edit, skip, reorder), `components/roadmap/roadmap-view.tsx`, `app/progress/[id]`                                          |
+| Graceful failure         | `lib/llm/index.ts` fallback chain, `lib/agent/ingestGithub.ts` resume only path, `lib/agent/quiz.ts` question bank fallback, `lib/db/json-store.ts`, `app/error.tsx`  |
 
 ## Architecture
 
 ```mermaid
 flowchart TD
   subgraph Client
-    A[Onboarding form] --> B[Live analysis screen]
-    B --> C[Dashboard]
-    C --> D[Adaptive quiz]
+    A[Onboarding stepper] --> B[Live analysis screen]
+    B --> C[Overview]
+    C --> S[Skills]
+    S --> D[Adaptive test]
     C --> E[Roadmap]
     E --> F[Progress]
   end
@@ -231,16 +232,16 @@ before new entries take effect.
 
 The storyline, which `pnpm demo:verify` replays end to end:
 
-| Step                                                      | Readiness |
-| --------------------------------------------------------- | --------- |
-| Analysis of resume and GitHub                             | 46.6      |
-| Python quiz, 100%                                         | 49.5      |
-| SQL quiz, 25%, claimed but weak                           | 49.3      |
-| Roadmap generated and approved                            | 49.3      |
-| Two items marked done, no evidence yet                    | 49.3      |
-| New repository linked, Docker and deployment now observed | 56.3      |
-| Docker quiz, 100%                                         | 58.0      |
-| SQL retaken after learning, 100%                          | 61.7      |
+| Step                                                      | Job readiness |
+| --------------------------------------------------------- | ------------- |
+| Analysis of resume and GitHub                             | 46.6          |
+| Python test, 100%                                         | 49.5          |
+| SQL test, 25%, on the resume but not proven               | 49.3          |
+| Roadmap generated and approved                            | 49.3          |
+| Two items marked done, nothing proven yet                 | 49.3          |
+| New repository linked, Docker and deployment seen in code | 57.8          |
+| Docker test, 100%                                         | 59.5          |
+| SQL retaken after learning, 100%                          | 63.2          |
 
 Marking an item done deliberately does not move the score. Proof does.
 
@@ -252,7 +253,7 @@ Marking an item done deliberately does not move the score. Proof does.
 | A provider reports a rate limit    | The chain moves on immediately rather than waiting out a free tier window, and the trace records the switch                                                                      |
 | Model times out after 20 seconds   | Same chain                                                                                                                                                                       |
 | No API key at all                  | Deterministic planner, keyword resume extraction and the stored question bank run the whole product                                                                              |
-| GitHub rate limit or unknown user  | Analysis continues with resume evidence only, with a warning in the trace and a banner on the dashboard                                                                          |
+| GitHub rate limit or unknown user  | Analysis continues with resume evidence only, with a warning in the trace and a banner on the overview                                                                           |
 | Resume PDF is a scan with no text  | The upload is rejected with a message asking for pasted text                                                                                                                     |
 | No Supabase credentials            | Local JSON store in `.data/`, written atomically through one queue                                                                                                               |
 | A caller floods an expensive route | Per client rate limits return 429 with `Retry-After`. Cached demo traffic is exempt because it calls nothing                                                                     |

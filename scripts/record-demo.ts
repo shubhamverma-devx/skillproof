@@ -12,14 +12,13 @@
 import { mkdir, readdir, rename, rm, stat, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { chromium, type Page } from '@playwright/test';
-import { loadAnswerKey, normalise } from './demo-answers';
+import { playQuiz, quizByApi } from './demo-quiz';
 
 const BASE = process.env.DEMO_BASE ?? 'http://localhost:3000';
 const RECORD_VIDEO = process.argv.includes('--video');
 const SHOTS = path.join(process.cwd(), 'docs', 'screenshots', 'deck');
 const VIDEO = path.join(process.cwd(), 'docs', 'video');
 
-const answerKey = loadAnswerKey();
 let shotIndex = 0;
 
 /** Wall clock offsets for each narration beat, written next to the video. */
@@ -61,75 +60,14 @@ function step(message: string): void {
   if (VERBOSE) process.stdout.write(`  . ${message}\n`);
 }
 
-/** Answers one quiz, taking the correct option from the recorded answer key. */
-async function playQuiz(page: Page, skill: string, deliberateMistakes: number): Promise<void> {
-  let wrongLeft = deliberateMistakes;
-
-  for (let question = 1; question <= 4; question += 1) {
-    step(`${skill} question ${question}`);
-    const submit = page.getByRole('button', { name: 'Submit answer' });
-    await submit.waitFor({ state: 'visible' });
-
-    const prompt = normalise(await page.locator('[data-question]').first().innerText());
-    step(`  prompt: ${prompt.slice(0, 60)}`);
-    const correct = answerKey.get(prompt) ?? 0;
-    const pick = wrongLeft > 0 ? (correct + 1) % 4 : correct;
-    if (wrongLeft > 0) wrongLeft -= 1;
-
-    // The options re-render between questions, so the click is confirmed rather
-    // than assumed: the submit button stays disabled until one is selected.
-    const option = page.locator(`#option-${pick}`);
-    await option.waitFor({ state: 'visible' });
-    for (let attempt = 0; attempt < 4 && (await submit.isDisabled()); attempt += 1) {
-      await option.click();
-      await pause(page, 300);
-    }
-    step(`  picked option ${pick}, submit disabled=${await submit.isDisabled()}`);
-    await pause(page, BEAT.short);
-    await submit.click();
-
-    await page.waitForSelector('text=/Correct|Not quite/');
-    if (question === 1) await shot(page, `quiz-${skill.toLowerCase()}-feedback`);
-    await pause(page, QUIZ_PAUSE);
-
-    const next = page.getByRole('button', { name: /Next question|See your result/ });
-    await next.click();
-    await pause(page, BEAT.short);
-  }
-
-  await page.waitForSelector('text=Quiz result');
-  await shot(page, `quiz-${skill.toLowerCase()}-result`);
-  await pause(page, QUIZ_PAUSE);
-}
-
-/** Plays a quiz through the API, for the steps the narration covers off camera. */
-async function quizByApi(profileId: string, skill: string): Promise<void> {
-  type Start = { attempt_id: string; question: { question: string } };
-  type Answer = { next: { question: string } | null; result: unknown };
-
-  const post = async <T>(route: string, body: unknown): Promise<T> => {
-    const response = await fetch(`${BASE}${route}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body),
-    });
-    const payload = (await response.json()) as { data?: T; error?: string };
-    if (payload.error) throw new Error(`${route}: ${payload.error}`);
-    return payload.data as T;
-  };
-
-  const start = await post<Start>(`/api/quiz/${profileId}/start`, { skill });
-  let question = start.question;
-
-  for (;;) {
-    const reply = await post<Answer>(`/api/quiz/${profileId}/answer`, {
-      attempt_id: start.attempt_id,
-      answer_index: answerKey.get(normalise(question.question)) ?? 0,
-    });
-    if (reply.result || !reply.next) return;
-    question = reply.next;
-  }
-}
+/** What the quiz player needs from the recorder: pacing and capture. */
+const quizContext = {
+  pause,
+  shot,
+  step,
+  clickPause: BEAT.short,
+  readPause: QUIZ_PAUSE,
+};
 
 async function run(page: Page): Promise<string> {
   startedAt = Date.now();
@@ -178,11 +116,11 @@ async function run(page: Page): Promise<string> {
   mark('Verifying Python');
   await page.goto(`${BASE}/quiz/${profileId}?skill=Python`, { waitUntil: 'networkidle' });
   await shot(page, 'quiz-start');
-  await playQuiz(page, 'Python', 0);
+  await playQuiz(page, 'Python', 0, quizContext);
 
   mark('Verifying SQL, the claimed but weak skill');
   await page.goto(`${BASE}/quiz/${profileId}?skill=SQL`, { waitUntil: 'networkidle' });
-  await playQuiz(page, 'SQL', 3);
+  await playQuiz(page, 'SQL', 3, quizContext);
 
   mark('Building the roadmap');
   await page.goto(`${BASE}/roadmap/${profileId}`, { waitUntil: 'networkidle' });
@@ -227,8 +165,8 @@ async function run(page: Page): Promise<string> {
   // happen, through the API rather than on camera, so the closing number is a
   // result rather than a claim and the video stays inside three minutes.
   step('docker quiz and sql retake, off camera');
-  await quizByApi(profileId, 'Docker');
-  await quizByApi(profileId, 'SQL');
+  await quizByApi(BASE, profileId, 'Docker');
+  await quizByApi(BASE, profileId, 'SQL');
 
   mark('Back to the dashboard with the new score');
   await page.goto(`${BASE}/dashboard/${profileId}`, { waitUntil: 'networkidle' });
@@ -239,7 +177,8 @@ async function run(page: Page): Promise<string> {
   await page.locator('text=Your score over time').scrollIntoViewIfNeeded();
   await pause(page, BEAT.read);
   await shot(page, 'score-history');
-  await pause(page, BEAT.long);
+  // The closing line and the tagline both land over this chart, so it holds.
+  await pause(page, BEAT.hold + EXTRA_DWELL);
 
   return profileId;
 }

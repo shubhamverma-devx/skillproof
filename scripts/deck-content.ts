@@ -64,11 +64,11 @@ export const SLIDES: Slide[] = [
     bullets: [
       {
         text: 'Collect evidence',
-        note: 'resume gives claimed skills, GitHub code gives observed skills traced to the file, a quiz gives verified skills',
+        note: 'the resume gives "on your resume", GitHub gives "seen in your code" traced to the file, a test gives "tested"',
       },
       {
         text: 'Price the gaps',
-        note: 'readiness is the job description weighted share of the role you can prove',
+        note: 'job readiness is the demand weighted share of the role the student can actually prove',
       },
       {
         text: 'Plan against the evidence',
@@ -83,37 +83,40 @@ export const SLIDES: Slide[] = [
 
   {
     kind: 'shot',
-    title: 'One number, and the evidence behind it',
-    lead: 'Readiness 47 out of 100 for ML Engineer. Every segment is a skill the role asks for.',
-    image: '03-dashboard.png',
+    title: 'One number, and a sentence saying what it means',
+    lead: '"You are 47% ready for ML Engineer roles." Every block in the bar is a skill the role asks for.',
+    image: '03-overview.png',
     bullets: [
-      { text: 'Segment width is job description demand' },
-      { text: 'Colour is the evidence level' },
-      { text: 'Fill is how much of it is proven' },
+      { text: 'Block width is how often real job posts ask for it' },
+      { text: 'Colour is how far the student has proved it' },
       {
-        text: 'Ceiling: 89',
-        note: 'what proving her current evidence would reach, so a gap reads as not shown yet or not learned yet',
+        text: '"You could reach 89 by proving skills you already have"',
+        note: 'so a gap reads as not shown yet rather than not learned yet',
       },
+      { text: 'One next step, and it is the only primary button on the page' },
     ],
   },
 
   {
     kind: 'shot',
     title: 'Every claim is traceable',
-    lead: 'SQL appears in 64% of ML Engineer listings, sits on her resume, and appears in none of her nine repositories.',
-    image: '04-evidence-sql.png',
+    lead: 'SQL is asked for in 64% of ML Engineer listings, sits on her resume, and appears in none of her ten repositories.',
+    image: '05-evidence-sql.png',
     bullets: [
-      { text: 'Claimed', note: 'on the resume only' },
-      { text: 'Observed', note: 'found in code, with the repository and file named' },
-      { text: 'Verified', note: 'passed an adaptive quiz' },
+      { text: 'On your resume', note: 'the resume says so and nothing else does (claimed)' },
+      {
+        text: 'Seen in your code',
+        note: 'found in a public repository, with the file named (observed)',
+      },
+      { text: 'Tested', note: 'passed an adaptive test (verified)' },
     ],
   },
 
   {
     kind: 'shot',
     title: 'Claiming is not proving',
-    lead: 'SQL was on the resume. Under four adaptive questions it scores 25%, and the badge stays amber.',
-    image: '09-quiz-sql-result.png',
+    lead: 'SQL was on the resume. Under four adaptive questions it scores 21%, the label stays "on your resume", and the score edges down.',
+    image: '10-quiz-sql-result.png',
     bullets: [
       { text: 'Harder after a correct answer, easier after a wrong one' },
       { text: 'Scored by difficulty weight, not raw count' },
@@ -123,9 +126,9 @@ export const SLIDES: Slide[] = [
 
   {
     kind: 'shot',
-    title: 'A roadmap that answers why',
+    title: 'A plan that answers why',
     lead: 'Eight weeks, eight hours a week, nothing over budget, prerequisites respected.',
-    image: '11-roadmap-item.png',
+    image: '12-roadmap-item.png',
     bullets: [
       { text: 'Why is written in numbers, not motivation' },
       { text: 'Resources come from a whitelist, so no invented links' },
@@ -137,9 +140,9 @@ export const SLIDES: Slide[] = [
     kind: 'shot',
     title: 'It replans when you prove something',
     lead: 'Marking a task done changes nothing. Linking the repository moves the score by 8.5 points.',
-    image: '13-progress-replan.png',
+    image: '14-progress-replan.png',
     bullets: [
-      { text: 'Docker, FastAPI and AWS become observed evidence' },
+      { text: 'Docker, FastAPI and AWS become seen in your code' },
       { text: 'The plan rebuilds around what is left' },
       { text: 'Anything the student edited stays locked' },
     ],
@@ -205,7 +208,7 @@ export const SLIDES: Slide[] = [
       },
       {
         text: 'Next',
-        note: 'live job description ingestion, Hindi interface, mentor review as a fourth evidence level',
+        note: 'live job post ingestion, Hindi interface, mentor review as a fourth kind of proof',
       },
     ],
   },
